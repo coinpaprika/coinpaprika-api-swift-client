@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CoinpaprikaAPI_Example' do
+  pod 'CoinpaprikaAPI', :path => '../'
+
+  target 'CoinpaprikaAPI_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

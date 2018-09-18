@@ -43,7 +43,7 @@ CoinpaprikaAPI.coins.perform { (response) in
 CoinpaprikaAPI.tickers.perform { (response) in
   switch response {
     case .success(let tickers):
-    // Sucesfully downloaded [Ticker]
+    // Successfully downloaded [Ticker]
     case .failure(let error):
     // Failure reason as error
   }

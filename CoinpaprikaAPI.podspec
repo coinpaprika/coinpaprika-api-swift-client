@@ -33,6 +33,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/coinpaprika'
 
   s.ios.deployment_target = '9.0'
+  s.swift_version = '4.2'
 
   s.source_files = 'CoinpaprikaAPI/Classes/**/*'
   s.dependency 'CodableExtensions', '0.2.1'

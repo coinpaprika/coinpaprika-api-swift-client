@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09F9DD3516D6280A02E2CCEF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		09F9DD3516D6280A02E2CCEF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		0F41313F5BFC6473236CCAAB /* Pods-CoinpaprikaAPI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinpaprikaAPI_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinpaprikaAPI_Example/Pods-CoinpaprikaAPI_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		364CCB22D82CB609556F2B9A /* Pods-CoinpaprikaAPI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinpaprikaAPI_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinpaprikaAPI_Tests/Pods-CoinpaprikaAPI_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4213B8A4146263143295D72A /* Pods-CoinpaprikaAPI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinpaprikaAPI_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinpaprikaAPI_Example/Pods-CoinpaprikaAPI_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -44,9 +44,9 @@
 		607FACE51AFB9204008FA782 /* CoinpaprikaAPI_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinpaprikaAPI_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		7A4C507AD7FE0D3BEA617586 /* CoinpaprikaAPI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = CoinpaprikaAPI.podspec; path = ../CoinpaprikaAPI.podspec; sourceTree = "<group>"; };
+		7A4C507AD7FE0D3BEA617586 /* CoinpaprikaAPI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CoinpaprikaAPI.podspec; path = ../CoinpaprikaAPI.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7B46CC358924CE5F3734F3E6 /* Pods_CoinpaprikaAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinpaprikaAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4937FF707C3211AA7A5514F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A4937FF707C3211AA7A5514F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,12 +270,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoinpaprikaAPI_Example/Pods-CoinpaprikaAPI_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CodableExtensions/CodableExtensions.framework",
 				"${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI/CoinpaprikaAPI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableExtensions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoinpaprikaAPI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -468,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

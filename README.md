@@ -18,6 +18,10 @@ CoinpaprikaAPI.global.perform { (response) in
   switch response {
     case .success(let stats):
     // Successfully downloaded GlobalStats
+    // stats.marketCapUsd - Market Capitalization in USD
+    // stats.volume24hUsd - Volume from last 24h in USD
+    // stats.bitcoinDominancePercentage - Percentage share of Bitcoin MarketCap in Total MarketCap
+    // stats.cryptocurrenciesNumber - Number of cryptocurrencies available on Coinpaprika
     case .failure(let error):
     // Failure reason as error
   }
@@ -31,6 +35,9 @@ CoinpaprikaAPI.coins.perform { (response) in
   switch response {
     case .success(let coins):
     // Successfully downloaded [Coin]
+    // coins[0].id - Coin identifier, to use in ticker(id:) method
+    // coins[0].name - Coin name, for example Bitcoin
+    // coins[0].symbol - Coin symbol, for example BTC
     case .failure(let error):
     // Failure reason as error
   }
@@ -44,6 +51,7 @@ CoinpaprikaAPI.tickers.perform { (response) in
   switch response {
     case .success(let tickers):
     // Successfully downloaded [Ticker]
+    // tickers[0] - see the next method for Ticker properties
     case .failure(let error):
     // Failure reason as error
   }
@@ -57,6 +65,20 @@ CoinpaprikaAPI.ticker(id: "bitcoin-btc").perform { (response) in
   switch response {
     case .success(let ticker):
     // Successfully downloaded Ticker
+    // ticker.id - Coin identifier, to use in ticker(id:) method
+    // ticker.name - Coin name, for example Bitcoin
+    // ticker.symbol - Coin symbol, for example BTC
+    // ticker.rank - Position in Coinpaprika ranking (by MarketCap)
+    // ticker.priceUsd - Price in USD
+    // ticker.priceBtc - Price in BTC
+    // ticker.volume24hUsd - Volume from last 24h in USD
+    // ticker.marketCapUsd - Market Capitalization in USD
+    // ticker.circulatingSupply - Circulating Supply
+    // ticker.totalSupply - Total Supply
+    // ticker.maxSupply - Maximum Supply
+    // ticker.percentChange1h - Percentage price change in last 1 hour
+    // ticker.percentChange24h - Percentage price change in last 24 hours
+    // ticker.percentChange7d - Percentage price change in last 7 days
     case .failure(let error):
     // Failure reason as error
   }

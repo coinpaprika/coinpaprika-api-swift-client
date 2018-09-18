@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//{\"market_cap_usd\":202576432484,\"volume_24h_usd\":10518818060,\"bitcoin_dominance_percentage\":55.32271,\"cryptocurrencies_number\":1960,\"last_updated\":1537181981}"
+
 public struct GlobalStats: Decodable, Equatable {
     public let marketCapUsd: Int64
     public let volume24hUsd: Int64

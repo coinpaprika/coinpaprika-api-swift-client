@@ -9,7 +9,7 @@
 
 This library provides convenient way to use [Coinpaprika.com API](https://api.coinpaprika.com/) in Swift.
 
-Coinpaprika delivers full market data to the world of crypto: coin prices, volumes, market caps, ATHs, return rates and more.
+[Coinpaprika](https://coinpaprika.com) delivers full market data to the world of crypto: coin prices, volumes, market caps, ATHs, return rates and more.
 
 ### Market Stats
 

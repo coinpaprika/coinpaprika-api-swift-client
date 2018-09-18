@@ -71,6 +71,10 @@ CoinpaprikaAPI is available through [CocoaPods](https://cocoapods.org). To insta
 pod 'CoinpaprikaAPI'
 ```
 
+## Dependencies
+
+* [CodableExtensions](https://cocoapods.org/pods/CodableExtensions) - Codable extension with custom converters
+
 ## License
 
 CoinpaprikaAPI is available under the MIT license. See the LICENSE file for more info.

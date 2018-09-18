@@ -65,16 +65,11 @@ CoinpaprikaAPI.ticker(id: "bitcoin-btc").perform { (response) in
 
 ## Installation
 
-CoinpaprikaAPI is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+CoinpaprikaAPI is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'CoinpaprikaAPI'
 ```
-
-## Author
-
-Dominique Stranz, dstranz@greywizard.com
 
 ## License
 

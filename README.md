@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
 [![License](https://img.shields.io/cocoapods/l/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
 [![Platform](https://img.shields.io/cocoapods/p/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Usage
 

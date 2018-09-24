@@ -1,0 +1,27 @@
+{
+  "name": "CoinpaprikaAPI",
+  "version": "0.1.0",
+  "summary": "A short description of CoinpaprikaAPI.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Dominique Stranz/CoinpaprikaAPI",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Dominique Stranz": "dstranz@greywizard.com"
+  },
+  "source": {
+    "git": "https://github.com/Dominique Stranz/CoinpaprikaAPI.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "CoinpaprikaAPI/Classes/**/*",
+  "dependencies": {
+    "CodableExtensions": [
+      "0.2.1"
+    ]
+  }
+}

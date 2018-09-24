@@ -1,0 +1,6 @@
+framework module CoinpaprikaAPI {
+  umbrella header "CoinpaprikaAPI-umbrella.h"
+
+  export *
+  module * { export * }
+}

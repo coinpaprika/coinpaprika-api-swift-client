@@ -12,4 +12,10 @@ public struct Coin: Decodable, Equatable {
     public let id: String
     public let name: String
     public let symbol: String
+    
+    public init(id: String, name: String, symbol: String) {
+        self.id = id
+        self.name = name
+        self.symbol = symbol
+    }
 }

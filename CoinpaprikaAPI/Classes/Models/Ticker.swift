@@ -40,6 +40,24 @@ public struct Ticker: Decodable, Equatable {
         case percentChange7d = "percent_change_7d"
         case lastUpdated = "last_updated"
     }
+    
+    public init(id: String, name: String, symbol: String, rank: Int32, priceUsd: Decimal, priceBtc: Decimal, volume24hUsd: Int64, marketCapUsd: Int64, circulatingSupply: Int64, totalSupply: Int64, maxSupply: Int64, percentChange1h: Decimal, percentChange24h: Decimal, percentChange7d: Decimal, lastUpdated: Date?) {
+        self.id = id
+        self.name = name
+        self.symbol = symbol
+        self.rank = rank
+        self.priceUsd = priceUsd
+        self.priceBtc = priceBtc
+        self.volume24hUsd = volume24hUsd
+        self.marketCapUsd = marketCapUsd
+        self.circulatingSupply = circulatingSupply
+        self.totalSupply = totalSupply
+        self.maxSupply = maxSupply
+        self.percentChange1h = percentChange1h
+        self.percentChange24h = percentChange24h
+        self.percentChange7d = percentChange7d
+        self.lastUpdated = lastUpdated
+    }
 
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

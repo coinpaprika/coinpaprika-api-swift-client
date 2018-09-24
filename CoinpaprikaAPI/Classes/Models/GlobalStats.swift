@@ -23,6 +23,14 @@ public struct GlobalStats: Decodable, Equatable {
         case lastUpdated = "last_updated"
     }
     
+    public init(marketCapUsd: Int64, volume24hUsd: Int64, bitcoinDominancePercentage: Decimal, cryptocurrenciesNumber: Int, lastUpdated: Date?) {
+        self.marketCapUsd = marketCapUsd
+        self.volume24hUsd = volume24hUsd
+        self.bitcoinDominancePercentage = bitcoinDominancePercentage
+        self.cryptocurrenciesNumber = cryptocurrenciesNumber
+        self.lastUpdated = lastUpdated
+    }
+    
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         

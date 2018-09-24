@@ -88,11 +88,27 @@ CoinpaprikaAPI.ticker(id: "bitcoin-btc").perform { (response) in
 
 ## Installation
 
+### Cocoapods
+
 CoinpaprikaAPI is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'CoinpaprikaAPI'
 ```
+
+Run `pod install` to integrate `CoinpaprikaAPI` with your workspace.
+
+### Carthage
+
+CoinpaprikaAPI is available through [Carthage](https://github.com/Carthage/Carthage). To install it, simply add the following line to your Carthage file:
+
+
+```
+github "coinpaprika/coinpaprika-api-swift-client"  
+```
+
+Run `carthage update` to build the framework and drag the built `CoinpaprikaAPI.framework` into your Xcode project.
+
 
 ## Dependencies
 

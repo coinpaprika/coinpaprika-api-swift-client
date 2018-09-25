@@ -1,11 +1,19 @@
+//
+//  RequestTests.swift
+//  CoinpaprikaAPI_Tests
+//
+//  Created by Dominique Stranz on 25/09/2018.
+//  Copyright © 2018 CocoaPods. All rights reserved.
+//
+
 import XCTest
 import CoinpaprikaAPI
 
-class Tests: XCTestCase {
+class RequestTests: XCTestCase {
     
     let bitcoinId = "btc-bitcoin"
     
-    func testGlobalStats() {
+    func testGlobalStatsRequest() {
         let expectation = self.expectation(description: "Waiting for global stats")
         
         CoinpaprikaAPI.global.perform { (response) in
@@ -22,7 +30,7 @@ class Tests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
-    func testCoins() {
+    func testCoinsRequest() {
         let expectation = self.expectation(description: "Waiting for coins")
         
         CoinpaprikaAPI.coins.perform { (response) in
@@ -38,7 +46,7 @@ class Tests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
-    func testTickers() {
+    func testTickersRequest() {
         let expectation = self.expectation(description: "Waiting for tickers")
         
         CoinpaprikaAPI.tickers.perform { (response) in
@@ -56,7 +64,7 @@ class Tests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
-    func testTicker() {
+    func testTickerRequest() {
         let expectation = self.expectation(description: "Waiting for ticker")
         
         

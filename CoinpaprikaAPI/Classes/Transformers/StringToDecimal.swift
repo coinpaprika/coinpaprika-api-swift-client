@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import CodableExtensions
 
-class StringToDecimalTransformer: DecodingContainerTransformer {
+internal class StringToDecimalTransformer: DecodingContainerTransformer {
     typealias Input = String
     typealias Output = Decimal
 

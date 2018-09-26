@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CoinpaprikaAPI'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'Full market data from the world of crypto: coin prices, volumes, market caps, ATHs, return rates and more.'
 
 # This description is used to generate tags and improve search results.
@@ -33,8 +33,11 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/coinpaprika'
 
   s.ios.deployment_target = '9.0'
+  s.osx.deployment_target = '10.9'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
+
   s.swift_version = '4.2'
 
   s.source_files = 'CoinpaprikaAPI/Classes/**/*'
-  s.dependency 'CodableExtensions', '0.2.1'
 end

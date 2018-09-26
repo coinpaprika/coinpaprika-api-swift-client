@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9540EA5215B8CE2000CF087"
-               BuildableName = "CoinpaprikaAPI_tvOS.framework"
-               BlueprintName = "CoinpaprikaAPI tvOS"
+               BlueprintIdentifier = "E4AA90E9AD63619A468A8895532680AC"
+               BuildableName = "CoinpaprikaAPI.framework"
+               BlueprintName = "CoinpaprikaAPI-macOS"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9540EAD215B8CE2000CF087"
-               BuildableName = "CoinpaprikaAPI tvOSTests.xctest"
-               BlueprintName = "CoinpaprikaAPI tvOSTests"
-               ReferencedContainer = "container:Pods.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9540EA5215B8CE2000CF087"
-            BuildableName = "CoinpaprikaAPI_tvOS.framework"
-            BlueprintName = "CoinpaprikaAPI tvOS"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9540EA5215B8CE2000CF087"
-            BuildableName = "CoinpaprikaAPI_tvOS.framework"
-            BlueprintName = "CoinpaprikaAPI tvOS"
+            BlueprintIdentifier = "E4AA90E9AD63619A468A8895532680AC"
+            BuildableName = "CoinpaprikaAPI.framework"
+            BlueprintName = "CoinpaprikaAPI-macOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9540EA5215B8CE2000CF087"
-            BuildableName = "CoinpaprikaAPI_tvOS.framework"
-            BlueprintName = "CoinpaprikaAPI tvOS"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

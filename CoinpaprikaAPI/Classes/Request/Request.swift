@@ -24,6 +24,9 @@ public struct Request<Model: Decodable> {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        let build = Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? "Unknown"
+        request.addValue("Coinpaprika API Client - Swift (v.\(build))", forHTTPHeaderField: "User-Agent")
+        
         if let params = params {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])

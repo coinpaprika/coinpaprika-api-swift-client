@@ -102,8 +102,6 @@
 		CE87083914BABBD7D1A8BC78 /* Pods-CoinpaprikaAPI_Example_macOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinpaprikaAPI_Example_macOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinpaprikaAPI_Example_macOSTests/Pods-CoinpaprikaAPI_Example_macOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D869E5769BA658DDC49F4AAD /* Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinpaprikaAPI_Example_macOSTests/Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9540E76215A7190000CF087 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
-		D9540F1F215B8DD6000CF087 /* CoinpaprikaAPI_watchOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinpaprikaAPI_watchOSTests.swift; sourceTree = "<group>"; };
-		D9540F21215B8DD6000CF087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9540F4D215B904D000CF087 /* CoinpaprikaAPI_macOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinpaprikaAPI_macOS_Tests.swift; sourceTree = "<group>"; };
 		D9540F4F215B904D000CF087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9540F79215B90E8000CF087 /* CoinpaprikaAPI_Example_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinpaprikaAPI_Example_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +189,6 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for CoinpaprikaAPI */,
 				607FACE81AFB9204008FA782 /* Tests */,
-				D9540F1E215B8DD6000CF087 /* CoinpaprikaAPI watchOSTests */,
 				D9540F4C215B904D000CF087 /* CoinpaprikaAPI_macOS_Tests */,
 				D9540F7A215B90E8000CF087 /* CoinpaprikaAPI_Example_macOS */,
 				D9540F8D215B90E9000CF087 /* CoinpaprikaAPI_Example_macOSTests */,
@@ -283,15 +280,6 @@
 				F6CDB19C914BAD29BD9AE140 /* Pods_CoinpaprikaAPI_Example_tvOSTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D9540F1E215B8DD6000CF087 /* CoinpaprikaAPI watchOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				D9540F1F215B8DD6000CF087 /* CoinpaprikaAPI_watchOSTests.swift */,
-				D9540F21215B8DD6000CF087 /* Info.plist */,
-			);
-			path = "CoinpaprikaAPI watchOSTests";
 			sourceTree = "<group>";
 		};
 		D9540F4C215B904D000CF087 /* CoinpaprikaAPI_macOS_Tests */ = {
@@ -1167,7 +1155,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = CoinpaprikaAPI_Example_macOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1199,7 +1187,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = CoinpaprikaAPI_Example_macOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.greywizard.CoinpaprikaAPI-Example-macOSTests";

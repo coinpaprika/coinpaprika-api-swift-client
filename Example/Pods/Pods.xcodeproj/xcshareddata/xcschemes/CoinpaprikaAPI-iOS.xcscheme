@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9540F32215B8DF7000CF087"
-               BuildableName = "CoinpaprikaAPI_watchOS.framework"
-               BlueprintName = "CoinpaprikaAPI watchOS"
+               BlueprintIdentifier = "2A6F27656B4FAE938E252150EB254D8F"
+               BuildableName = "CoinpaprikaAPI.framework"
+               BlueprintName = "CoinpaprikaAPI-iOS"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9540F32215B8DF7000CF087"
-            BuildableName = "CoinpaprikaAPI_watchOS.framework"
-            BlueprintName = "CoinpaprikaAPI watchOS"
+            BlueprintIdentifier = "2A6F27656B4FAE938E252150EB254D8F"
+            BuildableName = "CoinpaprikaAPI.framework"
+            BlueprintName = "CoinpaprikaAPI-iOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9540F32215B8DF7000CF087"
-            BuildableName = "CoinpaprikaAPI_watchOS.framework"
-            BlueprintName = "CoinpaprikaAPI watchOS"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

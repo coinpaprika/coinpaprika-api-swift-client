@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9540EC1215B8D1F000CF087"
-               BuildableName = "CoinpaprikaAPI_macOS.framework"
-               BlueprintName = "CoinpaprikaAPI macOS"
+               BlueprintIdentifier = "D99CF3D7215BB8E100A95C7C"
+               BuildableName = "CoinpaprikaAPI_watchOS.framework"
+               BlueprintName = "CoinpaprikaAPI-watchOS"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9540EC9215B8D1F000CF087"
-               BuildableName = "CoinpaprikaAPI macOSTests.xctest"
-               BlueprintName = "CoinpaprikaAPI macOSTests"
-               ReferencedContainer = "container:Pods.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9540EC1215B8D1F000CF087"
-            BuildableName = "CoinpaprikaAPI_macOS.framework"
-            BlueprintName = "CoinpaprikaAPI macOS"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9540EC1215B8D1F000CF087"
-            BuildableName = "CoinpaprikaAPI_macOS.framework"
-            BlueprintName = "CoinpaprikaAPI macOS"
+            BlueprintIdentifier = "D99CF3D7215BB8E100A95C7C"
+            BuildableName = "CoinpaprikaAPI_watchOS.framework"
+            BlueprintName = "CoinpaprikaAPI-watchOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9540EC1215B8D1F000CF087"
-            BuildableName = "CoinpaprikaAPI_macOS.framework"
-            BlueprintName = "CoinpaprikaAPI macOS"
+            BlueprintIdentifier = "D99CF3D7215BB8E100A95C7C"
+            BuildableName = "CoinpaprikaAPI_watchOS.framework"
+            BlueprintName = "CoinpaprikaAPI-watchOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

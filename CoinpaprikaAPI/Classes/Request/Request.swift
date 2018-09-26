@@ -31,22 +31,27 @@ public struct Request<Model: Decodable> {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
             } catch {
-                callback(Response.failure(RequestError.unableToEncodeParams))
+                callback(Response.failure(ResponseError.unableToEncodeParams))
             }
         }
         
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
             if let error = error {
                 callback(Response.failure(error))
             } else {
+                guard let httpResponse = urlResponse as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) else {
+                    callback(Response.failure(self.findFailureReason(data: data, response: urlResponse)))
+                    return
+                }
+                
                 guard let data = data else {
-                    callback(Response.failure(RequestError.emptyResponse))
+                    callback(Response.failure(ResponseError.emptyResponse))
                     return
                 }
                 
                 let decoder = JSONDecoder()
                 guard let value = try? decoder.decode(Model.self, from: data) else {
-                    callback(Response.failure(RequestError.unableToDecodeResponse))
+                    callback(Response.failure(ResponseError.unableToDecodeResponse))
                     return
                 }
                 
@@ -54,8 +59,30 @@ public struct Request<Model: Decodable> {
             }
             }.resume()
     }
+    
+    private func findFailureReason(data: Data?, response: URLResponse?) -> ResponseError {
+        guard let response = response as? HTTPURLResponse else {
+            return .emptyResponse
+        }
+        
+        switch response.statusCode {
+        case 429:
+            return .requestsLimitExceeded
+        case 400 ..< 500:
+            let decoder = JSONDecoder()
+            if let data = data, let value = try? decoder.decode(APIError.self, from: data) {
+                return .invalidRequest(httpCode: response.statusCode, message: value.error)
+            }
+        default: break
+        }
+        
+        return .serverError(httpCode: response.statusCode)
+    }
 }
 
+struct APIError: Decodable {
+    let error: String
+}
 
 enum RequestMethod: String {
     case get
@@ -64,9 +91,11 @@ enum RequestMethod: String {
     case delete
 }
 
-public enum RequestError: Error {
+public enum ResponseError: Error {
     case emptyResponse
     case unableToEncodeParams
     case unableToDecodeResponse
-    case customError(code: String, message: String)
+    case requestsLimitExceeded
+    case invalidRequest(httpCode: Int, message: String)
+    case serverError(httpCode: Int)
 }

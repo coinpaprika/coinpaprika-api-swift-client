@@ -30,10 +30,10 @@
 		D9540FA9215B998D000CF087 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9540FA7215B998D000CF087 /* Main.storyboard */; };
 		D9540FAB215B998E000CF087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9540FAA215B998E000CF087 /* Assets.xcassets */; };
 		D9540FB6215B998F000CF087 /* CoinpaprikaAPI_Example_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540FB5215B998F000CF087 /* CoinpaprikaAPI_Example_tvOSTests.swift */; };
-		D9540FBF215B9998000CF087 /* CoinpaprikaAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9540FBE215B9998000CF087 /* CoinpaprikaAPI.framework */; };
-		D9540FC1215B99A1000CF087 /* CoinpaprikaAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9540FC0215B99A1000CF087 /* CoinpaprikaAPI.framework */; };
 		D9540FC2215B99B9000CF087 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* RequestTests.swift */; };
 		D9540FC3215B99BB000CF087 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540E76215A7190000CF087 /* ModelTests.swift */; };
+		D9540FC5215BA6F5000CF087 /* CoinpaprikaAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9540FC4215BA6F5000CF087 /* CoinpaprikaAPI.framework */; };
+		D9540FC7215BA703000CF087 /* CoinpaprikaAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9540FC6215BA703000CF087 /* CoinpaprikaAPI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +121,8 @@
 		D9540FB7215B998F000CF087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9540FBE215B9998000CF087 /* CoinpaprikaAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoinpaprikaAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9540FC0215B99A1000CF087 /* CoinpaprikaAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoinpaprikaAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9540FC4215BA6F5000CF087 /* CoinpaprikaAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoinpaprikaAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9540FC6215BA703000CF087 /* CoinpaprikaAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoinpaprikaAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9540FBF215B9998000CF087 /* CoinpaprikaAPI.framework in Frameworks */,
+				D9540FC5215BA6F5000CF087 /* CoinpaprikaAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9540FC1215B99A1000CF087 /* CoinpaprikaAPI.framework in Frameworks */,
+				D9540FC7215BA703000CF087 /* CoinpaprikaAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +261,8 @@
 		928C0C76215D7871D2E56C98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9540FC6215BA703000CF087 /* CoinpaprikaAPI.framework */,
+				D9540FC4215BA6F5000CF087 /* CoinpaprikaAPI.framework */,
 				D9540FC0215B99A1000CF087 /* CoinpaprikaAPI.framework */,
 				D9540FBE215B9998000CF087 /* CoinpaprikaAPI.framework */,
 				D9540F9B215B984E000CF087 /* CoinpaprikaAPI.framework */,

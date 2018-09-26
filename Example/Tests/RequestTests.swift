@@ -97,18 +97,43 @@ class RequestTests: XCTestCase {
     }
     
     func testFailureResponse() {
-        let error = RequestError.emptyResponse
+        let error = ResponseError.emptyResponse
         let response = Response<Any>.failure(error)
-        guard case .emptyResponse = (response.error as! RequestError) else {
+        guard case .emptyResponse = (response.error as! ResponseError) else {
             XCTFail("Response error should be equal \(error)")
             return
         }
         
         XCTAssertNil(response.value, "Response value should be empty")
         
-        guard case .failure(let responseError) = response, case .emptyResponse = (responseError as! RequestError) else {
+        guard case .failure(let responseError) = response, case .emptyResponse = (responseError as! ResponseError) else {
             XCTFail("Response should be equal .failure")
             return
         }
+    }
+    
+    func testRequestError() {
+        let expectation = self.expectation(description: "Waiting for ticker")
+        
+        CoinpaprikaAPI.ticker(id: "unexisting-coin-id").perform { (response) in
+            let expectedCode = 404
+            let expectedMessage = "id not found"
+            
+            XCTAssertNil(response.value, "Response value should be empty")
+            let responseError = (response.error as? ResponseError)
+            XCTAssertNotNil(responseError, "Response error shouldn't be empty")
+            
+            if case .invalidRequest(let code, let message) = responseError! {
+                XCTAssert(code == expectedCode, "Error code should be equal to \(expectedCode)")
+                XCTAssert(message == expectedMessage, "Error message should be equal to \(expectedMessage)")
+            } else {
+                XCTFail("Error should be equal to .invalidRequest with proper associated values")
+            }
+            
+            expectation.fulfill()
+        }
+        
+        
+        waitForExpectations(timeout: 30)
     }
 }

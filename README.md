@@ -1,10 +1,12 @@
 # Coinpaprika API Swift Client
 
+
 [![CI Status](https://img.shields.io/travis/coinpaprika/coinpaprika-api-swift-client.svg?style=flat)](https://travis-ci.org/coinpaprika/coinpaprika-api-swift-client)
 [![Version](https://img.shields.io/cocoapods/v/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
 [![License](https://img.shields.io/cocoapods/l/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
 [![Platform](https://img.shields.io/cocoapods/p/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![Swift 4.2](https://img.shields.io/badge/swift-4.2-orange.svg)
 
 ## Usage
 

@@ -1,6 +1,6 @@
 PODS:
   - CodableExtensions (0.2.1)
-  - CoinpaprikaAPI (0.1.0):
+  - CoinpaprikaAPI (1.0.1):
     - CodableExtensions (= 0.2.1)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CodableExtensions: dfc7a008a5951e3667ffdad5b43f1e9ed87213a7
-  CoinpaprikaAPI: 56630bf0d54d8d2f9da602ffda4f2ef96af2be43
+  CoinpaprikaAPI: 4eb9ba19bdb046d1605388d75de3678359ee6012
 
 PODFILE CHECKSUM: 6248a01d9e2af9714e55359f7a21442fa59174c1
 

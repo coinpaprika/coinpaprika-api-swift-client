@@ -7,49 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		045999EEB64A79FF1DDC67676439CEB5 /* CoinpaprikaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116EF8E1E60415E8C0B765A58618E01 /* CoinpaprikaAPI.swift */; };
 		0489D738021BAEF4FE889C8BD62249AB /* CodableExtensions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874B42A375E06464EA28D03D539D051 /* CodableExtensions-dummy.m */; };
-		093DF7B4FFEE19E8B0DBCB243EA9B457 /* GlobalStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31837C48484798C011FE8A4FBE4D665 /* GlobalStats.swift */; };
-		294DD4841B05E334A24BF7152B998E32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAF79F75E88345D4F9C010DC83D5871 /* Foundation.framework */; };
+		0A1A1A58B8E87538AC0FBBBE7A8131B5 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEBA74E3E9FFB412BC7307F4D0963FA /* Coin.swift */; };
+		20F9D0F7543C1A05CE9F0A2CDC76E499 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2F1BAEF0A8E40055A05697BC53711 /* Response.swift */; };
+		3C85FAEFB8BF881E6C8F898BE701A244 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF31987ADE8DACCE428960E6A47BA4A /* Ticker.swift */; };
+		413BE049FCE787B78895D084CF26C7CD /* CoinpaprikaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE14E17C54324D069B2297584B0D1F1 /* CoinpaprikaAPI.swift */; };
 		46B695EF478364FCE1CAC0FCE2735EAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAF79F75E88345D4F9C010DC83D5871 /* Foundation.framework */; };
 		4D32EBDFD461B6A3216067B49B5EFDEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAF79F75E88345D4F9C010DC83D5871 /* Foundation.framework */; };
+		502390043D774D0FAA08E475453D5709 /* StringToDecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DEB17077083E4C37B9E642D0DCB9AC /* StringToDecimal.swift */; };
+		53A1295AFC6255539305596E6BF5E342 /* CodableExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E36AA3FA43F46CC7F6CF20B5EA7FFC5 /* CodableExtensions.framework */; };
 		557826D6F51F963780973AA8D037BCC2 /* RegexCodeableTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A051250AF77195CC2C227EA212DDE50 /* RegexCodeableTransformer.swift */; };
 		5C6283F18EF6ACF15724518F1E5318F4 /* Pods-CoinpaprikaAPI_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BEF1A2FC5E7BB21CB7822361B643568 /* Pods-CoinpaprikaAPI_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		60DF8375824FFFD453447999BB4A92F8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70205AD0BF94B7B3F9294E0D403F160 /* Request.swift */; };
-		7B24BDB2F74899CD4811358E799AC3AD /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4DF4C56B0DD25B0C552B1D768F7BD /* Ticker.swift */; };
+		603AC6223B58B6033266F4D4388928FC /* CoinpaprikaAPI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D5093D733BF9FCB06710EF81884CABCC /* CoinpaprikaAPI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6358DC93471DE94C2C75926A6F94C83B /* CoinpaprikaAPI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BF0F41EA3D8F99639B50910CE1A5E5 /* CoinpaprikaAPI-dummy.m */; };
+		7E49493BEADD75E9C58BF69F1E27DA63 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929691B15F2E02CB30A5AD4364BD61E /* Request.swift */; };
 		84A0C86C64ADDFD383B74CB1C1E496C8 /* CodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F3FD73390BFCF80BD497EB5BFA16E0 /* CodableExtensions.swift */; };
-		863FDCB9D87BFE6A680841C0D81039DC /* CoinpaprikaAPI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 604A5878C4595D0F09F55B97639C7AD2 /* CoinpaprikaAPI-dummy.m */; };
-		8673F61E7435170EDCE6E80733429ED7 /* StringToInt64.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF69055C0365778B6D643C5CEFF615C /* StringToInt64.swift */; };
+		90834306ACEE54F30866394882B233BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAF79F75E88345D4F9C010DC83D5871 /* Foundation.framework */; };
 		91899530A3DA15B9FD3DD3285020573B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAF79F75E88345D4F9C010DC83D5871 /* Foundation.framework */; };
-		9FB51E5FC4C9D76F38545F2CAB6EC06E /* StringToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A153EDDD8E371351B9DF443B71BC4A /* StringToDate.swift */; };
 		A23474B8AD52EA316C0B0E0E7638C675 /* DecodingContainerTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904E07F32CE2C2B2DB9B7A6972E8785A /* DecodingContainerTransformer.swift */; };
-		A5D90C4A1A56CA0A174014ABA76125C9 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82BFFC35475AC442E10630CB771D937 /* Response.swift */; };
-		B1B76A6529C1E1B6B9C249FC953DF77F /* CoinpaprikaAPI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EB68E67A808ED31E9414F253F609EB36 /* CoinpaprikaAPI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFBFBE713489288C779C494DFB5CD391 /* IntToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C2DB850F96DC81D57D4146264622CF /* IntToDate.swift */; };
+		B486FBAAD7D9A552FA386AA6B07E5A31 /* StringToInt32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA8901770DF353A318A28F569F335F /* StringToInt32.swift */; };
+		BDF83F2137DF34FDAB04513E7D835E66 /* DecodingContainerTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FEA4A7D7FD1CFC73D70F428CEF4C76 /* DecodingContainerTransformer.swift */; };
+		C6464B4C2AA7A29AAA290FF412652757 /* GlobalStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC33E2EC5127746AAF1E770BCF534AF /* GlobalStats.swift */; };
 		C7068F6037CEB495891EF253992D7D25 /* Pods-CoinpaprikaAPI_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A42712D23304D59CCFC9B46B6B63F24 /* Pods-CoinpaprikaAPI_Example-dummy.m */; };
+		CD23C485608192BB784B724B5A10543B /* IntToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790A2D0B42357179896EE8655192B83A /* IntToDate.swift */; };
 		CDDDDD17E1D22E55A0D8210EBE3D8698 /* Pods-CoinpaprikaAPI_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 297EE4212D3B241554363AC58AB84E9A /* Pods-CoinpaprikaAPI_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D0167791D0E66B49209B3D708324AA7F /* CodableExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E36AA3FA43F46CC7F6CF20B5EA7FFC5 /* CodableExtensions.framework */; };
-		D20F3656ADAF10ADDCB532D1164FB54C /* StringToInt32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498FB685ACBDF3D3C44225C59C99C52 /* StringToInt32.swift */; };
+		D6B85EDE70CB14141C61AADC8A54B59C /* CodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B514983958B31725970085135C2C82 /* CodableExtensions.swift */; };
 		DA752D7A50F746F518756787D5EA7C8F /* Pods-CoinpaprikaAPI_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D4027915DDD40885B42334511C938B /* Pods-CoinpaprikaAPI_Tests-dummy.m */; };
-		E571A3C15E7F3B251B504D92CB0B3A2B /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A474B2DFC6961C7CC8EB1B4EE9DB69 /* Coin.swift */; };
-		EE8DFA2094E24EC68A333BFB59E51281 /* StringToDecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E178B9691F6A4C9AD5F46F3E6906E9B /* StringToDecimal.swift */; };
+		E5DE04799DD6BB4E7E8BDF5285ABA294 /* StringToInt64.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B69E0E3A5FD9A1C4445698BF9BD47D /* StringToInt64.swift */; };
+		E79D01C7EC6DFBC3E4D402C37F948966 /* StringToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4536455EFA01EB7F403C0AB16014393C /* StringToDate.swift */; };
 		EFE9B546348FA6578A6D4B548C66F9CB /* CodableExtensions-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14641F4071B5B8588426E7DF3DD1235A /* CodableExtensions-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4C4C50F62FCE9275B8BBC18D1A1E61BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F1E115425C9554B0F1C0201674328642;
-			remoteInfo = CodableExtensions;
-		};
 		6AB151F8A67D660A1D6CEE6FDCDC374C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 305E36A5F2BD0E2287D89EF83E167432;
 			remoteInfo = "Pods-CoinpaprikaAPI_Example";
+		};
+		AA47F6FDCD0027A23C7825AA8CC41DDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1E115425C9554B0F1C0201674328642;
+			remoteInfo = CodableExtensions;
 		};
 		BB65103149171F255965C0D047239F57 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -62,77 +64,79 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 98AEBDE297993714B840FD772BB32E0A;
+			remoteGlobalIDString = AFD1DA8F0C26F3D8E656B2A51F633D10;
 			remoteInfo = CoinpaprikaAPI;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		022A14D706AADC2B89FC07E47DB74FE4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E55038C3C55A1B037411588E435878 /* CoinpaprikaAPI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CoinpaprikaAPI.xcconfig; sourceTree = "<group>"; };
+		057E0C618EE5053F01FFAE6D3580C29E /* CoinpaprikaAPI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CoinpaprikaAPI.modulemap; sourceTree = "<group>"; };
 		0A42F844CA3B0C619490A7C7642A8080 /* Pods-CoinpaprikaAPI_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CoinpaprikaAPI_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0E36AA3FA43F46CC7F6CF20B5EA7FFC5 /* CodableExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CodableExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B514983958B31725970085135C2C82 /* CodableExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CodableExtensions.swift; sourceTree = "<group>"; };
 		14641F4071B5B8588426E7DF3DD1235A /* CodableExtensions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CodableExtensions-umbrella.h"; sourceTree = "<group>"; };
 		1717C3B0BE7EC745BFF966D84521D331 /* CodableExtensions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CodableExtensions.modulemap; sourceTree = "<group>"; };
-		19C2DB850F96DC81D57D4146264622CF /* IntToDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IntToDate.swift; sourceTree = "<group>"; };
-		2116EF8E1E60415E8C0B765A58618E01 /* CoinpaprikaAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoinpaprikaAPI.swift; path = CoinpaprikaAPI/Classes/CoinpaprikaAPI.swift; sourceTree = "<group>"; };
-		295CE32A4F31A6C08C6F0D202AF270AB /* CoinpaprikaAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoinpaprikaAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		295CE32A4F31A6C08C6F0D202AF270AB /* CoinpaprikaAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CoinpaprikaAPI.framework; path = CoinpaprikaAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		297EE4212D3B241554363AC58AB84E9A /* Pods-CoinpaprikaAPI_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CoinpaprikaAPI_Example-umbrella.h"; sourceTree = "<group>"; };
-		2E178B9691F6A4C9AD5F46F3E6906E9B /* StringToDecimal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringToDecimal.swift; sourceTree = "<group>"; };
+		29DEB17077083E4C37B9E642D0DCB9AC /* StringToDecimal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringToDecimal.swift; sourceTree = "<group>"; };
+		2AC2F1BAEF0A8E40055A05697BC53711 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		2DAC718ED9658DE949A2BB4F50122A11 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		31741155B96A07B4F05BAB165EA3E980 /* Pods-CoinpaprikaAPI_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CoinpaprikaAPI_Example.modulemap"; sourceTree = "<group>"; };
-		37A7B9D09FD132C68F25A3DE49F711CE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3A051250AF77195CC2C227EA212DDE50 /* RegexCodeableTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegexCodeableTransformer.swift; path = Classes/RegexCodeableTransformer.swift; sourceTree = "<group>"; };
 		3AAF79F75E88345D4F9C010DC83D5871 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3C198A0D96E2DEA8A4FD16A320917E3E /* Pods-CoinpaprikaAPI_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CoinpaprikaAPI_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3F35B0DE21001EAE5685C4BA077A2589 /* CodableExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CodableExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F35B0DE21001EAE5685C4BA077A2589 /* CodableExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CodableExtensions.framework; path = CodableExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		429CC2B43910E32174A0487FCFCD1334 /* Pods-CoinpaprikaAPI_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoinpaprikaAPI_Tests-resources.sh"; sourceTree = "<group>"; };
-		449B3FAFB7769AD0037CF871C6C64DAD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4536455EFA01EB7F403C0AB16014393C /* StringToDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringToDate.swift; sourceTree = "<group>"; };
 		4874B42A375E06464EA28D03D539D051 /* CodableExtensions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CodableExtensions-dummy.m"; sourceTree = "<group>"; };
+		50AA8901770DF353A318A28F569F335F /* StringToInt32.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringToInt32.swift; sourceTree = "<group>"; };
 		529D787D497F9C6CEFF48093036957B1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5498FB685ACBDF3D3C44225C59C99C52 /* StringToInt32.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringToInt32.swift; sourceTree = "<group>"; };
 		55F3FD73390BFCF80BD497EB5BFA16E0 /* CodableExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CodableExtensions.swift; path = Classes/CodableExtensions.swift; sourceTree = "<group>"; };
 		587734EDBB35791F5C456CF1551214B2 /* Pods-CoinpaprikaAPI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoinpaprikaAPI_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		604A5878C4595D0F09F55B97639C7AD2 /* CoinpaprikaAPI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CoinpaprikaAPI-dummy.m"; sourceTree = "<group>"; };
-		77A474B2DFC6961C7CC8EB1B4EE9DB69 /* Coin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		78842E247F141380EE75FA84AB678D48 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		790A2D0B42357179896EE8655192B83A /* IntToDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IntToDate.swift; sourceTree = "<group>"; };
 		7CD057DDCBAF54EFFB18E769C388CEF6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84A4DF4C56B0DD25B0C552B1D768F7BD /* Ticker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		8A42712D23304D59CCFC9B46B6B63F24 /* Pods-CoinpaprikaAPI_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CoinpaprikaAPI_Example-dummy.m"; sourceTree = "<group>"; };
-		8AEDE3A096E7DA6987A51C7FC6DCCEEF /* CoinpaprikaAPI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CoinpaprikaAPI.modulemap; sourceTree = "<group>"; };
+		8C3D008E8044B639800BED3188B87FB9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		904E07F32CE2C2B2DB9B7A6972E8785A /* DecodingContainerTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecodingContainerTransformer.swift; path = Classes/DecodingContainerTransformer.swift; sourceTree = "<group>"; };
 		9123EE3FC2E99E465DCBE424C4462273 /* Pods-CoinpaprikaAPI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoinpaprikaAPI_Example.release.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		986D109DF296AD3F3764231BA7572F35 /* CoinpaprikaAPI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoinpaprikaAPI-prefix.pch"; sourceTree = "<group>"; };
 		991019D73AC74A4BE9F8DF107AE732A4 /* Pods-CoinpaprikaAPI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoinpaprikaAPI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9BEF1A2FC5E7BB21CB7822361B643568 /* Pods-CoinpaprikaAPI_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CoinpaprikaAPI_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9C6D7D5D8061A555D904C155D9BC6CE5 /* CoinpaprikaAPI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CoinpaprikaAPI.xcconfig; sourceTree = "<group>"; };
-		A31837C48484798C011FE8A4FBE4D665 /* GlobalStats.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GlobalStats.swift; sourceTree = "<group>"; };
+		A1B69E0E3A5FD9A1C4445698BF9BD47D /* StringToInt64.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringToInt64.swift; sourceTree = "<group>"; };
 		A4276C83B1FD8D07436805CADEC7F2D5 /* Pods-CoinpaprikaAPI_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CoinpaprikaAPI_Tests.modulemap"; sourceTree = "<group>"; };
-		A50297F753D1AFE3FF19734EB6DD3B09 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4BF0F41EA3D8F99639B50910CE1A5E5 /* CoinpaprikaAPI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CoinpaprikaAPI-dummy.m"; sourceTree = "<group>"; };
 		A5A6255F4B09CC67B636E23C4F79FDB3 /* Pods-CoinpaprikaAPI_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoinpaprikaAPI_Example-frameworks.sh"; sourceTree = "<group>"; };
-		A6527A318DDFE6980C77E856DD97463D /* Pods_CoinpaprikaAPI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinpaprikaAPI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A70205AD0BF94B7B3F9294E0D403F160 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		A82BFFC35475AC442E10630CB771D937 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		AD2102B74D03C5707FAD634D7A1F4871 /* CoinpaprikaAPI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoinpaprikaAPI-prefix.pch"; sourceTree = "<group>"; };
+		A6527A318DDFE6980C77E856DD97463D /* Pods_CoinpaprikaAPI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CoinpaprikaAPI_Tests.framework; path = "Pods-CoinpaprikaAPI_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34521B1BF5E4628EB3A2769F477651C /* Pods-CoinpaprikaAPI_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CoinpaprikaAPI_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		C087329605E189045E25EDD738C401CE /* Pods-CoinpaprikaAPI_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoinpaprikaAPI_Example-resources.sh"; sourceTree = "<group>"; };
 		C4C3C2923CDFED4DF035D3EBB13E2E43 /* CodableExtensions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CodableExtensions-prefix.pch"; sourceTree = "<group>"; };
 		C69844B44171FB38C7729F608D8FD273 /* Pods-CoinpaprikaAPI_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoinpaprikaAPI_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		C9A153EDDD8E371351B9DF443B71BC4A /* StringToDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringToDate.swift; sourceTree = "<group>"; };
+		D5093D733BF9FCB06710EF81884CABCC /* CoinpaprikaAPI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoinpaprikaAPI-umbrella.h"; sourceTree = "<group>"; };
+		D6FEA4A7D7FD1CFC73D70F428CEF4C76 /* DecodingContainerTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DecodingContainerTransformer.swift; sourceTree = "<group>"; };
 		D8A55FC7878C08F70289E76137545B41 /* Pods-CoinpaprikaAPI_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CoinpaprikaAPI_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		DCE14E17C54324D069B2297584B0D1F1 /* CoinpaprikaAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoinpaprikaAPI.swift; path = CoinpaprikaAPI/Classes/CoinpaprikaAPI.swift; sourceTree = "<group>"; };
 		E5D4027915DDD40885B42334511C938B /* Pods-CoinpaprikaAPI_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CoinpaprikaAPI_Tests-dummy.m"; sourceTree = "<group>"; };
-		EB68E67A808ED31E9414F253F609EB36 /* CoinpaprikaAPI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoinpaprikaAPI-umbrella.h"; sourceTree = "<group>"; };
-		F1A38A67867B70D8EE20CF45984C88B3 /* Pods_CoinpaprikaAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinpaprikaAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBF31987ADE8DACCE428960E6A47BA4A /* Ticker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		EFC33E2EC5127746AAF1E770BCF534AF /* GlobalStats.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GlobalStats.swift; sourceTree = "<group>"; };
+		EFEBA74E3E9FFB412BC7307F4D0963FA /* Coin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		F1A38A67867B70D8EE20CF45984C88B3 /* Pods_CoinpaprikaAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CoinpaprikaAPI_Example.framework; path = "Pods-CoinpaprikaAPI_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CCE84D0152D353A7EB2774AADD3BD9 /* Pods-CoinpaprikaAPI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoinpaprikaAPI_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F3E1BE2A68093B75FB8286B3BB11C5B7 /* CodableExtensions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CodableExtensions.xcconfig; sourceTree = "<group>"; };
-		FBEE0740387B03F66F95A36FF369AB2E /* CoinpaprikaAPI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = CoinpaprikaAPI.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		FEF69055C0365778B6D643C5CEFF615C /* StringToInt64.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringToInt64.swift; sourceTree = "<group>"; };
+		F929691B15F2E02CB30A5AD4364BD61E /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		F9C6E1EB5B68747544C47A2BBB1E0D29 /* CoinpaprikaAPI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = CoinpaprikaAPI.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1E381ABD2FB1CBF46768B47DAD25195B /* Frameworks */ = {
+		143FE891BC4EEB7BA6BCE4E9F208B7C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0167791D0E66B49209B3D708324AA7F /* CodableExtensions.framework in Frameworks */,
-				294DD4841B05E334A24BF7152B998E32 /* Foundation.framework in Frameworks */,
+				53A1295AFC6255539305596E6BF5E342 /* CodableExtensions.framework in Frameworks */,
+				90834306ACEE54F30866394882B233BA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +167,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		033623CF11B9B5C93533BA0C843728E7 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				F929691B15F2E02CB30A5AD4364BD61E /* Request.swift */,
+				2AC2F1BAEF0A8E40055A05697BC53711 /* Response.swift */,
+			);
+			name = Request;
+			path = CoinpaprikaAPI/Classes/Request;
+			sourceTree = "<group>";
+		};
+		140E2F14E836ED77945FE512E4E272EF /* CodableExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				10B514983958B31725970085135C2C82 /* CodableExtensions.swift */,
+				D6FEA4A7D7FD1CFC73D70F428CEF4C76 /* DecodingContainerTransformer.swift */,
+			);
+			name = CodableExtensions;
+			path = CoinpaprikaAPI/Classes/CodableExtensions;
+			sourceTree = "<group>";
+		};
 		156323196D810FE1F021C3AA8B2A5F20 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,44 +195,35 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		2100B4026B9A7F75498A7A84E6BAD62A /* Models */ = {
+		4545560168B3202DE5AA8512BED8E32E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				77A474B2DFC6961C7CC8EB1B4EE9DB69 /* Coin.swift */,
-				A31837C48484798C011FE8A4FBE4D665 /* GlobalStats.swift */,
-				84A4DF4C56B0DD25B0C552B1D768F7BD /* Ticker.swift */,
+				EFEBA74E3E9FFB412BC7307F4D0963FA /* Coin.swift */,
+				EFC33E2EC5127746AAF1E770BCF534AF /* GlobalStats.swift */,
+				EBF31987ADE8DACCE428960E6A47BA4A /* Ticker.swift */,
 			);
 			name = Models;
 			path = CoinpaprikaAPI/Classes/Models;
 			sourceTree = "<group>";
 		};
-		3147FA06F79928D7FC3FA171791D25C8 /* Pod */ = {
+		5B4382FF0071BF0D92067D17BBEA10C9 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FBEE0740387B03F66F95A36FF369AB2E /* CoinpaprikaAPI.podspec */,
-				449B3FAFB7769AD0037CF871C6C64DAD /* LICENSE */,
-				37A7B9D09FD132C68F25A3DE49F711CE /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		35956F0C03FAA0245F1C7B2265F67BDF /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				47D348D5C8315ED4D66AE3F888FF35BC /* CoinpaprikaAPI */,
+				65DB92AC2D8E1A19B45049C5FBCEE23A /* CoinpaprikaAPI */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		47D348D5C8315ED4D66AE3F888FF35BC /* CoinpaprikaAPI */ = {
+		65DB92AC2D8E1A19B45049C5FBCEE23A /* CoinpaprikaAPI */ = {
 			isa = PBXGroup;
 			children = (
-				2116EF8E1E60415E8C0B765A58618E01 /* CoinpaprikaAPI.swift */,
-				2100B4026B9A7F75498A7A84E6BAD62A /* Models */,
-				3147FA06F79928D7FC3FA171791D25C8 /* Pod */,
-				E80E295B3D527780679CC570001B0E07 /* Request */,
-				E46B8952B86C116AFE900FD1688C2EAB /* Support Files */,
-				85E1B4E314EE3ADD2E04DB1DD21827DF /* Transformers */,
+				DCE14E17C54324D069B2297584B0D1F1 /* CoinpaprikaAPI.swift */,
+				140E2F14E836ED77945FE512E4E272EF /* CodableExtensions */,
+				4545560168B3202DE5AA8512BED8E32E /* Models */,
+				E33BA4D11AB58A9E1EDFF121D2194182 /* Pod */,
+				033623CF11B9B5C93533BA0C843728E7 /* Request */,
+				92026A3557D9C7F995510983E14CC3D6 /* Support Files */,
+				6F6BF55FC7469955BC7B69575FB7370E /* Transformers */,
 			);
 			name = CoinpaprikaAPI;
 			path = ../..;
@@ -232,29 +247,29 @@
 			path = "Target Support Files/Pods-CoinpaprikaAPI_Example";
 			sourceTree = "<group>";
 		};
+		6F6BF55FC7469955BC7B69575FB7370E /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				790A2D0B42357179896EE8655192B83A /* IntToDate.swift */,
+				4536455EFA01EB7F403C0AB16014393C /* StringToDate.swift */,
+				29DEB17077083E4C37B9E642D0DCB9AC /* StringToDecimal.swift */,
+				50AA8901770DF353A318A28F569F335F /* StringToInt32.swift */,
+				A1B69E0E3A5FD9A1C4445698BF9BD47D /* StringToInt64.swift */,
+			);
+			name = Transformers;
+			path = CoinpaprikaAPI/Classes/Transformers;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				35956F0C03FAA0245F1C7B2265F67BDF /* Development Pods */,
+				5B4382FF0071BF0D92067D17BBEA10C9 /* Development Pods */,
 				FD4B8DEFCDA01D2410FABC4133BEEA52 /* Frameworks */,
 				156323196D810FE1F021C3AA8B2A5F20 /* Pods */,
 				C9C3A287E247689807D1C5B710B1FC50 /* Products */,
 				86FF5475E3FD81E97D6BBA57CCAB3F26 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		85E1B4E314EE3ADD2E04DB1DD21827DF /* Transformers */ = {
-			isa = PBXGroup;
-			children = (
-				19C2DB850F96DC81D57D4146264622CF /* IntToDate.swift */,
-				C9A153EDDD8E371351B9DF443B71BC4A /* StringToDate.swift */,
-				2E178B9691F6A4C9AD5F46F3E6906E9B /* StringToDecimal.swift */,
-				5498FB685ACBDF3D3C44225C59C99C52 /* StringToInt32.swift */,
-				FEF69055C0365778B6D643C5CEFF615C /* StringToInt64.swift */,
-			);
-			name = Transformers;
-			path = CoinpaprikaAPI/Classes/Transformers;
 			sourceTree = "<group>";
 		};
 		86FF5475E3FD81E97D6BBA57CCAB3F26 /* Targets Support Files */ = {
@@ -264,6 +279,20 @@
 				B657963EB734F7F0C6D6D2EB5E573697 /* Pods-CoinpaprikaAPI_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		92026A3557D9C7F995510983E14CC3D6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				057E0C618EE5053F01FFAE6D3580C29E /* CoinpaprikaAPI.modulemap */,
+				04E55038C3C55A1B037411588E435878 /* CoinpaprikaAPI.xcconfig */,
+				A4BF0F41EA3D8F99639B50910CE1A5E5 /* CoinpaprikaAPI-dummy.m */,
+				986D109DF296AD3F3764231BA7572F35 /* CoinpaprikaAPI-prefix.pch */,
+				D5093D733BF9FCB06710EF81884CABCC /* CoinpaprikaAPI-umbrella.h */,
+				8C3D008E8044B639800BED3188B87FB9 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/CoinpaprikaAPI";
 			sourceTree = "<group>";
 		};
 		9559C6AEDAB7BCE07C09E7F2732EE752 /* Support Files */ = {
@@ -317,31 +346,18 @@
 				3A051250AF77195CC2C227EA212DDE50 /* RegexCodeableTransformer.swift */,
 				9559C6AEDAB7BCE07C09E7F2732EE752 /* Support Files */,
 			);
+			name = CodableExtensions;
 			path = CodableExtensions;
 			sourceTree = "<group>";
 		};
-		E46B8952B86C116AFE900FD1688C2EAB /* Support Files */ = {
+		E33BA4D11AB58A9E1EDFF121D2194182 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				8AEDE3A096E7DA6987A51C7FC6DCCEEF /* CoinpaprikaAPI.modulemap */,
-				9C6D7D5D8061A555D904C155D9BC6CE5 /* CoinpaprikaAPI.xcconfig */,
-				604A5878C4595D0F09F55B97639C7AD2 /* CoinpaprikaAPI-dummy.m */,
-				AD2102B74D03C5707FAD634D7A1F4871 /* CoinpaprikaAPI-prefix.pch */,
-				EB68E67A808ED31E9414F253F609EB36 /* CoinpaprikaAPI-umbrella.h */,
-				A50297F753D1AFE3FF19734EB6DD3B09 /* Info.plist */,
+				F9C6E1EB5B68747544C47A2BBB1E0D29 /* CoinpaprikaAPI.podspec */,
+				2DAC718ED9658DE949A2BB4F50122A11 /* LICENSE */,
+				78842E247F141380EE75FA84AB678D48 /* README.md */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/CoinpaprikaAPI";
-			sourceTree = "<group>";
-		};
-		E80E295B3D527780679CC570001B0E07 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				A70205AD0BF94B7B3F9294E0D403F160 /* Request.swift */,
-				A82BFFC35475AC442E10630CB771D937 /* Response.swift */,
-			);
-			name = Request;
-			path = CoinpaprikaAPI/Classes/Request;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		FCB2B21005FFA1CD001A7038C4995D2A /* iOS */ = {
@@ -364,19 +380,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		065D92C83425DD5D50F8C82F87EEC9E1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				603AC6223B58B6033266F4D4388928FC /* CoinpaprikaAPI-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5C88532FD5266EE8C040C4A05F5D6F2B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CDDDDD17E1D22E55A0D8210EBE3D8698 /* Pods-CoinpaprikaAPI_Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9DE7C372C414A2D666E62013EA0D32B8 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B1B76A6529C1E1B6B9C249FC953DF77F /* CoinpaprikaAPI-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,19 +435,19 @@
 			productReference = F1A38A67867B70D8EE20CF45984C88B3 /* Pods_CoinpaprikaAPI_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		98AEBDE297993714B840FD772BB32E0A /* CoinpaprikaAPI */ = {
+		AFD1DA8F0C26F3D8E656B2A51F633D10 /* CoinpaprikaAPI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 850615C2504D207745DC7A1A41216671 /* Build configuration list for PBXNativeTarget "CoinpaprikaAPI" */;
+			buildConfigurationList = FBB05D2FE29012D0EE5BEDC9BB887594 /* Build configuration list for PBXNativeTarget "CoinpaprikaAPI" */;
 			buildPhases = (
-				9DE7C372C414A2D666E62013EA0D32B8 /* Headers */,
-				20393BBA4AF2B3A35E15B8FFC250DADC /* Sources */,
-				1E381ABD2FB1CBF46768B47DAD25195B /* Frameworks */,
-				2959C379495E8E1EF7CA8B77741C81E1 /* Resources */,
+				065D92C83425DD5D50F8C82F87EEC9E1 /* Headers */,
+				FFAEA0EEB58D33C131ACC446B3E3F812 /* Sources */,
+				143FE891BC4EEB7BA6BCE4E9F208B7C2 /* Frameworks */,
+				C8F8F92FEEE7D1F4FA8A5D890ED7603A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9C9C2DF0AA3F3CD46D05317934578C6F /* PBXTargetDependency */,
+				E474F19307177B4E4BF7F317C3DF60F5 /* PBXTargetDependency */,
 			);
 			name = CoinpaprikaAPI;
 			productName = CoinpaprikaAPI;
@@ -497,7 +513,7 @@
 			projectRoot = "";
 			targets = (
 				F1E115425C9554B0F1C0201674328642 /* CodableExtensions */,
-				98AEBDE297993714B840FD772BB32E0A /* CoinpaprikaAPI */,
+				AFD1DA8F0C26F3D8E656B2A51F633D10 /* CoinpaprikaAPI */,
 				305E36A5F2BD0E2287D89EF83E167432 /* Pods-CoinpaprikaAPI_Example */,
 				EE2F28FD2FE1BF94F4E332F5EA935F9D /* Pods-CoinpaprikaAPI_Tests */,
 			);
@@ -519,14 +535,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2959C379495E8E1EF7CA8B77741C81E1 /* Resources */ = {
+		5036F7EC0ED5D60903D55A32B0546B23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5036F7EC0ED5D60903D55A32B0546B23 /* Resources */ = {
+		C8F8F92FEEE7D1F4FA8A5D890ED7603A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -536,25 +552,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		20393BBA4AF2B3A35E15B8FFC250DADC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E571A3C15E7F3B251B504D92CB0B3A2B /* Coin.swift in Sources */,
-				863FDCB9D87BFE6A680841C0D81039DC /* CoinpaprikaAPI-dummy.m in Sources */,
-				045999EEB64A79FF1DDC67676439CEB5 /* CoinpaprikaAPI.swift in Sources */,
-				093DF7B4FFEE19E8B0DBCB243EA9B457 /* GlobalStats.swift in Sources */,
-				BFBFBE713489288C779C494DFB5CD391 /* IntToDate.swift in Sources */,
-				60DF8375824FFFD453447999BB4A92F8 /* Request.swift in Sources */,
-				A5D90C4A1A56CA0A174014ABA76125C9 /* Response.swift in Sources */,
-				9FB51E5FC4C9D76F38545F2CAB6EC06E /* StringToDate.swift in Sources */,
-				EE8DFA2094E24EC68A333BFB59E51281 /* StringToDecimal.swift in Sources */,
-				D20F3656ADAF10ADDCB532D1164FB54C /* StringToInt32.swift in Sources */,
-				8673F61E7435170EDCE6E80733429ED7 /* StringToInt64.swift in Sources */,
-				7B24BDB2F74899CD4811358E799AC3AD /* Ticker.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		508FAF92FE58F49027E5C8099454838B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -582,13 +579,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FFAEA0EEB58D33C131ACC446B3E3F812 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6B85EDE70CB14141C61AADC8A54B59C /* CodableExtensions.swift in Sources */,
+				0A1A1A58B8E87538AC0FBBBE7A8131B5 /* Coin.swift in Sources */,
+				6358DC93471DE94C2C75926A6F94C83B /* CoinpaprikaAPI-dummy.m in Sources */,
+				413BE049FCE787B78895D084CF26C7CD /* CoinpaprikaAPI.swift in Sources */,
+				BDF83F2137DF34FDAB04513E7D835E66 /* DecodingContainerTransformer.swift in Sources */,
+				C6464B4C2AA7A29AAA290FF412652757 /* GlobalStats.swift in Sources */,
+				CD23C485608192BB784B724B5A10543B /* IntToDate.swift in Sources */,
+				7E49493BEADD75E9C58BF69F1E27DA63 /* Request.swift in Sources */,
+				20F9D0F7543C1A05CE9F0A2CDC76E499 /* Response.swift in Sources */,
+				E79D01C7EC6DFBC3E4D402C37F948966 /* StringToDate.swift in Sources */,
+				502390043D774D0FAA08E475453D5709 /* StringToDecimal.swift in Sources */,
+				B486FBAAD7D9A552FA386AA6B07E5A31 /* StringToInt32.swift in Sources */,
+				E5DE04799DD6BB4E7E8BDF5285ABA294 /* StringToInt64.swift in Sources */,
+				3C85FAEFB8BF881E6C8F898BE701A244 /* Ticker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		016CECC39DA3B525096C6F936022F81B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CoinpaprikaAPI;
-			target = 98AEBDE297993714B840FD772BB32E0A /* CoinpaprikaAPI */;
+			target = AFD1DA8F0C26F3D8E656B2A51F633D10 /* CoinpaprikaAPI */;
 			targetProxy = DD010F88B3E0950FADD9E527A0415A1D /* PBXContainerItemProxy */;
 		};
 		649DFC57E485948B57B7BE936B513C0F /* PBXTargetDependency */ = {
@@ -603,15 +621,47 @@
 			target = F1E115425C9554B0F1C0201674328642 /* CodableExtensions */;
 			targetProxy = BB65103149171F255965C0D047239F57 /* PBXContainerItemProxy */;
 		};
-		9C9C2DF0AA3F3CD46D05317934578C6F /* PBXTargetDependency */ = {
+		E474F19307177B4E4BF7F317C3DF60F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CodableExtensions;
 			target = F1E115425C9554B0F1C0201674328642 /* CodableExtensions */;
-			targetProxy = 4C4C50F62FCE9275B8BBC18D1A1E61BB /* PBXContainerItemProxy */;
+			targetProxy = AA47F6FDCD0027A23C7825AA8CC41DDF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1736067406DC8E4C649AD1C57836E2CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04E55038C3C55A1B037411588E435878 /* CoinpaprikaAPI.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CoinpaprikaAPI/CoinpaprikaAPI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CoinpaprikaAPI/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CoinpaprikaAPI/CoinpaprikaAPI.modulemap";
+				PRODUCT_MODULE_NAME = CoinpaprikaAPI;
+				PRODUCT_NAME = CoinpaprikaAPI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		24BC65307D1EB61A0FFA026D38C57A1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F1CCE84D0152D353A7EB2774AADD3BD9 /* Pods-CoinpaprikaAPI_Example.debug.xcconfig */;
@@ -744,39 +794,6 @@
 			};
 			name = Debug;
 		};
-		74E9C50AD9DBE1FA302526D7BD2EFB08 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C6D7D5D8061A555D904C155D9BC6CE5 /* CoinpaprikaAPI.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CoinpaprikaAPI/CoinpaprikaAPI-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CoinpaprikaAPI/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CoinpaprikaAPI/CoinpaprikaAPI.modulemap";
-				PRODUCT_MODULE_NAME = CoinpaprikaAPI;
-				PRODUCT_NAME = CoinpaprikaAPI;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		BF556088AD76E95342A58FC1958E77C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 587734EDBB35791F5C456CF1551214B2 /* Pods-CoinpaprikaAPI_Tests.release.xcconfig */;
@@ -902,38 +919,6 @@
 			};
 			name = Debug;
 		};
-		D6D0A4884703EA95EE622CF9BFE701A1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C6D7D5D8061A555D904C155D9BC6CE5 /* CoinpaprikaAPI.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CoinpaprikaAPI/CoinpaprikaAPI-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CoinpaprikaAPI/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CoinpaprikaAPI/CoinpaprikaAPI.modulemap";
-				PRODUCT_MODULE_NAME = CoinpaprikaAPI;
-				PRODUCT_NAME = CoinpaprikaAPI;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		E6894B5D97FCAF114AE83475AFDA1ED5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9123EE3FC2E99E465DCBE424C4462273 /* Pods-CoinpaprikaAPI_Example.release.xcconfig */;
@@ -961,7 +946,42 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F2A02767DC73CEEAFB733F9C1551CF38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04E55038C3C55A1B037411588E435878 /* CoinpaprikaAPI.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CoinpaprikaAPI/CoinpaprikaAPI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CoinpaprikaAPI/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CoinpaprikaAPI/CoinpaprikaAPI.modulemap";
+				PRODUCT_MODULE_NAME = CoinpaprikaAPI;
+				PRODUCT_NAME = CoinpaprikaAPI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -993,7 +1013,8 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1023,15 +1044,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		850615C2504D207745DC7A1A41216671 /* Build configuration list for PBXNativeTarget "CoinpaprikaAPI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D6D0A4884703EA95EE622CF9BFE701A1 /* Debug */,
-				74E9C50AD9DBE1FA302526D7BD2EFB08 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		BD8385C766A528B75BDE705E241FEA29 /* Build configuration list for PBXNativeTarget "Pods-CoinpaprikaAPI_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1046,6 +1058,15 @@
 			buildConfigurations = (
 				D3A27C761CBAD2F29C7D2F21B95FED06 /* Debug */,
 				FC883CBFB2E10B1EA4DF95468FABF33A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBB05D2FE29012D0EE5BEDC9BB887594 /* Build configuration list for PBXNativeTarget "CoinpaprikaAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1736067406DC8E4C649AD1C57836E2CF /* Debug */,
+				F2A02767DC73CEEAFB733F9C1551CF38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

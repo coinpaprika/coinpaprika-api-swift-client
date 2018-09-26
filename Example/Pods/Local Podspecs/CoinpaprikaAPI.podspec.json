@@ -17,16 +17,11 @@
   },
   "social_media_url": "https://twitter.com/coinpaprika",
   "platforms": {
-    "ios": "8.0",
+    "ios": "9.0",
     "osx": "10.9",
     "watchos": "2.0",
     "tvos": "9.0"
   },
   "swift_version": "4.2",
-  "source_files": "CoinpaprikaAPI/Classes/**/*",
-  "dependencies": {
-    "CodableExtensions": [
-      "0.2.1"
-    ]
-  }
+  "source_files": "CoinpaprikaAPI/Classes/**/*"
 }

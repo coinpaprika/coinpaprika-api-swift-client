@@ -1,23 +1,16 @@
 PODS:
-  - CodableExtensions (0.2.1)
-  - CoinpaprikaAPI (1.0.1):
-    - CodableExtensions (= 0.2.1)
+  - CoinpaprikaAPI (1.0.1)
 
 DEPENDENCIES:
   - CoinpaprikaAPI (from `../`)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - CodableExtensions
 
 EXTERNAL SOURCES:
   CoinpaprikaAPI:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CodableExtensions: dfc7a008a5951e3667ffdad5b43f1e9ed87213a7
-  CoinpaprikaAPI: 4eb9ba19bdb046d1605388d75de3678359ee6012
+  CoinpaprikaAPI: d1d9ccca36bd87c16cbafd85c74f52d60a995cb9
 
-PODFILE CHECKSUM: 6248a01d9e2af9714e55359f7a21442fa59174c1
+PODFILE CHECKSUM: 2b52888bdba88b9ec49271fa6682252c5d2fd453
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.1

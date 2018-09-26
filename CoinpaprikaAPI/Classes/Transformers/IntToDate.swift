@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import CodableExtensions
 
-class IntToDateTransformer: DecodingContainerTransformer {
+internal class IntToDateTransformer: DecodingContainerTransformer {
     typealias Input = Int
     typealias Output = Date?
 

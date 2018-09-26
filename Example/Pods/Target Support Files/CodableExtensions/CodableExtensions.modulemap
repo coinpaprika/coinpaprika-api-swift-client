@@ -1,6 +1,0 @@
-framework module CodableExtensions {
-  umbrella header "CodableExtensions-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CodableExtensions
 
 public struct Ticker: Decodable, Equatable {
     public let id: String

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CodableExtensions
 
 class StringToInt64Transformer: DecodingContainerTransformer {
     typealias Input = String

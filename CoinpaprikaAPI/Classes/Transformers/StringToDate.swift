@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import CodableExtensions
 
-class StringToDateTransformer: DecodingContainerTransformer {
+internal class StringToDateTransformer: DecodingContainerTransformer {
     typealias Input = String
     typealias Output = Date?
 

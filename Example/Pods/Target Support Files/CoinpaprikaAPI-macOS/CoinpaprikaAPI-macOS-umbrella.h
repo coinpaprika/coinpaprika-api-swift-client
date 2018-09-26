@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_CoinpaprikaAPI_Example_macOSVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_CoinpaprikaAPI_Example_macOSVersionString[];
+FOUNDATION_EXPORT double CoinpaprikaAPIVersionNumber;
+FOUNDATION_EXPORT const unsigned char CoinpaprikaAPIVersionString[];
 

@@ -11,6 +11,6 @@ before_install:
 - pod install --project-directory=Example
 script:
 - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/CoinpaprikaAPI.xcworkspace -scheme CoinpaprikaAPI-Example -sdk iphonesimulator12.0 -destination "platform=iOS Simulator,name=iPhone XR" ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-#- set -o pipefail && xcodebuild clean test -enableCodeCoverage YES -workspace Example/CoinpaprikaAPI.xcworkspace -scheme CoinpaprikaAPI_Example_macOS -sdk macosx10.14 ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
+- set -o pipefail && xcodebuild clean test -enableCodeCoverage YES -workspace Example/CoinpaprikaAPI.xcworkspace -scheme CoinpaprikaAPI_Example_macOS -sdk macosx10.14 ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
 - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/CoinpaprikaAPI.xcworkspace -scheme CoinpaprikaAPI_Example_tvOS -sdk appletvsimulator12.0 -destination "platform=tvOS Simulator,name=Apple TV" ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
 - pod lib lint

@@ -11,3 +11,23 @@ target 'CoinpaprikaAPI_Example' do
     
   end
 end
+
+target 'CoinpaprikaAPI_Example_tvOS' do
+    pod 'CoinpaprikaAPI', :path => '../'
+    
+    target 'CoinpaprikaAPI_Example_tvOSTests' do
+        inherit! :search_paths
+        
+        
+    end
+end
+
+target 'CoinpaprikaAPI_Example_macOS' do
+    pod 'CoinpaprikaAPI', :path => '../'
+    
+    target 'CoinpaprikaAPI_Example_macOSTests' do
+        inherit! :search_paths
+        
+        
+    end
+end

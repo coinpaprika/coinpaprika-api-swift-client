@@ -1,0 +1,6 @@
+framework module Pods_CoinpaprikaAPI_Example_tvOSTests {
+  umbrella header "Pods-CoinpaprikaAPI_Example_tvOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

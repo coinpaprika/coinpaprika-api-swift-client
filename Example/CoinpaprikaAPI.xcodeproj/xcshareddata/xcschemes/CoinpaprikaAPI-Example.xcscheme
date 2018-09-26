@@ -48,7 +48,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C221749E6FAB91EDA1863F60F6233E9"
             BuildableName = "CoinpaprikaAPI.framework"
-            BlueprintName = "CoinpaprikaAPI"
+            BlueprintName = "CoinpaprikaAPI iOS"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
@@ -60,6 +60,16 @@
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
                BuildableName = "CoinpaprikaAPI_Tests.xctest"
                BlueprintName = "CoinpaprikaAPI_Tests"
+               ReferencedContainer = "container:CoinpaprikaAPI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D9540F17215B8DD6000CF087"
+               BuildableName = "CoinpaprikaAPI watchOSTests.xctest"
+               BlueprintName = "CoinpaprikaAPI watchOSTests"
                ReferencedContainer = "container:CoinpaprikaAPI.xcodeproj">
             </BuildableReference>
          </TestableReference>

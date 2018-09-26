@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9C221749E6FAB91EDA1863F60F6233E9"
-               BuildableName = "CoinpaprikaAPI.framework"
-               BlueprintName = "CoinpaprikaAPI iOS"
+               BlueprintIdentifier = "D9540F32215B8DF7000CF087"
+               BuildableName = "CoinpaprikaAPI_watchOS.framework"
+               BlueprintName = "CoinpaprikaAPI watchOS"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9C221749E6FAB91EDA1863F60F6233E9"
-            BuildableName = "CoinpaprikaAPI.framework"
-            BlueprintName = "CoinpaprikaAPI iOS"
+            BlueprintIdentifier = "D9540F32215B8DF7000CF087"
+            BuildableName = "CoinpaprikaAPI_watchOS.framework"
+            BlueprintName = "CoinpaprikaAPI watchOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D9540F32215B8DF7000CF087"
+            BuildableName = "CoinpaprikaAPI_watchOS.framework"
+            BlueprintName = "CoinpaprikaAPI watchOS"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

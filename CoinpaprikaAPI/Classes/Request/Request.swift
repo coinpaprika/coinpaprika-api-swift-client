@@ -61,7 +61,7 @@ enum RequestMethod: String {
     case delete
 }
 
-enum RequestError: Error {
+public enum RequestError: Error {
     case emptyResponse
     case unableToEncodeParams
     case unableToDecodeResponse

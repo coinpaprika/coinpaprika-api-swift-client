@@ -83,4 +83,32 @@ class RequestTests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
+    func testSuccessResponse() {
+        let object = "Test Codable object"
+        let response = Response.success(object)
+        XCTAssert(response.value == object, "Response value should be equal \(object)")
+        XCTAssertNil(response.error, "Response error should be empty")
+        
+        if case .success(let responseValue) = response {
+            XCTAssert(responseValue == object, "Response value should be equal \(object)")
+        } else {
+            XCTFail("Response should be equal .success")
+        }
+    }
+    
+    func testFailureResponse() {
+        let error = RequestError.emptyResponse
+        let response = Response<Any>.failure(error)
+        guard case .emptyResponse = (response.error as! RequestError) else {
+            XCTFail("Response error should be equal \(error)")
+            return
+        }
+        
+        XCTAssertNil(response.value, "Response value should be empty")
+        
+        guard case .failure(let responseError) = response, case .emptyResponse = (responseError as! RequestError) else {
+            XCTFail("Response should be equal .failure")
+            return
+        }
+    }
 }

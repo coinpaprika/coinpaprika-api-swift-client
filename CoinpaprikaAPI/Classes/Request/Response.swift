@@ -13,11 +13,18 @@ public enum Response<Object> {
     case failure(_ error: Error)
     
     public var value: Object? {
-        switch self {
-        case .success(let value):
-            return value
-        default:
+        guard case .success(let value) = self else {
             return nil
         }
+        
+        return value
+    }
+    
+    public var error: Error? {
+        guard case .failure(let error) = self else {
+            return nil
+        }
+        
+        return error
     }
 }

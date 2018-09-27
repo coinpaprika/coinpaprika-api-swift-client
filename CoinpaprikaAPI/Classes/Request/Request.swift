@@ -15,24 +15,20 @@ public struct Request<Model: Decodable> {
     
     let path: String
     
-    let params: Any?
+    let params: [String: String]?
     
     public func perform(_ callback: @escaping (Response<Model>) -> Void) {
-        var request = URLRequest(url: baseUrl.appendingPathComponent(path))
+        var request = URLRequest(url: url)
         request.httpMethod = method.rawValue.uppercased()
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let build = Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? "Unknown"
-        request.addValue("Coinpaprika API Client - Swift (v.\(build))", forHTTPHeaderField: "User-Agent")
-        
-        if let params = params {
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
-            } catch {
-                callback(Response.failure(ResponseError.unableToEncodeParams))
-            }
+        do {
+            request.httpBody = try encodeBody()
+        } catch {
+            callback(Response.failure(ResponseError.unableToEncodeParams))
         }
         
         URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
@@ -49,17 +45,46 @@ public struct Request<Model: Decodable> {
                     return
                 }
                 
-                let decoder = JSONDecoder()
-                guard let value = try? decoder.decode(Model.self, from: data) else {
+                guard let value = self.decodeResponse(data) else {
                     callback(Response.failure(ResponseError.unableToDecodeResponse))
                     return
                 }
                 
                 callback(Response.success(value))
             }
-            }.resume()
+        }.resume()
     }
     
+    private var url: URL {
+        let url = baseUrl.appendingPathComponent(path)
+        
+        guard method == .get, let params = params, var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            return url
+        }
+        
+        var queryItems = components.queryItems ?? []
+        
+        for (key, value) in params {
+            queryItems.append(URLQueryItem(name: key, value: value))
+        }
+        
+        components.queryItems = queryItems
+        return components.url!
+    }
+    
+    private var userAgent: String {
+        let build = Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? "Unknown"
+        return "Coinpaprika API Client - Swift (v.\(build))"
+    }
+    
+    private func encodeBody() throws -> Data? {
+        guard method != .get, let params = params else {
+            return nil
+        }
+        
+        return try JSONSerialization.data(withJSONObject: params, options: [])
+    }
+
     private func findFailureReason(data: Data?, response: URLResponse?) -> ResponseError {
         guard let response = response as? HTTPURLResponse else {
             return .emptyResponse
@@ -73,10 +98,34 @@ public struct Request<Model: Decodable> {
             if let data = data, let value = try? decoder.decode(APIError.self, from: data) {
                 return .invalidRequest(httpCode: response.statusCode, message: value.error)
             }
+            
+            return .invalidRequest(httpCode: response.statusCode, message: nil)
         default: break
         }
         
         return .serverError(httpCode: response.statusCode)
+    }
+    
+    private func decodeResponse(_ data: Data) -> Model? {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .secondsSince1970
+        
+        do {
+            return try decoder.decode(Model.self, from: data)
+        } catch DecodingError.dataCorrupted(let context) {
+            assertionFailure("\(Model.self): \(context.debugDescription)")
+        } catch DecodingError.keyNotFound(let key, let context) {
+            assertionFailure("\(Model.self): \(key.stringValue) was not found, \(context.debugDescription)")
+        } catch DecodingError.typeMismatch(let type, let context) {
+            assertionFailure("\(Model.self): \(type) was expected, \(context.debugDescription)")
+        } catch DecodingError.valueNotFound(let type, let context) {
+            assertionFailure("\(Model.self): no value was found for \(type), \(context.debugDescription)")
+        } catch {
+            assertionFailure("\(Model.self): unknown decoding error")
+        }
+        
+        return nil
     }
 }
 
@@ -96,6 +145,6 @@ public enum ResponseError: Error {
     case unableToEncodeParams
     case unableToDecodeResponse
     case requestsLimitExceeded
-    case invalidRequest(httpCode: Int, message: String)
+    case invalidRequest(httpCode: Int, message: String?)
     case serverError(httpCode: Int)
 }

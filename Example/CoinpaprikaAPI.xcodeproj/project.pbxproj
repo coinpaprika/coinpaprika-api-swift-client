@@ -19,19 +19,16 @@
 		88843500A5715B20A807553A /* Pods_CoinpaprikaAPI_Example_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CDB19C914BAD29BD9AE140 /* Pods_CoinpaprikaAPI_Example_tvOSTests.framework */; };
 		942E568474E75CBD600BCD0C /* Pods_CoinpaprikaAPI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B46CC358924CE5F3734F3E6 /* Pods_CoinpaprikaAPI_Example.framework */; };
 		D322B78700A2F44B1D0BB4F9 /* Pods_CoinpaprikaAPI_Example_macOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A85B2F375DFBE39D3E8AFA /* Pods_CoinpaprikaAPI_Example_macOSTests.framework */; };
-		D9540E77215A7190000CF087 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540E76215A7190000CF087 /* ModelTests.swift */; };
 		D9540F7C215B90E8000CF087 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540F7B215B90E8000CF087 /* AppDelegate.swift */; };
 		D9540F7E215B90E8000CF087 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540F7D215B90E8000CF087 /* ViewController.swift */; };
 		D9540F80215B90E8000CF087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9540F7F215B90E8000CF087 /* Assets.xcassets */; };
 		D9540F83215B90E8000CF087 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9540F81215B90E8000CF087 /* Main.storyboard */; };
 		D9540F97215B9104000CF087 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* RequestTests.swift */; };
-		D9540F98215B9107000CF087 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540E76215A7190000CF087 /* ModelTests.swift */; };
 		D9540FA4215B998D000CF087 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540FA3215B998D000CF087 /* AppDelegate.swift */; };
 		D9540FA6215B998D000CF087 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540FA5215B998D000CF087 /* ViewController.swift */; };
 		D9540FA9215B998D000CF087 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9540FA7215B998D000CF087 /* Main.storyboard */; };
 		D9540FAB215B998E000CF087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9540FAA215B998E000CF087 /* Assets.xcassets */; };
 		D9540FC2215B99B9000CF087 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* RequestTests.swift */; };
-		D9540FC3215B99BB000CF087 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540E76215A7190000CF087 /* ModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +98,6 @@
 		C7A36958003318E75F9C18FB /* Pods_CoinpaprikaAPI_Example_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinpaprikaAPI_Example_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE87083914BABBD7D1A8BC78 /* Pods-CoinpaprikaAPI_Example_macOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinpaprikaAPI_Example_macOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinpaprikaAPI_Example_macOSTests/Pods-CoinpaprikaAPI_Example_macOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D869E5769BA658DDC49F4AAD /* Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinpaprikaAPI_Example_macOSTests/Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D9540E76215A7190000CF087 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		D9540F4D215B904D000CF087 /* CoinpaprikaAPI_macOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinpaprikaAPI_macOS_Tests.swift; sourceTree = "<group>"; };
 		D9540F4F215B904D000CF087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9540F79215B90E8000CF087 /* CoinpaprikaAPI_Example_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinpaprikaAPI_Example_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* RequestTests.swift */,
-				D9540E76215A7190000CF087 /* ModelTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -805,7 +800,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* RequestTests.swift in Sources */,
-				D9540E77215A7190000CF087 /* ModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -822,7 +816,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9540F98215B9107000CF087 /* ModelTests.swift in Sources */,
 				D9540F97215B9104000CF087 /* RequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -840,7 +833,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9540FC3215B99BB000CF087 /* ModelTests.swift in Sources */,
 				D9540FC2215B99B9000CF087 /* RequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

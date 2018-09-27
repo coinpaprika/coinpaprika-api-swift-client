@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import CoinpaprikaAPI
+@testable import CoinpaprikaAPI
 
 class RequestTests: XCTestCase {
     
@@ -76,6 +76,43 @@ class RequestTests: XCTestCase {
             XCTAssert(bitcoin?.symbol == "BTC", "BTC not found")
             XCTAssert(bitcoin?.priceBtc == 1, "1 BTC value in BTC should be equal 1")
             XCTAssert((bitcoin?.priceUsd ?? 0) > 0, "1 BTC value in USD should be greater than 0")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testSearchRequest() {
+        let expectation = self.expectation(description: "Waiting for search results")
+        
+        CoinpaprikaAPI.search(query: "bitcoin", categories: CoinpaprikaAPI.SearchCategory.allCases, limit: 15).perform { (response) in
+    
+            let searchResults = response.value
+            XCTAssertNotNil(searchResults)
+            
+            let coins = searchResults?.currencies
+            XCTAssertNotNil(coins)
+            
+            let bitcoin = coins?.first { $0.id == self.bitcoinId }
+            XCTAssert(bitcoin?.symbol == "BTC", "BTC not found")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testSearchWithoutCoins() {
+        let expectation = self.expectation(description: "Waiting for search results")
+        
+        CoinpaprikaAPI.search(query: "bitcoin", categories: [.exchanges, .icos, .people, .tags], limit: 15).perform { (response) in
+            
+            let searchResults = response.value
+            XCTAssertNotNil(searchResults)
+            
+            let coins = searchResults?.currencies
+            XCTAssertNil(coins, "Coins list should be nil")
             
             expectation.fulfill()
         }

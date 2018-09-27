@@ -33,4 +33,16 @@ public struct CoinpaprikaAPI {
     public static func ticker(id: String) -> Request<Ticker> {
         return Request<Ticker>(method: .get, path: "ticker/\(id)", params: nil)
     }
+    
+    public enum SearchCategory: String, CaseIterable {
+        case currencies
+        case exchanges
+        case icos
+        case people
+        case tags
+    }
+    
+    public static func search(query: String, categories: [SearchCategory] = SearchCategory.allCases, limit: UInt = 6) -> Request<SearchResults> {
+        return Request<SearchResults>(method: .get, path: "search", params: ["q": query, "c": categories.map({ $0.rawValue }).joined(separator: ","), "limit": "\(limit)"])
+    }
 }

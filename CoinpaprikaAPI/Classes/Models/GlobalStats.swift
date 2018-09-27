@@ -16,28 +16,7 @@ public struct GlobalStats: Decodable, Equatable {
     public let lastUpdated: Date?
     
     enum CodingKeys: String, CodingKey {
-        case marketCapUsd = "market_cap_usd"
-        case volume24hUsd = "volume_24h_usd"
-        case bitcoinDominancePercentage = "bitcoin_dominance_percentage"
-        case cryptocurrenciesNumber = "cryptocurrencies_number"
-        case lastUpdated = "last_updated"
-    }
-    
-    public init(marketCapUsd: Int64, volume24hUsd: Int64, bitcoinDominancePercentage: Decimal, cryptocurrenciesNumber: Int, lastUpdated: Date?) {
-        self.marketCapUsd = marketCapUsd
-        self.volume24hUsd = volume24hUsd
-        self.bitcoinDominancePercentage = bitcoinDominancePercentage
-        self.cryptocurrenciesNumber = cryptocurrenciesNumber
-        self.lastUpdated = lastUpdated
-    }
-    
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        volume24hUsd = try values.decode(Int64.self, forKey: .volume24hUsd)
-        marketCapUsd = try values.decode(Int64.self, forKey: .marketCapUsd)
-        bitcoinDominancePercentage = try values.decode(Decimal.self, forKey: .bitcoinDominancePercentage)
-        cryptocurrenciesNumber = try values.decode(Int.self, forKey: .cryptocurrenciesNumber)
-        lastUpdated = try values.decode(.lastUpdated, transformer: IntToDateTransformer())
-    }
+        case marketCapUsd, bitcoinDominancePercentage, cryptocurrenciesNumber, lastUpdated
+        case volume24hUsd = "volume24HUsd"
+    }    
 }

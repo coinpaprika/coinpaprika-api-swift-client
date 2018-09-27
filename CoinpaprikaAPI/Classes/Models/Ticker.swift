@@ -26,36 +26,11 @@ public struct Ticker: Decodable, Equatable {
     public let lastUpdated: Date?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, rank, symbol
-        case priceBtc = "price_btc"
-        case priceUsd = "price_usd"
-        case volume24hUsd = "volume_24h_usd"
-        case marketCapUsd = "market_cap_usd"
-        case circulatingSupply = "circulating_supply"
-        case totalSupply = "total_supply"
-        case maxSupply = "max_supply"
-        case percentChange1h = "percent_change_1h"
-        case percentChange24h = "percent_change_24h"
-        case percentChange7d = "percent_change_7d"
-        case lastUpdated = "last_updated"
-    }
-    
-    public init(id: String, name: String, symbol: String, rank: Int32, priceUsd: Decimal, priceBtc: Decimal, volume24hUsd: Int64, marketCapUsd: Int64, circulatingSupply: Int64, totalSupply: Int64, maxSupply: Int64, percentChange1h: Decimal, percentChange24h: Decimal, percentChange7d: Decimal, lastUpdated: Date?) {
-        self.id = id
-        self.name = name
-        self.symbol = symbol
-        self.rank = rank
-        self.priceUsd = priceUsd
-        self.priceBtc = priceBtc
-        self.volume24hUsd = volume24hUsd
-        self.marketCapUsd = marketCapUsd
-        self.circulatingSupply = circulatingSupply
-        self.totalSupply = totalSupply
-        self.maxSupply = maxSupply
-        self.percentChange1h = percentChange1h
-        self.percentChange24h = percentChange24h
-        self.percentChange7d = percentChange7d
-        self.lastUpdated = lastUpdated
+        case id, name, rank, symbol, priceBtc, priceUsd, marketCapUsd, circulatingSupply, totalSupply, maxSupply, lastUpdated
+        case volume24hUsd = "volume24HUsd"
+        case percentChange1h = "percentChange1H"
+        case percentChange24h = "percentChange24H"
+        case percentChange7d = "percentChange7D"
     }
 
     public init(from decoder: Decoder) throws {

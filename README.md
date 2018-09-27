@@ -87,6 +87,24 @@ CoinpaprikaAPI.ticker(id: "bitcoin-btc").perform { (response) in
 }
 ```
 
+### Search
+
+```swift
+CoinpaprikaAPI.search(query: "bitcoin", categories: [.coins, .exchanges, .icos, .people, .tags], limit: 20).perform { (response) in
+  switch response {
+    case .success(let searchResults):
+    // Successfully downloaded SearchResults
+    // searchResults.currencies - list of matching coins as [Coin]
+    // searchResults.icos - list of matching ICOs as [Ico]
+    // searchResults.exchanges - list of matching exchanges as [Exchange]
+    // searchResults.people - list of matching people as [Person]
+    // searchResults.tags - list of matching tags as [Tag]
+    case .failure(let error):
+    // Failure reason as error
+  }
+}
+```
+
 ## Installation
 
 ### Cocoapods

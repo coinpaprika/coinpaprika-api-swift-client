@@ -73,8 +73,7 @@ public struct Request<Model: Decodable> {
     }
     
     private var userAgent: String {
-        let build = Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? "Unknown"
-        return "Coinpaprika API Client - Swift (v.\(build))"
+        return "Coinpaprika API Client - Swift"
     }
     
     private func encodeBody() throws -> Data? {

@@ -17,7 +17,16 @@ public struct Request<Model: Decodable> {
     
     let params: [String: String]?
     
-    public func perform(_ callback: @escaping (Response<Model>) -> Void) {
+    /// Perform API request
+    ///
+    /// - Parameters:
+    ///   - responseQueue: The queue on which the completion handler is dispatched.
+    ///   - callback: Completion handler triggered on request success & failure
+    public func perform(responseQueue: DispatchQueue? = nil, _ callback: @escaping (Response<Model>) -> Void) {
+        let onQueue = { (_ block: @escaping () -> Void) -> Void in
+            (responseQueue ?? DispatchQueue.main).async(execute: block)
+        }
+        
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue.uppercased()
         
@@ -28,29 +37,41 @@ public struct Request<Model: Decodable> {
         do {
             request.httpBody = try encodeBody()
         } catch {
-            callback(Response.failure(ResponseError.unableToEncodeParams))
+            onQueue {
+                callback(Response.failure(ResponseError.unableToEncodeParams))
+            }
         }
         
         URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
             if let error = error {
-                callback(Response.failure(error))
+                onQueue {
+                    callback(Response.failure(error))
+                }
             } else {
                 guard let httpResponse = urlResponse as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) else {
-                    callback(Response.failure(self.findFailureReason(data: data, response: urlResponse)))
+                    onQueue {
+                        callback(Response.failure(self.findFailureReason(data: data, response: urlResponse)))
+                    }
                     return
                 }
                 
                 guard let data = data else {
-                    callback(Response.failure(ResponseError.emptyResponse))
+                    onQueue {
+                        callback(Response.failure(ResponseError.emptyResponse))
+                    }
                     return
                 }
                 
                 guard let value = self.decodeResponse(data) else {
-                    callback(Response.failure(ResponseError.unableToDecodeResponse))
+                    onQueue {
+                        callback(Response.failure(ResponseError.unableToDecodeResponse))
+                    }
                     return
                 }
                 
-                callback(Response.success(value))
+                onQueue {
+                    callback(Response.success(value))
+                }
             }
         }.resume()
     }

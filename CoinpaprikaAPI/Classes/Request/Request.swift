@@ -8,27 +8,48 @@
 
 import Foundation
 
-public struct Request<Model: Decodable> {
-    let baseUrl = URL(string: "https://api.coinpaprika.com/v1/")!
+public struct Request<Model: Decodable & CodableModel> {
+    
+    let baseUrl: URL
+    
+    public enum Method: String {
+        case get
+        case post
+        case put
+        case delete
+    }
 
-    let method: RequestMethod
+    let method: Method
     
     let path: String
     
-    let params: [String: String]?
+    public typealias Params = [String: String]
+    
+    let params: Params?
+    
+    public init(baseUrl: URL, method: Method, path: String, params: Params?) {
+        self.baseUrl = baseUrl
+        self.method = method
+        self.path = path
+        self.params = params
+    }
     
     /// Perform API request
     ///
     /// - Parameters:
     ///   - responseQueue: The queue on which the completion handler is dispatched.
     ///   - callback: Completion handler triggered on request success & failure
-    public func perform(responseQueue: DispatchQueue? = nil, _ callback: @escaping (Response<Model>) -> Void) {
+    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, _ callback: @escaping (Response<Model>) -> Void) {
         let onQueue = { (_ block: @escaping () -> Void) -> Void in
             (responseQueue ?? DispatchQueue.main).async(execute: block)
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue.uppercased()
+   
+        if let cachePolicy = cachePolicy {
+            request.cachePolicy = cachePolicy
+        }
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -127,9 +148,7 @@ public struct Request<Model: Decodable> {
     }
     
     private func decodeResponse(_ data: Data) -> Model? {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .secondsSince1970
+        let decoder = Model.decoder
         
         do {
             return try decoder.decode(Model.self, from: data)
@@ -151,13 +170,6 @@ public struct Request<Model: Decodable> {
 
 struct APIError: Decodable {
     let error: String
-}
-
-enum RequestMethod: String {
-    case get
-    case post
-    case put
-    case delete
 }
 
 public enum ResponseError: Error {

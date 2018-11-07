@@ -8,53 +8,55 @@
 
 import Foundation
 
-public struct Ticker: Decodable, Equatable {
+public struct Ticker: Codable, Equatable, CodableModel {
     public let id: String
     public let name: String
     public let symbol: String
-    public let rank: Int32
-    public let priceUsd: Decimal
-    public let priceBtc: Decimal
-    public let volume24hUsd: Int64
-    public let marketCapUsd: Int64
+    public let rank: Int
+    
     public let circulatingSupply: Int64
     public let totalSupply: Int64
     public let maxSupply: Int64
-    public let percentChange1h: Decimal
-    public let percentChange24h: Decimal
-    public let percentChange7d: Decimal
-    public let lastUpdated: Date?
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, rank, symbol, priceBtc, priceUsd, marketCapUsd, circulatingSupply, totalSupply, maxSupply, lastUpdated
-        case volume24hUsd = "volume24HUsd"
-        case percentChange1h = "percentChange1H"
-        case percentChange24h = "percentChange24H"
-        case percentChange7d = "percentChange7D"
+    public let betaValue: Decimal
+    
+    public let lastUpdated: Date
+    
+    public let quotes: [String: Quote]
+    
+    subscript(_ quote: QuoteCurrency) -> Quote? {
+        return quotes[quote.rawValue]
+    }
+    
+    public struct Quote: Codable, Equatable {
+        public let price: Decimal
+        public let volume24h: Int64
+        public let volume24hChange24h: Decimal
+        public let marketCap: Int64
+        public let marketCapChange24h: Decimal
+        public let percentChange1h: Decimal
+        public let percentChange12h: Decimal
+        public let percentChange24h: Decimal
+        public let percentChange7d: Decimal
+        public let percentChange30d: Decimal
+        public let percentChange1y: Decimal
+        public let athPrice: Decimal?
+        public let athDate: Date?
+        public let percentFromPriceAth: Decimal?
+        
+        public var volumeMarketCapRate: Decimal? {
+            guard marketCap != 0 else {
+                return nil
+            }
+            
+            return Decimal(volume24h)/Decimal(marketCap)
+        }
     }
 
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        id = try values.decode(String.self, forKey: .id)
-        name = try values.decode(String.self, forKey: .name)
-        rank = try values.decode(.rank, transformer: StringToInt32Transformer())
-        symbol = try values.decode(String.self, forKey: .symbol)
-
-        priceBtc = try values.decode(.priceBtc, transformer: StringToDecimalTransformer())
-        priceUsd = try values.decode(.priceUsd, transformer: StringToDecimalTransformer())
-
-        volume24hUsd = try values.decode(.volume24hUsd, transformer: StringToInt64Transformer())
-        marketCapUsd = try values.decode(.marketCapUsd, transformer: StringToInt64Transformer())
-
-        circulatingSupply = try values.decode(.circulatingSupply, transformer: StringToInt64Transformer())
-        totalSupply = try values.decode(.totalSupply, transformer: StringToInt64Transformer())
-        maxSupply = try values.decode(.maxSupply, transformer: StringToInt64Transformer())
-
-        percentChange1h = try values.decode(.percentChange1h, transformer: StringToDecimalTransformer())
-        percentChange24h = try values.decode(.percentChange24h, transformer: StringToDecimalTransformer())
-        percentChange7d = try values.decode(.percentChange7d, transformer: StringToDecimalTransformer())
-
-        lastUpdated = try values.decode(.lastUpdated, transformer: StringToDateTransformer())
+    public var circulatingSupplyPercent: Decimal? {
+        guard maxSupply != 0 else {
+            return nil
+        }
+        
+        return Decimal(circulatingSupply)/Decimal(maxSupply)
     }
 }

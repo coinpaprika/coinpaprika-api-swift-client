@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StringToInt64Transformer: DecodingContainerTransformer {
+class StringToInt64Transformer: CodingContainerTransformer {
     typealias Input = String
     typealias Output = Int64
 
@@ -16,4 +16,7 @@ class StringToInt64Transformer: DecodingContainerTransformer {
         return Int64(decoded) ?? 0
     }
 
+    func transform(_ encoded: Output) throws -> Input {
+        return "\(encoded)"
+    }
 }

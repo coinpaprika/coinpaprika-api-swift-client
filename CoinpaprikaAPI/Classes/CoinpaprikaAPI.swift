@@ -11,27 +11,29 @@ import Foundation
 /// Coinpaprika API endpoints
 public struct CoinpaprikaAPI {
     
+    private static let apiBaseUrl = URL(string: "https://api.coinpaprika.com/v1/")!
+    
     /// Get global information
     public static var global: Request<GlobalStats> {
-        return Request<GlobalStats>(method: .get, path: "global", params: nil)
+        return Request<GlobalStats>(baseUrl: apiBaseUrl, method: .get, path: "global", params: nil)
     }
     
     /// Get all coins listed on coinpaprika
     public static var coins: Request<[Coin]> {
-        return Request<[Coin]>(method: .get, path: "coins", params: nil)
+        return Request<[Coin]>(baseUrl: apiBaseUrl, method: .get, path: "coins", params: nil)
     }
     
     /// Get ticker information for all coins
-    public static var tickers: Request<[Ticker]> {
-        return Request<[Ticker]>(method: .get, path: "ticker", params: nil)
+    public static func tickers(quote: [QuoteCurrency]) -> Request<[Ticker]> {
+        return Request<[Ticker]>(baseUrl: apiBaseUrl, method: .get, path: "tickers", params: ["quote": quote.asCommaJoinedList])
     }
     
     /// Get ticker information for specific coin
     ///
     /// - Parameter id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
-    public static func ticker(id: String) -> Request<Ticker> {
-        return Request<Ticker>(method: .get, path: "ticker/\(id)", params: nil)
+    public static func ticker(id: String, quote: [QuoteCurrency]) -> Request<Ticker> {
+        return Request<Ticker>(baseUrl: apiBaseUrl, method: .get, path: "tickers/\(id)", params: ["quote": quote.asCommaJoinedList])
     }
     
     public enum SearchCategory: String, CaseIterable {
@@ -43,6 +45,22 @@ public struct CoinpaprikaAPI {
     }
     
     public static func search(query: String, categories: [SearchCategory] = SearchCategory.allCases, limit: UInt = 6) -> Request<SearchResults> {
-        return Request<SearchResults>(method: .get, path: "search", params: ["q": query, "c": categories.map({ $0.rawValue }).joined(separator: ","), "limit": "\(limit)"])
+        return Request<SearchResults>(baseUrl: apiBaseUrl, method: .get, path: "search", params: ["q": query, "c": categories.map({ $0.rawValue }).joined(separator: ","), "limit": "\(limit)"])
+    }
+
+    public static var tags: Request<[Tag]> {
+        return Request<[Tag]>(baseUrl: apiBaseUrl, method: .get, path: "tags", params: nil)
+    }
+    
+    public static func tag(id: String, withCoins: Bool = false) -> Request<Tag> {
+        return Request<Tag>(baseUrl: apiBaseUrl, method: .get, path: "tags/\(id)", params: nil)
+    }
+    
+    public static func exchanges(quote: [QuoteCurrency]) -> Request<[Exchange]> {
+        return Request<[Exchange]>(baseUrl: apiBaseUrl, method: .get, path: "exchanges", params: ["quote": quote.asCommaJoinedList])
+    }
+    
+    public static func exchange(id: String, quote: [QuoteCurrency]) -> Request<Exchange> {
+        return Request<Exchange>(baseUrl: apiBaseUrl, method: .get, path: "exchanges/\(id)", params: ["quote": quote.asCommaJoinedList])
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class StringToDateTransformer: DecodingContainerTransformer {
+internal class StringToDateTransformer: CodingContainerTransformer {
     typealias Input = String
     typealias Output = Date?
 
@@ -20,4 +20,7 @@ internal class StringToDateTransformer: DecodingContainerTransformer {
         return Date(timeIntervalSince1970: timeInterval)
     }
 
+    func transform(_ encoded: Output) throws -> Input {
+        return "\(encoded?.timeIntervalSince1970 ?? 0)"
+    }
 }

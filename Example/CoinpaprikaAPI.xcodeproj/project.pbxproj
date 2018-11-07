@@ -19,6 +19,9 @@
 		88843500A5715B20A807553A /* Pods_CoinpaprikaAPI_Example_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CDB19C914BAD29BD9AE140 /* Pods_CoinpaprikaAPI_Example_tvOSTests.framework */; };
 		942E568474E75CBD600BCD0C /* Pods_CoinpaprikaAPI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B46CC358924CE5F3734F3E6 /* Pods_CoinpaprikaAPI_Example.framework */; };
 		D322B78700A2F44B1D0BB4F9 /* Pods_CoinpaprikaAPI_Example_macOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A85B2F375DFBE39D3E8AFA /* Pods_CoinpaprikaAPI_Example_macOSTests.framework */; };
+		D94DB59C21806B26008F832A /* CodableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94DB59A21806AD5008F832A /* CodableTest.swift */; };
+		D94DB59D21806B2A008F832A /* CodableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94DB59A21806AD5008F832A /* CodableTest.swift */; };
+		D94DB59E21806B2B008F832A /* CodableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94DB59A21806AD5008F832A /* CodableTest.swift */; };
 		D9540F7C215B90E8000CF087 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540F7B215B90E8000CF087 /* AppDelegate.swift */; };
 		D9540F7E215B90E8000CF087 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9540F7D215B90E8000CF087 /* ViewController.swift */; };
 		D9540F80215B90E8000CF087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9540F7F215B90E8000CF087 /* Assets.xcassets */; };
@@ -98,6 +101,7 @@
 		C7A36958003318E75F9C18FB /* Pods_CoinpaprikaAPI_Example_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinpaprikaAPI_Example_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE87083914BABBD7D1A8BC78 /* Pods-CoinpaprikaAPI_Example_macOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinpaprikaAPI_Example_macOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinpaprikaAPI_Example_macOSTests/Pods-CoinpaprikaAPI_Example_macOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D869E5769BA658DDC49F4AAD /* Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinpaprikaAPI_Example_macOSTests/Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D94DB59A21806AD5008F832A /* CodableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTest.swift; sourceTree = "<group>"; };
 		D9540F4D215B904D000CF087 /* CoinpaprikaAPI_macOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinpaprikaAPI_macOS_Tests.swift; sourceTree = "<group>"; };
 		D9540F4F215B904D000CF087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9540F79215B90E8000CF087 /* CoinpaprikaAPI_Example_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinpaprikaAPI_Example_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* RequestTests.swift */,
+				D94DB59A21806AD5008F832A /* CodableTest.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -799,6 +804,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D94DB59C21806B26008F832A /* CodableTest.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* RequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -816,6 +822,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D94DB59D21806B2A008F832A /* CodableTest.swift in Sources */,
 				D9540F97215B9104000CF087 /* RequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -833,6 +840,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D94DB59E21806B2B008F832A /* CodableTest.swift in Sources */,
 				D9540FC2215B99B9000CF087 /* RequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -940,7 +948,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -988,7 +996,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

@@ -8,12 +8,16 @@
 
 import Foundation
 
-internal class StringToDecimalTransformer: DecodingContainerTransformer {
+internal class StringToDecimalTransformer: CodingContainerTransformer {
     typealias Input = String
     typealias Output = Decimal
 
     func transform(_ decoded: Input) throws -> Output {
         return Decimal(string: decoded) ?? 0
+    }
+    
+    func transform(_ encoded: Output) throws -> Input {
+        return "\(encoded)"
     }
 
 }

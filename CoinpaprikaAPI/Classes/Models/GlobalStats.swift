@@ -8,15 +8,18 @@
 
 import Foundation
 
-public struct GlobalStats: Decodable, Equatable {
+public struct GlobalStats: Codable, Equatable, CodableModel {
     public let marketCapUsd: Int64
     public let volume24hUsd: Int64
     public let bitcoinDominancePercentage: Decimal
     public let cryptocurrenciesNumber: Int
-    public let lastUpdated: Date?
+    public let lastUpdated: Date
     
-    enum CodingKeys: String, CodingKey {
-        case marketCapUsd, bitcoinDominancePercentage, cryptocurrenciesNumber, lastUpdated
-        case volume24hUsd = "volume24HUsd"
-    }    
+    public static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {
+        return .secondsSince1970
+    }
+    
+    public static var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy? {
+        return .secondsSince1970
+    }
 }

@@ -8,12 +8,15 @@
 
 import Foundation
 
-class StringToInt32Transformer: DecodingContainerTransformer {
+class StringToIntTransformer: CodingContainerTransformer {
     typealias Input = String
-    typealias Output = Int32
+    typealias Output = Int
 
     func transform(_ decoded: Input) throws -> Output {
-        return Int32(decoded) ?? 0
+        return Int(decoded) ?? 0
     }
 
+    func transform(_ encoded: Output) throws -> Input {
+        return "\(encoded)"
+    }
 }

@@ -1,5 +1,5 @@
 PODS:
-  - CoinpaprikaAPI (1.0.4)
+  - CoinpaprikaAPI (2.0)
 
 DEPENDENCIES:
   - CoinpaprikaAPI (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CoinpaprikaAPI: c1ad016aab916d5b3325478e835ead10a1999d60
+  CoinpaprikaAPI: 6f92c551e90fa65caeed040030ef52284f9276ec
 
-PODFILE CHECKSUM: 486edd3103fa524fab272a9cd72382479bf5719c
+PODFILE CHECKSUM: 5173e2fd19961aea4180f8bd942dedccabda6451
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.6.0.beta.2

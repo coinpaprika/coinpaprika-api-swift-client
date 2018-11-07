@@ -10,13 +10,7 @@ import Foundation
 public enum QuoteCurrency: String, Codable, Hashable {
     case usd = "USD"
     case btc = "BTC"
-    case etc = "ETC"
-}
-
-public enum QuoteCurrency2: String, Codable, Hashable {
-    case usd = "USD"
-    case btc = "BTC"
-    case etc = "ETC"
+ //   case etc = "ETC"
 }
 
 internal extension Array where Element: RawRepresentable {

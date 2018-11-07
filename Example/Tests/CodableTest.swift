@@ -23,8 +23,8 @@ class CodableTest: XCTestCase {
             XCTAssertNotNil(bitcoin, "Ticker should exist")
             XCTAssert(bitcoin?.id == self.bitcoinId, "BTC not found")
             XCTAssert(bitcoin?.symbol == "BTC", "BTC not found")
-            XCTAssert(bitcoin?[.btc]?.price == 1, "1 BTC value in BTC should be equal 1")
-            XCTAssert((bitcoin?[.usd]?.price ?? 0) > 0, "1 BTC value in USD should be greater than 0")
+            XCTAssert(bitcoin?[.btc].price == 1, "1 BTC value in BTC should be equal 1")
+            XCTAssert((bitcoin?[.usd].price ?? 0) > 0, "1 BTC value in USD should be greater than 0")
             
             let encoder = Ticker.encoder
             let encodedData = try? encoder.encode(bitcoin)
@@ -50,10 +50,10 @@ class CodableTest: XCTestCase {
             XCTAssertNotNil(decodedBitcoin, "Ticker should exist")
             XCTAssert(bitcoin?.id == decodedBitcoin.id, "BTC not found")
             XCTAssert(bitcoin?.symbol == decodedBitcoin.symbol, "BTC not found")
-            XCTAssert(bitcoin?[.btc]?.price == decodedBitcoin[.btc]?.price, "priceBtc isn't equal")
-            XCTAssert(bitcoin?[.usd]?.price == decodedBitcoin[.usd]?.price, "priceUsd isn't equal")
-            XCTAssert(bitcoin?[.btc]?.marketCap == decodedBitcoin[.btc]?.marketCap, "marketCapBtc isn't equal")
-            XCTAssert(bitcoin?[.usd]?.athDate == decodedBitcoin[.usd]?.athDate, "athDate isn't equal")
+            XCTAssert(bitcoin?[.btc].price == decodedBitcoin[.btc].price, "priceBtc isn't equal")
+            XCTAssert(bitcoin?[.usd].price == decodedBitcoin[.usd].price, "priceUsd isn't equal")
+            XCTAssert(bitcoin?[.btc].marketCap == decodedBitcoin[.btc].marketCap, "marketCapBtc isn't equal")
+            XCTAssert(bitcoin?[.usd].athDate == decodedBitcoin[.usd].athDate, "athDate isn't equal")
             
             expectation.fulfill()
         }

@@ -55,8 +55,8 @@ class RequestTests: XCTestCase {
             
             let bitcoin = tickers?.first { $0.id == self.bitcoinId }
             XCTAssert(bitcoin?.symbol == "BTC", "BTC not found")
-            XCTAssert(bitcoin?[.btc]?.price == 1, "1 BTC value in BTC should be equal 1")
-            XCTAssert((bitcoin?[.usd]?.price ?? 0) > 0, "1 BTC value in USD should be greater than 0")
+            XCTAssert(bitcoin?[.btc].price == 1, "1 BTC value in BTC should be equal 1")
+            XCTAssert((bitcoin?[.usd].price ?? 0) > 0, "1 BTC value in USD should be greater than 0")
             
             expectation.fulfill()
         }
@@ -74,8 +74,8 @@ class RequestTests: XCTestCase {
             XCTAssertNotNil(bitcoin, "Ticker should exist")
             XCTAssert(bitcoin?.id == self.bitcoinId, "BTC not found")
             XCTAssert(bitcoin?.symbol == "BTC", "BTC not found")
-            XCTAssert(bitcoin?[.btc]?.price == 1, "1 BTC value in BTC should be equal 1")
-            XCTAssert((bitcoin?[.usd]?.price ?? 0) > 0, "1 BTC value in USD should be greater than 0")
+            XCTAssert(bitcoin?[.btc].price == 1, "1 BTC value in BTC should be equal 1")
+            XCTAssert((bitcoin?[.usd].price ?? 0) > 0, "1 BTC value in USD should be greater than 0")
             
             expectation.fulfill()
         }
@@ -179,11 +179,7 @@ class RequestTests: XCTestCase {
             let exchange = response.value
             XCTAssertNotNil(exchange, "Exchange should exist")
             
-//            if let quote = exchange?.quote[QuoteCurrency.usd] {
-//
-//            } else {
-//                XCTAssert(false)
-//            }
+            XCTAssert((exchange?[.usd].adjustedVolume24h ?? 0) > Int64(0), "Adjusted volume should be greater than 0")
             
             expectation.fulfill()
         }

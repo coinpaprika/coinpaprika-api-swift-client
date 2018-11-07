@@ -23,8 +23,9 @@ public struct Ticker: Codable, Equatable, CodableModel {
     
     public let quotes: [String: Quote]
     
-    subscript(_ quote: QuoteCurrency) -> Quote? {
-        return quotes[quote.rawValue]
+    public subscript(_ currency: QuoteCurrency) -> Quote! {
+        assert(quotes[currency.rawValue] != nil, "Invalid quote value \(currency). Check if you included \(currency) in request params.")
+        return quotes[currency.rawValue]
     }
     
     public struct Quote: Codable, Equatable {

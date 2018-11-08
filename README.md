@@ -16,7 +16,7 @@ This library provides convenient way to use [Coinpaprika.com API](https://api.co
 ### Market Stats
 
 ```swift
-CoinpaprikaAPI.global.perform { (response) in
+CoinpaprikaAPI.global().perform { (response) in
   switch response {
     case .success(let stats):
     // Successfully downloaded GlobalStats
@@ -33,7 +33,7 @@ CoinpaprikaAPI.global.perform { (response) in
 ### Coins list
 
 ```swift
-CoinpaprikaAPI.coins.perform { (response) in
+CoinpaprikaAPI.coins().perform { (response) in
   switch response {
     case .success(let coins):
     // Successfully downloaded [Coin]
@@ -49,7 +49,7 @@ CoinpaprikaAPI.coins.perform { (response) in
 ### Ticker data for all coins
 
 ```swift
-CoinpaprikaAPI.tickers.perform { (response) in
+CoinpaprikaAPI.tickers(quotes: [.usd, .btc]).perform { (response) in
   switch response {
     case .success(let tickers):
     // Successfully downloaded [Ticker]
@@ -58,12 +58,13 @@ CoinpaprikaAPI.tickers.perform { (response) in
     // Failure reason as error
   }
 }
+
 ```
 
 ### Ticker data for selected coin
 
 ```swift
-CoinpaprikaAPI.ticker(id: "bitcoin-btc").perform { (response) in
+CoinpaprikaAPI.ticker(id: "bitcoin-btc", quotes: [.usd, .btc]).perform { (response) in
   switch response {
     case .success(let ticker):
     // Successfully downloaded Ticker
@@ -71,16 +72,38 @@ CoinpaprikaAPI.ticker(id: "bitcoin-btc").perform { (response) in
     // ticker.name - Coin name, for example Bitcoin
     // ticker.symbol - Coin symbol, for example BTC
     // ticker.rank - Position in Coinpaprika ranking (by MarketCap)
-    // ticker.priceUsd - Price in USD
-    // ticker.priceBtc - Price in BTC
-    // ticker.volume24hUsd - Volume from last 24h in USD
-    // ticker.marketCapUsd - Market Capitalization in USD
     // ticker.circulatingSupply - Circulating Supply
     // ticker.totalSupply - Total Supply
     // ticker.maxSupply - Maximum Supply
-    // ticker.percentChange1h - Percentage price change in last 1 hour
-    // ticker.percentChange24h - Percentage price change in last 24 hours
-    // ticker.percentChange7d - Percentage price change in last 7 days
+    // ticker.betaValue - Beta
+    // ticker.lastUpdated -Last updated date
+    //
+    // Each Ticker could contain several Ticker.Quote (according to provided quotes parameter). To access to quote for given currency, use subscripting like:
+    // - ticker[.usd] - Ticker.Quote in USD
+    // - ticker[.btc] - Ticker.Quote in BTC
+    // etc...
+    //
+    // So how to get this cryptocurrency price in USD and BTC?
+    // - ticker[.usd].price - Coin price in USD
+    // - ticker[.btc].price - Coin price in BTC
+    //
+    // Ticker.Quote contains following properties:
+    // let currency: QuoteCurrency = .usd
+    // - ticker[currency].price - Price
+    // - ticker[currency].volume24h - Volume from last 24h
+    // - ticker[currency].volume24hChange24h - Volume change in last 24h
+    // - ticker[currency].marketCap - Market Capitalization
+    // - ticker[currency].marketCapChange24h - Market Capitalization in last 24h
+    // - ticker[currency].percentChange1h - Percentage price change in last 1 hour
+    // - ticker[currency].percentChange12h - Percentage price change in last 12 hour
+    // - ticker[currency].percentChange24h - Percentage price change in last 24 hour
+    // - ticker[currency].percentChange7d - Percentage price change in last 7 days
+    // - ticker[currency].percentChange30d - Percentage price change in last 30 days
+    // - ticker[currency].percentChange1y - Percentage price change in last 1 year
+    // - ticker[currency].athPrice - ATH price
+    // - ticker[currency].athDate - ATH date
+    // - ticker[currency].percentFromPriceAth - Percentage price change from ATH
+    // - ticker[currency].volumeMarketCapRate - Volume/MarketCap rate
     case .failure(let error):
     // Failure reason as error
   }
@@ -94,11 +117,11 @@ CoinpaprikaAPI.search(query: "bitcoin", categories: [.coins, .exchanges, .icos, 
   switch response {
     case .success(let searchResults):
     // Successfully downloaded SearchResults
-    // searchResults.currencies - list of matching coins as [Coin]
-    // searchResults.icos - list of matching ICOs as [Ico]
-    // searchResults.exchanges - list of matching exchanges as [Exchange]
-    // searchResults.people - list of matching people as [Person]
-    // searchResults.tags - list of matching tags as [Tag]
+    // searchResults.currencies - list of matching coins as [Search.Coin]
+    // searchResults.icos - list of matching ICOs as [Search.Ico]
+    // searchResults.exchanges - list of matching exchanges as [Search.Exchange]
+    // searchResults.people - list of matching people as [Search.Person]
+    // searchResults.tags - list of matching tags as [Search.Tag]
     case .failure(let error):
     // Failure reason as error
   }

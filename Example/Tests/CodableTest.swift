@@ -17,7 +17,7 @@ class CodableTest: XCTestCase {
         let expectation = self.expectation(description: "Waiting for ticker")
         
         
-        CoinpaprikaAPI.ticker(id: bitcoinId, quote: [.usd, .btc]).perform { (response) in
+        CoinpaprikaAPI.ticker(id: bitcoinId, quotes: [.usd, .btc]).perform { (response) in
             let bitcoin = response.value
             
             XCTAssertNotNil(bitcoin, "Ticker should exist")

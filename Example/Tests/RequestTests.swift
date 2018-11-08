@@ -49,7 +49,7 @@ class RequestTests: XCTestCase {
     func testTickersRequest() {
         let expectation = self.expectation(description: "Waiting for tickers")
         
-        CoinpaprikaAPI.tickers(quote: [.usd, .btc]).perform { (response) in
+        CoinpaprikaAPI.tickers(quotes: [.usd, .btc]).perform { (response) in
             let tickers = response.value
             XCTAssertNotNil(tickers, "Tickers list should exist")
             
@@ -68,7 +68,7 @@ class RequestTests: XCTestCase {
         let expectation = self.expectation(description: "Waiting for ticker")
         
         
-        CoinpaprikaAPI.ticker(id: bitcoinId, quote: [.usd, .btc]).perform { (response) in
+        CoinpaprikaAPI.ticker(id: bitcoinId, quotes: [.usd, .btc]).perform { (response) in
             let bitcoin = response.value
             
             XCTAssertNotNil(bitcoin, "Ticker should exist")
@@ -150,7 +150,7 @@ class RequestTests: XCTestCase {
     func testRequestError() {
         let expectation = self.expectation(description: "Waiting for ticker")
         
-        CoinpaprikaAPI.ticker(id: "unexisting-coin-id", quote: [.usd]).perform { (response) in
+        CoinpaprikaAPI.ticker(id: "unexisting-coin-id", quotes: [.usd]).perform { (response) in
             let expectedCode = 404
             let expectedMessage = "id not found"
             
@@ -175,11 +175,24 @@ class RequestTests: XCTestCase {
     func testExchangeRequest() {
         let expectation = self.expectation(description: "Waiting for exchange")
         
-        CoinpaprikaAPI.exchange(id: "binance", quote: [.usd]).perform { (response) in
+        CoinpaprikaAPI.exchange(id: "binance").perform { (response) in
             let exchange = response.value
             XCTAssertNotNil(exchange, "Exchange should exist")
             
             XCTAssert((exchange?[.usd].adjustedVolume24h ?? 0) > Int64(0), "Adjusted volume should be greater than 0")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+
+    func testMarketRequest() {
+        let expectation = self.expectation(description: "Waiting for exchange market")
+        
+        CoinpaprikaAPI.exchangeMarkets(id: "binance").perform { (response) in
+            let markets = response.value
+            XCTAssertFalse(markets?.isEmpty ?? true, "Markets should exist")
             
             expectation.fulfill()
         }

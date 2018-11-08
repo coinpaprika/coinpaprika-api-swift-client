@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Request representation returned by CoinpaprikaAPI methods.
+/// To perform request use .perform() method. It will call callback with error reason or 
 public struct Request<Model: Decodable & CodableModel> {
     
     let baseUrl: URL
@@ -27,6 +29,13 @@ public struct Request<Model: Decodable & CodableModel> {
     
     let params: Params?
     
+    /// Request initializer that may be used if you want to extend client API with another methods
+    ///
+    /// - Parameters:
+    ///   - baseUrl: Base URL containing base path for API, like https://api.coinpaprika.com/v1/
+    ///   - method: HTTP Method
+    ///   - path: endpoint path like tickers/btc-bitcoin
+    ///   - params: array of parameters appended in URL Query
     public init(baseUrl: URL, method: Method, path: String, params: Params?) {
         self.baseUrl = baseUrl
         self.method = method
@@ -37,7 +46,8 @@ public struct Request<Model: Decodable & CodableModel> {
     /// Perform API request
     ///
     /// - Parameters:
-    ///   - responseQueue: The queue on which the completion handler is dispatched.
+    ///   - responseQueue: The queue on which the completion handler is dispatched
+    ///   - cachePolicy: cache policy that should be used in this request
     ///   - callback: Completion handler triggered on request success & failure
     public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, _ callback: @escaping (Response<Model>) -> Void) {
         let onQueue = { (_ block: @escaping () -> Void) -> Void in

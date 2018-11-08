@@ -7,21 +7,17 @@
 
 import Foundation
 
-public struct Tag: Codable, Equatable, CodableModel, TagType {
+public struct Tag: Codable, Equatable, CodableModel {
     public let id: String
     public let name: String
     public let description: String?
     public let coinCounter: Int
     public let icoCounter: Int
     public let type: TypeCategory
+    public let coins: [String]?
     
     public enum TypeCategory: String, Codable, CaseIterable {
         case functional
         case technical
     }
-}
-
-public protocol TagType: Codable {
-    var id: String { get }
-    var name: String { get }
 }

@@ -35,7 +35,7 @@ public struct SearchResults: Codable, Equatable, CodableModel {
         public let rank: Int
     }
     
-    public struct Tag: Codable, Equatable, TagType {
+    public struct Tag: Codable, Equatable {
         public let id: String
         public let name: String
         public let coinCounter: Int

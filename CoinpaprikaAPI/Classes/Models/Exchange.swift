@@ -19,12 +19,12 @@ public struct Exchange: Codable, Equatable, CodableModel {
     public let currencies: Int
     public let markets: Int
     public let fiats: [Fiat]?
-    public let quote: [String: Quote]
+    public let quotes: [String: Quote]
     public let lastUpdated: Date
     
     public subscript(_ currency: QuoteCurrency) -> Quote! {
-        assert(quote[currency.rawValue] != nil, "Invalid quote value \(currency). Check if you included \(currency) in request params.")
-        return quote[currency.rawValue]
+        assert(quotes[currency.code] != nil, "Invalid quote value \(currency). Check if you included \(currency) in request params.")
+        return quotes[currency.code]
     }
     
     public struct Quote: Codable, Equatable {

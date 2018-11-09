@@ -7,10 +7,12 @@
 
 import Foundation
 
+/// Quote Currency - for use as query parameter and to access quote values in desired currency
 public enum QuoteCurrency: String, Codable, CaseIterable {
     case usd
     case btc
-    //   case etc
+    case eth
+    case pln
     
     public var code: String {
         return rawValue.uppercased()
@@ -22,6 +24,10 @@ public enum QuoteCurrency: String, Codable, CaseIterable {
             return "$"
         case .btc:
             return "₿"
+        case .eth:
+            return "Ξ"
+        case .pln:
+            return "zł"
         }
     }
 }

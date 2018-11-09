@@ -9,7 +9,7 @@
 import Foundation
 
 /// Request representation returned by CoinpaprikaAPI methods.
-/// To perform request use .perform() method. It will call callback with error reason or 
+/// To perform request use .perform() method. It will call callback with error reason or
 public struct Request<Model: Decodable & CodableModel> {
     
     let baseUrl: URL

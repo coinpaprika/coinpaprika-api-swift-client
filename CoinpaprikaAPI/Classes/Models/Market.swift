@@ -20,7 +20,7 @@ public struct Market: Codable, Equatable, CodableModel {
     public let volumePercentage: Decimal
     public let lastUpdated: Date
     
-    public let quotes: [String: Quote]
+    private let quotes: [String: Quote]
     
     public subscript(_ currency: QuoteCurrency) -> Quote! {
         assert(quotes[currency.code] != nil, "Invalid quote value \(currency). Check if you included \(currency) in request params.")

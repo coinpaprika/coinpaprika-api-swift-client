@@ -27,11 +27,17 @@ public struct CoinpaprikaAPI {
         return Request<[Coin]>(baseUrl: apiBaseUrl, method: .get, path: "coins", params: nil)
     }
     
+    private static func validateTickerQuotes(_ quotes: [QuoteCurrency]) {
+        let acceptedQuotes: [QuoteCurrency] = [.usd, .btc, .eth]
+        assert(quotes.filter({ !acceptedQuotes.contains($0) }).isEmpty, "This endpoint accepts only \(acceptedQuotes).")
+    }
+    
     /// Get ticker information for all coins
     ///
-    /// - Parameter quotes: list of requested quotes, default [.usd]
+    /// - Parameter quotes: list of requested quotes, default [.usd], accepted values .usd, .btc, .eth
     /// - Returns: Request to perform
     public static func tickers(quotes: [QuoteCurrency] = [.usd]) -> Request<[Ticker]> {
+        validateTickerQuotes(quotes)
         return Request<[Ticker]>(baseUrl: apiBaseUrl, method: .get, path: "tickers", params: ["quotes": quotes.asCommaJoinedList])
     }
     
@@ -40,6 +46,7 @@ public struct CoinpaprikaAPI {
     /// - Parameter id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
     public static func ticker(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Ticker> {
+        validateTickerQuotes(quotes)
         return Request<Ticker>(baseUrl: apiBaseUrl, method: .get, path: "tickers/\(id)", params: ["quotes": quotes.asCommaJoinedList])
     }
     
@@ -50,7 +57,7 @@ public struct CoinpaprikaAPI {
     /// - icos: ICOs
     /// - people: People from projects
     /// - tags: Tags
-    public enum SearchCategory: String, CaseIterable {
+    public enum SearchCategory: String, CaseIterable, QueryRepresentable {
         case currencies
         case exchanges
         case icos
@@ -66,7 +73,7 @@ public struct CoinpaprikaAPI {
     ///   - limit: limit of results per category, default 6 (max 250)
     /// - Returns: Request to perform
     public static func search(query: String, categories: [SearchCategory] = SearchCategory.allCases, limit: UInt = 6) -> Request<SearchResults> {
-        return Request<SearchResults>(baseUrl: apiBaseUrl, method: .get, path: "search", params: ["q": query, "c": categories.map({ $0.rawValue }).joined(separator: ","), "limit": "\(limit)"])
+        return Request<SearchResults>(baseUrl: apiBaseUrl, method: .get, path: "search", params: ["q": query, "c": categories.asCommaJoinedList, "limit": "\(limit)"])
     }
     
     /// Additional fields available in Tag response
@@ -97,17 +104,18 @@ public struct CoinpaprikaAPI {
     /// Exchanges list
     ///
     /// - Returns: Request to perform
-    public static func exchanges() -> Request<[Exchange]> {
-        return Request<[Exchange]>(baseUrl: apiBaseUrl, method: .get, path: "exchanges", params: nil)
+    public static func exchanges(quotes: [QuoteCurrency] = [.usd]) -> Request<[Exchange]> {
+        return Request<[Exchange]>(baseUrl: apiBaseUrl, method: .get, path: "exchanges", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Exchange details
     ///
     /// - Parameters:
     ///   - id: exchange identifier, like binance
+    ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
-    public static func exchange(id: String) -> Request<Exchange> {
-        return Request<Exchange>(baseUrl: apiBaseUrl, method: .get, path: "exchanges/\(id)", params: nil)
+    public static func exchange(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Exchange> {
+        return Request<Exchange>(baseUrl: apiBaseUrl, method: .get, path: "exchanges/\(id)", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Exchange markets
@@ -118,4 +126,53 @@ public struct CoinpaprikaAPI {
     public static func exchangeMarkets(id: String) -> Request<[Market]> {
         return Request<[Market]>(baseUrl: apiBaseUrl, method: .get, path: "exchanges/\(id)/markets", params: nil)
     }
+    
+    private static func validateTickerHistoryQuote(_ quote: QuoteCurrency) {
+        let acceptedQuotes: [QuoteCurrency] = [.usd, .btc]
+        assert(acceptedQuotes.contains(quote), "This endpoint accepts only \(acceptedQuotes).")
+    }
+    
+    private static func validateTickerHistoryLimit(_ limit: Int) {
+        let min = 1
+        let max = 5000
+        assert(min >= 0 && max <= 5000, "Limit should be between \(min) and \(max).")
+    }
+    
+    public enum TickerHistoryInterval: String, CaseIterable {
+        case minutes5 = "5m"
+        case minutes10 = "10m"
+        case minutes15 = "15m"
+        case minutes30 = "30m"
+        case minutes45 = "45m"
+        case hours1 = "1h"
+        case hours2 = "2h"
+        case hours3 = "3h"
+        case hours6 = "6h"
+        case hours12 = "12h"
+        case hours24 = "24h"
+        case days1 = "1d"
+        case days7 = "7d"
+        case days14 = "14d"
+        case days30 = "30d"
+        case days90 = "90d"
+        case days365 = "365d"
+    }
+    
+    
+    /// Get historical ticker information for specific coin
+    ///
+    /// - Parameters:
+    ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    ///   - start: Start date, required
+    ///   - end: End date, default .now
+    ///   - limit: Returns limit, default 1000, max 5000
+    ///   - quote: requested quote, default .usd
+    ///   - interval: data interval, default 5 minutes .minutes5
+    /// - Returns: Request to perform
+    public static func tickerHistory(id: String, start: Date, end: Date = Date(), limit: Int = 1000, quote: QuoteCurrency = .usd, interval: TickerHistoryInterval = .minutes5) -> Request<[TickerHistory]> {
+        validateTickerHistoryQuote(quote)
+        validateTickerHistoryLimit(limit)
+        return Request<[TickerHistory]>(baseUrl: apiBaseUrl, method: .get, path: "tickers/historical/\(id)", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
+    }
+
 }

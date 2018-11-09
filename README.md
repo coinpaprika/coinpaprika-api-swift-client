@@ -76,7 +76,7 @@ CoinpaprikaAPI.ticker(id: "bitcoin-btc", quotes: [.usd, .btc]).perform { (respon
     // ticker.totalSupply - Total Supply
     // ticker.maxSupply - Maximum Supply
     // ticker.betaValue - Beta
-    // ticker.lastUpdated -Last updated date
+    // ticker.lastUpdated - Last updated date
     //
     // Each Ticker could contain several Ticker.Quote (according to provided quotes parameter). To access to quote for given currency, use subscripting like:
     // - ticker[.usd] - Ticker.Quote in USD

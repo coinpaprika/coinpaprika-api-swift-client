@@ -14,7 +14,7 @@
     <a title="CoinpaprikaAPI Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (18% documented)</p>
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (32% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -71,6 +71,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinpaprikaAPI/TagsAdditionalFields.html">– TagsAdditionalFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TickerHistoryInterval.html">– TickerHistoryInterval</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Exchange.html">Exchange</a>
@@ -131,6 +134,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Ticker/Quote.html">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:14CoinpaprikaAPI13TickerHistoryV">TickerHistory</a>
               </li>
             </ul>
           </li>
@@ -250,7 +256,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>list of requested quotes, default [.usd]</p>
+                                  <p>list of requested quotes, default [.usd], accepted values .usd, .btc, .eth</p>
                                 </div>
                               </td>
                             </tr>
@@ -343,7 +349,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SearchCategory</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CaseIterable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SearchCategory</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CaseIterable</span><span class="p">,</span> <span class="kt">QueryRepresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -571,9 +577,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPIAAV9exchangesAA7RequestVySayAA8ExchangeVGGyFZ"></a>
-                    <a name="//apple_ref/swift/Method/exchanges()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPIAAV9exchangesAA7RequestVySayAA8ExchangeVGGyFZ">exchanges()</a>
+                    <a name="/s:14CoinpaprikaAPIAAV9exchanges6quotesAA7RequestVySayAA8ExchangeVGGSayAA13QuoteCurrencyOG_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/exchanges(quotes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV9exchanges6quotesAA7RequestVySayAA8ExchangeVGGSayAA13QuoteCurrencyOG_tFZ">exchanges(quotes:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -588,7 +594,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">exchanges</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Exchange.html">Exchange</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">exchanges</span><span class="p">(</span><span class="nv">quotes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/QuoteCurrency.html">QuoteCurrency</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">usd</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Exchange.html">Exchange</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -602,9 +608,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPIAAV8exchange2idAA7RequestVyAA8ExchangeVGSS_tFZ"></a>
-                    <a name="//apple_ref/swift/Method/exchange(id:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPIAAV8exchange2idAA7RequestVyAA8ExchangeVGSS_tFZ">exchange(id:)</a>
+                    <a name="/s:14CoinpaprikaAPIAAV8exchange2id6quotesAA7RequestVyAA8ExchangeVGSS_SayAA13QuoteCurrencyOGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/exchange(id:quotes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV8exchange2id6quotesAA7RequestVyAA8ExchangeVGSS_SayAA13QuoteCurrencyOGtFZ">exchange(id:quotes:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -619,7 +625,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">exchange</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Exchange.html">Exchange</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">exchange</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">quotes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/QuoteCurrency.html">QuoteCurrency</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">usd</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Exchange.html">Exchange</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -636,6 +642,18 @@
                               <td>
                                 <div>
                                   <p>exchange identifier, like binance</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>quotes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>list of requested quotes, default [.usd]</p>
                                 </div>
                               </td>
                             </tr>
@@ -686,6 +704,144 @@
                               <td>
                                 <div>
                                   <p>exchange identifier, like binance</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Request to perform</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO"></a>
+                    <a name="//apple_ref/swift/Enum/TickerHistoryInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO">TickerHistoryInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/CoinpaprikaAPI/TickerHistoryInterval.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TickerHistoryInterval</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CaseIterable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV13tickerHistory2id5start3end5limit5quote8intervalAA7RequestVySayAA06TickerD0VGGSS_10Foundation4DateVARSiAA13QuoteCurrencyOAB0lD8IntervalOtFZ"></a>
+                    <a name="//apple_ref/swift/Method/tickerHistory(id:start:end:limit:quote:interval:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV13tickerHistory2id5start3end5limit5quote8intervalAA7RequestVySayAA06TickerD0VGGSS_10Foundation4DateVARSiAA13QuoteCurrencyOAB0lD8IntervalOtFZ">tickerHistory(id:start:end:limit:quote:interval:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get historical ticker information for specific coin</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">tickerHistory</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">start</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">end</span><span class="p">:</span> <span class="kt">Date</span> <span class="o">=</span> <span class="kt">Date</span><span class="p">(),</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="nv">quote</span><span class="p">:</span> <span class="kt"><a href="../Enums/QuoteCurrency.html">QuoteCurrency</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">usd</span><span class="p">,</span> <span class="nv">interval</span><span class="p">:</span> <span class="kt"><a href="../Structs/CoinpaprikaAPI/TickerHistoryInterval.html">TickerHistoryInterval</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">minutes5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs.html#/s:14CoinpaprikaAPI13TickerHistoryV">TickerHistory</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>ID of coin to return e.g. btc-bitcoin, eth-ethereum</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>start</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Start date, required</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>end</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>End date, default .now</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Returns limit, default 1000, max 5000</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>quote</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>requested quote, default .usd</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>interval</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data interval, default 5 minutes .minutes5</p>
                                 </div>
                               </td>
                             </tr>

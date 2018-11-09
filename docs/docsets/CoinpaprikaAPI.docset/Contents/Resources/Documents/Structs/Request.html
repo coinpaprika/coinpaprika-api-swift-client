@@ -14,7 +14,7 @@
     <a title="Request Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (18% documented)</p>
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (32% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -71,6 +71,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinpaprikaAPI/TagsAdditionalFields.html">– TagsAdditionalFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TickerHistoryInterval.html">– TickerHistoryInterval</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Exchange.html">Exchange</a>
@@ -132,6 +135,9 @@
               <li class="nav-group-task">
                 <a href="../Structs/Ticker/Quote.html">– Quote</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:14CoinpaprikaAPI13TickerHistoryV">TickerHistory</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -146,7 +152,8 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Request representation returned by CoinpaprikaAPI methods.
+To perform request use .perform() method. It will call callback with error reason or</p>
 
           </section>
           <section class="section task-group-section">
@@ -220,7 +227,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Request initializer that may be used if you want to extend client API with another methods</p>
 
                       </div>
                       <div class="declaration">
@@ -230,6 +237,61 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">baseUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Structs/Request/Method.html">Method</a></span><span class="p">,</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="kt"><a href="../Structs/Request.html#/s:14CoinpaprikaAPI7RequestV6Paramsa">Params</a></span><span class="p">?)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>baseUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Base URL containing base path for API, like <a href="https://api.coinpaprika.com/v1/">https://api.coinpaprika.com/v1/</a></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>method</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>HTTP Method</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>endpoint path like tickers/btc-bitcoin</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>params</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>array of parameters appended in URL Query</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -270,7 +332,19 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The queue on which the completion handler is dispatched.</p>
+                                  <p>The queue on which the completion handler is dispatched</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cachePolicy</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>cache policy that should be used in this request</p>
                                 </div>
                               </td>
                             </tr>

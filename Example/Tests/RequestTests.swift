@@ -16,7 +16,7 @@ class RequestTests: XCTestCase {
     func testGlobalStatsRequest() {
         let expectation = self.expectation(description: "Waiting for global stats")
         
-        CoinpaprikaAPI.global.perform { (response) in
+        CoinpaprikaAPI.global().perform { (response) in
             let stats = response.value
             XCTAssertNotNil(stats, "Stats object should exist")
             
@@ -33,7 +33,7 @@ class RequestTests: XCTestCase {
     func testCoinsRequest() {
         let expectation = self.expectation(description: "Waiting for coins")
         
-        CoinpaprikaAPI.coins.perform { (response) in
+        CoinpaprikaAPI.coins().perform { (response) in
             let coins = response.value
             XCTAssertNotNil(coins, "Coins list should exist")
             
@@ -175,11 +175,11 @@ class RequestTests: XCTestCase {
     func testExchangeRequest() {
         let expectation = self.expectation(description: "Waiting for exchange")
         
-        CoinpaprikaAPI.exchange(id: "binance").perform { (response) in
+        CoinpaprikaAPI.exchange(id: "binance", quotes: [.pln]).perform { (response) in
             let exchange = response.value
             XCTAssertNotNil(exchange, "Exchange should exist")
             
-            XCTAssert((exchange?[.usd].adjustedVolume24h ?? 0) > Int64(0), "Adjusted volume should be greater than 0")
+            XCTAssert((exchange?[.pln].adjustedVolume24h ?? 0) > Int64(0), "Adjusted volume should be greater than 0")
             
             expectation.fulfill()
         }
@@ -194,6 +194,21 @@ class RequestTests: XCTestCase {
             let markets = response.value
             XCTAssertFalse(markets?.isEmpty ?? true, "Markets should exist")
             
+            XCTAssert((markets?.first?[.usd].price ?? 0) > 0, "Price should be greater than 0")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testTickerHistoryRequest() {
+        let expectation = self.expectation(description: "Waiting for ticker history")
+        let limit = 5
+        CoinpaprikaAPI.tickerHistory(id: bitcoinId, start: Date(timeIntervalSinceNow: -60*60*24), limit: limit, quote: .usd, interval: .minutes30).perform { (response) in
+            let history = response.value
+            XCTAssert(history?.count == limit, "Tickers lists count should be equal \(limit)")
+            XCTAssert((history?.first?.price ?? 0) > 0, "Price should be greater than 0")
             expectation.fulfill()
         }
         

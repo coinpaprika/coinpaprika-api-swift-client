@@ -14,7 +14,7 @@
     <a title="Exchange Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (32% documented)</p>
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (92% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -152,7 +152,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Exchange</p>
 
           </section>
           <section class="section task-group-section">
@@ -171,7 +171,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Coin id, eg. binance</p>
 
                       </div>
                       <div class="declaration">
@@ -198,7 +198,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Coin name, eg. Binance</p>
 
                       </div>
                       <div class="declaration">
@@ -225,7 +225,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Is this exchange active</p>
 
                       </div>
                       <div class="declaration">
@@ -252,7 +252,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Reason why it&rsquo;s not active</p>
 
                       </div>
                       <div class="declaration">
@@ -279,7 +279,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Exchange links</p>
 
                       </div>
                       <div class="declaration">
@@ -306,7 +306,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Is market data fetched</p>
 
                       </div>
                       <div class="declaration">
@@ -333,7 +333,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Position in ranking based on adjusted volume</p>
 
                       </div>
                       <div class="declaration">
@@ -360,7 +360,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Position in ranking based on reported volume</p>
 
                       </div>
                       <div class="declaration">
@@ -387,7 +387,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Supported currencies</p>
 
                       </div>
                       <div class="declaration">
@@ -414,7 +414,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Supported markets</p>
 
                       </div>
                       <div class="declaration">
@@ -441,7 +441,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>List of supported fiat currencies</p>
 
                       </div>
                       <div class="declaration">
@@ -468,7 +468,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Last update time</p>
 
                       </div>
                       <div class="declaration">
@@ -495,7 +495,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Use this method to access exchange data in provided quote currency</p>
+
+<ul>
+<li><p>For accessing reported volume in USD use <code>exchange[.usd].reportedVolume24h</code></p></li>
+<li><p>For accessing adjusted volume in BTC use <code>exchange[.btc].adjustedVolume24h</code></p></li>
+<li><p>This method returns implicitly unwrapped optional <code>Quote!</code> - be sure to download Exchange(s) with requested <code><a href="../Enums/QuoteCurrency.html">QuoteCurrency</a></code> before use</p></li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -505,6 +511,25 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">currency</span><span class="p">:</span> <span class="kt"><a href="../Enums/QuoteCurrency.html">QuoteCurrency</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Exchange/Quote.html">Quote</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>QuoteCurrency, eg. .usd or .btc</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -522,7 +547,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Exchange.Quote data</p>
 
                         <a href="../Structs/Exchange/Quote.html" class="slightly-smaller">See more</a>
                       </div>
@@ -550,7 +575,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Exchange.Links</p>
 
                         <a href="../Structs/Exchange/Links.html" class="slightly-smaller">See more</a>
                       </div>
@@ -578,7 +603,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Exchange.Fiat</p>
 
                         <a href="../Structs/Exchange/Fiat.html" class="slightly-smaller">See more</a>
                       </div>

@@ -20,7 +20,7 @@ CoinpaprikaAPI.global().perform { (response) in
   switch response {
     case .success(let stats):
     // Successfully downloaded GlobalStats
-    // stats.marketCapUsd - Market Capitalization in USD
+    // stats.marketCapUsd - Market capitalization in USD
     // stats.volume24hUsd - Volume from last 24h in USD
     // stats.bitcoinDominancePercentage - Percentage share of Bitcoin MarketCap in Total MarketCap
     // stats.cryptocurrenciesNumber - Number of cryptocurrencies available on Coinpaprika
@@ -92,8 +92,8 @@ CoinpaprikaAPI.ticker(id: "bitcoin-btc", quotes: [.usd, .btc]).perform { (respon
     // - ticker[currency].price - Price
     // - ticker[currency].volume24h - Volume from last 24h
     // - ticker[currency].volume24hChange24h - Volume change in last 24h
-    // - ticker[currency].marketCap - Market Capitalization
-    // - ticker[currency].marketCapChange24h - Market Capitalization in last 24h
+    // - ticker[currency].marketCap - Market capitalization
+    // - ticker[currency].marketCapChange24h - Market capitalization in last 24h
     // - ticker[currency].percentChange1h - Percentage price change in last 1 hour
     // - ticker[currency].percentChange12h - Percentage price change in last 12 hour
     // - ticker[currency].percentChange24h - Percentage price change in last 24 hour

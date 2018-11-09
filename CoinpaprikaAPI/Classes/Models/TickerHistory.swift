@@ -13,12 +13,12 @@ public struct TickerHistory: Codable, Equatable, CodableModel {
     /// Data save time
     let timestamp: Date
     
-    /// Coin Price at `timestamp` date
+    /// Coin price at `timestamp` date
     let price: Decimal
     
-    /// Coin Volume 24 before `timestamp` date
+    /// Coin volume 24 before `timestamp` date
     let volume24h: Decimal
     
-    /// Coin Market Capitalization at `timestamp` date
+    /// Coin market capitalization at `timestamp` date
     let marketCap: Decimal
 }

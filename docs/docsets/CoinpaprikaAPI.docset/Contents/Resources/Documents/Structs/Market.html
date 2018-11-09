@@ -14,7 +14,7 @@
     <a title="Market Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (32% documented)</p>
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (92% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -152,7 +152,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Exchange Market</p>
 
           </section>
           <section class="section task-group-section">
@@ -171,7 +171,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Exchange pair, eg. ETH/BTC</p>
 
                       </div>
                       <div class="declaration">
@@ -198,7 +198,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Base currency ID, eg. eth-ethereum</p>
 
                       </div>
                       <div class="declaration">
@@ -225,7 +225,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Base currency name, eg. Ethereum</p>
 
                       </div>
                       <div class="declaration">
@@ -252,7 +252,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Quote currency ID, eg. btc-bitcoin</p>
 
                       </div>
                       <div class="declaration">
@@ -279,7 +279,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Quote currency name, eg. Bitcoin</p>
 
                       </div>
                       <div class="declaration">
@@ -306,7 +306,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Market URL on <code><a href="../Structs/Exchange.html">Exchange</a></code> website</p>
 
                       </div>
                       <div class="declaration">
@@ -333,7 +333,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Market category, eg. Spot</p>
 
                       </div>
                       <div class="declaration">
@@ -360,7 +360,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Market fee type, eg. Percentage</p>
 
                       </div>
                       <div class="declaration">
@@ -387,7 +387,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Outliner</p>
 
                       </div>
                       <div class="declaration">
@@ -414,7 +414,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Percent of volume</p>
 
                       </div>
                       <div class="declaration">
@@ -441,7 +441,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Last update time</p>
 
                       </div>
                       <div class="declaration">
@@ -468,7 +468,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Use this method to access market data in provided quote currency</p>
+
+<ul>
+<li><p>For accessing coin price in USD use <code>market[.usd].price</code></p></li>
+<li><p>For accessing coin volume24h in BTC use <code>market[.btc].volume24h</code></p></li>
+<li><p>This method returns implicitly unwrapped optional <code>Quote!</code> - be sure to download Market(s) with requested <code><a href="../Enums/QuoteCurrency.html">QuoteCurrency</a></code> before use</p></li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -478,6 +484,25 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">currency</span><span class="p">:</span> <span class="kt"><a href="../Enums/QuoteCurrency.html">QuoteCurrency</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Market.html#/s:14CoinpaprikaAPI6MarketV5QuoteV">Quote</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>QuoteCurrency, eg. .usd or .btc</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -495,7 +520,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Market.Quote</p>
 
                       </div>
                       <div class="declaration">
@@ -522,7 +547,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Market category</p>
 
                         <a href="../Structs/Market/Category.html" class="slightly-smaller">See more</a>
                       </div>
@@ -550,7 +575,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Market fees type</p>
 
                         <a href="../Structs/Market/FeeType.html" class="slightly-smaller">See more</a>
                       </div>

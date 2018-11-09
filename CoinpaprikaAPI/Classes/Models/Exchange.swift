@@ -7,43 +7,95 @@
 
 import Foundation
 
+/// Exchange
 public struct Exchange: Codable, Equatable, CodableModel {
+    /// Coin id, eg. binance
     public let id: String
+    
+    /// Coin name, eg. Binance
     public let name: String
+    
+    /// Is this exchange active
     public let active: Bool
+    
+    /// Reason why it's not active
     public let message: String?
+    
+    /// Exchange links
     public let links: Links?
+    
+    /// Is market data fetched
     public let marketsDataFetched: Bool
+    
+    /// Position in ranking based on adjusted volume
     public let adjustedRank: Int?
+    
+    /// Position in ranking based on reported volume
     public let reportedRank: Int?
+    
+    /// Supported currencies
     public let currencies: Int
+    
+    /// Supported markets
     public let markets: Int
+    
+    /// List of supported fiat currencies
     public let fiats: [Fiat]?
+    
+    /// Last update time
     public let lastUpdated: Date
     
     private let quotes: [String: Quote]
     
+    /// Use this method to access exchange data in provided quote currency
+    ///
+    /// - Parameter currency: QuoteCurrency, eg. .usd or .btc
+    ///
+    /// - For accessing reported volume in USD use `exchange[.usd].reportedVolume24h`
+    /// - For accessing adjusted volume in BTC use `exchange[.btc].adjustedVolume24h`
+    /// - This method returns implicitly unwrapped optional `Quote!` - be sure to download Exchange(s) with requested `QuoteCurrency` before use
     public subscript(_ currency: QuoteCurrency) -> Quote! {
         assert(quotes[currency.code] != nil, "Invalid quote value \(currency). Check if you included \(currency) in request params.")
         return quotes[currency.code]
     }
     
+    /// Exchange.Quote data
     public struct Quote: Codable, Equatable {
+        /// Exchange reported volume from last 24h
         public let reportedVolume24h: Int64
+        
+        /// Exchange adjusted volume from last 24h
         public let adjustedVolume24h: Int64
     }
     
+    /// Exchange.Links
     public struct Links: Codable, Equatable {
+        /// Collection of Twitter profiles URLs
         public let twitter: [URL]?
+        
+        /// Collection of websites URLs
         public let website: [URL]?
+        
+        /// Collection of blogs URLs
         public let blog: [URL]?
+        
+        /// Collection of chat URLs
         public let chat: [URL]?
+        
+        /// Collection of fees information URLs
         public let fees: [URL]?
+        
+        /// Collection of Telegram URLs
         public let telegram: [URL]?
     }
     
+    /// Exchange.Fiat
     public struct Fiat: Codable, Equatable {
+        
+        /// Fiat name, eg. US Dollars
         public let name: String
+        
+        /// Fiat symbol, eg. USD
         public let symbol: String
     }
 }

@@ -78,10 +78,10 @@ public struct Ticker: Codable, Equatable, CodableModel {
         /// Volume change in last 24h
         public let volume24hChange24h: Decimal
         
-        /// Market Capitalization
+        /// Market capitalization
         public let marketCap: Int64
         
-        /// Market Capitalization in last 24h
+        /// Market capitalization change in last 24h
         public let marketCapChange24h: Decimal
         
         /// Percentage price change in last 1 hour

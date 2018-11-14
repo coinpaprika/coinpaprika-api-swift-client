@@ -32,7 +32,7 @@ public struct CoinMarket: Codable, Equatable, CodableModel {
     public let quoteCurrencyName: String
     
     /// Market URL on `Exchange` website
-    public let marketUrl: URL
+    public let marketUrl: URL?
     
     /// Market category, eg. Spot
     public let category: Market.Category
@@ -44,7 +44,7 @@ public struct CoinMarket: Codable, Equatable, CodableModel {
     public let outlier: Bool
     
     /// Percent of volume
-    public let adjustedVolumeShare: Decimal
+    public let adjustedVolume24hShare: Decimal
     
     /// Last update time
     public let lastUpdated: Date

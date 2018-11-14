@@ -26,7 +26,7 @@ public struct Market: Codable, Equatable, CodableModel {
     public let quoteCurrencyName: String
     
     /// Market URL on `Exchange` website
-    public let marketUrl: URL
+    public let marketUrl: URL?
     
     /// Market category, eg. Spot
     public let category: Category

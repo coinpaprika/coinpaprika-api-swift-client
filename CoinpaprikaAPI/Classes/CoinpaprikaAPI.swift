@@ -45,7 +45,7 @@ public struct CoinpaprikaAPI {
     
     /// Get a list of markets where coin is available
     ///
-    /// - Parameter
+    /// - Parameters:
     ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
@@ -157,6 +157,14 @@ public struct CoinpaprikaAPI {
         return Request<[Market]>(baseUrl: baseUrl, method: .get, path: "exchanges/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
     }
     
+    /// Person details
+    ///
+    /// - Parameter id: person id eg. satoshi-nakamoto
+    /// - Returns: Request to perform
+    public static func person(id: String) -> Request<Person> {
+        return Request<Person>(baseUrl: baseUrl, method: .get, path: "people/\(id)", params: nil)
+    }
+    
     private static func validateTickerHistoryQuote(_ quote: QuoteCurrency) {
         let acceptedQuotes: [QuoteCurrency] = [.usd, .btc]
         assert(acceptedQuotes.contains(quote), "This endpoint accepts only \(acceptedQuotes).")
@@ -238,5 +246,4 @@ public struct CoinpaprikaAPI {
         validateTickerHistoryLimit(limit)
         return Request<[TickerHistory]>(baseUrl: baseUrl, method: .get, path: "tickers/historical/\(id)", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
     }
-
 }

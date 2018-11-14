@@ -12,6 +12,8 @@ import XCTest
 class RequestTests: XCTestCase {
     
     let bitcoinId = "btc-bitcoin"
+    let satoshiId = "satoshi-nakamoto"
+    let binanceId = "binance"
     
     func testGlobalStatsRequest() {
         let expectation = self.expectation(description: "Waiting for global stats")
@@ -175,7 +177,7 @@ class RequestTests: XCTestCase {
     func testExchangeRequest() {
         let expectation = self.expectation(description: "Waiting for exchange")
         
-        CoinpaprikaAPI.exchange(id: "binance", quotes: [.pln]).perform { (response) in
+        CoinpaprikaAPI.exchange(id: binanceId, quotes: [.pln]).perform { (response) in
             let exchange = response.value
             XCTAssertNotNil(exchange, "Exchange should exist")
             
@@ -190,7 +192,7 @@ class RequestTests: XCTestCase {
     func testMarketRequest() {
         let expectation = self.expectation(description: "Waiting for exchange market")
         
-        CoinpaprikaAPI.exchangeMarkets(id: "binance").perform { (response) in
+        CoinpaprikaAPI.exchangeMarkets(id: binanceId).perform { (response) in
             let markets = response.value
             XCTAssertFalse(markets?.isEmpty ?? true, "Markets should exist")
             
@@ -250,8 +252,6 @@ class RequestTests: XCTestCase {
             
             XCTAssertNotNil(exchange, "Exchange should exist")
             
-            XCTAssert((exchange?[.pln].adjustedVolume24h ?? 0) > Int64(0), "Adjusted volume should be greater than 0")
-            
             expectation.fulfill()
         }
         
@@ -266,6 +266,20 @@ class RequestTests: XCTestCase {
             XCTAssertFalse(markets?.isEmpty ?? true, "Markets should exist")
             
             XCTAssert((markets?.first?[.usd].price ?? 0) > 0, "Price should be greater than 0")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testPersonRequest() {
+        let expectation = self.expectation(description: "Waiting for person details")
+        
+        CoinpaprikaAPI.person(id: satoshiId).perform { (response) in
+            let person = response.value
+            XCTAssertNotNil(person, "Person should exist")
+    
             
             expectation.fulfill()
         }

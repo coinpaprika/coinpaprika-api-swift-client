@@ -78,7 +78,7 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
     
     let team: [Person]?
     
-    /// Search.Person model
+    /// Coin.Person model
     public struct Person: Codable, Equatable {
         
         /// Person id, eg. satoshi-nakamoto
@@ -109,6 +109,8 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
         let website: [URL]?
         let medium: [URL]?
         let youtube: [URL]?
+        let vimeo: [URL]?
+        let videoFile: [URL]?
     }
     
     let links: Links

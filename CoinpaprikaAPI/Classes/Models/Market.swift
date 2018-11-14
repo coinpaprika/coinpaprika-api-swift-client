@@ -76,6 +76,8 @@ public struct Market: Codable, Equatable, CodableModel {
         
         /// OTC
         case otc = "OTC"
+        
+        case empty = ""
     }
     
     /// Market fees type
@@ -91,5 +93,7 @@ public struct Market: Codable, Equatable, CodableModel {
         
         /// Unknown
         case unknown = "Unknown"
+        
+        case empty = ""
     }
 }

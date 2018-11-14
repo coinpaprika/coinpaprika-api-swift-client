@@ -279,7 +279,20 @@ class RequestTests: XCTestCase {
         CoinpaprikaAPI.person(id: satoshiId).perform { (response) in
             let person = response.value
             XCTAssertNotNil(person, "Person should exist")
+            
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
     
+    func testEventsRequest() {
+        let expectation = self.expectation(description: "Waiting for event details")
+        
+        CoinpaprikaAPI.coinEvents(id: bitcoinId).perform { (response) in
+            let events = response.value
+            XCTAssertNotNil(events?.first, "Event should exist")
             
             expectation.fulfill()
         }

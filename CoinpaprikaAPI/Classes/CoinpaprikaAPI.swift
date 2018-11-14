@@ -53,6 +53,15 @@ public struct CoinpaprikaAPI {
         return Request<[CoinMarket]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
     }
     
+    /// Get a list of events related to this coin
+    ///
+    /// - Parameters:
+    ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    /// - Returns: Request to perform
+    public static func coinEvents(id: String) -> Request<[Event]> {
+        return Request<[Event]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/events", params: nil)
+    }
+    
     private static func validateTickerQuotes(_ quotes: [QuoteCurrency]) {
         let acceptedQuotes: [QuoteCurrency] = [.usd, .btc, .eth]
         assert(quotes.filter({ !acceptedQuotes.contains($0) }).isEmpty, "This endpoint accepts only \(acceptedQuotes).")

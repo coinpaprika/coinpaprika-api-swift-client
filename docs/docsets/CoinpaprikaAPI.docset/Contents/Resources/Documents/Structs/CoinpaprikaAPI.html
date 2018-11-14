@@ -14,7 +14,7 @@
     <a title="CoinpaprikaAPI Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (92% documented)</p>
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (82% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -55,6 +55,9 @@
               <li class="nav-group-task">
                 <a href="../Protocols/CodableModel.html">CodableModel</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CoinType.html">CoinType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -62,6 +65,27 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/Coin.html">Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExchange.html">CoinExchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended.html">CoinExtended</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Tag.html">– Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Person.html">– Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended.html#/s:14CoinpaprikaAPI12CoinExtendedV10WhitepaperV">– Whitepaper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinMarket.html">CoinMarket</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinpaprikaAPI.html">CoinpaprikaAPI</a>
@@ -103,10 +127,25 @@
                 <a href="../Structs/Market/FeeType.html">– FeeType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Person.html">Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person.html#/s:14CoinpaprikaAPI6PersonV8PositionV">– Position</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person/Link.html">– Link</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Request.html">Request</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Request/Method.html">– Method</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request/BodyEncoding.html">– BodyEncoding</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SearchResults.html">SearchResults</a>
@@ -212,6 +251,168 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">coins</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Coin.html">Coin</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Request to perform</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV4coin2idAA7RequestVyAA12CoinExtendedVGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/coin(id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV4coin2idAA7RequestVyAA12CoinExtendedVGSS_tFZ">coin(id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get coin details</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">coin</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CoinExtended.html">CoinExtended</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>ID of coin to return e.g. btc-bitcoin, eth-ethereum</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Request to perform</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV13coinExchanges2idAA7RequestVySayAA12CoinExchangeVGGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/coinExchanges(id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV13coinExchanges2idAA7RequestVySayAA12CoinExchangeVGGSS_tFZ">coinExchanges(id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a list of exchanges where coin is listed</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">coinExchanges</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/CoinExchange.html">CoinExchange</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>ID of coin to return e.g. btc-bitcoin, eth-ethereum</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Request to perform</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV11coinMarkets2id6quotesAA7RequestVySayAA10CoinMarketVGGSS_SayAA13QuoteCurrencyOGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/coinMarkets(id:quotes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV11coinMarkets2id6quotesAA7RequestVySayAA10CoinMarketVGGSS_SayAA13QuoteCurrencyOGtFZ">coinMarkets(id:quotes:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a list of markets where coin is available</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">coinMarkets</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">quotes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/QuoteCurrency.html">QuoteCurrency</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">usd</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/CoinMarket.html">CoinMarket</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>ID of coin to return e.g. btc-bitcoin, eth-ethereum</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>quotes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>list of requested quotes, default [.usd]</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
@@ -662,9 +863,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPIAAV15exchangeMarkets2idAA7RequestVySayAA6MarketVGGSS_tFZ"></a>
-                    <a name="//apple_ref/swift/Method/exchangeMarkets(id:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPIAAV15exchangeMarkets2idAA7RequestVySayAA6MarketVGGSS_tFZ">exchangeMarkets(id:)</a>
+                    <a name="/s:14CoinpaprikaAPIAAV15exchangeMarkets2id6quotesAA7RequestVySayAA6MarketVGGSS_SayAA13QuoteCurrencyOGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/exchangeMarkets(id:quotes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV15exchangeMarkets2id6quotesAA7RequestVySayAA6MarketVGGSS_SayAA13QuoteCurrencyOGtFZ">exchangeMarkets(id:quotes:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -679,7 +880,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">exchangeMarkets</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Market.html">Market</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">exchangeMarkets</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">quotes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/QuoteCurrency.html">QuoteCurrency</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">usd</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Market.html">Market</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -696,6 +897,68 @@
                               <td>
                                 <div>
                                   <p>exchange identifier, like binance</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>quotes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>list of requested quotes, default [.usd]</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Request to perform</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV6person2idAA7RequestVyAA6PersonVGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/person(id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV6person2idAA7RequestVyAA6PersonVGSS_tFZ">person(id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Person details</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">person</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Request.html">Request</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Person.html">Person</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>person id eg. satoshi-nakamoto</p>
                                 </div>
                               </td>
                             </tr>

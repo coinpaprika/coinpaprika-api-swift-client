@@ -14,7 +14,7 @@
     <a title="Market Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (92% documented)</p>
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (82% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -55,6 +55,9 @@
               <li class="nav-group-task">
                 <a href="../Protocols/CodableModel.html">CodableModel</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CoinType.html">CoinType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -62,6 +65,27 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/Coin.html">Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExchange.html">CoinExchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended.html">CoinExtended</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Tag.html">– Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Person.html">– Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended.html#/s:14CoinpaprikaAPI12CoinExtendedV10WhitepaperV">– Whitepaper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinMarket.html">CoinMarket</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinpaprikaAPI.html">CoinpaprikaAPI</a>
@@ -103,10 +127,25 @@
                 <a href="../Structs/Market/FeeType.html">– FeeType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Person.html">Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person.html#/s:14CoinpaprikaAPI6PersonV8PositionV">– Position</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person/Link.html">– Link</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Request.html">Request</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Request/Method.html">– Method</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request/BodyEncoding.html">– BodyEncoding</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SearchResults.html">SearchResults</a>
@@ -296,9 +335,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI6MarketV9marketUrl10Foundation3URLVvp"></a>
+                    <a name="/s:14CoinpaprikaAPI6MarketV9marketUrl10Foundation3URLVSgvp"></a>
                     <a name="//apple_ref/swift/Property/marketUrl" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI6MarketV9marketUrl10Foundation3URLVvp">marketUrl</a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI6MarketV9marketUrl10Foundation3URLVSgvp">marketUrl</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -313,7 +352,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">marketUrl</span><span class="p">:</span> <span class="kt">URL</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">marketUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -404,9 +443,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI6MarketV16volumePercentageSo9NSDecimalavp"></a>
-                    <a name="//apple_ref/swift/Property/volumePercentage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI6MarketV16volumePercentageSo9NSDecimalavp">volumePercentage</a>
+                    <a name="/s:14CoinpaprikaAPI6MarketV19reportedVolumeShareSo9NSDecimalavp"></a>
+                    <a name="//apple_ref/swift/Property/reportedVolumeShare" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI6MarketV19reportedVolumeShareSo9NSDecimalavp">reportedVolumeShare</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -421,7 +460,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">volumePercentage</span><span class="p">:</span> <span class="kt">Decimal</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">reportedVolumeShare</span><span class="p">:</span> <span class="kt">Decimal</span></code></pre>
 
                         </div>
                       </div>

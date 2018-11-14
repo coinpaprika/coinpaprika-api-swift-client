@@ -76,7 +76,7 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
         public let icoCounter: Int
     }
     
-    let team: [Person]?
+    public let team: [Person]?
     
     /// Coin.Person model
     public struct Person: Codable, Equatable {
@@ -91,35 +91,35 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
         public let position: String
     }
     
-    let description: String?
+    public let description: String?
     
-    let message: String?
+    public let message: String?
     
-    let openSource: Bool
+    public let openSource: Bool
     
-    let startedAt: Date?
+    public let startedAt: Date?
     
-    let developmentStatus: String?
+    public let developmentStatus: String?
     
     public struct Links: Codable, Equatable {
-        let explorer: [URL]?
-        let facebook: [URL]?
-        let reddit: [URL]?
-        let sourceCode: [URL]?
-        let website: [URL]?
-        let medium: [URL]?
-        let youtube: [URL]?
-        let vimeo: [URL]?
-        let videoFile: [URL]?
+        public let explorer: [URL]?
+        public let facebook: [URL]?
+        public let reddit: [URL]?
+        public let sourceCode: [URL]?
+        public let website: [URL]?
+        public let medium: [URL]?
+        public let youtube: [URL]?
+        public let vimeo: [URL]?
+        public let videoFile: [URL]?
     }
     
-    let links: Links
+    public let links: Links
     
     public struct Whitepaper: Codable, Equatable {
         let link: URL?
         let thumbnail: URL?
     }
     
-    let whitepaper: Whitepaper
+    public let whitepaper: Whitepaper
     
 }

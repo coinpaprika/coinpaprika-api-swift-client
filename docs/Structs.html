@@ -14,7 +14,7 @@
     <a title="Structures  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CoinpaprikaAPI Docs</a> (92% documented)</p>
+        <p><a href="index.html">CoinpaprikaAPI Docs</a> (82% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -55,6 +55,9 @@
               <li class="nav-group-task">
                 <a href="Protocols/CodableModel.html">CodableModel</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CoinType.html">CoinType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -62,6 +65,27 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Structs/Coin.html">Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CoinExchange.html">CoinExchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CoinExtended.html">CoinExtended</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CoinExtended/Tag.html">– Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CoinExtended/Person.html">– Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CoinExtended/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CoinExtended.html#/s:14CoinpaprikaAPI12CoinExtendedV10WhitepaperV">– Whitepaper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CoinMarket.html">CoinMarket</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/CoinpaprikaAPI.html">CoinpaprikaAPI</a>
@@ -103,10 +127,25 @@
                 <a href="Structs/Market/FeeType.html">– FeeType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/Person.html">Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Person.html#/s:14CoinpaprikaAPI6PersonV8PositionV">– Position</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Person/Link.html">– Link</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Person/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/Request.html">Request</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/Request/Method.html">– Method</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Request/BodyEncoding.html">– BodyEncoding</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/SearchResults.html">SearchResults</a>
@@ -205,7 +244,99 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Coin</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="Protocols/CodableModel.html">CodableModel</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Coin</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="Protocols/CodableModel.html">CodableModel</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/CoinType.html">CoinType</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI12CoinExtendedV"></a>
+                    <a name="//apple_ref/swift/Struct/CoinExtended" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI12CoinExtendedV">CoinExtended</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/CoinExtended.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CoinExtended</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="Protocols/CodableModel.html">CodableModel</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/CoinType.html">CoinType</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI12CoinExchangeV"></a>
+                    <a name="//apple_ref/swift/Struct/CoinExchange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI12CoinExchangeV">CoinExchange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Coin Exchange</p>
+
+                        <a href="Structs/CoinExchange.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CoinExchange</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="Protocols/CodableModel.html">CodableModel</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI10CoinMarketV"></a>
+                    <a name="//apple_ref/swift/Struct/CoinMarket" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI10CoinMarketV">CoinMarket</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Exchange Market</p>
+
+                        <a href="Structs/CoinMarket.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CoinMarket</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="Protocols/CodableModel.html">CodableModel</a></span></code></pre>
 
                         </div>
                       </div>
@@ -302,6 +433,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Market</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="Protocols/CodableModel.html">CodableModel</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI6PersonV"></a>
+                    <a name="//apple_ref/swift/Struct/Person" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI6PersonV">Person</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Person.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Person</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="Protocols/CodableModel.html">CodableModel</a></span></code></pre>
 
                         </div>
                       </div>

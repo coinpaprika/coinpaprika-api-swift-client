@@ -214,4 +214,63 @@ class RequestTests: XCTestCase {
         
         waitForExpectations(timeout: 30)
     }
+    
+    func testCoinDetailsRequest() {
+        let expectation = self.expectation(description: "Waiting for coin details")
+        
+        CoinpaprikaAPI.coin(id: bitcoinId).perform { (response) in
+            let bitcoin = response.value
+            
+            XCTAssertNotNil(bitcoin, "Ticker should exist")
+            XCTAssert(bitcoin?.id == self.bitcoinId, "BTC not found")
+            XCTAssert(bitcoin?.symbol == "BTC", "BTC not found")
+            
+            XCTAssertNotNil(bitcoin?.whitepaper.link, "Whitepaper URL should exist")
+            XCTAssertNotNil(bitcoin?.whitepaper.thumbnail, "Whitepaper Thumbnail should exist")
+            
+            XCTAssertNotNil(bitcoin?.team?.first, "Team should exist")
+            
+            XCTAssertNotNil(bitcoin?.description, "Description should exist")
+            
+            XCTAssertNotNil(bitcoin?.links.sourceCode?.first, "Source Code link should exist")
+            
+            XCTAssertNotNil(bitcoin?.links.explorer?.first, "Explorer link should exist")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testCoinExchangesRequest() {
+        let expectation = self.expectation(description: "Waiting for exchanges")
+        
+        CoinpaprikaAPI.coinExchanges(id: bitcoinId).perform { (response) in
+            let exchange = response.value?.first
+            
+            XCTAssertNotNil(exchange, "Exchange should exist")
+            
+            XCTAssert((exchange?[.pln].adjustedVolume24h ?? 0) > Int64(0), "Adjusted volume should be greater than 0")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testCoinMarketsRequest() {
+        let expectation = self.expectation(description: "Waiting for exchange markets")
+        
+        CoinpaprikaAPI.coinMarkets(id: bitcoinId).perform { (response) in
+            let markets = response.value
+            XCTAssertFalse(markets?.isEmpty ?? true, "Markets should exist")
+            
+            XCTAssert((markets?.first?[.usd].price ?? 0) > 0, "Price should be greater than 0")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
 }

@@ -99,4 +99,3 @@ public struct Exchange: Codable, Equatable, CodableModel {
         public let symbol: String
     }
 }
-

@@ -12,7 +12,7 @@ import Foundation
 /// To perform request use .perform() method. It will call callback with error reason or
 public struct Request<Model: Decodable & CodableModel> {
     
-    let baseUrl: URL
+    private let baseUrl: URL
     
     public enum Method: String {
         case get
@@ -21,13 +21,24 @@ public struct Request<Model: Decodable & CodableModel> {
         case delete
     }
 
-    let method: Method
+    private let method: Method
     
-    let path: String
+    private let path: String
     
     public typealias Params = [String: String]
     
-    let params: Params?
+    private let params: Params?
+
+    private let userAgent: String
+    
+    public enum BodyEncoding {
+        case json
+        case urlencode
+    }
+    
+    private let bodyEncoding: BodyEncoding
+    
+    private let authorisationToken: String?
     
     /// Request initializer that may be used if you want to extend client API with another methods
     ///
@@ -36,11 +47,14 @@ public struct Request<Model: Decodable & CodableModel> {
     ///   - method: HTTP Method
     ///   - path: endpoint path like tickers/btc-bitcoin
     ///   - params: array of parameters appended in URL Query
-    public init(baseUrl: URL, method: Method, path: String, params: Params?) {
+    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String = "Coinpaprika API Client - Swift", bodyEncoding: BodyEncoding = .json, authorisationToken: String? = nil) {
         self.baseUrl = baseUrl
         self.method = method
         self.path = path
         self.params = params
+        self.userAgent = userAgent
+        self.bodyEncoding = bodyEncoding
+        self.authorisationToken = authorisationToken
     }
     
     /// Perform API request
@@ -61,7 +75,14 @@ public struct Request<Model: Decodable & CodableModel> {
             request.cachePolicy = cachePolicy
         }
         
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        if bodyEncoding == .json {
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        if let authorisationToken = authorisationToken {
+            request.addValue("Bearer \(authorisationToken)", forHTTPHeaderField: "Authorisation")
+        }
+        
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
@@ -124,16 +145,17 @@ public struct Request<Model: Decodable & CodableModel> {
         return components.url!
     }
     
-    private var userAgent: String {
-        return "Coinpaprika API Client - Swift"
-    }
-    
     private func encodeBody() throws -> Data? {
         guard method != .get, let params = params else {
             return nil
         }
         
-        return try JSONSerialization.data(withJSONObject: params, options: [])
+        switch bodyEncoding {
+        case .json:
+            return try JSONSerialization.data(withJSONObject: params, options: [])
+        case .urlencode:
+            return params.map({ "\($0.key)=\($0.value.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? $0.value)" }).joined(separator: "&").data(using: .utf8)
+        }
     }
 
     private func findFailureReason(data: Data?, response: URLResponse?) -> ResponseError {

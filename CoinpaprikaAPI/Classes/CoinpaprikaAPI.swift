@@ -11,20 +11,46 @@ import Foundation
 /// Coinpaprika API endpoints
 public struct CoinpaprikaAPI {
     
-    private static let apiBaseUrl = URL(string: "https://api.coinpaprika.com/v1/")!
+    private static let baseUrl = URL(string: "https://api.coinpaprika.com/v1/")!
     
     /// Get global information
     ///
     /// - Returns: Request to perform
     public static func global() -> Request<GlobalStats> {
-        return Request<GlobalStats>(baseUrl: apiBaseUrl, method: .get, path: "global", params: nil)
+        return Request<GlobalStats>(baseUrl: baseUrl, method: .get, path: "global", params: nil)
     }
     
     /// Get all coins listed on coinpaprika
     ///
     /// - Returns: Request to perform
     public static func coins() -> Request<[Coin]> {
-        return Request<[Coin]>(baseUrl: apiBaseUrl, method: .get, path: "coins", params: nil)
+        return Request<[Coin]>(baseUrl: baseUrl, method: .get, path: "coins", params: nil)
+    }
+    
+    /// Get coin details
+    ///
+    /// - Parameter id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    /// - Returns: Request to perform
+    public static func coin(id: String) -> Request<CoinExtended> {
+        return Request<CoinExtended>(baseUrl: baseUrl, method: .get, path: "coins/\(id)", params: nil)
+    }
+    
+    /// Get a list of exchanges where coin is listed
+    ///
+    /// - Parameter id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    /// - Returns: Request to perform
+    public static func coinExchanges(id: String) -> Request<[CoinExchange]> {
+        return Request<[CoinExchange]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/exchanges", params: nil)
+    }
+    
+    /// Get a list of markets where coin is available
+    ///
+    /// - Parameter
+    ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    ///   - quotes: list of requested quotes, default [.usd]
+    /// - Returns: Request to perform
+    public static func coinMarkets(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<[CoinMarket]> {
+        return Request<[CoinMarket]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     private static func validateTickerQuotes(_ quotes: [QuoteCurrency]) {
@@ -38,7 +64,7 @@ public struct CoinpaprikaAPI {
     /// - Returns: Request to perform
     public static func tickers(quotes: [QuoteCurrency] = [.usd]) -> Request<[Ticker]> {
         validateTickerQuotes(quotes)
-        return Request<[Ticker]>(baseUrl: apiBaseUrl, method: .get, path: "tickers", params: ["quotes": quotes.asCommaJoinedList])
+        return Request<[Ticker]>(baseUrl: baseUrl, method: .get, path: "tickers", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Get ticker information for specific coin
@@ -47,7 +73,7 @@ public struct CoinpaprikaAPI {
     /// - Returns: Request to perform
     public static func ticker(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Ticker> {
         validateTickerQuotes(quotes)
-        return Request<Ticker>(baseUrl: apiBaseUrl, method: .get, path: "tickers/\(id)", params: ["quotes": quotes.asCommaJoinedList])
+        return Request<Ticker>(baseUrl: baseUrl, method: .get, path: "tickers/\(id)", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Search results scope
@@ -76,7 +102,7 @@ public struct CoinpaprikaAPI {
     ///   - limit: limit of results per category, default 6 (max 250)
     /// - Returns: Request to perform
     public static func search(query: String, categories: [SearchCategory] = SearchCategory.allCases, limit: UInt = 6) -> Request<SearchResults> {
-        return Request<SearchResults>(baseUrl: apiBaseUrl, method: .get, path: "search", params: ["q": query, "c": categories.asCommaJoinedList, "limit": "\(limit)"])
+        return Request<SearchResults>(baseUrl: baseUrl, method: .get, path: "search", params: ["q": query, "c": categories.asCommaJoinedList, "limit": "\(limit)"])
     }
     
     /// Additional fields available in Tag response
@@ -91,7 +117,7 @@ public struct CoinpaprikaAPI {
     /// - Parameter additionalFields: list of additional fields that should be included in response, default: empty - see TagsAdditionalFields for available options
     /// - Returns: Request to perform
     public static func tags(additionalFields: [TagsAdditionalFields] = []) -> Request<[Tag]> {
-        return Request<[Tag]>(baseUrl: apiBaseUrl, method: .get, path: "tags", params: ["additional_fields": additionalFields.asCommaJoinedList])
+        return Request<[Tag]>(baseUrl: baseUrl, method: .get, path: "tags", params: ["additional_fields": additionalFields.asCommaJoinedList])
     }
     
     /// Tag details
@@ -101,14 +127,14 @@ public struct CoinpaprikaAPI {
     ///   - additionalFields: list of additional fields that should be included in response, default: empty - see TagsAdditionalFields for available options
     /// - Returns: Request to perform
     public static func tag(id: String, additionalFields: [TagsAdditionalFields] = []) -> Request<Tag> {
-        return Request<Tag>(baseUrl: apiBaseUrl, method: .get, path: "tags/\(id)", params: ["additional_fields": additionalFields.asCommaJoinedList])
+        return Request<Tag>(baseUrl: baseUrl, method: .get, path: "tags/\(id)", params: ["additional_fields": additionalFields.asCommaJoinedList])
     }
     
     /// Exchanges list
     ///
     /// - Returns: Request to perform
     public static func exchanges(quotes: [QuoteCurrency] = [.usd]) -> Request<[Exchange]> {
-        return Request<[Exchange]>(baseUrl: apiBaseUrl, method: .get, path: "exchanges", params: ["quotes": quotes.asCommaJoinedList])
+        return Request<[Exchange]>(baseUrl: baseUrl, method: .get, path: "exchanges", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Exchange details
@@ -118,16 +144,17 @@ public struct CoinpaprikaAPI {
     ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func exchange(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Exchange> {
-        return Request<Exchange>(baseUrl: apiBaseUrl, method: .get, path: "exchanges/\(id)", params: ["quotes": quotes.asCommaJoinedList])
+        return Request<Exchange>(baseUrl: baseUrl, method: .get, path: "exchanges/\(id)", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Exchange markets
     ///
     /// - Parameters:
     ///   - id: exchange identifier, like binance
+    ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
-    public static func exchangeMarkets(id: String) -> Request<[Market]> {
-        return Request<[Market]>(baseUrl: apiBaseUrl, method: .get, path: "exchanges/\(id)/markets", params: nil)
+    public static func exchangeMarkets(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<[Market]> {
+        return Request<[Market]>(baseUrl: baseUrl, method: .get, path: "exchanges/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     private static func validateTickerHistoryQuote(_ quote: QuoteCurrency) {
@@ -209,7 +236,7 @@ public struct CoinpaprikaAPI {
     public static func tickerHistory(id: String, start: Date, end: Date = Date(), limit: Int = 1000, quote: QuoteCurrency = .usd, interval: TickerHistoryInterval = .minutes5) -> Request<[TickerHistory]> {
         validateTickerHistoryQuote(quote)
         validateTickerHistoryLimit(limit)
-        return Request<[TickerHistory]>(baseUrl: apiBaseUrl, method: .get, path: "tickers/historical/\(id)", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
+        return Request<[TickerHistory]>(baseUrl: baseUrl, method: .get, path: "tickers/historical/\(id)", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
     }
 
 }

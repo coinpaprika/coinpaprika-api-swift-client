@@ -116,8 +116,8 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
     public let links: Links
     
     public struct Whitepaper: Codable, Equatable {
-        let link: URL?
-        let thumbnail: URL?
+        public let link: URL?
+        public let thumbnail: URL?
     }
     
     public let whitepaper: Whitepaper

@@ -62,6 +62,15 @@ public struct CoinpaprikaAPI {
         return Request<[Event]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/events", params: nil)
     }
     
+    /// Get a list of tweets related to this coin
+    ///
+    /// - Parameters:
+    ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    /// - Returns: Request to perform
+    public static func coinTweets(id: String) -> Request<[Tweet]> {
+        return Request<[Tweet]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/twitter", params: nil)
+    }
+    
     private static func validateTickerQuotes(_ quotes: [QuoteCurrency]) {
         let acceptedQuotes: [QuoteCurrency] = [.usd, .btc, .eth]
         assert(quotes.filter({ !acceptedQuotes.contains($0) }).isEmpty, "This endpoint accepts only \(acceptedQuotes).")

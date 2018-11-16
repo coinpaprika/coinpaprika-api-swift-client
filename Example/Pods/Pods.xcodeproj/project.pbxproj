@@ -67,6 +67,9 @@
 		CD2BABFA64A4B9056E834B414E49CB3A /* QuoteCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC97AC7AF0A86DAB753D493E52145501 /* QuoteCurrency.swift */; };
 		D3B8D160C6507C0309553596DF71A954 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E13AC4FC22EAF3A582000BF3FDA3B2F /* Ticker.swift */; };
 		D6C1A8D2ED2D9B46CB75E446EFF9B89C /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B74A15ED5F983DD2D18DB8E9D344D /* Coin.swift */; };
+		D956A03F219EA5AE005118FD /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956A03E219EA5AE005118FD /* Tweet.swift */; };
+		D956A040219EA5AE005118FD /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956A03E219EA5AE005118FD /* Tweet.swift */; };
+		D956A041219EA5AE005118FD /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956A03E219EA5AE005118FD /* Tweet.swift */; };
 		D9EAF8B4219C1F820089F649 /* CoinExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EAF8B3219C1F820089F649 /* CoinExchange.swift */; };
 		D9EAF8B5219C1F820089F649 /* CoinExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EAF8B3219C1F820089F649 /* CoinExchange.swift */; };
 		D9EAF8B6219C1F820089F649 /* CoinExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EAF8B3219C1F820089F649 /* CoinExchange.swift */; };
@@ -291,6 +294,7 @@
 		D75DD0ED9CF2AF4E032E4E44ABA2E5B0 /* Request.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Request.html; path = docs/Structs/Request.html; sourceTree = "<group>"; };
 		D85EF841223A341C0E982D474C975848 /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = docSet.dsidx; path = docs/docsets/CoinpaprikaAPI.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
 		D8AE7FB46D972E7EE374AD88338282D8 /* Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D956A03E219EA5AE005118FD /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		D9EAF8B3219C1F820089F649 /* CoinExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinExchange.swift; sourceTree = "<group>"; };
 		D9EAF8B7219C1FB20089F649 /* CoinMarket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarket.swift; sourceTree = "<group>"; };
 		D9EAF8BB219C25AC0089F649 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -422,6 +426,7 @@
 				7E13AC4FC22EAF3A582000BF3FDA3B2F /* Ticker.swift */,
 				6523465C9685C8CF949EDE3F891B2C5D /* TickerHistory.swift */,
 				D9EAF8BB219C25AC0089F649 /* Person.swift */,
+				D956A03E219EA5AE005118FD /* Tweet.swift */,
 			);
 			name = Models;
 			path = CoinpaprikaAPI/Classes/Models;
@@ -1129,6 +1134,7 @@
 				DA6F141A4EF2DD6B9ED799ABFCA4AB4C /* Market.swift in Sources */,
 				95F77FF5719FA026E67EC29DFBD9C864 /* QueryRepresentable.swift in Sources */,
 				CD2BABFA64A4B9056E834B414E49CB3A /* QuoteCurrency.swift in Sources */,
+				D956A041219EA5AE005118FD /* Tweet.swift in Sources */,
 				D9EAF8B6219C1F820089F649 /* CoinExchange.swift in Sources */,
 				E502DCF563AEE5EF7477832FD280B0F9 /* Request.swift in Sources */,
 				D9EAF8BA219C1FB20089F649 /* CoinMarket.swift in Sources */,
@@ -1155,6 +1161,7 @@
 				6408B43F4309BEE01FF7F0BA0C9BDDD0 /* Market.swift in Sources */,
 				7AB25FB860E4C14A6EF9AFDE74AC2330 /* QueryRepresentable.swift in Sources */,
 				46AA7CA59E88C88EB46D5AC6A108FD6A /* QuoteCurrency.swift in Sources */,
+				D956A03F219EA5AE005118FD /* Tweet.swift in Sources */,
 				D9EAF8B4219C1F820089F649 /* CoinExchange.swift in Sources */,
 				7E5FCEF06DE5EC64FE536DA121923185 /* Request.swift in Sources */,
 				D9EAF8B8219C1FB20089F649 /* CoinMarket.swift in Sources */,
@@ -1213,6 +1220,7 @@
 				BC833241549A77F3FBFDBE11948E09B3 /* Market.swift in Sources */,
 				F43846D30E5C87205A8856B40DADFB9A /* QueryRepresentable.swift in Sources */,
 				23EA28A31D26F3C264ABDD9FA607ACAD /* QuoteCurrency.swift in Sources */,
+				D956A040219EA5AE005118FD /* Tweet.swift in Sources */,
 				D9EAF8B5219C1F820089F649 /* CoinExchange.swift in Sources */,
 				0387BB2D30E43ADF63D79276C18329E8 /* Request.swift in Sources */,
 				D9EAF8B9219C1FB20089F649 /* CoinMarket.swift in Sources */,

@@ -300,4 +300,17 @@ class RequestTests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
+    func testTweetsRequest() {
+        let expectation = self.expectation(description: "Waiting for a list of tweets")
+        
+        CoinpaprikaAPI.coinTweets(id: bitcoinId).perform { (response) in
+            let tweets = response.value
+            XCTAssertNotNil(tweets?.first, "Tweet should exist")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
 }

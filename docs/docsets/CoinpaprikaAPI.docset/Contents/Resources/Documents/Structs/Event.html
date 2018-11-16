@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CodableModel Protocol Reference</title>
+    <title>Event Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/CodableModel" class="dashAnchor"></a>
-    <a title="CodableModel Protocol Reference"></a>
+    <a name="//apple_ref/swift/Struct/Event" class="dashAnchor"></a>
+    <a title="Event Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CoinpaprikaAPI Docs</a> (80% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CoinpaprikaAPI Reference</a>
         <img id="carat" src="../img/carat.png" />
-        CodableModel Protocol Reference
+        Event Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -193,16 +193,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>CodableModel</h1>
+            <h1>Event</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">CodableModel</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Event</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="../Protocols/CodableModel.html">CodableModel</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Helper providing informations to sucessfully encode/decode each model.
-Each CoinapaprikaAPI Model conforms to this protocol.
-Use decoder/encoder properties if you want to store our models.</p>
+            <p>Event</p>
 
           </section>
           <section class="section task-group-section">
@@ -211,31 +209,24 @@ Use decoder/encoder properties if you want to store our models.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI12CodableModelP7decoder10Foundation11JSONDecoderCvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/decoder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI12CodableModelP7decoder10Foundation11JSONDecoderCvpZ">decoder</a>
+                    <a name="/s:14CoinpaprikaAPI5EventV4nameSSvp"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV4nameSSvp">name</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>JSONDecoder ready to decode the model.</p>
+                        <p>Event name, eg. Bitcoin Conference</p>
 
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">JSONDecoder</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -245,31 +236,24 @@ Use decoder/encoder properties if you want to store our models.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI12CodableModelP7encoder10Foundation11JSONEncoderCvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/encoder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI12CodableModelP7encoder10Foundation11JSONEncoderCvpZ">encoder</a>
+                    <a name="/s:14CoinpaprikaAPI5EventV4date10Foundation4DateVvp"></a>
+                    <a name="//apple_ref/swift/Property/date" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV4date10Foundation4DateVvp">date</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>JSONDecoder ready to encode the model.</p>
+                        <p>Event start date</p>
 
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">encoder</span><span class="p">:</span> <span class="kt">JSONEncoder</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
 
                         </div>
                       </div>
@@ -279,32 +263,24 @@ Use decoder/encoder properties if you want to store our models.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI12CodableModelP19keyDecodingStrategy10Foundation11JSONDecoderC03KeyfG0OSgvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/keyDecodingStrategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI12CodableModelP19keyDecodingStrategy10Foundation11JSONDecoderC03KeyfG0OSgvpZ">keyDecodingStrategy</a>
+                    <a name="/s:14CoinpaprikaAPI5EventV6dateTo10Foundation4DateVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/dateTo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV6dateTo10Foundation4DateVSgvp">dateTo</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>KeyDecodingStrategy for JSONDecoder, typically our custom snake_case to camelCase decoder.
-Use it only if you want to build your own decoder.</p>
+                        <p>Event end date</p>
 
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">keyDecodingStrategy</span><span class="p">:</span> <span class="kt">JSONDecoder</span><span class="o">.</span><span class="kt">KeyDecodingStrategy</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">dateTo</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -314,32 +290,24 @@ Use it only if you want to build your own decoder.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI12CodableModelP19keyEncodingStrategy10Foundation11JSONEncoderC03KeyfG0OSgvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/keyEncodingStrategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI12CodableModelP19keyEncodingStrategy10Foundation11JSONEncoderC03KeyfG0OSgvpZ">keyEncodingStrategy</a>
+                    <a name="/s:14CoinpaprikaAPI5EventV12isConferenceSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isConference" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV12isConferenceSbvp">isConference</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>KeyEncodingStrategy for JSONEncoder, typically it&rsquo;s nil - we are storing properties names as camelCase without transforming.
-Use it only if you want to build your own encoder.</p>
+                        <p>Is it conference</p>
 
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">keyEncodingStrategy</span><span class="p">:</span> <span class="kt">JSONEncoder</span><span class="o">.</span><span class="kt">KeyEncodingStrategy</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">isConference</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -349,32 +317,24 @@ Use it only if you want to build your own encoder.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI12CodableModelP20dateDecodingStrategy10Foundation11JSONDecoderC04DatefG0OSgvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/dateDecodingStrategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI12CodableModelP20dateDecodingStrategy10Foundation11JSONDecoderC04DatefG0OSgvpZ">dateDecodingStrategy</a>
+                    <a name="/s:14CoinpaprikaAPI5EventV4link10Foundation3URLVvp"></a>
+                    <a name="//apple_ref/swift/Property/link" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV4link10Foundation3URLVvp">link</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>DateDecodingStrategy for JSONDecoder, it could be either iso8601 or unix timestamp.
-Use it only if you want to build your own decoder.</p>
+                        <p>Event link</p>
 
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">dateDecodingStrategy</span><span class="p">:</span> <span class="kt">JSONDecoder</span><span class="o">.</span><span class="kt">DateDecodingStrategy</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">link</span><span class="p">:</span> <span class="kt">URL</span></code></pre>
 
                         </div>
                       </div>
@@ -384,32 +344,24 @@ Use it only if you want to build your own decoder.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI12CodableModelP20dateEncodingStrategy10Foundation11JSONEncoderC04DatefG0OSgvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/dateEncodingStrategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI12CodableModelP20dateEncodingStrategy10Foundation11JSONEncoderC04DatefG0OSgvpZ">dateEncodingStrategy</a>
+                    <a name="/s:14CoinpaprikaAPI5EventV14proofImageLink10Foundation3URLVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/proofImageLink" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV14proofImageLink10Foundation3URLVSgvp">proofImageLink</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>DateEncodingStrategy for JSONEncoder, it could be either iso8601 or unix timestamp.
-Use it only if you want to build your own encoder.</p>
+                        <p>Proof image</p>
 
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">dateEncodingStrategy</span><span class="p">:</span> <span class="kt">JSONEncoder</span><span class="o">.</span><span class="kt">DateEncodingStrategy</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">proofImageLink</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>

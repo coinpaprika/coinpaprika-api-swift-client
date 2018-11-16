@@ -101,6 +101,14 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
     
     public let developmentStatus: String?
     
+    public let hardwareWallet: Bool
+    
+    public let proofType: String?
+    
+    public let orgStructure: String?
+    
+    public let hashAlgorithm: String?
+    
     public struct Links: Codable, Equatable {
         public let explorer: [URL]?
         public let facebook: [URL]?

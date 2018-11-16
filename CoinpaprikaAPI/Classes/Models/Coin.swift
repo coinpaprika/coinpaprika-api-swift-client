@@ -91,43 +91,78 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
         public let position: String
     }
     
+    // Coin project description
     public let description: String?
     
+    /// Coin moderation message
     public let message: String?
     
+    /// Is it Open Source project?
     public let openSource: Bool
     
+    /// Project start date
     public let startedAt: Date?
     
+    /// Project development status, eg. Beta version
     public let developmentStatus: String?
     
+    /// Does it have a hardware wallet?
     public let hardwareWallet: Bool
     
+    /// Coin Proof of Type, eg. Proof of stake
     public let proofType: String?
     
+    /// Project organisation stucture, eg. Semi-centralized
     public let orgStructure: String?
     
+    /// Coin hash algorithm, eg. SHA256
     public let hashAlgorithm: String?
     
+    /// Coin links
     public struct Links: Codable, Equatable {
+        
+        /// Project blockchain explorer
         public let explorer: [URL]?
+        
+        /// Project Facebook profile page
         public let facebook: [URL]?
+        
+        /// Project subreddit at Reddit
         public let reddit: [URL]?
+        
+        /// Project code repository
         public let sourceCode: [URL]?
+        
+        /// Project website
         public let website: [URL]?
+        
+        /// Project blog at Medium
         public let medium: [URL]?
+        
+        /// Project explanation/marketing video at Youtube
         public let youtube: [URL]?
+        
+        /// Project explanation/marketing video at Vimeo
         public let vimeo: [URL]?
+        
+        /// Project explanation video
         public let videoFile: [URL]?
     }
     
+    /// Project links
     public let links: Links
     
+    /// Coin Whitepaper
     public struct Whitepaper: Codable, Equatable {
+        
+        /// Link to whitepaper document
         public let link: URL?
+        
+        /// Link to the thumbnail of document
         public let thumbnail: URL?
     }
     
+    /// Coin whitepaper
     public let whitepaper: Whitepaper
     
 }

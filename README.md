@@ -130,6 +130,10 @@ CoinpaprikaAPI.search(query: "bitcoin", categories: [.coins, .exchanges, .icos, 
 }
 ```
 
+### More
+
+Other endpoints could be found in [CoinpaprikaAPI reference](https://coinpaprika.github.io/coinpaprika-api-swift-client/Structs/CoinpaprikaAPI.html).
+
 ## Installation
 
 ### Cocoapods

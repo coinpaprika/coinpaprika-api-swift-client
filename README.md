@@ -7,6 +7,8 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![Swift 4.2](https://img.shields.io/badge/swift-4.2-orange.svg)
 
+### [Documentation](https://coinpaprika.github.io/coinpaprika-api-swift-client) | [Repository](https://github.com/coinpaprika/coinpaprika-api-swift-client) | [Installation](#installation)
+
 ## Usage
 
 This library provides convenient way to use [Coinpaprika.com API](https://api.coinpaprika.com/) in Swift.

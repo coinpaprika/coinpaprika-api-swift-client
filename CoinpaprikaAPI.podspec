@@ -31,6 +31,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Dominique Stranz' => 'dstranz@greywizard.com' }
   s.source           = { :git => 'https://github.com/coinpaprika/coinpaprika-api-swift-client.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/coinpaprika'
+  s.documentation_url = 'https://coinpaprika.github.io/coinpaprika-api-swift-client/'
 
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.12'

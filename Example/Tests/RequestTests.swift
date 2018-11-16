@@ -313,4 +313,29 @@ class RequestTests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
+    func testCoinLatestOhlcvRequest() {
+        let expectation = self.expectation(description: "Waiting for a latest ohlcv")
+        
+        CoinpaprikaAPI.coinLatestOhlcv(id: bitcoinId).perform { (response) in
+            let ohlcv = response.value
+            XCTAssertNotNil(ohlcv?.first, "Ohlcv should exist")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testCoinHistoricalOhlcvRequest() {
+        let expectation = self.expectation(description: "Waiting for a latest ohlcv")
+        
+        CoinpaprikaAPI.coinHistoricalOhlcv(id: bitcoinId, start: Date(timeIntervalSinceNow: -60*60*24)).perform { (response) in
+            let ohlcv = response.value
+            XCTAssertNotNil(ohlcv?.first, "Ohlcv should exist")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
 }

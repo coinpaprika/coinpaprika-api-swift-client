@@ -70,6 +70,9 @@
 		D956A03F219EA5AE005118FD /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956A03E219EA5AE005118FD /* Tweet.swift */; };
 		D956A040219EA5AE005118FD /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956A03E219EA5AE005118FD /* Tweet.swift */; };
 		D956A041219EA5AE005118FD /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956A03E219EA5AE005118FD /* Tweet.swift */; };
+		D956A043219EABD8005118FD /* Ohlcv.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956A042219EABD8005118FD /* Ohlcv.swift */; };
+		D956A044219EABD8005118FD /* Ohlcv.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956A042219EABD8005118FD /* Ohlcv.swift */; };
+		D956A045219EABD8005118FD /* Ohlcv.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956A042219EABD8005118FD /* Ohlcv.swift */; };
 		D9EAF8B4219C1F820089F649 /* CoinExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EAF8B3219C1F820089F649 /* CoinExchange.swift */; };
 		D9EAF8B5219C1F820089F649 /* CoinExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EAF8B3219C1F820089F649 /* CoinExchange.swift */; };
 		D9EAF8B6219C1F820089F649 /* CoinExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EAF8B3219C1F820089F649 /* CoinExchange.swift */; };
@@ -295,6 +298,7 @@
 		D85EF841223A341C0E982D474C975848 /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = docSet.dsidx; path = docs/docsets/CoinpaprikaAPI.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
 		D8AE7FB46D972E7EE374AD88338282D8 /* Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoinpaprikaAPI_Example_macOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D956A03E219EA5AE005118FD /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		D956A042219EABD8005118FD /* Ohlcv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ohlcv.swift; sourceTree = "<group>"; };
 		D9EAF8B3219C1F820089F649 /* CoinExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinExchange.swift; sourceTree = "<group>"; };
 		D9EAF8B7219C1FB20089F649 /* CoinMarket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarket.swift; sourceTree = "<group>"; };
 		D9EAF8BB219C25AC0089F649 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -427,6 +431,7 @@
 				6523465C9685C8CF949EDE3F891B2C5D /* TickerHistory.swift */,
 				D9EAF8BB219C25AC0089F649 /* Person.swift */,
 				D956A03E219EA5AE005118FD /* Tweet.swift */,
+				D956A042219EABD8005118FD /* Ohlcv.swift */,
 			);
 			name = Models;
 			path = CoinpaprikaAPI/Classes/Models;
@@ -1127,6 +1132,7 @@
 				AA8309FA18D74C385FB5DB21799D07E7 /* Coin.swift in Sources */,
 				178380082B9324A6527E6B95A8ED9E52 /* CoinpaprikaAPI-tvOS-dummy.m in Sources */,
 				7DDC85AC22BE4232F2501B7A2959D6A0 /* CoinpaprikaAPI.swift in Sources */,
+				D956A045219EABD8005118FD /* Ohlcv.swift in Sources */,
 				52D0035E6AAD7F3DE879CAF7210E407D /* Exchange.swift in Sources */,
 				561EAEFF271A3427E422AB654A6C8408 /* GlobalStats.swift in Sources */,
 				D9EAF8CA219C5D590089F649 /* Event.swift in Sources */,
@@ -1154,6 +1160,7 @@
 				D6C1A8D2ED2D9B46CB75E446EFF9B89C /* Coin.swift in Sources */,
 				7616794B1FB5BCA4006C758248C5AD1D /* CoinpaprikaAPI-iOS-dummy.m in Sources */,
 				7132C2149C4D0390B6A6E7387F5F47E0 /* CoinpaprikaAPI.swift in Sources */,
+				D956A043219EABD8005118FD /* Ohlcv.swift in Sources */,
 				DF9187D1DF500493B095C9EF8EECF07C /* Exchange.swift in Sources */,
 				2699A1DDCD6528127FA0687CF16B3A29 /* GlobalStats.swift in Sources */,
 				D9EAF8C8219C5D590089F649 /* Event.swift in Sources */,
@@ -1213,6 +1220,7 @@
 				1B54233E1E0FCBCED2867DC9561D4B94 /* Coin.swift in Sources */,
 				0748B89080842B11E90DD4CB946A8782 /* CoinpaprikaAPI-macOS-dummy.m in Sources */,
 				5BDF5C172D3505D0D5B0E5E38863ABCD /* CoinpaprikaAPI.swift in Sources */,
+				D956A044219EABD8005118FD /* Ohlcv.swift in Sources */,
 				B437D656787C2166EE80D5C620BB07B6 /* Exchange.swift in Sources */,
 				AC1A57CDF96A37FB9839B63CF1DA9AAB /* GlobalStats.swift in Sources */,
 				D9EAF8C9219C5D590089F649 /* Event.swift in Sources */,

@@ -191,7 +191,7 @@ public struct CoinpaprikaAPI {
     private static func validateTickerHistoryLimit(_ limit: Int) {
         let min = 1
         let max = 5000
-        assert(min >= 0 && max <= 5000, "Limit should be between \(min) and \(max).")
+        assert(min >= min && max <= max, "Limit should be between \(min) and \(max).")
     }
     
     /// Intervals for historical data endpoint
@@ -263,5 +263,48 @@ public struct CoinpaprikaAPI {
         validateTickerHistoryQuote(quote)
         validateTickerHistoryLimit(limit)
         return Request<[TickerHistory]>(baseUrl: baseUrl, method: .get, path: "tickers/historical/\(id)", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
+    }
+    
+    private static func validateCoinOhlcvQuote(_ quote: QuoteCurrency) {
+        let acceptedQuotes: [QuoteCurrency] = [.usd, .btc]
+        assert(acceptedQuotes.contains(quote), "This endpoint accepts only \(acceptedQuotes).")
+    }
+    
+    private static func validateCoinOhlcvLimit(_ limit: Int) {
+        let min = 1
+        let max = 366
+        assert(min >= min && max <= max, "Limit should be between \(min) and \(max).")
+    }
+    
+    /// Latest Open/High/Low/Close values with volume and market_cap
+    ///
+    /// - Parameters:
+    ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    /// - Returns: Request to perform
+    public static func coinLatestOhlcv(id: String, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
+        validateCoinOhlcvQuote(quote)
+        return Request<[Ohlcv]>(baseUrl: baseUrl, method: .get, path: "/coins/ohlcv/latest/\(id)", params: ["query": quote.rawValue])
+    }
+
+    /// Historical Open/High/Low/Close values with volume and market_cap
+    ///
+    /// - Parameters:
+    ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    ///   - start: Start date, required
+    ///   - end: End date, if not provided calculated by the limit parameter
+    ///   - limit: Returns limit, default 1, max 366
+    ///   - quote: requested quote, default .usd
+    /// - Returns: Request to perform
+    public static func coinHistoricalOhlcv(id: String, start: Date, end: Date? = nil, limit: Int = 1, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
+        validateCoinOhlcvQuote(quote)
+        validateCoinOhlcvLimit(limit)
+        
+        var params = ["start": "\(Int(start.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue]
+        
+        if let end = end {
+            params["end"] = "\(Int(end.timeIntervalSince1970))"
+        }
+        
+        return Request<[Ohlcv]>(baseUrl: baseUrl, method: .get, path: "/coins/ohlcv/historical/\(id)", params: params)
     }
 }

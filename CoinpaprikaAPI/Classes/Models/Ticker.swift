@@ -8,53 +8,116 @@
 
 import Foundation
 
-public struct Ticker: Decodable, Equatable {
+/// Coin Ticker
+public struct Ticker: Codable, Equatable, CodableModel {
+    
+    /// Coin id, eg. btc-bitcoin
     public let id: String
+    
+    /// Coin name, eg. Bitcoin
     public let name: String
+    
+    /// Coin symbol, eg. BTC
     public let symbol: String
-    public let rank: Int32
-    public let priceUsd: Decimal
-    public let priceBtc: Decimal
-    public let volume24hUsd: Int64
-    public let marketCapUsd: Int64
+    
+    /// Coin position in Coinpaprika ranking
+    public let rank: Int
+    
+    /// Coins circulating on the market
     public let circulatingSupply: Int64
+    
+    /// Total number of coins
     public let totalSupply: Int64
+    
+    /// Maximum number of coins that could exist
     public let maxSupply: Int64
-    public let percentChange1h: Decimal
-    public let percentChange24h: Decimal
-    public let percentChange7d: Decimal
-    public let lastUpdated: Date?
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, rank, symbol, priceBtc, priceUsd, marketCapUsd, circulatingSupply, totalSupply, maxSupply, lastUpdated
-        case volume24hUsd = "volume24HUsd"
-        case percentChange1h = "percentChange1H"
-        case percentChange24h = "percentChange24H"
-        case percentChange7d = "percentChange7D"
+    
+    /// Circulating Supply / Max Supply Rate
+    public var circulatingSupplyPercent: Decimal? {
+        guard maxSupply != 0 else {
+            return nil
+        }
+        
+        return Decimal(circulatingSupply)/Decimal(maxSupply)
     }
-
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        id = try values.decode(String.self, forKey: .id)
-        name = try values.decode(String.self, forKey: .name)
-        rank = try values.decode(.rank, transformer: StringToInt32Transformer())
-        symbol = try values.decode(String.self, forKey: .symbol)
-
-        priceBtc = try values.decode(.priceBtc, transformer: StringToDecimalTransformer())
-        priceUsd = try values.decode(.priceUsd, transformer: StringToDecimalTransformer())
-
-        volume24hUsd = try values.decode(.volume24hUsd, transformer: StringToInt64Transformer())
-        marketCapUsd = try values.decode(.marketCapUsd, transformer: StringToInt64Transformer())
-
-        circulatingSupply = try values.decode(.circulatingSupply, transformer: StringToInt64Transformer())
-        totalSupply = try values.decode(.totalSupply, transformer: StringToInt64Transformer())
-        maxSupply = try values.decode(.maxSupply, transformer: StringToInt64Transformer())
-
-        percentChange1h = try values.decode(.percentChange1h, transformer: StringToDecimalTransformer())
-        percentChange24h = try values.decode(.percentChange24h, transformer: StringToDecimalTransformer())
-        percentChange7d = try values.decode(.percentChange7d, transformer: StringToDecimalTransformer())
-
-        lastUpdated = try values.decode(.lastUpdated, transformer: StringToDateTransformer())
+    
+    /// Beta (β or beta coefficient) of an investment indicates whether the investment is more or less volatile than the market as a whole.
+    /// - β < 0 Asset movement is in the opposite direction of the total crypto market
+    /// - β = 0 Asset movement is uncorrelated to the total crypto market
+    /// - 0 < β < 1 Asset moves in the same direction, but in a lesser amount than the total crypto market
+    /// - β = 1 Asset moves in the same direction and in the same amount as the total crypto market
+    /// - β > 1 Asset moves in the same direction, but in a greater amount than the total crypto market
+    public let betaValue: Decimal
+    
+    /// Last update time
+    public let lastUpdated: Date
+    
+    private let quotes: [String: Quote]
+    
+    /// Use this method to access coin market data in provided quote currency
+    ///
+    /// - Parameter currency: QuoteCurrency, eg. .usd or .btc
+    ///
+    /// - For accessing coin price in USD use `ticker[.usd].price`
+    /// - For accessing coin volume24h in BTC use `ticker[.btc].volume24h`
+    /// - This method returns implicitly unwrapped optional `Quote!` - be sure to download Ticker(s) with requested `QuoteCurrency` before use
+    public subscript(_ currency: QuoteCurrency) -> Quote! {
+        assert(quotes[currency.code] != nil, "Invalid quote value \(currency). Check if you included \(currency) in request params.")
+        return quotes[currency.code]
+    }
+    
+    /// Coin market data
+    public struct Quote: Codable, Equatable {
+        
+        /// Price
+        public let price: Decimal
+        
+        /// Volume from last 24h
+        public let volume24h: Int64
+        
+        /// Volume change in last 24h
+        public let volume24hChange24h: Decimal
+        
+        /// Market capitalization
+        public let marketCap: Int64
+        
+        /// Market capitalization change in last 24h
+        public let marketCapChange24h: Decimal
+        
+        /// Percentage price change in last 1 hour
+        public let percentChange1h: Decimal
+        
+        /// Percentage price change in last 12 hours
+        public let percentChange12h: Decimal
+        
+        /// Percentage price change in last 24 hours
+        public let percentChange24h: Decimal
+        
+        /// Percentage price change in last 7 days
+        public let percentChange7d: Decimal
+        
+        /// Percentage price change in last 30 days
+        public let percentChange30d: Decimal
+        
+        /// Percentage price change in last 1 yours
+        public let percentChange1y: Decimal
+        
+        /// ATH (All Time High) price
+        public let athPrice: Decimal?
+        
+        /// ATH (All Time High) date
+        public let athDate: Date?
+        
+        /// Percentage price change from ATH
+        public let percentFromPriceAth: Decimal?
+        
+        /// Volume / MarketCap rate
+        public var volumeMarketCapRate: Decimal? {
+            guard marketCap != 0 else {
+                return nil
+            }
+            
+            return Decimal(volume24h)/Decimal(marketCap)
+        }
     }
 }

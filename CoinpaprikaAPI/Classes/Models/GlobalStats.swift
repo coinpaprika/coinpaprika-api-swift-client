@@ -8,15 +8,29 @@
 
 import Foundation
 
-public struct GlobalStats: Decodable, Equatable {
-    public let marketCapUsd: Int64
-    public let volume24hUsd: Int64
-    public let bitcoinDominancePercentage: Decimal
-    public let cryptocurrenciesNumber: Int
-    public let lastUpdated: Date?
+/// Global market data
+public struct GlobalStats: Codable, Equatable, CodableModel {
     
-    enum CodingKeys: String, CodingKey {
-        case marketCapUsd, bitcoinDominancePercentage, cryptocurrenciesNumber, lastUpdated
-        case volume24hUsd = "volume24HUsd"
-    }    
+    /// Market capitalization in USD
+    public let marketCapUsd: Int64
+    
+    /// Volume from last 24h
+    public let volume24hUsd: Int64
+    
+    /// Bitcoin share in whole market capitalization
+    public let bitcoinDominancePercentage: Decimal
+    
+    /// Number of cryptocurrencies
+    public let cryptocurrenciesNumber: Int
+    
+    /// Last update time
+    public let lastUpdated: Date
+    
+    public static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {
+        return .secondsSince1970
+    }
+    
+    public static var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy? {
+        return .secondsSince1970
+    }
 }

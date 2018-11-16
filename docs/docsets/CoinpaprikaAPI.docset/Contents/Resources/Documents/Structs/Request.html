@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Request Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/Request" class="dashAnchor"></a>
+    <a title="Request Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (80% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CoinpaprikaAPI Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Request Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/QuoteCurrency.html">QuoteCurrency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Response.html">Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResponseError.html">ResponseError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CodableModel.html">CodableModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CoinType.html">CoinType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Coin.html">Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExchange.html">CoinExchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended.html">CoinExtended</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Tag.html">– Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Person.html">– Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Whitepaper.html">– Whitepaper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinMarket.html">CoinMarket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI.html">CoinpaprikaAPI</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/SearchCategory.html">– SearchCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TagsAdditionalFields.html">– TagsAdditionalFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TickerHistoryInterval.html">– TickerHistoryInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange.html">Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange/Quote.html">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange/Fiat.html">– Fiat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GlobalStats.html">GlobalStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Market.html">Market</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Market.html#/s:14CoinpaprikaAPI6MarketV5QuoteV">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Market/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Market/FeeType.html">– FeeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:14CoinpaprikaAPI5OhlcvV">Ohlcv</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person.html">Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person.html#/s:14CoinpaprikaAPI6PersonV8PositionV">– Position</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person/Link.html">– Link</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request/Method.html">– Method</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request/BodyEncoding.html">– BodyEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults.html">SearchResults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults/Person.html">– Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults/Ico.html">– Ico</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults/Exchange.html">– Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults/Tag.html">– Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tag.html">Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tag/TypeCategory.html">– TypeCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Ticker.html">Ticker</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Ticker/Quote.html">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:14CoinpaprikaAPI13TickerHistoryV">TickerHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tweet.html">Tweet</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Request</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">Model</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Model</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/CodableModel.html">CodableModel</a></span><span class="p">,</span> <span class="kt">Model</span> <span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Request representation returned by CoinpaprikaAPI methods.
+To perform request use .perform() method. It will call callback with error reason or</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI7RequestV6MethodO"></a>
+                    <a name="//apple_ref/swift/Enum/Method" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI7RequestV6MethodO">Method</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/Request/Method.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Method</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI7RequestV6Paramsa"></a>
+                    <a name="//apple_ref/swift/Alias/Params" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI7RequestV6Paramsa">Params</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Params</span> <span class="o">=</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI7RequestV12BodyEncodingO"></a>
+                    <a name="//apple_ref/swift/Enum/BodyEncoding" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI7RequestV12BodyEncodingO">BodyEncoding</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/Request/BodyEncoding.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BodyEncoding</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI7RequestV7baseUrl6method4path6params9userAgent12bodyEncoding18authorisationTokenACyxG10Foundation3URLV_AC6MethodOyx_GSSSDyS2SGSgSSAC04BodyL0Oyx_GSSSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(baseUrl:method:path:params:userAgent:bodyEncoding:authorisationToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI7RequestV7baseUrl6method4path6params9userAgent12bodyEncoding18authorisationTokenACyxG10Foundation3URLV_AC6MethodOyx_GSSSDyS2SGSgSSAC04BodyL0Oyx_GSSSgtcfc">init(baseUrl:method:path:params:userAgent:bodyEncoding:authorisationToken:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Request initializer that may be used if you want to extend client API with another methods</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">baseUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Structs/Request/Method.html">Method</a></span><span class="p">,</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="kt"><a href="../Structs/Request.html#/s:14CoinpaprikaAPI7RequestV6Paramsa">Params</a></span><span class="p">?,</span> <span class="nv">userAgent</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"Coinpaprika API Client - Swift"</span><span class="p">,</span> <span class="nv">bodyEncoding</span><span class="p">:</span> <span class="kt"><a href="../Structs/Request/BodyEncoding.html">BodyEncoding</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">json</span><span class="p">,</span> <span class="nv">authorisationToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>baseUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Base URL containing base path for API, like <a href="https://api.coinpaprika.com/v1/">https://api.coinpaprika.com/v1/</a></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>method</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>HTTP Method</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>endpoint path like tickers/btc-bitcoin</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>params</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>array of parameters appended in URL Query</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI7RequestV7perform13responseQueue11cachePolicy_ySo17OS_dispatch_queueCSg_So017NSURLRequestCacheH0VSgyAA8ResponseOyxGctF"></a>
+                    <a name="//apple_ref/swift/Method/perform(responseQueue:cachePolicy:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI7RequestV7perform13responseQueue11cachePolicy_ySo17OS_dispatch_queueCSg_So017NSURLRequestCacheH0VSgyAA8ResponseOyxGctF">perform(responseQueue:cachePolicy:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Perform API request</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="nv">responseQueue</span><span class="p">:</span> <span class="kt">DispatchQueue</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">cachePolicy</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="o">.</span><span class="kt">CachePolicy</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">_</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/Response.html">Response</a></span><span class="o">&lt;</span><span class="kt">Model</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>responseQueue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The queue on which the completion handler is dispatched</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cachePolicy</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>cache policy that should be used in this request</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Completion handler triggered on request success &amp; failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Coinpaprika.com</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

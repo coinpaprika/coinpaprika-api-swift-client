@@ -8,29 +8,81 @@
 
 import Foundation
 
-public struct Request<Model: Decodable> {
-    let baseUrl = URL(string: "https://api.coinpaprika.com/v1/")!
+/// Request representation returned by CoinpaprikaAPI methods.
+/// To perform request use .perform() method. It will call callback with error reason or
+public struct Request<Model: Decodable & CodableModel> {
+    
+    private let baseUrl: URL
+    
+    public enum Method: String {
+        case get
+        case post
+        case put
+        case delete
+    }
 
-    let method: RequestMethod
+    private let method: Method
     
-    let path: String
+    private let path: String
     
-    let params: [String: String]?
+    public typealias Params = [String: String]
+    
+    private let params: Params?
+
+    private let userAgent: String
+    
+    public enum BodyEncoding {
+        case json
+        case urlencode
+    }
+    
+    private let bodyEncoding: BodyEncoding
+    
+    private let authorisationToken: String?
+    
+    /// Request initializer that may be used if you want to extend client API with another methods
+    ///
+    /// - Parameters:
+    ///   - baseUrl: Base URL containing base path for API, like https://api.coinpaprika.com/v1/
+    ///   - method: HTTP Method
+    ///   - path: endpoint path like tickers/btc-bitcoin
+    ///   - params: array of parameters appended in URL Query
+    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String = "Coinpaprika API Client - Swift", bodyEncoding: BodyEncoding = .json, authorisationToken: String? = nil) {
+        self.baseUrl = baseUrl
+        self.method = method
+        self.path = path
+        self.params = params
+        self.userAgent = userAgent
+        self.bodyEncoding = bodyEncoding
+        self.authorisationToken = authorisationToken
+    }
     
     /// Perform API request
     ///
     /// - Parameters:
-    ///   - responseQueue: The queue on which the completion handler is dispatched.
+    ///   - responseQueue: The queue on which the completion handler is dispatched
+    ///   - cachePolicy: cache policy that should be used in this request
     ///   - callback: Completion handler triggered on request success & failure
-    public func perform(responseQueue: DispatchQueue? = nil, _ callback: @escaping (Response<Model>) -> Void) {
+    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, _ callback: @escaping (Response<Model>) -> Void) {
         let onQueue = { (_ block: @escaping () -> Void) -> Void in
             (responseQueue ?? DispatchQueue.main).async(execute: block)
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue.uppercased()
+   
+        if let cachePolicy = cachePolicy {
+            request.cachePolicy = cachePolicy
+        }
         
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        if bodyEncoding == .json {
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        if let authorisationToken = authorisationToken {
+            request.addValue("Bearer \(authorisationToken)", forHTTPHeaderField: "Authorisation")
+        }
+        
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
@@ -93,16 +145,17 @@ public struct Request<Model: Decodable> {
         return components.url!
     }
     
-    private var userAgent: String {
-        return "Coinpaprika API Client - Swift"
-    }
-    
     private func encodeBody() throws -> Data? {
         guard method != .get, let params = params else {
             return nil
         }
         
-        return try JSONSerialization.data(withJSONObject: params, options: [])
+        switch bodyEncoding {
+        case .json:
+            return try JSONSerialization.data(withJSONObject: params, options: [])
+        case .urlencode:
+            return params.map({ "\($0.key)=\($0.value.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? $0.value)" }).joined(separator: "&").data(using: .utf8)
+        }
     }
 
     private func findFailureReason(data: Data?, response: URLResponse?) -> ResponseError {
@@ -127,9 +180,7 @@ public struct Request<Model: Decodable> {
     }
     
     private func decodeResponse(_ data: Data) -> Model? {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .secondsSince1970
+        let decoder = Model.decoder
         
         do {
             return try decoder.decode(Model.self, from: data)
@@ -151,13 +202,6 @@ public struct Request<Model: Decodable> {
 
 struct APIError: Decodable {
     let error: String
-}
-
-enum RequestMethod: String {
-    case get
-    case post
-    case put
-    case delete
 }
 
 public enum ResponseError: Error {

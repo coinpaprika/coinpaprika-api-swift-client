@@ -10,7 +10,7 @@ import Foundation
 
 /// Request representation returned by CoinpaprikaAPI methods.
 /// To perform request use .perform() method. It will call callback with error reason or
-public struct Request<Model: Decodable & CodableModel> {
+public struct Request<Model: Codable & CodableModel> {
     
     private let baseUrl: URL
     
@@ -68,30 +68,20 @@ public struct Request<Model: Decodable & CodableModel> {
             (responseQueue ?? DispatchQueue.main).async(execute: block)
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue.uppercased()
-   
-        if let cachePolicy = cachePolicy {
-            request.cachePolicy = cachePolicy
-        }
-        
-        if bodyEncoding == .json {
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        }
-        
-        if let authorisationToken = authorisationToken {
-            request.addValue("Bearer \(authorisationToken)", forHTTPHeaderField: "Authorisation")
-        }
-        
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
+        let request: URLRequest
         
         do {
-            request.httpBody = try encodeBody()
+            request = try buildRequest(cachePolicy: cachePolicy)
+        } catch RequestError.unableToEncodeParams {
+            onQueue {
+                callback(Response.failure(RequestError.unableToEncodeParams))
+            }
+            return
         } catch {
             onQueue {
-                callback(Response.failure(ResponseError.unableToEncodeParams))
+                callback(Response.failure(RequestError.unableToCreateRequest))
             }
+            return
         }
         
         URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
@@ -126,6 +116,30 @@ public struct Request<Model: Decodable & CodableModel> {
                 }
             }
         }.resume()
+    }
+    
+    private func buildRequest(cachePolicy: URLRequest.CachePolicy? = nil) throws -> URLRequest {
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue.uppercased()
+        
+        if bodyEncoding == .json {
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        if let authorisationToken = authorisationToken {
+            request.addValue("Bearer \(authorisationToken)", forHTTPHeaderField: "Authorisation")
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
+        
+        do {
+            request.httpBody = try encodeBody()
+        } catch {
+            throw RequestError.unableToEncodeParams
+        }
+        
+        return request
     }
     
     private var url: URL {
@@ -198,15 +212,27 @@ public struct Request<Model: Decodable & CodableModel> {
         
         return nil
     }
+    
+}
+
+extension Request: CustomStringConvertible {
+    public var description: String {
+        let paramsDescriptor = params?.map({ "\($0.key)=\($0.value)" }).joined(separator: "&") ?? ""
+        return "\(method.rawValue.uppercased()): \(baseUrl)\(path) \(paramsDescriptor)"
+    }
 }
 
 struct APIError: Decodable {
     let error: String
 }
 
+public enum RequestError: Error {
+    case unableToCreateRequest
+    case unableToEncodeParams
+}
+
 public enum ResponseError: Error {
     case emptyResponse
-    case unableToEncodeParams
     case unableToDecodeResponse
     case requestsLimitExceeded
     case invalidRequest(httpCode: Int, message: String?)

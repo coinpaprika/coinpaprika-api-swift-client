@@ -7,8 +7,13 @@
 
 import Foundation
 
+public protocol TagType {
+    var id: String { get }
+    var name: String { get }
+}
+
 /// Tag for ICO & Coins
-public struct Tag: Codable, Equatable, CodableModel {
+public struct Tag: Codable, Equatable, CodableModel, TagType {
     
     /// Tag id, eg. smart-contracts
     public let id: String

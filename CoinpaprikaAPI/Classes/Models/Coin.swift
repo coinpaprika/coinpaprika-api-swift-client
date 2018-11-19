@@ -62,7 +62,7 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
     
     public let tags: [Tag]?
     
-    public struct Tag: Codable, Equatable {
+    public struct Tag: Codable, Equatable, TagType {
         /// Tag id, eg. smart-contracts
         public let id: String
         
@@ -129,6 +129,9 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
         
         /// Project subreddit at Reddit
         public let reddit: [URL]?
+        
+        /// Project twitter account
+        public let twitter: [URL]?
         
         /// Project code repository
         public let sourceCode: [URL]?

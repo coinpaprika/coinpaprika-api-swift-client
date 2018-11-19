@@ -76,7 +76,7 @@ public struct SearchResults: Codable, Equatable, CodableModel {
     }
     
     /// Search.Tag
-    public struct Tag: Codable, Equatable {
+    public struct Tag: Codable, Equatable, TagType {
         
         /// Tag id, eg. smart-contracts
         public let id: String

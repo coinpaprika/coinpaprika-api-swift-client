@@ -54,6 +54,19 @@ public struct Ticker: Codable, Equatable, CodableModel {
     
     private let quotes: [String: Quote]
     
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case symbol
+        case rank
+        case circulatingSupply = "circulating_supply"
+        case totalSupply = "total_supply"
+        case maxSupply = "max_supply"
+        case betaValue = "beta_value"
+        case lastUpdated = "last_updated"
+        case quotes
+    }
+    
     /// Use this method to access coin market data in provided quote currency
     ///
     /// - Parameter currency: QuoteCurrency, eg. .usd or .btc
@@ -119,5 +132,26 @@ public struct Ticker: Codable, Equatable, CodableModel {
             
             return Decimal(volume24h)/Decimal(marketCap)
         }
+        
+        enum CodingKeys: String, CodingKey {
+            case price
+            case volume24h = "volume_24h"
+            case volume24hChange24h = "volume_24h_change_24h"
+            case marketCap = "market_cap"
+            case marketCapChange24h = "market_cap_change_24h"
+            case percentChange1h = "percent_change_1h"
+            case percentChange12h = "percent_change_12h"
+            case percentChange24h = "percent_change_24h"
+            case percentChange7d = "percent_change_7d"
+            case percentChange30d = "percent_change_30d"
+            case percentChange1y = "percent_change_1y"
+            case athPrice = "ath_price"
+            case athDate = "ath_date"
+            case percentFromPriceAth = "percent_from_price_ath"
+        }
+    }
+    
+    public static var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy? {
+        return nil
     }
 }

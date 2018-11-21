@@ -33,4 +33,15 @@ public struct Ohlcv: Codable, Equatable, CodableModel {
     
     /// Coin market capitalization
     let marketCap: Int64
+    
+    enum CodingKeys: String, CodingKey {
+        case timeOpen = "time_open"
+        case timeClose = "time_close"
+        case open
+        case high
+        case low
+        case close
+        case volume
+        case marketCap = "market_cap"
+    }
 }

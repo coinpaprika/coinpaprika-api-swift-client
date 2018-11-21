@@ -45,4 +45,14 @@ public struct Tag: Codable, Equatable, CodableModel, TagType {
         case functional
         case technical
     }
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case description
+        case coinCounter = "coin_counter"
+        case icoCounter = "ico_counter"
+        case type
+        case coins
+    }
 }

@@ -44,6 +44,12 @@ public struct SearchResults: Codable, Equatable, CodableModel {
         
         /// Number of teams/projects in which this person is involved
         public let teamsCount: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case teamsCount = "teams_count"
+        }
     }
     
     /// Search.Ico model
@@ -60,6 +66,13 @@ public struct SearchResults: Codable, Equatable, CodableModel {
         
         /// Is it recently added to Coinpaprika
         public let isNew: Bool
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case symbol
+            case isNew = "is_new"
+        }
     }
     
     /// Search.Exchange model
@@ -89,5 +102,12 @@ public struct SearchResults: Codable, Equatable, CodableModel {
         
         /// Number of ICOs connected to this tag
         public let icoCounter: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case coinCounter = "coin_counter"
+            case icoCounter = "ico_counter"
+        }
     }
 }

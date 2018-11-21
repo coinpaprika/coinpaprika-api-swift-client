@@ -31,4 +31,14 @@ public struct Tweet: Codable, Equatable, CodableModel {
     /// Attached video link
     public let videoLink: URL?
     
+    enum CodingKeys: String, CodingKey {
+        case status
+        case userName = "user_name"
+        case isRetweet = "is_retweet"
+        case date
+        case statusLink = "status_link"
+        case mediaLink = "media_link"
+        case videoLink = "video_link"
+    }
+
 }

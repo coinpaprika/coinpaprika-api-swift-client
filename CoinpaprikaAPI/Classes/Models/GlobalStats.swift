@@ -26,6 +26,14 @@ public struct GlobalStats: Codable, Equatable, CodableModel {
     /// Last update time
     public let lastUpdated: Date
     
+    enum CodingKeys: String, CodingKey {
+        case marketCapUsd = "market_cap_usd"
+        case volume24hUsd = "volume_24h_usd"
+        case bitcoinDominancePercentage = "bitcoin_dominance_percentage"
+        case cryptocurrenciesNumber = "cryptocurrencies_number"
+        case lastUpdated = "last_updated"
+    }
+    
     public static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {
         return .secondsSince1970
     }

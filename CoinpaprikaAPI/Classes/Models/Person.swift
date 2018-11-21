@@ -29,6 +29,11 @@ public struct Person: Codable, Equatable, CodableModel {
         
         /// Person position, eg. Advisor
         let position: String
+        
+        enum CodingKeys: String, CodingKey {
+            case coinId = "coin_id"
+            case position
+        }
     }
     
     /// Position per projects
@@ -52,4 +57,13 @@ public struct Person: Codable, Equatable, CodableModel {
     }
     
     public let links: Links
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case description
+        case teamsCount = "teams_count"
+        case positions
+        case links
+    }
 }

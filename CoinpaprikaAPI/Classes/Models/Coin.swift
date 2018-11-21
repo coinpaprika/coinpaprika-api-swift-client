@@ -38,6 +38,15 @@ public struct Coin: Codable, Equatable, CodableModel, CoinType {
     /// Is it active on Coinpaprika
     public let isActive: Bool
     
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case symbol
+        case rank
+        case isNew = "is_new"
+        case isActive = "is_active"
+    }
+    
 }
 
 public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
@@ -62,19 +71,7 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
     
     public let tags: [Tag]?
     
-    public struct Tag: Codable, Equatable, TagType {
-        /// Tag id, eg. smart-contracts
-        public let id: String
-        
-        /// Tag name, eg. Smart Contracts
-        public let name: String
-        
-        /// Number of coins connected to this tag
-        public let coinCounter: Int
-        
-        /// Number of ICOs connected to this tag
-        public let icoCounter: Int
-    }
+    public typealias Tag = SearchResults.Tag
     
     public let team: [Person]?
     
@@ -150,6 +147,19 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
         
         /// Project explanation video
         public let videoFile: [URL]?
+        
+        enum CodingKeys: String, CodingKey {
+            case explorer
+            case facebook
+            case reddit
+            case twitter
+            case sourceCode = "source_code"
+            case website
+            case medium
+            case youtube
+            case vimeo
+            case videoFile = "video_file"
+        }
     }
     
     /// Project links
@@ -168,4 +178,25 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
     /// Coin whitepaper
     public let whitepaper: Whitepaper
     
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case symbol
+        case rank
+        case isNew = "is_new"
+        case isActive = "is_active"
+        case tags
+        case team
+        case description
+        case message
+        case openSource = "open_source"
+        case startedAt = "started_at"
+        case developmentStatus = "development_status"
+        case hardwareWallet = "hardware_wallet"
+        case proofType = "proof_type"
+        case orgStructure = "org_structure"
+        case hashAlgorithm = "hash_algorithm"
+        case links
+        case whitepaper
+    }
 }

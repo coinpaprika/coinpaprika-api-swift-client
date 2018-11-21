@@ -45,6 +45,21 @@ public struct Market: Codable, Equatable, CodableModel {
     
     private let quotes: [String: Quote]
     
+    enum CodingKeys: String, CodingKey {
+        case pair
+        case baseCurrencyId = "base_currency_id"
+        case baseCurrencyName = "base_currency_name"
+        case quoteCurrencyId = "quote_currency_id"
+        case quoteCurrencyName = "quote_currency_name"
+        case marketUrl = "market_url"
+        case category
+        case feeType = "fee_type"
+        case outlier
+        case reportedVolumeShare = "reported_volume_share"
+        case lastUpdated = "last_updated"
+        case quotes
+    }
+    
     /// Use this method to access market data in provided quote currency
     ///
     /// - Parameter currency: QuoteCurrency, eg. .usd or .btc
@@ -64,6 +79,11 @@ public struct Market: Codable, Equatable, CodableModel {
         
         /// Volume from last 24h
         let volume24h: Decimal
+        
+        enum CodingKeys: String, CodingKey {
+            case price
+            case volume24h = "volume_24h"
+        }
     }
 
     /// Market category

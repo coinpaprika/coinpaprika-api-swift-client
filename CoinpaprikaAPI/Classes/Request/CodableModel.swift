@@ -34,34 +34,9 @@ public protocol CodableModel {
     static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {get}
 }
 
-internal struct AnyKey: CodingKey {
-    var stringValue: String
-    var intValue: Int?
-    
-    init?(stringValue: String) {
-        self.stringValue = stringValue
-        self.intValue = nil
-    }
-    
-    init?(intValue: Int) {
-        self.stringValue = String(intValue)
-        self.intValue = intValue
-    }
-}
-
 public extension CodableModel {
     public static var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy? {
-        return .custom { (components) in
-            let component = components.last!
-            let words = component.stringValue.split(separator: "_")
-            
-            if words.count == 1 { // It's already camellCase?
-                return component
-            }
-            
-            let name = words.first! + words.dropFirst().map({ $0.prefix(1).uppercased() + $0.dropFirst() }).joined()
-            return AnyKey(stringValue: String(name))!
-        }
+        return nil
     }
     
     public static var keyEncodingStrategy: JSONEncoder.KeyEncodingStrategy? {

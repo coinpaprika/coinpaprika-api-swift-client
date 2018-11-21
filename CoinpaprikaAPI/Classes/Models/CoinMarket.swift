@@ -51,6 +51,23 @@ public struct CoinMarket: Codable, Equatable, CodableModel {
     
     private let quotes: [String: Market.Quote]
     
+    enum CodingKeys: String, CodingKey {
+        case exchangeId = "exchange_id"
+        case exchangeName = "exchange_name"
+        case pair
+        case baseCurrencyId = "base_currency_id"
+        case baseCurrencyName = "base_currency_name"
+        case quoteCurrencyId = "quote_currency_id"
+        case quoteCurrencyName = "quote_currency_name"
+        case marketUrl = "market_url"
+        case category
+        case feeType = "fee_type"
+        case outlier
+        case adjustedVolume24hShare = "adjusted_volume_24h_share"
+        case lastUpdated = "last_updated"
+        case quotes
+    }
+    
     /// Use this method to access market data in provided quote currency
     ///
     /// - Parameter currency: QuoteCurrency, eg. .usd or .btc

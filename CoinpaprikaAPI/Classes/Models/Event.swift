@@ -28,4 +28,14 @@ public struct Event: Codable, Equatable, CodableModel {
     /// Proof image
     public let proofImageLink: URL?
     
+    enum CodingKeys: String, CodingKey {
+        case name
+        case date
+        case dateTo = "date_to"
+        case isConference = "is_conference"
+        case link
+        case proofImageLink = "proof_image_link"
+    }
+    
+    
 }

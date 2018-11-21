@@ -47,6 +47,22 @@ public struct Exchange: Codable, Equatable, CodableModel {
     
     private let quotes: [String: Quote]
     
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case active
+        case message
+        case links
+        case marketsDataFetched = "markets_data_fetched"
+        case adjustedRank = "adjusted_rank"
+        case reportedRank = "reported_rank"
+        case currencies
+        case markets
+        case fiats
+        case lastUpdated = "last_updated"
+        case quotes
+    }
+    
     /// Use this method to access exchange data in provided quote currency
     ///
     /// - Parameter currency: QuoteCurrency, eg. .usd or .btc
@@ -66,6 +82,11 @@ public struct Exchange: Codable, Equatable, CodableModel {
         
         /// Exchange adjusted volume from last 24h
         public let adjustedVolume24h: Int64
+        
+        enum CodingKeys: String, CodingKey {
+            case reportedVolume24h = "reported_volume_24h"
+            case adjustedVolume24h = "adjusted_volume_24h"
+        }
     }
     
     /// Exchange.Links

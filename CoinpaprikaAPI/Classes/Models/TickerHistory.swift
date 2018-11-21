@@ -21,4 +21,11 @@ public struct TickerHistory: Codable, Equatable, CodableModel {
     
     /// Coin market capitalization at `timestamp` date
     let marketCap: Decimal
+    
+    enum CodingKeys: String, CodingKey {
+        case timestamp
+        case price
+        case volume24h = "volume_24h"
+        case marketCap = "market_cap"
+    }
 }

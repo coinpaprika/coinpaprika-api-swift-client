@@ -262,7 +262,7 @@ public struct CoinpaprikaAPI {
     public static func tickerHistory(id: String, start: Date, end: Date = Date(), limit: Int = 1000, quote: QuoteCurrency = .usd, interval: TickerHistoryInterval = .minutes5) -> Request<[TickerHistory]> {
         validateTickerHistoryQuote(quote)
         validateTickerHistoryLimit(limit)
-        return Request<[TickerHistory]>(baseUrl: baseUrl, method: .get, path: "tickers/historical/\(id)", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
+        return Request<[TickerHistory]>(baseUrl: baseUrl, method: .get, path: "tickers/\(id)/historical", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
     }
     
     private static func validateCoinOhlcvQuote(_ quote: QuoteCurrency) {
@@ -283,7 +283,7 @@ public struct CoinpaprikaAPI {
     /// - Returns: Request to perform
     public static func coinLatestOhlcv(id: String, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
         validateCoinOhlcvQuote(quote)
-        return Request<[Ohlcv]>(baseUrl: baseUrl, method: .get, path: "/coins/ohlcv/latest/\(id)", params: ["query": quote.rawValue])
+        return Request<[Ohlcv]>(baseUrl: baseUrl, method: .get, path: "/coins/\(id)/ohlcv/latest", params: ["query": quote.rawValue])
     }
 
     /// Historical Open/High/Low/Close values with volume and market_cap
@@ -305,6 +305,6 @@ public struct CoinpaprikaAPI {
             params["end"] = "\(Int(end.timeIntervalSince1970))"
         }
         
-        return Request<[Ohlcv]>(baseUrl: baseUrl, method: .get, path: "/coins/ohlcv/historical/\(id)", params: params)
+        return Request<[Ohlcv]>(baseUrl: baseUrl, method: .get, path: "/coins/\(id)/ohlcv/historical", params: params)
     }
 }

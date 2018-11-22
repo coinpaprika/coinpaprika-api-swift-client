@@ -40,7 +40,7 @@ public struct Exchange: Codable, Equatable, CodableModel {
     public let markets: Int
     
     /// List of supported fiat currencies
-    public let fiats: [Fiat]?
+    public let fiats: [Fiat]
     
     /// Last update time
     public let lastUpdated: Date

@@ -37,7 +37,7 @@ public struct Person: Codable, Equatable, CodableModel {
     }
     
     /// Position per projects
-    public let positions: [Position]?
+    public let positions: [Position]
     
     /// Links with popularity
     public struct Link: Codable, Equatable {

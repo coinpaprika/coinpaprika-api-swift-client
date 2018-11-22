@@ -20,7 +20,7 @@ public struct CoinExchange: Codable, Equatable, CodableModel {
     public let adjustedVolume24hShare: Decimal
     
     /// List of supported fiat currencies
-    public let fiats: [Exchange.Fiat]?
+    public let fiats: [Exchange.Fiat]
     
     enum CodingKeys: String, CodingKey {
         case id

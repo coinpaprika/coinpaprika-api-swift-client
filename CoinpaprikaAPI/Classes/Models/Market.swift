@@ -38,7 +38,7 @@ public struct Market: Codable, Equatable, CodableModel {
     public let outlier: Bool
     
     /// Percent of volume
-    public let reportedVolumeShare: Decimal
+    public let reportedVolume24hShare: Decimal
     
     /// Last update time
     public let lastUpdated: Date
@@ -55,7 +55,7 @@ public struct Market: Codable, Equatable, CodableModel {
         case category
         case feeType = "fee_type"
         case outlier
-        case reportedVolumeShare = "reported_volume_share"
+        case reportedVolume24hShare = "reported_volume_24h_share"
         case lastUpdated = "last_updated"
         case quotes
     }

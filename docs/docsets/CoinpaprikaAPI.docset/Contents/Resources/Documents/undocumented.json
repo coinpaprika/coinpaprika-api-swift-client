@@ -226,196 +226,196 @@
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 43,
+      "line": 52,
       "symbol": "CoinExtended",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 43,
+      "line": 52,
       "symbol": "CoinExtended",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 43,
+      "line": 52,
       "symbol": "CoinExtended",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 43,
+      "line": 52,
       "symbol": "CoinExtended",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 63,
+      "line": 72,
       "symbol": "CoinExtended.tags",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 63,
+      "line": 72,
       "symbol": "CoinExtended.tags",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 63,
+      "line": 72,
       "symbol": "CoinExtended.tags",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 63,
+      "line": 72,
       "symbol": "CoinExtended.tags",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 65,
+      "line": 74,
       "symbol": "CoinExtended.Tag",
-      "symbol_kind": "source.lang.swift.decl.struct",
+      "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 65,
+      "line": 74,
       "symbol": "CoinExtended.Tag",
-      "symbol_kind": "source.lang.swift.decl.struct",
+      "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 65,
+      "line": 74,
       "symbol": "CoinExtended.Tag",
-      "symbol_kind": "source.lang.swift.decl.struct",
+      "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 65,
+      "line": 74,
       "symbol": "CoinExtended.Tag",
-      "symbol_kind": "source.lang.swift.decl.struct",
+      "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 79,
+      "line": 76,
       "symbol": "CoinExtended.team",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 79,
+      "line": 76,
       "symbol": "CoinExtended.team",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 79,
+      "line": 76,
       "symbol": "CoinExtended.team",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 79,
+      "line": 76,
       "symbol": "CoinExtended.team",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 95,
+      "line": 92,
       "symbol": "CoinExtended.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 95,
+      "line": 92,
       "symbol": "CoinExtended.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 95,
+      "line": 92,
       "symbol": "CoinExtended.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Coin.swift",
-      "line": 95,
+      "line": 92,
       "symbol": "CoinExtended.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Market.swift",
-      "line": 80,
+      "line": 100,
       "symbol": "Market.Category.empty",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Market.swift",
-      "line": 80,
+      "line": 100,
       "symbol": "Market.Category.empty",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Market.swift",
-      "line": 80,
+      "line": 100,
       "symbol": "Market.Category.empty",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Market.swift",
-      "line": 80,
+      "line": 100,
       "symbol": "Market.Category.empty",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Market.swift",
-      "line": 97,
+      "line": 117,
       "symbol": "Market.FeeType.empty",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Market.swift",
-      "line": 97,
+      "line": 117,
       "symbol": "Market.FeeType.empty",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Market.swift",
-      "line": 97,
+      "line": 117,
       "symbol": "Market.FeeType.empty",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Market.swift",
-      "line": 97,
+      "line": 117,
       "symbol": "Market.FeeType.empty",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
@@ -450,224 +450,308 @@
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 47,
+      "line": 52,
       "symbol": "Person.Links",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 47,
+      "line": 52,
       "symbol": "Person.Links",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 47,
+      "line": 52,
       "symbol": "Person.Links",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 47,
+      "line": 52,
       "symbol": "Person.Links",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 48,
+      "line": 53,
       "symbol": "Person.Links.github",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 48,
+      "line": 53,
       "symbol": "Person.Links.github",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 48,
+      "line": 53,
       "symbol": "Person.Links.github",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 48,
+      "line": 53,
       "symbol": "Person.Links.github",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 49,
+      "line": 54,
       "symbol": "Person.Links.linkeding",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 49,
+      "line": 54,
       "symbol": "Person.Links.linkeding",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 49,
+      "line": 54,
       "symbol": "Person.Links.linkeding",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 49,
+      "line": 54,
       "symbol": "Person.Links.linkeding",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 50,
+      "line": 55,
       "symbol": "Person.Links.medium",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 50,
+      "line": 55,
       "symbol": "Person.Links.medium",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 50,
+      "line": 55,
       "symbol": "Person.Links.medium",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 50,
+      "line": 55,
       "symbol": "Person.Links.medium",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 51,
+      "line": 56,
       "symbol": "Person.Links.twitter",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 51,
+      "line": 56,
       "symbol": "Person.Links.twitter",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 51,
+      "line": 56,
       "symbol": "Person.Links.twitter",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 51,
+      "line": 56,
       "symbol": "Person.Links.twitter",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 54,
+      "line": 59,
       "symbol": "Person.links",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 54,
+      "line": 59,
       "symbol": "Person.links",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 54,
+      "line": 59,
       "symbol": "Person.links",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 54,
+      "line": 59,
       "symbol": "Person.links",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
-      "line": 40,
+      "line": 10,
+      "symbol": "TagType",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 10,
+      "symbol": "TagType",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 10,
+      "symbol": "TagType",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 10,
+      "symbol": "TagType",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 11,
+      "symbol": "TagType.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 11,
+      "symbol": "TagType.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 11,
+      "symbol": "TagType.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 11,
+      "symbol": "TagType.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 12,
+      "symbol": "TagType.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 12,
+      "symbol": "TagType.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 12,
+      "symbol": "TagType.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 12,
+      "symbol": "TagType.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
+      "line": 45,
       "symbol": "Tag.TypeCategory.functional",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
-      "line": 40,
+      "line": 45,
       "symbol": "Tag.TypeCategory.functional",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
-      "line": 40,
+      "line": 45,
       "symbol": "Tag.TypeCategory.functional",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
-      "line": 40,
+      "line": 45,
       "symbol": "Tag.TypeCategory.functional",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
-      "line": 41,
+      "line": 46,
       "symbol": "Tag.TypeCategory.technical",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
-      "line": 41,
+      "line": 46,
       "symbol": "Tag.TypeCategory.technical",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
-      "line": 41,
+      "line": 46,
       "symbol": "Tag.TypeCategory.technical",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Tag.swift",
-      "line": 41,
+      "line": 46,
       "symbol": "Tag.TypeCategory.technical",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
@@ -926,196 +1010,252 @@
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 207,
+      "line": 229,
+      "symbol": "RequestError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 229,
+      "symbol": "RequestError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 229,
+      "symbol": "RequestError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 229,
+      "symbol": "RequestError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 230,
+      "symbol": "RequestError.unableToCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 230,
+      "symbol": "RequestError.unableToCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 230,
+      "symbol": "RequestError.unableToCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 230,
+      "symbol": "RequestError.unableToCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 231,
+      "symbol": "RequestError.unableToEncodeParams",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 231,
+      "symbol": "RequestError.unableToEncodeParams",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 231,
+      "symbol": "RequestError.unableToEncodeParams",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 231,
+      "symbol": "RequestError.unableToEncodeParams",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
+      "line": 234,
       "symbol": "ResponseError",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 207,
+      "line": 234,
       "symbol": "ResponseError",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 207,
+      "line": 234,
       "symbol": "ResponseError",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 207,
+      "line": 234,
       "symbol": "ResponseError",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 208,
+      "line": 235,
       "symbol": "ResponseError.emptyResponse",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 208,
+      "line": 235,
       "symbol": "ResponseError.emptyResponse",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 208,
+      "line": 235,
       "symbol": "ResponseError.emptyResponse",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 208,
+      "line": 235,
       "symbol": "ResponseError.emptyResponse",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 209,
-      "symbol": "ResponseError.unableToEncodeParams",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 209,
-      "symbol": "ResponseError.unableToEncodeParams",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 209,
-      "symbol": "ResponseError.unableToEncodeParams",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 209,
-      "symbol": "ResponseError.unableToEncodeParams",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 210,
+      "line": 236,
       "symbol": "ResponseError.unableToDecodeResponse",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 210,
+      "line": 236,
       "symbol": "ResponseError.unableToDecodeResponse",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 210,
+      "line": 236,
       "symbol": "ResponseError.unableToDecodeResponse",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 210,
+      "line": 236,
       "symbol": "ResponseError.unableToDecodeResponse",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 211,
+      "line": 237,
       "symbol": "ResponseError.requestsLimitExceeded",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 211,
+      "line": 237,
       "symbol": "ResponseError.requestsLimitExceeded",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 211,
+      "line": 237,
       "symbol": "ResponseError.requestsLimitExceeded",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 211,
+      "line": 237,
       "symbol": "ResponseError.requestsLimitExceeded",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 212,
+      "line": 238,
       "symbol": "ResponseError.invalidRequest(httpCode:message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 212,
+      "line": 238,
       "symbol": "ResponseError.invalidRequest(httpCode:message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 212,
+      "line": 238,
       "symbol": "ResponseError.invalidRequest(httpCode:message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 212,
+      "line": 238,
       "symbol": "ResponseError.invalidRequest(httpCode:message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 213,
+      "line": 239,
       "symbol": "ResponseError.serverError(httpCode:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 213,
+      "line": 239,
       "symbol": "ResponseError.serverError(httpCode:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 213,
+      "line": 239,
       "symbol": "ResponseError.serverError(httpCode:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Request/Request.swift",
-      "line": 213,
+      "line": 239,
       "symbol": "ResponseError.serverError(httpCode:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"

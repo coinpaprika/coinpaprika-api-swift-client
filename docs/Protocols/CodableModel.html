@@ -14,7 +14,7 @@
     <a title="CodableModel Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (87% documented)</p>
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (86% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -32,6 +32,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/QuoteCurrency.html">QuoteCurrency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RequestError.html">RequestError</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/Response.html">Response</a>
@@ -58,6 +61,9 @@
               <li class="nav-group-task">
                 <a href="../Protocols/CoinType.html">CoinType</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TagType.html">TagType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -71,9 +77,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinExtended.html">CoinExtended</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/CoinExtended/Tag.html">– Tag</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinExtended/Person.html">– Person</a>
@@ -270,76 +273,6 @@ Use decoder/encoder properties if you want to store our models.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">encoder</span><span class="p">:</span> <span class="kt">JSONEncoder</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14CoinpaprikaAPI12CodableModelP19keyDecodingStrategy10Foundation11JSONDecoderC03KeyfG0OSgvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/keyDecodingStrategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI12CodableModelP19keyDecodingStrategy10Foundation11JSONDecoderC03KeyfG0OSgvpZ">keyDecodingStrategy</a>
-                    </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>KeyDecodingStrategy for JSONDecoder, typically our custom snake_case to camelCase decoder.
-Use it only if you want to build your own decoder.</p>
-
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">keyDecodingStrategy</span><span class="p">:</span> <span class="kt">JSONDecoder</span><span class="o">.</span><span class="kt">KeyDecodingStrategy</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14CoinpaprikaAPI12CodableModelP19keyEncodingStrategy10Foundation11JSONEncoderC03KeyfG0OSgvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/keyEncodingStrategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI12CodableModelP19keyEncodingStrategy10Foundation11JSONEncoderC03KeyfG0OSgvpZ">keyEncodingStrategy</a>
-                    </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>KeyEncodingStrategy for JSONEncoder, typically it&rsquo;s nil - we are storing properties names as camelCase without transforming.
-Use it only if you want to build your own encoder.</p>
-
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">keyEncodingStrategy</span><span class="p">:</span> <span class="kt">JSONEncoder</span><span class="o">.</span><span class="kt">KeyEncodingStrategy</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

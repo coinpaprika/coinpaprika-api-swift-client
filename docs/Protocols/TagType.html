@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Event Structure Reference</title>
+    <title>TagType Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/Event" class="dashAnchor"></a>
-    <a title="Event Structure Reference"></a>
+    <a name="//apple_ref/swift/Protocol/TagType" class="dashAnchor"></a>
+    <a title="TagType Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CoinpaprikaAPI Docs</a> (86% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CoinpaprikaAPI Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Event Structure Reference
+        TagType Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -196,15 +196,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Event</h1>
+            <h1>TagType</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Event</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="../Protocols/CodableModel.html">CodableModel</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TagType</span></code></pre>
 
                 </div>
               </div>
-            <p>Event</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -212,9 +211,35 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI5EventV4nameSSvp"></a>
+                    <a name="/s:14CoinpaprikaAPI7TagTypeP2idSSvp"></a>
+                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI7TagTypeP2idSSvp">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI7TagTypeP4nameSSvp"></a>
                     <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV4nameSSvp">name</a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI7TagTypeP4nameSSvp">name</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -222,149 +247,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Event name, eg. Bitcoin Conference</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14CoinpaprikaAPI5EventV4date10Foundation4DateVvp"></a>
-                    <a name="//apple_ref/swift/Property/date" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV4date10Foundation4DateVvp">date</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Event start date</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14CoinpaprikaAPI5EventV6dateTo10Foundation4DateVSgvp"></a>
-                    <a name="//apple_ref/swift/Property/dateTo" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV6dateTo10Foundation4DateVSgvp">dateTo</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Event end date</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">dateTo</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14CoinpaprikaAPI5EventV12isConferenceSbvp"></a>
-                    <a name="//apple_ref/swift/Property/isConference" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV12isConferenceSbvp">isConference</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Is it conference</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">isConference</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14CoinpaprikaAPI5EventV4link10Foundation3URLVvp"></a>
-                    <a name="//apple_ref/swift/Property/link" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV4link10Foundation3URLVvp">link</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Event link</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">link</span><span class="p">:</span> <span class="kt">URL</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14CoinpaprikaAPI5EventV14proofImageLink10Foundation3URLVSgvp"></a>
-                    <a name="//apple_ref/swift/Property/proofImageLink" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI5EventV14proofImageLink10Foundation3URLVSgvp">proofImageLink</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Proof image</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">proofImageLink</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

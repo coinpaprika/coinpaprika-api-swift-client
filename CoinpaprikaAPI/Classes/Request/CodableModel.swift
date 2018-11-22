@@ -17,14 +17,6 @@ public protocol CodableModel {
     /// JSONDecoder ready to encode the model.
     static var encoder: JSONEncoder {get}
     
-    /// KeyDecodingStrategy for JSONDecoder, typically our custom snake_case to camelCase decoder.
-    /// Use it only if you want to build your own decoder.
-    static var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy? {get}
-    
-    /// KeyEncodingStrategy for JSONEncoder, typically it's nil - we are storing properties names as camelCase without transforming.
-    /// Use it only if you want to build your own encoder.
-    static var keyEncodingStrategy: JSONEncoder.KeyEncodingStrategy? {get}
-    
     /// DateDecodingStrategy for JSONDecoder, it could be either iso8601 or unix timestamp.
     /// Use it only if you want to build your own decoder.
     static var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy? {get}
@@ -35,14 +27,6 @@ public protocol CodableModel {
 }
 
 public extension CodableModel {
-    public static var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy? {
-        return nil
-    }
-    
-    public static var keyEncodingStrategy: JSONEncoder.KeyEncodingStrategy? {
-        return nil
-    }
-    
     public static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {
         return .iso8601
     }
@@ -54,10 +38,6 @@ public extension CodableModel {
     public static var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         
-        if let keyDecodingStrategy = keyDecodingStrategy {
-            decoder.keyDecodingStrategy = keyDecodingStrategy
-        }
-        
         if let dateDecodingStrategy = dateDecodingStrategy {
             decoder.dateDecodingStrategy = dateDecodingStrategy
         }
@@ -68,10 +48,6 @@ public extension CodableModel {
     public static var encoder: JSONEncoder {
         let encoder = JSONEncoder()
         
-        if let keyEncodingStrategy = keyEncodingStrategy {
-            encoder.keyEncodingStrategy = keyEncodingStrategy
-        }
-        
         if let dateEncodingStrategy = dateEncodingStrategy {
             encoder.dateEncodingStrategy = dateEncodingStrategy
         }
@@ -81,14 +57,6 @@ public extension CodableModel {
 }
 
 extension Array: CodableModel where Element: CodableModel {
-    public static var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy? {
-        return Element.keyDecodingStrategy
-    }
-    
-    public static var keyEncodingStrategy: JSONEncoder.KeyEncodingStrategy? {
-        return Element.keyEncodingStrategy
-    }
-    
     public static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {
         return Element.dateEncodingStrategy
     }

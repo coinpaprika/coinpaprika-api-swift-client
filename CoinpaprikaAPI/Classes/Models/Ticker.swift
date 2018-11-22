@@ -150,8 +150,4 @@ public struct Ticker: Codable, Equatable, CodableModel {
             case percentFromPriceAth = "percent_from_price_ath"
         }
     }
-    
-    public static var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy? {
-        return nil
-    }
 }

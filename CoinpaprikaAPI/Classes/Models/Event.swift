@@ -12,6 +12,9 @@ public struct Event: Codable, Equatable, CodableModel {
     
     /// Event name, eg. Bitcoin Conference
     public let name: String
+    
+    // Event description
+    public let description: String
 
     /// Event start date
     public let date: Date
@@ -30,6 +33,7 @@ public struct Event: Codable, Equatable, CodableModel {
     
     enum CodingKeys: String, CodingKey {
         case name
+        case description
         case date
         case dateTo = "date_to"
         case isConference = "is_conference"

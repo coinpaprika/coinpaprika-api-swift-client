@@ -365,6 +365,34 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Event.swift",
+      "line": 17,
+      "symbol": "Event.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Event.swift",
+      "line": 17,
+      "symbol": "Event.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Event.swift",
+      "line": 17,
+      "symbol": "Event.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Event.swift",
+      "line": 17,
+      "symbol": "Event.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Market.swift",
       "line": 100,
       "symbol": "Market.Category.empty",
@@ -507,28 +535,28 @@
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
       "line": 54,
-      "symbol": "Person.Links.linkeding",
+      "symbol": "Person.Links.linkedin",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
       "line": 54,
-      "symbol": "Person.Links.linkeding",
+      "symbol": "Person.Links.linkedin",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
       "line": 54,
-      "symbol": "Person.Links.linkeding",
+      "symbol": "Person.Links.linkedin",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
       "line": 54,
-      "symbol": "Person.Links.linkeding",
+      "symbol": "Person.Links.linkedin",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },

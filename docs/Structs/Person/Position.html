@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Category Enumeration Reference</title>
+    <title>Position Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/Category" class="dashAnchor"></a>
-    <a title="Category Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Struct/Position" class="dashAnchor"></a>
+    <a title="Position Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../../index.html">CoinpaprikaAPI Docs</a> (86% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../../index.html">CoinpaprikaAPI Reference</a>
         <img id="carat" src="../../img/carat.png" />
-        Category Enumeration Reference
+        Position Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -196,14 +196,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Category</h1>
+            <h1>Position</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Category</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Position</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
                 </div>
               </div>
-            <p>Market category</p>
+            <p>Person position in project</p>
 
           </section>
           <section class="section task-group-section">
@@ -212,9 +212,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI6MarketV8CategoryO4spotyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/spot" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI6MarketV8CategoryO4spotyA2EmF">spot</a>
+                    <a name="/s:14CoinpaprikaAPI6PersonV8PositionV6coinIdSSvp"></a>
+                    <a name="//apple_ref/swift/Property/coinId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI6PersonV8PositionV6coinIdSSvp">coinId</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -222,14 +222,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Spot</p>
+                        <p>Coin id, eg. btc-bitcoin</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">spot</span> <span class="o">=</span> <span class="s">"Spot"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">coinId</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -239,9 +239,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI6MarketV8CategoryO11derivativesyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/derivatives" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI6MarketV8CategoryO11derivativesyA2EmF">derivatives</a>
+                    <a name="/s:14CoinpaprikaAPI6PersonV8PositionV8positionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/position" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI6PersonV8PositionV8positionSSvp">position</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -249,67 +249,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Derivatives</p>
+                        <p>Person position, eg. Advisor</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">derivatives</span> <span class="o">=</span> <span class="s">"Derivatives"</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14CoinpaprikaAPI6MarketV8CategoryO3otcyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/otc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI6MarketV8CategoryO3otcyA2EmF">otc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>OTC</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">otc</span> <span class="o">=</span> <span class="s">"OTC"</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14CoinpaprikaAPI6MarketV8CategoryO5emptyyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/empty" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI6MarketV8CategoryO5emptyyA2EmF">empty</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">empty</span> <span class="o">=</span> <span class="s">""</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">position</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>

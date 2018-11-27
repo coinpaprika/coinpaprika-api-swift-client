@@ -25,10 +25,10 @@ public struct Person: Codable, Equatable, CodableModel {
     public struct Position: Codable, Equatable {
         
         /// Coin id, eg. btc-bitcoin
-        let coinId: String
+        public let coinId: String
         
         /// Person position, eg. Advisor
-        let position: String
+        public let position: String
         
         enum CodingKeys: String, CodingKey {
             case coinId = "coin_id"
@@ -51,7 +51,7 @@ public struct Person: Codable, Equatable, CodableModel {
     
     public struct Links: Codable, Equatable {
         public let github: [Link]?
-        public let linkeding: [Link]?
+        public let linkedin: [Link]?
         public let medium: [Link]?
         public let twitter: [Link]?
     }

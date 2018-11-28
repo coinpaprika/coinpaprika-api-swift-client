@@ -478,168 +478,168 @@
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 52,
+      "line": 56,
       "symbol": "Person.Links",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 52,
+      "line": 56,
       "symbol": "Person.Links",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 52,
+      "line": 56,
       "symbol": "Person.Links",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 52,
+      "line": 56,
       "symbol": "Person.Links",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 53,
+      "line": 57,
       "symbol": "Person.Links.github",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 53,
+      "line": 57,
       "symbol": "Person.Links.github",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 53,
+      "line": 57,
       "symbol": "Person.Links.github",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 53,
+      "line": 57,
       "symbol": "Person.Links.github",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 54,
+      "line": 58,
       "symbol": "Person.Links.linkedin",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 54,
+      "line": 58,
       "symbol": "Person.Links.linkedin",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 54,
+      "line": 58,
       "symbol": "Person.Links.linkedin",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 54,
+      "line": 58,
       "symbol": "Person.Links.linkedin",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 55,
-      "symbol": "Person.Links.medium",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 55,
-      "symbol": "Person.Links.medium",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 55,
-      "symbol": "Person.Links.medium",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 55,
-      "symbol": "Person.Links.medium",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 56,
-      "symbol": "Person.Links.twitter",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 56,
-      "symbol": "Person.Links.twitter",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 56,
-      "symbol": "Person.Links.twitter",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 56,
-      "symbol": "Person.Links.twitter",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
       "line": 59,
+      "symbol": "Person.Links.medium",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
+      "line": 59,
+      "symbol": "Person.Links.medium",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
+      "line": 59,
+      "symbol": "Person.Links.medium",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
+      "line": 59,
+      "symbol": "Person.Links.medium",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
+      "line": 60,
+      "symbol": "Person.Links.twitter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
+      "line": 60,
+      "symbol": "Person.Links.twitter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
+      "line": 60,
+      "symbol": "Person.Links.twitter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
+      "line": 60,
+      "symbol": "Person.Links.twitter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
+      "line": 63,
       "symbol": "Person.links",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 59,
+      "line": 63,
       "symbol": "Person.links",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 59,
+      "line": 63,
       "symbol": "Person.links",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dstranz/iOS/CoinpaprikaAPI/CoinpaprikaAPI/Classes/Models/Person.swift",
-      "line": 59,
+      "line": 63,
       "symbol": "Person.links",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"

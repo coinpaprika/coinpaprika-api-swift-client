@@ -27,11 +27,15 @@ public struct Person: Codable, Equatable, CodableModel {
         /// Coin id, eg. btc-bitcoin
         public let coinId: String
         
+        /// Coin name, eg. Bitcoin
+        public let coinName: String
+        
         /// Person position, eg. Advisor
         public let position: String
         
         enum CodingKeys: String, CodingKey {
             case coinId = "coin_id"
+            case coinName = "coin_name"
             case position
         }
     }

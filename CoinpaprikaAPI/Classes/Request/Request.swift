@@ -225,16 +225,3 @@ extension Request: CustomStringConvertible {
 struct APIError: Decodable {
     let error: String
 }
-
-public enum RequestError: Error {
-    case unableToCreateRequest
-    case unableToEncodeParams
-}
-
-public enum ResponseError: Error {
-    case emptyResponse
-    case unableToDecodeResponse
-    case requestsLimitExceeded
-    case invalidRequest(httpCode: Int, message: String?)
-    case serverError(httpCode: Int)
-}

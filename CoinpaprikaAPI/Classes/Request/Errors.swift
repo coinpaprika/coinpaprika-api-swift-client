@@ -32,17 +32,6 @@ public enum ResponseError: Error {
 }
 
 extension ResponseError: LocalizedError {
-    public var errorCode: Int {
-        switch self {
-        case .invalidRequest(let httpCode, _):
-            return httpCode
-        case .serverError(let httpCode):
-            return httpCode
-        default:
-            return 0
-        }
-    }
-    
     public var errorDescription: String? {
         switch self {
         case .emptyResponse:
@@ -59,6 +48,19 @@ extension ResponseError: LocalizedError {
             return message
         case .serverError(let httpCode):
             return "Server error [\(httpCode)]"
+        }
+    }
+}
+
+extension ResponseError: CustomNSError {
+    public var errorCode: Int {
+        switch self {
+        case .invalidRequest(let httpCode, _):
+            return httpCode
+        case .serverError(let httpCode):
+            return httpCode
+        default:
+            return 0
         }
     }
 }

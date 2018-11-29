@@ -12,9 +12,6 @@ public protocol CoinType {
     var id: String { get }
     var name: String { get }
     var symbol: String { get }
-    var rank: Int { get }
-    var isNew: Bool { get }
-    var isActive: Bool { get }
 }
 
 /// Coin
@@ -68,6 +65,19 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
     
     /// Is it active on Coinpaprika
     public let isActive: Bool
+    
+    public struct ParentCoin: Codable, Equatable, CoinType {
+        /// Coin id, eg. btc-bitcoin
+        public let id: String
+        
+        /// Coin name, eg. Bitcoin
+        public let name: String
+        
+        /// Coin symbol, eg. BTC
+        public let symbol: String
+    }
+    
+    public let parent: ParentCoin?
     
     public let tags: [Tag]?
     
@@ -183,6 +193,7 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
         case name
         case symbol
         case rank
+        case parent
         case isNew = "is_new"
         case isActive = "is_active"
         case tags

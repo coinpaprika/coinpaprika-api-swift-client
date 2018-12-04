@@ -26,7 +26,7 @@ public struct Event: Codable, Equatable, CodableModel {
     public let isConference: Bool
     
     /// Event link
-    public let link: URL
+    public let link: URL?
     
     /// Proof image
     public let proofImageLink: URL?

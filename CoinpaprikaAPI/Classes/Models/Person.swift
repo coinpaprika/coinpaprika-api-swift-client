@@ -22,7 +22,7 @@ public struct Person: Codable, Equatable, CodableModel {
     public let teamsCount: Int
     
     /// Person position in project
-    public struct Position: Codable, Equatable {
+    public struct Project: Codable, Equatable {
         
         /// Coin id, eg. btc-bitcoin
         public let coinId: String
@@ -30,18 +30,22 @@ public struct Person: Codable, Equatable, CodableModel {
         /// Coin name, eg. Bitcoin
         public let coinName: String
         
+        /// Coin name, eg. BTC
+        public let coinSymbol: String
+        
         /// Person position, eg. Advisor
         public let position: String
         
         enum CodingKeys: String, CodingKey {
             case coinId = "coin_id"
             case coinName = "coin_name"
+            case coinSymbol = "coin_symbol"
             case position
         }
     }
     
     /// Position per projects
-    public let positions: [Position]
+    public let positions: [Project]
     
     /// Links with popularity
     public struct Link: Codable, Equatable {

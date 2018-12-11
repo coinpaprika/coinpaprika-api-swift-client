@@ -29,7 +29,7 @@ public struct Ohlcv: Codable, Equatable, CodableModel {
     let close: Decimal
     
     /// Coin volume
-    let volume: Int64
+    let volume: Decimal
     
     /// Coin market capitalization
     let marketCap: Int64

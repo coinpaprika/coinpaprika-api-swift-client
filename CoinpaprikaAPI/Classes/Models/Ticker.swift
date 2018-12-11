@@ -86,7 +86,7 @@ public struct Ticker: Codable, Equatable, CodableModel {
         public let price: Decimal
         
         /// Volume from last 24h
-        public let volume24h: Int64
+        public let volume24h: Decimal
         
         /// Volume change in last 24h
         public let volume24hChange24h: Decimal
@@ -130,7 +130,7 @@ public struct Ticker: Codable, Equatable, CodableModel {
                 return nil
             }
             
-            return Decimal(volume24h)/Decimal(marketCap)
+            return volume24h/Decimal(marketCap)
         }
         
         enum CodingKeys: String, CodingKey {

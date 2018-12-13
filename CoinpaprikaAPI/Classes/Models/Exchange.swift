@@ -78,10 +78,10 @@ public struct Exchange: Codable, Equatable, CodableModel {
     /// Exchange.Quote data
     public struct Quote: Codable, Equatable {
         /// Exchange reported volume from last 24h
-        public let reportedVolume24h: Int64
+        public let reportedVolume24h: Decimal
         
         /// Exchange adjusted volume from last 24h
-        public let adjustedVolume24h: Int64
+        public let adjustedVolume24h: Decimal
         
         enum CodingKeys: String, CodingKey {
             case reportedVolume24h = "reported_volume_24h"

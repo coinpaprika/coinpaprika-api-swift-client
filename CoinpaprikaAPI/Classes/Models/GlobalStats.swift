@@ -12,10 +12,10 @@ import Foundation
 public struct GlobalStats: Codable, Equatable, CodableModel {
     
     /// Market capitalization in USD
-    public let marketCapUsd: Int64
+    public let marketCapUsd: Decimal
     
     /// Volume from last 24h
-    public let volume24hUsd: Int64
+    public let volume24hUsd: Decimal
     
     /// Bitcoin share in whole market capitalization
     public let bitcoinDominancePercentage: Decimal

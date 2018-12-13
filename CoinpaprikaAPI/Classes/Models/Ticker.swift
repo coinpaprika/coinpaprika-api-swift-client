@@ -24,13 +24,13 @@ public struct Ticker: Codable, Equatable, CodableModel {
     public let rank: Int
     
     /// Coins circulating on the market
-    public let circulatingSupply: Int64
+    public let circulatingSupply: Decimal
     
     /// Total number of coins
-    public let totalSupply: Int64
+    public let totalSupply: Decimal
     
     /// Maximum number of coins that could exist
-    public let maxSupply: Int64
+    public let maxSupply: Decimal
     
     /// Circulating Supply / Max Supply Rate
     public var circulatingSupplyPercent: Decimal? {
@@ -38,7 +38,7 @@ public struct Ticker: Codable, Equatable, CodableModel {
             return nil
         }
         
-        return Decimal(circulatingSupply)/Decimal(maxSupply)
+        return circulatingSupply/maxSupply
     }
     
     /// Beta (β or beta coefficient) of an investment indicates whether the investment is more or less volatile than the market as a whole.
@@ -92,7 +92,7 @@ public struct Ticker: Codable, Equatable, CodableModel {
         public let volume24hChange24h: Decimal
         
         /// Market capitalization
-        public let marketCap: Int64
+        public let marketCap: Decimal
         
         /// Market capitalization change in last 24h
         public let marketCapChange24h: Decimal
@@ -130,7 +130,7 @@ public struct Ticker: Codable, Equatable, CodableModel {
                 return nil
             }
             
-            return volume24h/Decimal(marketCap)
+            return volume24h/marketCap
         }
         
         enum CodingKeys: String, CodingKey {

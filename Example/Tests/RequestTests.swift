@@ -181,7 +181,7 @@ class RequestTests: XCTestCase {
             let exchange = response.value
             XCTAssertNotNil(exchange, "Exchange should exist")
             
-            XCTAssert((exchange?[.pln].adjustedVolume24h ?? 0) > Int64(0), "Adjusted volume should be greater than 0")
+            XCTAssert((exchange?[.pln].adjustedVolume24h ?? 0) > 0, "Adjusted volume should be greater than 0")
             
             expectation.fulfill()
         }

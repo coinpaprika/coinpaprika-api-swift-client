@@ -17,22 +17,22 @@ public struct Ohlcv: Codable, Equatable, CodableModel {
     let timeClose: Date
     
     /// Open price
-    let open: Decimal
+    let open: Decimal?
     
     /// Highest price
-    let high: Decimal
+    let high: Decimal?
     
     /// Lowest price
-    let low: Decimal
+    let low: Decimal?
     
     /// Close price
-    let close: Decimal
+    let close: Decimal?
     
     /// Coin volume
-    let volume: Decimal
+    let volume: Decimal?
     
     /// Coin market capitalization
-    let marketCap: Int64
+    let marketCap: Decimal?
     
     enum CodingKeys: String, CodingKey {
         case timeOpen = "time_open"

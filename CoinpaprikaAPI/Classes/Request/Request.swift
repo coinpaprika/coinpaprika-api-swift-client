@@ -25,7 +25,7 @@ public struct Request<Model: Codable & CodableModel> {
     
     private let path: String
     
-    public typealias Params = [String: String]
+    public typealias Params = [String: Any]
     
     private let params: Params?
 
@@ -143,7 +143,7 @@ public struct Request<Model: Codable & CodableModel> {
     }
     
     private var url: URL {
-        let url = baseUrl.appendingPathComponent(path)
+        let url = path.isEmpty ? baseUrl : baseUrl.appendingPathComponent(path)
         
         guard method == .get, let params = params, var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return url
@@ -152,7 +152,7 @@ public struct Request<Model: Codable & CodableModel> {
         var queryItems = components.queryItems ?? []
         
         for (key, value) in params {
-            queryItems.append(URLQueryItem(name: key, value: value))
+            queryItems.append(URLQueryItem(name: key, value: "\(value)"))
         }
         
         components.queryItems = queryItems
@@ -168,7 +168,7 @@ public struct Request<Model: Codable & CodableModel> {
         case .json:
             return try JSONSerialization.data(withJSONObject: params, options: [])
         case .urlencode:
-            return params.map({ "\($0.key)=\($0.value.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? $0.value)" }).joined(separator: "&").data(using: .utf8)
+            return params.map({ "\($0.key)=\("\($0.value)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? $0.value)" }).joined(separator: "&").data(using: .utf8)
         }
     }
 

@@ -25,11 +25,21 @@ public struct Tweet: Codable, Equatable, CodableModel {
     /// Twitter link
     public let statusLink: URL
     
-    /// Attached image link
+    /// Attached image or video link
     public let mediaLink: URL?
     
     /// Attached video link
     public let videoLink: URL?
+    
+    /// Attached image link
+    public var imageLink: URL? {
+        guard let url = mediaLink, url.pathExtension != "mp4" else {
+            return nil
+        }
+        
+        return url
+    }
+
     
     enum CodingKeys: String, CodingKey {
         case status

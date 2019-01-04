@@ -23,22 +23,30 @@ public struct GlobalStats: Codable, Equatable, CodableModel {
     /// Number of cryptocurrencies
     public let cryptocurrenciesNumber: Int
     
+    /// Market capitalization ATH in USD
+    public let marketCapAthValue: Decimal
+    
+    /// Market capitalization ATH date
+    public let marketCapAthDate: Date
+    
+    /// Volume 24h ATH in USD
+    public let volume24hAthValue: Decimal
+    
+    /// Volume 24h ATH date
+    public let volume24hAthDate: Date
+    
     /// Last update time
-    public let lastUpdated: Date
+    //  public let lastUpdated: Date
     
     enum CodingKeys: String, CodingKey {
         case marketCapUsd = "market_cap_usd"
         case volume24hUsd = "volume_24h_usd"
         case bitcoinDominancePercentage = "bitcoin_dominance_percentage"
         case cryptocurrenciesNumber = "cryptocurrencies_number"
-        case lastUpdated = "last_updated"
-    }
-    
-    public static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {
-        return .secondsSince1970
-    }
-    
-    public static var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy? {
-        return .secondsSince1970
+        //case lastUpdated = "last_updated"
+        case marketCapAthValue = "market_cap_ath_value"
+        case marketCapAthDate = "market_cap_ath_date"
+        case volume24hAthValue = "volume_24h_ath_value"
+        case volume24hAthDate = "volume_24h_ath_date"
     }
 }

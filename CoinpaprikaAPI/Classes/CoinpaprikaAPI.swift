@@ -307,4 +307,75 @@ public struct CoinpaprikaAPI {
         
         return Request<[Ohlcv]>(baseUrl: baseUrl, method: .get, path: "/coins/\(id)/ohlcv/historical", params: params)
     }
+    
+    /// Latest News
+    ///
+    /// - Parameters:
+    ///   - limit: Returns limit, default 3
+    /// - Returns: Request to perform
+    public static func latestNews(limit: Int = 3) -> Request<[News]> {
+        return Request<[News]>(baseUrl: baseUrl, method: .get, path: "news/latest", params: ["limit": limit])
+    }
+    
+    /// Historical News
+    ///
+    /// - Parameters:
+    ///   - start: Start date, required
+    ///   - end: End date, if not provided returns news from 1 day, max period 30 days
+    /// - Returns: Request to perform
+    public static func historicalNews(start: Date, end: Date? = nil) -> Request<[News]> {
+        var params = ["start": "\(Int(start.timeIntervalSince1970))"]
+        
+        if let end = end {
+            params["end"] = "\(Int(end.timeIntervalSince1970))"
+        }
+        
+        return Request<[News]>(baseUrl: baseUrl, method: .get, path: "news/latest", params: params)
+    }
+    
+    /// Type for Top Movers endpoint
+    public enum TopMoversType: String, CaseIterable {
+        /// Top Movers by price change
+        case price
+        
+        /// Top Movers by volume change
+        case volume
+    }
+    
+    /// Time range for Top Movers endpoint
+    public enum TopMoversTimeRange: String, CaseIterable {
+        /// Top Movers from last 24 hours
+        case day = "24h"
+        
+        /// Top Movers from last 7 days
+        case week = "7d"
+    }
+    
+    /// Market cap limit for Top Movers endpoint
+    public enum TopMoversLimit: String, CaseIterable {
+        /// Top Movers from top 200 coins (by market cap)
+        case top200
+        
+        /// Top Movers from all coins
+        case all
+    }
+    
+    private static func validateTopMoversQuote(_ quote: QuoteCurrency) {
+        let acceptedQuotes: [QuoteCurrency] = [.usd, .btc]
+        assert(acceptedQuotes.contains(quote), "This endpoint accepts only \(acceptedQuotes).")
+    }
+    
+    /// Top Movers Ranking - Gainers & Losers
+    ///
+    /// - Parameters:
+    ///   - type: Metric used in ranking - .price or .volume, default .price
+    ///   - range: Time range - .day or .week, default .day
+    ///   - limit: Coins market cap limit used in ranking - .top200 or .all, default .all
+    ///   - quote: Quote currency - .usd or .btc, default .usd
+    /// - Returns: Request to perform
+    public static func topMovers(type: TopMoversType = .price, range: TopMoversTimeRange = .day, limit: TopMoversLimit = .all, quote: QuoteCurrency = .usd) -> Request<TopMovers> {
+        validateTopMoversQuote(quote)
+        return Request<TopMovers>(baseUrl: baseUrl, method: .get, path: "rankings/top10movers", params: ["type": type.rawValue, "time_range": range.rawValue, "marketcap_limit": limit.rawValue, "quote": quote.rawValue])
+    }
+    
 }

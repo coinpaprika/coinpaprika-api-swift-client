@@ -75,10 +75,10 @@ public struct Market: Codable, Equatable, CodableModel {
     /// Market.Quote
     public struct Quote: Codable, Equatable {
         /// Price
-        let price: Decimal
+        public let price: Decimal
         
         /// Volume from last 24h
-        let volume24h: Decimal
+        public let volume24h: Decimal
         
         enum CodingKeys: String, CodingKey {
             case price

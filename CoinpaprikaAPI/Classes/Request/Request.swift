@@ -199,18 +199,22 @@ public struct Request<Model: Codable & CodableModel> {
         do {
             return try decoder.decode(Model.self, from: data)
         } catch DecodingError.dataCorrupted(let context) {
-            assertionFailure("\(Model.self): \(context.debugDescription)")
+            assertionFailure("\(Model.self): \(context.debugDescription) from \(debugDecodeData(data))")
         } catch DecodingError.keyNotFound(let key, let context) {
-            assertionFailure("\(Model.self): \(key.stringValue) was not found, \(context.debugDescription)")
+            assertionFailure("\(Model.self): \(key.stringValue) was not found, \(context.debugDescription) from \(debugDecodeData(data))")
         } catch DecodingError.typeMismatch(let type, let context) {
-            assertionFailure("\(Model.self): \(type) was expected, \(context.debugDescription)")
+            assertionFailure("\(Model.self): \(type) was expected, \(context.debugDescription) from \(debugDecodeData(data))")
         } catch DecodingError.valueNotFound(let type, let context) {
-            assertionFailure("\(Model.self): no value was found for \(type), \(context.debugDescription)")
+            assertionFailure("\(Model.self): no value was found for \(type), \(context.debugDescription) from \(debugDecodeData(data))")
         } catch {
-            assertionFailure("\(Model.self): unknown decoding error")
+            assertionFailure("\(Model.self): unknown decoding error from \(debugDecodeData(data))")
         }
         
         return nil
+    }
+    
+    private func debugDecodeData(_ data: Data) -> String {
+        return String(data: data, encoding: .utf8) ?? "(empty)"
     }
     
 }

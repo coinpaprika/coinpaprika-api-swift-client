@@ -125,55 +125,8 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
     /// Coin hash algorithm, eg. SHA256
     public let hashAlgorithm: String?
     
-    /// Coin links
-    public struct Links: Codable, Equatable {
-        
-        /// Project blockchain explorer
-        public let explorer: [URL]?
-        
-        /// Project Facebook profile page
-        public let facebook: [URL]?
-        
-        /// Project subreddit at Reddit
-        public let reddit: [URL]?
-        
-        /// Project twitter account
-        public let twitter: [URL]?
-        
-        /// Project code repository
-        public let sourceCode: [URL]?
-        
-        /// Project website
-        public let website: [URL]?
-        
-        /// Project blog at Medium
-        public let medium: [URL]?
-        
-        /// Project explanation/marketing video at Youtube
-        public let youtube: [URL]?
-        
-        /// Project explanation/marketing video at Vimeo
-        public let vimeo: [URL]?
-        
-        /// Project explanation video
-        public let videoFile: [URL]?
-        
-        enum CodingKeys: String, CodingKey {
-            case explorer
-            case facebook
-            case reddit
-            case twitter
-            case sourceCode = "source_code"
-            case website
-            case medium
-            case youtube
-            case vimeo
-            case videoFile = "video_file"
-        }
-    }
-    
     /// Project links
-    public let links: Links
+    public let links: [Link]
     
     /// Coin Whitepaper
     public struct Whitepaper: Codable, Equatable {
@@ -207,7 +160,7 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
         case proofType = "proof_type"
         case orgStructure = "org_structure"
         case hashAlgorithm = "hash_algorithm"
-        case links
+        case links = "links_extended"
         case whitepaper
     }
 }

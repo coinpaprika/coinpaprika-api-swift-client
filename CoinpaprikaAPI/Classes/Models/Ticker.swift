@@ -130,7 +130,7 @@ public struct Ticker: Codable, Equatable, CodableModel {
                 return nil
             }
             
-            return volume24h/marketCap
+            return volume24h/marketCap * 100
         }
         
         enum CodingKeys: String, CodingKey {

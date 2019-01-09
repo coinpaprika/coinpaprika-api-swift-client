@@ -102,6 +102,14 @@ public extension Array where Element == CoinExtended.Link {
         return filter({ $0.type == type })
     }
     
+    /// Filter links array with given type
+    ///
+    /// - Parameter type: requested link type
+    /// - Returns: links array
+    public func with(types: [CoinExtended.Link.LinkType]) -> [CoinExtended.Link] {
+        return filter({ types.contains($0.type) })
+    }
+    
 }
 
 /// Added for compatibility with previous API version, to be removed in the future

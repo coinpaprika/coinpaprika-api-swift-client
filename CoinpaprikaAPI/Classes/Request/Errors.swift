@@ -1,6 +1,6 @@
 //
 //  Errors.swift
-//  AMScrollingNavbar
+//  Coinpaprika
 //
 //  Created by Dominique Stranz on 29/11/2018.
 //

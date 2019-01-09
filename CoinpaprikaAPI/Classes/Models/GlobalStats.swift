@@ -14,26 +14,32 @@ public struct GlobalStats: Codable, Equatable, CodableModel {
     /// Market capitalization in USD
     public let marketCapUsd: Decimal
     
-    /// Volume from last 24h
-    public let volume24hUsd: Decimal
-    
-    /// Bitcoin share in whole market capitalization
-    public let bitcoinDominancePercentage: Decimal
-    
-    /// Number of cryptocurrencies
-    public let cryptocurrenciesNumber: Int
-    
     /// Market capitalization ATH in USD
     public let marketCapAthValue: Decimal
     
     /// Market capitalization ATH date
     public let marketCapAthDate: Date
     
+    /// Market capitalization percentage change in last 24h
+    public let marketCapChange24h: Decimal
+    
+    /// Volume from last 24h
+    public let volume24hUsd: Decimal
+    
     /// Volume 24h ATH in USD
     public let volume24hAthValue: Decimal
     
     /// Volume 24h ATH date
     public let volume24hAthDate: Date
+    
+    /// Volume 24h percentage change in last 24h
+    public let volume24hChange24h: Decimal
+    
+    /// Bitcoin share in whole market capitalization
+    public let bitcoinDominancePercentage: Decimal
+    
+    /// Number of cryptocurrencies
+    public let cryptocurrenciesNumber: Int
     
     /// Last update time
     //  public let lastUpdated: Date
@@ -48,5 +54,7 @@ public struct GlobalStats: Codable, Equatable, CodableModel {
         case marketCapAthDate = "market_cap_ath_date"
         case volume24hAthValue = "volume_24h_ath_value"
         case volume24hAthDate = "volume_24h_ath_date"
+        case marketCapChange24h = "market_cap_change_24h"
+        case volume24hChange24h = "volume_24h_change_24h"
     }
 }

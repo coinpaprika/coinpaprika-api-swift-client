@@ -8,9 +8,14 @@
 
 import Foundation
 
+public protocol Requestable {
+    associatedtype Model: Codable & CodableModel
+    func perform(responseQueue: DispatchQueue?, cachePolicy: URLRequest.CachePolicy?, _ callback: @escaping (Response<Model>) -> Void)
+}
+
 /// Request representation returned by CoinpaprikaAPI methods.
 /// To perform request use .perform() method. It will call callback with error reason or
-public struct Request<Model: Codable & CodableModel> {
+public struct Request<Model: Codable & CodableModel>: Requestable {
     
     private let baseUrl: URL
     

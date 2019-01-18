@@ -10,6 +10,8 @@ import Foundation
 public protocol TagType {
     var id: String { get }
     var name: String { get }
+    var coinCounter: Int { get }
+    var icoCounter: Int { get }
 }
 
 /// Tag for ICO & Coins

@@ -35,6 +35,19 @@ public struct Coin: Codable, Equatable, CodableModel, CoinType {
     /// Is it active on Coinpaprika
     public let isActive: Bool
     
+    private let typeStorage: TypeValue?
+    
+    /// Coin type, eg. .coin, .token
+    public var type: TypeValue {
+        return typeStorage ?? .unknown
+    }
+    
+    public enum TypeValue: String, Codable {
+        case coin
+        case token
+        case unknown
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -42,8 +55,10 @@ public struct Coin: Codable, Equatable, CodableModel, CoinType {
         case rank
         case isNew = "is_new"
         case isActive = "is_active"
+        case typeStorage = "type"
     }
     
+
 }
 
 public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
@@ -141,6 +156,13 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
     /// Coin whitepaper
     public let whitepaper: Whitepaper
     
+    private let typeStorage: Coin.TypeValue?
+    
+    /// Coin type, eg. .coin, .token
+    public var type: Coin.TypeValue {
+        return typeStorage ?? .unknown
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -162,5 +184,6 @@ public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
         case hashAlgorithm = "hash_algorithm"
         case links = "links_extended"
         case whitepaper
+        case typeStorage = "type"
     }
 }

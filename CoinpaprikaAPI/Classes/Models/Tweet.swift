@@ -10,7 +10,7 @@ import Foundation
 /// Tweet
 public struct Tweet: Codable, Equatable, CodableModel {
     
-    /// Event name, eg. Bitcoin Core 0.17.0 Released
+    /// Tweet text, eg. Bitcoin Core 0.17.0 Released
     public let status: String
     
     /// Twitter user name, eg. bitcoincoreorg
@@ -19,7 +19,7 @@ public struct Tweet: Codable, Equatable, CodableModel {
     /// Is it retweeted tweet
     public let isRetweet: Bool
     
-    /// Event start date
+    /// Tweet publish date
     public let date: Date
     
     /// Twitter link

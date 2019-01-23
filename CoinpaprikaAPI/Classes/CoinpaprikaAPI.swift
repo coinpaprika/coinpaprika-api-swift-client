@@ -71,26 +71,21 @@ public struct CoinpaprikaAPI {
         return Request<[Tweet]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/twitter", params: nil)
     }
     
-    private static func validateTickerQuotes(_ quotes: [QuoteCurrency]) {
-        let acceptedQuotes: [QuoteCurrency] = [.usd, .btc, .eth]
-        assert(quotes.filter({ !acceptedQuotes.contains($0) }).isEmpty, "This endpoint accepts only \(acceptedQuotes).")
-    }
-    
     /// Get ticker information for all coins
     ///
-    /// - Parameter quotes: list of requested quotes, default [.usd], accepted values .usd, .btc, .eth
+    /// - Parameter quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func tickers(quotes: [QuoteCurrency] = [.usd]) -> Request<[Ticker]> {
-        validateTickerQuotes(quotes)
         return Request<[Ticker]>(baseUrl: baseUrl, method: .get, path: "tickers", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Get ticker information for specific coin
     ///
-    /// - Parameter id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    /// - Parameters:
+    ///    - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    ///    - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func ticker(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Ticker> {
-        validateTickerQuotes(quotes)
         return Request<Ticker>(baseUrl: baseUrl, method: .get, path: "tickers/\(id)", params: ["quotes": quotes.asCommaJoinedList])
     }
     
@@ -378,4 +373,10 @@ public struct CoinpaprikaAPI {
         return Request<TopMovers>(baseUrl: baseUrl, method: .get, path: "rankings/top10movers", params: ["type": type.rawValue, "time_range": range.rawValue, "marketcap_limit": limit.rawValue, "quote": quote.rawValue])
     }
     
+    /// List of available Fiat's currencies - accepted as quotes by tickers, exchanges, markets endpoints.
+    ///
+    /// - Returns: Request to perform
+    public static func fiats() -> Request<[Fiat]> {
+        return Request<[Fiat]>(baseUrl: baseUrl, method: .get, path: "fiats", params: nil)
+    }
 }

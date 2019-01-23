@@ -234,9 +234,9 @@ class RequestTests: XCTestCase {
             
             XCTAssertNotNil(bitcoin?.description, "Description should exist")
             
-            XCTAssertNotNil(bitcoin?.links.sourceCode?.first, "Source Code link should exist")
+            XCTAssertNotNil(bitcoin?.links.with(type: .sourceCode).first, "Source Code link should exist")
             
-            XCTAssertNotNil(bitcoin?.links.explorer?.first, "Explorer link should exist")
+            XCTAssertNotNil(bitcoin?.links.with(type: .explorer).first, "Explorer link should exist")
             
             expectation.fulfill()
         }
@@ -332,6 +332,19 @@ class RequestTests: XCTestCase {
         CoinpaprikaAPI.coinHistoricalOhlcv(id: bitcoinId, start: Date(timeIntervalSinceNow: -60*60*24)).perform { (response) in
             let ohlcv = response.value
             XCTAssertNotNil(ohlcv?.first, "Ohlcv should exist")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testFiatsRequest() {
+        let expectation = self.expectation(description: "Waiting for a fiats list")
+        
+        CoinpaprikaAPI.fiats().perform { (response) in
+            let fiats = response.value
+            XCTAssertNotNil(fiats?.contains(where: { $0.symbol == "USD" }), "USD should exist")
             
             expectation.fulfill()
         }

@@ -14,7 +14,7 @@
     <a title="QuoteCurrency Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (85% documented)</p>
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (82% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -62,6 +62,9 @@
                 <a href="../Protocols/CoinType.html">CoinType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/Requestable.html">Requestable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/TagType.html">TagType</a>
               </li>
             </ul>
@@ -71,6 +74,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/Coin.html">Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Coin/TypeValue.html">– TypeValue</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinExchange.html">CoinExchange</a>
@@ -85,10 +91,10 @@
                 <a href="../Structs/CoinExtended/Person.html">– Person</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CoinExtended/Links.html">– Links</a>
+                <a href="../Structs/CoinExtended/Whitepaper.html">– Whitepaper</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CoinExtended/Whitepaper.html">– Whitepaper</a>
+                <a href="../Structs/CoinExtended/Link.html">– Link</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinMarket.html">CoinMarket</a>
@@ -106,6 +112,15 @@
                 <a href="../Structs/CoinpaprikaAPI/TickerHistoryInterval.html">– TickerHistoryInterval</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TopMoversType.html">– TopMoversType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TopMoversTimeRange.html">– TopMoversTimeRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TopMoversLimit.html">– TopMoversLimit</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Event.html">Event</a>
               </li>
               <li class="nav-group-task">
@@ -121,19 +136,25 @@
                 <a href="../Structs/Exchange/Fiat.html">– Fiat</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Fiat.html">Fiat</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/GlobalStats.html">GlobalStats</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Market.html">Market</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/Market.html#/s:14CoinpaprikaAPI6MarketV5QuoteV">– Quote</a>
+                <a href="../Structs/Market/Quote.html">– Quote</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Market/Category.html">– Category</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Market/FeeType.html">– FeeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/News.html">News</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs.html#/s:14CoinpaprikaAPI5OhlcvV">Ohlcv</a>
@@ -190,6 +211,12 @@
                 <a href="../Structs.html#/s:14CoinpaprikaAPI13TickerHistoryV">TickerHistory</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/TopMovers.html">TopMovers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TopMovers/Coin.html">– Coin</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Tweet.html">Tweet</a>
               </li>
             </ul>
@@ -215,33 +242,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3usdyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/usd" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3usdyA2CmF">usd</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>United States dollar</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">usd</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3btcyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/btc" class="dashAnchor"></a>
                     <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3btcyA2CmF">btc</a>
@@ -259,7 +259,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">btc</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">btc</span> <span class="o">=</span> <span class="s">"BTC"</span></code></pre>
 
                         </div>
                       </div>
@@ -286,7 +286,169 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eth</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eth</span> <span class="o">=</span> <span class="s">"ETH"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3usdyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/usd" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3usdyA2CmF">usd</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>US Dollars</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">usd</span> <span class="o">=</span> <span class="s">"USD"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3euryA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/eur" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3euryA2CmF">eur</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Euro</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eur</span> <span class="o">=</span> <span class="s">"EUR"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3krwyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/krw" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3krwyA2CmF">krw</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>South Korea Won</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">krw</span> <span class="o">=</span> <span class="s">"KRW"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3gbpyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/gbp" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3gbpyA2CmF">gbp</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Pound Sterling</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">gbp</span> <span class="o">=</span> <span class="s">"GBP"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3cadyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/cad" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3cadyA2CmF">cad</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Canadian Dollar</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cad</span> <span class="o">=</span> <span class="s">"CAD"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3jpyyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/jpy" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3jpyyA2CmF">jpy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Japanese Yen</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">jpy</span> <span class="o">=</span> <span class="s">"JPY"</span></code></pre>
 
                         </div>
                       </div>
@@ -306,14 +468,905 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Polish zloty</p>
+                        <p>Polish Zloty</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pln</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pln</span> <span class="o">=</span> <span class="s">"PLN"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3rubyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/rub" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3rubyA2CmF">rub</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Russian Ruble</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">rub</span> <span class="o">=</span> <span class="s">"RUB"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3tryyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/try" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3tryyA2CmF">try</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Turkish Lira</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="err">`</span><span class="k">try</span><span class="err">`</span> <span class="o">=</span> <span class="s">"TRY"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3nzdyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/nzd" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3nzdyA2CmF">nzd</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>New Zealand Dollar</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nzd</span> <span class="o">=</span> <span class="s">"NZD"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3audyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/aud" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3audyA2CmF">aud</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Australian Dollar</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">aud</span> <span class="o">=</span> <span class="s">"AUD"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3chfyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/chf" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3chfyA2CmF">chf</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Swiss Franc</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">chf</span> <span class="o">=</span> <span class="s">"CHF"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3uahyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/uah" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3uahyA2CmF">uah</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Ukrainian Hryvnia</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">uah</span> <span class="o">=</span> <span class="s">"UAH"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3hkdyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/hkd" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3hkdyA2CmF">hkd</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Hong Kong Dollar</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hkd</span> <span class="o">=</span> <span class="s">"HKD"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3sgdyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/sgd" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3sgdyA2CmF">sgd</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Singapore Dollar</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sgd</span> <span class="o">=</span> <span class="s">"SGD"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3ngnyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/ngn" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3ngnyA2CmF">ngn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Nigerian Naira</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ngn</span> <span class="o">=</span> <span class="s">"NGN"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3phpyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/php" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3phpyA2CmF">php</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Philippines Piso</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">php</span> <span class="o">=</span> <span class="s">"PHP"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3mxnyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/mxn" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3mxnyA2CmF">mxn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mexican Peso</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mxn</span> <span class="o">=</span> <span class="s">"MXN"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3brlyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/brl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3brlyA2CmF">brl</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Brazil Real</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">brl</span> <span class="o">=</span> <span class="s">"BRL"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3thbyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/thb" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3thbyA2CmF">thb</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Thai Baht</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">thb</span> <span class="o">=</span> <span class="s">"THB"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3clpyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/clp" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3clpyA2CmF">clp</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Chilean Peso</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">clp</span> <span class="o">=</span> <span class="s">"CLP"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3cnyyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/cny" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3cnyyA2CmF">cny</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Yuan Renminbi</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cny</span> <span class="o">=</span> <span class="s">"CNY"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3czkyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/czk" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3czkyA2CmF">czk</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Czech Koruna</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">czk</span> <span class="o">=</span> <span class="s">"CZK"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3dkkyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/dkk" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3dkkyA2CmF">dkk</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Danish Krone</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dkk</span> <span class="o">=</span> <span class="s">"DKK"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3hufyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/huf" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3hufyA2CmF">huf</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Hungarian Forint</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">huf</span> <span class="o">=</span> <span class="s">"HUF"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3idryA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/idr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3idryA2CmF">idr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indonesian Rupiah</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">idr</span> <span class="o">=</span> <span class="s">"IDR"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3ilsyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/ils" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3ilsyA2CmF">ils</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Israeli Shekel</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ils</span> <span class="o">=</span> <span class="s">"ILS"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3inryA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/inr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3inryA2CmF">inr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indian Rupee</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inr</span> <span class="o">=</span> <span class="s">"INR"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3myryA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/myr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3myryA2CmF">myr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Malaysian Ringgit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">myr</span> <span class="o">=</span> <span class="s">"MYR"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3nokyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/nok" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3nokyA2CmF">nok</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Norwegian Krone</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nok</span> <span class="o">=</span> <span class="s">"NOK"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3pkryA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/pkr" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3pkryA2CmF">pkr</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Pakistani Rupee</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pkr</span> <span class="o">=</span> <span class="s">"PKR"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3sekyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/sek" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3sekyA2CmF">sek</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Swedish Krona</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sek</span> <span class="o">=</span> <span class="s">"SEK"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3twdyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/twd" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3twdyA2CmF">twd</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Taiwan New Dollar</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">twd</span> <span class="o">=</span> <span class="s">"TWD"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3zaryA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/zar" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3zaryA2CmF">zar</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>South African Rand</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">zar</span> <span class="o">=</span> <span class="s">"ZAR"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3vndyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/vnd" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3vndyA2CmF">vnd</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Vietnamese Dong</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vnd</span> <span class="o">=</span> <span class="s">"VND"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3bobyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/bob" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3bobyA2CmF">bob</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Bolivian Boliviano</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bob</span> <span class="o">=</span> <span class="s">"BOB"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3copyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/cop" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3copyA2CmF">cop</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Colombian Peso</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cop</span> <span class="o">=</span> <span class="s">"COP"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3penyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/pen" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3penyA2CmF">pen</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Peruvian Sol</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pen</span> <span class="o">=</span> <span class="s">"PEN"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3arsyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/ars" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3arsyA2CmF">ars</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Argentine Peso</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ars</span> <span class="o">=</span> <span class="s">"ARS"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPI13QuoteCurrencyO3iskyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/isk" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPI13QuoteCurrencyO3iskyA2CmF">isk</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Icelandic krona</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">isk</span> <span class="o">=</span> <span class="s">"ISK"</span></code></pre>
 
                         </div>
                       </div>

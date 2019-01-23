@@ -14,7 +14,7 @@
     <a title="Array Extension Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (85% documented)</p>
+        <p><a href="../index.html">CoinpaprikaAPI Docs</a> (82% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -62,6 +62,9 @@
                 <a href="../Protocols/CoinType.html">CoinType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/Requestable.html">Requestable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/TagType.html">TagType</a>
               </li>
             </ul>
@@ -71,6 +74,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/Coin.html">Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Coin/TypeValue.html">– TypeValue</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinExchange.html">CoinExchange</a>
@@ -85,10 +91,10 @@
                 <a href="../Structs/CoinExtended/Person.html">– Person</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CoinExtended/Links.html">– Links</a>
+                <a href="../Structs/CoinExtended/Whitepaper.html">– Whitepaper</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CoinExtended/Whitepaper.html">– Whitepaper</a>
+                <a href="../Structs/CoinExtended/Link.html">– Link</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CoinMarket.html">CoinMarket</a>
@@ -106,6 +112,15 @@
                 <a href="../Structs/CoinpaprikaAPI/TickerHistoryInterval.html">– TickerHistoryInterval</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TopMoversType.html">– TopMoversType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TopMoversTimeRange.html">– TopMoversTimeRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinpaprikaAPI/TopMoversLimit.html">– TopMoversLimit</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Event.html">Event</a>
               </li>
               <li class="nav-group-task">
@@ -121,19 +136,25 @@
                 <a href="../Structs/Exchange/Fiat.html">– Fiat</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Fiat.html">Fiat</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/GlobalStats.html">GlobalStats</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Market.html">Market</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/Market.html#/s:14CoinpaprikaAPI6MarketV5QuoteV">– Quote</a>
+                <a href="../Structs/Market/Quote.html">– Quote</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Market/Category.html">– Category</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Market/FeeType.html">– FeeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/News.html">News</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs.html#/s:14CoinpaprikaAPI5OhlcvV">Ohlcv</a>
@@ -190,6 +211,12 @@
                 <a href="../Structs.html#/s:14CoinpaprikaAPI13TickerHistoryV">TickerHistory</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/TopMovers.html">TopMovers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TopMovers/Coin.html">– Coin</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Tweet.html">Tweet</a>
               </li>
             </ul>
@@ -209,6 +236,394 @@
             
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE4with4typeSayAEGAE0E4TypeO_tF"></a>
+                    <a name="//apple_ref/swift/Method/with(type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE4with4typeSayAEGAE0E4TypeO_tF">with(type:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Filter links array with given type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">with</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Structs/CoinExtended.html">CoinExtended</a></span><span class="o">.</span><span class="kt">Link</span><span class="o">.</span><span class="kt">LinkType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/CoinExtended.html">CoinExtended</a></span><span class="o">.</span><span class="kt">Link</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>requested link type</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>links array</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE4with5typesSayAEGSayAE0E4TypeOG_tF"></a>
+                    <a name="//apple_ref/swift/Method/with(types:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE4with5typesSayAEGSayAE0E4TypeOG_tF">with(types:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Filter links array with given type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">with</span><span class="p">(</span><span class="nv">types</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/CoinExtended.html">CoinExtended</a></span><span class="o">.</span><span class="kt">Link</span><span class="o">.</span><span class="kt">LinkType</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/CoinExtended.html">CoinExtended</a></span><span class="o">.</span><span class="kt">Link</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>requested link type</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>links array</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE8explorerSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/explorer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE8explorerSay10Foundation3URLVGSgvp">explorer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project blockchain explorer</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .explorer﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">explorer</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE8facebookSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/facebook" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE8facebookSay10Foundation3URLVGSgvp">facebook</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project Facebook profile page</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .facebook﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">facebook</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE6redditSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/reddit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE6redditSay10Foundation3URLVGSgvp">reddit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project subreddit at Reddit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .reddit﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">reddit</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE7twitterSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/twitter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE7twitterSay10Foundation3URLVGSgvp">twitter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project twitter account</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .twitter﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">twitter</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE10sourceCodeSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/sourceCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE10sourceCodeSay10Foundation3URLVGSgvp">sourceCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project code repository</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .sourceCode﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">sourceCode</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE7websiteSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/website" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE7websiteSay10Foundation3URLVGSgvp">website</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project website</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .website﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">website</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE6mediumSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/medium" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE6mediumSay10Foundation3URLVGSgvp">medium</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project blog at Medium</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .medium﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">medium</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE7youtubeSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/youtube" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE7youtubeSay10Foundation3URLVGSgvp">youtube</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project explanation/marketing video at Youtube</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .youtube﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">youtube</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE5vimeoSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/vimeo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE5vimeoSay10Foundation3URLVGSgvp">vimeo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project explanation/marketing video at Vimeo</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .vimeo﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">vimeo</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE9videoFileSay10Foundation3URLVGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/videoFile" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa14CoinpaprikaAPIAA12CoinExtendedV4LinkVRszlE9videoFileSay10Foundation3URLVGSgvp">videoFile</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Project explanation video</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use .with(type: .videoFile﹚ method directly")</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">videoFile</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <ul>
                 <li class="item">

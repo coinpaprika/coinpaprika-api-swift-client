@@ -10,6 +10,9 @@ import Foundation
 /// Event
 public struct Event: Codable, Equatable, CodableModel {
     
+    /// Event id, eg. 2113-bitcoin-conference
+    public let id: String
+    
     /// Event name, eg. Bitcoin Conference
     public let name: String
     
@@ -32,6 +35,7 @@ public struct Event: Codable, Equatable, CodableModel {
     public let proofImageLink: URL?
     
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case description
         case date

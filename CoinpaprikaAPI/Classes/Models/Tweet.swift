@@ -39,6 +39,15 @@ public struct Tweet: Codable, Equatable, CodableModel {
         
         return url
     }
+    
+    /// User avatar url
+    public var userImageLink: URL?
+    
+    /// Retweets count
+    public var retweeetCount: Int
+    
+    /// Likes count
+    public var likeCount: Int
 
     
     enum CodingKeys: String, CodingKey {
@@ -49,6 +58,9 @@ public struct Tweet: Codable, Equatable, CodableModel {
         case statusLink = "status_link"
         case mediaLink = "media_link"
         case videoLink = "video_link"
+        case userImageLink = "user_image_link"
+        case retweeetCount = "retweet_count"
+        case likeCount = "like_count"
     }
 
 }

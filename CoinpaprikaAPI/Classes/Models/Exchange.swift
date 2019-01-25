@@ -9,14 +9,23 @@ import Foundation
 
 /// Exchange
 public struct Exchange: Codable, Equatable, CodableModel {
-    /// Coin id, eg. binance
+    /// Exchange id, eg. binance
     public let id: String
     
-    /// Coin name, eg. Binance
+    /// Exchange name, eg. Binance
     public let name: String
+    
+    /// Exchange description
+    public let description: String
     
     /// Is this exchange active
     public let active: Bool
+    
+    /// Exchange website status
+    public let websiteStatus: Bool
+    
+    /// Exchange API status
+    public let apiStatus: Bool
     
     /// Reason why it's not active
     public let message: String?
@@ -50,7 +59,10 @@ public struct Exchange: Codable, Equatable, CodableModel {
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case description
         case active
+        case websiteStatus = "website_status"
+        case apiStatus = "api_status"
         case message
         case links
         case marketsDataFetched = "markets_data_fetched"

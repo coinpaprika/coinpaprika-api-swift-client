@@ -10,6 +10,9 @@ import Foundation
 /// Tweet
 public struct Tweet: Codable, Equatable, CodableModel {
     
+    /// Tweet id
+    public let id: String
+    
     /// Tweet text, eg. Bitcoin Core 0.17.0 Released
     public let status: String
     
@@ -51,6 +54,7 @@ public struct Tweet: Codable, Equatable, CodableModel {
 
     
     enum CodingKeys: String, CodingKey {
+        case id = "status_id"
         case status
         case userName = "user_name"
         case isRetweet = "is_retweet"

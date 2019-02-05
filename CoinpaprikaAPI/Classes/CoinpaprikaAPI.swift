@@ -20,11 +20,19 @@ public struct CoinpaprikaAPI {
         return Request<GlobalStats>(baseUrl: baseUrl, method: .get, path: "global", params: nil)
     }
     
+    /// Additional fields available in Tag response
+    ///
+    /// - coins: add this field if you want to match Coins with Tags
+    public enum CoinsAdditionalFields: String, CaseIterable, QueryRepresentable {
+        case imgRev = "img_rev"
+    }
+    
     /// Get all coins listed on coinpaprika
     ///
+    /// - Parameter additionalFields: list of additional fields that should be included in response, default: empty - see CoinsAdditionalFields for available options
     /// - Returns: Request to perform
-    public static func coins() -> Request<[Coin]> {
-        return Request<[Coin]>(baseUrl: baseUrl, method: .get, path: "coins", params: nil)
+    public static func coins(additionalFields: [CoinsAdditionalFields] = []) -> Request<[Coin]> {
+        return Request<[Coin]>(baseUrl: baseUrl, method: .get, path: "coins", params: ["additional_fields": additionalFields.asCommaJoinedList])
     }
     
     /// Get coin details
@@ -61,6 +69,31 @@ public struct CoinpaprikaAPI {
     public static func coinEvents(id: String) -> Request<[Event]> {
         return Request<[Event]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/events", params: nil)
     }
+    
+    public static func createEvent(coinId: String, date: String, dateTo: String?, name: String, description: String?, isConference: Bool, link: URL, proofImageLink: URL?) -> Request<StatusResponse>  {
+        var params: Request.Params = [
+            "date": date,
+            "name": name,
+            "is_conference": isConference,
+            "link": link.absoluteString
+        ]
+        
+        if let dateTo = dateTo {
+            params["date_to"] = dateTo
+        }
+        
+        if let description = description {
+            params["description"] = description
+        }
+        
+        if let proofImageLink = proofImageLink {
+            params["proof_image_link"] = proofImageLink.absoluteString
+        }
+        
+        dump(params)
+        return Request<StatusResponse>(baseUrl: baseUrl, method: .post, path: "coins/\(coinId)/events", params: params)
+    }
+
     
     /// Get a list of tweets related to this coin
     ///

@@ -42,6 +42,9 @@ public struct Coin: Codable, Equatable, CodableModel, CoinType {
         return typeStorage ?? .unknown
     }
     
+    /// Logo revision, filled when additionalFields contains .imgRev option
+    public var imgRev: Int?
+    
     public enum TypeValue: String, Codable {
         case coin
         case token
@@ -56,6 +59,7 @@ public struct Coin: Codable, Equatable, CodableModel, CoinType {
         case isNew = "is_new"
         case isActive = "is_active"
         case typeStorage = "type"
+        case imgRev = "img_rev"
     }
     
 

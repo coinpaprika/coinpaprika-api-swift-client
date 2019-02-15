@@ -13,6 +13,9 @@ public struct News: Codable, Equatable, CodableModel {
     /// News title
     public let title: String
     
+    /// News lead
+    public let lead: String?
+    
     /// News url
     public let url: URL
     
@@ -21,6 +24,7 @@ public struct News: Codable, Equatable, CodableModel {
     
     enum CodingKeys: String, CodingKey {
         case title
+        case lead
         case url
         case date = "news_date"
     }

@@ -400,10 +400,11 @@ public struct CoinpaprikaAPI {
     ///   - range: Time range - .day or .week, default .day
     ///   - limit: Coins market cap limit used in ranking - .top200 or .all, default .all
     ///   - quote: Quote currency - .usd or .btc, default .usd
+    ///   - resultsNumber: Results number, default 10
     /// - Returns: Request to perform
-    public static func topMovers(type: TopMoversType = .price, range: TopMoversTimeRange = .day, limit: TopMoversLimit = .all, quote: QuoteCurrency = .usd) -> Request<TopMovers> {
+    public static func topMovers(type: TopMoversType = .price, range: TopMoversTimeRange = .day, limit: TopMoversLimit = .all, quote: QuoteCurrency = .usd, resultsNumber: Int = 10) -> Request<TopMovers> {
         validateTopMoversQuote(quote)
-        return Request<TopMovers>(baseUrl: baseUrl, method: .get, path: "rankings/top10movers", params: ["type": type.rawValue, "time_range": range.rawValue, "marketcap_limit": limit.rawValue, "quote": quote.rawValue])
+        return Request<TopMovers>(baseUrl: baseUrl, method: .get, path: "rankings/top-movers", params: ["type": type.rawValue, "time_range": range.rawValue, "marketcap_limit": limit.rawValue, "quote": quote.rawValue, "results_number": resultsNumber])
     }
     
     /// List of available Fiat's currencies - accepted as quotes by tickers, exchanges, markets endpoints.

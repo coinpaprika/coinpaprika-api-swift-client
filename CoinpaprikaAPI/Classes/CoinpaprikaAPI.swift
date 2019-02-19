@@ -384,6 +384,9 @@ public struct CoinpaprikaAPI {
         /// Top Movers from top 200 coins (by market cap)
         case top200
         
+        /// Top Movers from top 300 coins (by market cap)
+        case top300
+        
         /// Top Movers from all coins
         case all
     }

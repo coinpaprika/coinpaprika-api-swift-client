@@ -11,28 +11,28 @@ import Foundation
 public struct Ohlcv: Codable, Equatable, CodableModel {
     
     /// Session open date
-    let timeOpen: Date
+    public let timeOpen: Date
     
     /// Session close date
-    let timeClose: Date
+    public let timeClose: Date
     
     /// Open price
-    let open: Decimal?
+    public let open: Decimal?
     
     /// Highest price
-    let high: Decimal?
+    public let high: Decimal?
     
     /// Lowest price
-    let low: Decimal?
+    public let low: Decimal?
     
     /// Close price
-    let close: Decimal?
+    public let close: Decimal?
     
     /// Coin volume
-    let volume: Decimal?
+    public let volume: Decimal?
     
     /// Coin market capitalization
-    let marketCap: Decimal?
+    public let marketCap: Decimal?
     
     enum CodingKeys: String, CodingKey {
         case timeOpen = "time_open"

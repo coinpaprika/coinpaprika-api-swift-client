@@ -11,16 +11,16 @@ import Foundation
 public struct TickerHistory: Codable, Equatable, CodableModel {
     
     /// Data save time
-    let timestamp: Date
+    public let timestamp: Date
     
     /// Coin price at `timestamp` date
-    let price: Decimal
+    public let price: Decimal
     
     /// Coin volume 24 before `timestamp` date
-    let volume24h: Decimal
+    public let volume24h: Decimal
     
     /// Coin market capitalization at `timestamp` date
-    let marketCap: Decimal
+    public let marketCap: Decimal
     
     enum CodingKeys: String, CodingKey {
         case timestamp

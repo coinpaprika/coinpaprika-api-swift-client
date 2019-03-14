@@ -211,6 +211,15 @@ public struct CoinpaprikaAPI {
         return Request<Person>(baseUrl: baseUrl, method: .get, path: "people/\(id)", params: nil)
     }
     
+    /// Get a list of tweets related to this person
+    ///
+    /// - Parameters:
+    ///   -  id: person id eg. satoshi-nakamoto
+    /// - Returns: Request to perform
+    public static func personTweets(id: String) -> Request<[Tweet]> {
+        return Request<[Tweet]>(baseUrl: baseUrl, method: .get, path: "people/\(id)/twitter", params: nil)
+    }
+    
     private static func validateTickerHistoryQuote(_ quote: QuoteCurrency) {
         let acceptedQuotes: [QuoteCurrency] = [.usd, .btc]
         assert(acceptedQuotes.contains(quote), "This endpoint accepts only \(acceptedQuotes).")

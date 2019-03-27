@@ -8,7 +8,9 @@
 
 import Foundation
 
-#if swift(<5)
+#if swift(>=4.3)
+/// Result type already built-in
+#else
 /// Response returned by all requests
 public enum Result<Success, Failure> {
     /// Success case with associated Model

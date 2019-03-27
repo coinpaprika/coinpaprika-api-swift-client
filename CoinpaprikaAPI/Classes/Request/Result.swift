@@ -8,16 +8,21 @@
 
 import Foundation
 
+#if swift(<5)
 /// Response returned by all requests
-public enum Response<Object> {
+public enum Result<Success, Failure> {
     /// Success case with associated Model
-    case success(_ value: Object)
+    case success(_ value: Success)
     
     /// Failure case with associated Error
-    case failure(_ error: Error)
+    case failure(_ error: Failure)
+}
+#endif
+
+extension Result {
     
     /// Model, non empty on .success
-    public var value: Object? {
+    public var value: Success? {
         guard case .success(let value) = self else {
             return nil
         }
@@ -26,7 +31,7 @@ public enum Response<Object> {
     }
     
     /// Error, non empty on .failure
-    public var error: Error? {
+    public var error: Failure? {
         guard case .failure(let error) = self else {
             return nil
         }

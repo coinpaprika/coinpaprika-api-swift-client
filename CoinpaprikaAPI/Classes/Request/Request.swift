@@ -10,7 +10,7 @@ import Foundation
 
 public protocol Requestable {
     associatedtype Model: Codable & CodableModel
-    func perform(responseQueue: DispatchQueue?, cachePolicy: URLRequest.CachePolicy?, _ callback: @escaping (Response<Model>) -> Void)
+    func perform(responseQueue: DispatchQueue?, cachePolicy: URLRequest.CachePolicy?, _ callback: @escaping (Result<Model, Error>) -> Void)
 }
 
 /// Request representation returned by CoinpaprikaAPI methods.
@@ -68,7 +68,7 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
     ///   - responseQueue: The queue on which the completion handler is dispatched
     ///   - cachePolicy: cache policy that should be used in this request
     ///   - callback: Completion handler triggered on request success & failure
-    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, _ callback: @escaping (Response<Model>) -> Void) {
+    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, _ callback: @escaping (Result<Model, Error>) -> Void) {
         let onQueue = { (_ block: @escaping () -> Void) -> Void in
             (responseQueue ?? DispatchQueue.main).async(execute: block)
         }
@@ -79,12 +79,12 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
             request = try buildRequest(cachePolicy: cachePolicy)
         } catch RequestError.unableToEncodeParams {
             onQueue {
-                callback(Response.failure(RequestError.unableToEncodeParams))
+                callback(Result.failure(RequestError.unableToEncodeParams))
             }
             return
         } catch {
             onQueue {
-                callback(Response.failure(RequestError.unableToCreateRequest))
+                callback(Result.failure(RequestError.unableToCreateRequest))
             }
             return
         }
@@ -92,32 +92,32 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
         URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
             if let error = error {
                 onQueue {
-                    callback(Response.failure(error))
+                    callback(Result.failure(error))
                 }
             } else {
                 guard let httpResponse = urlResponse as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) else {
                     onQueue {
-                        callback(Response.failure(self.findFailureReason(data: data, response: urlResponse)))
+                        callback(Result.failure(self.findFailureReason(data: data, response: urlResponse)))
                     }
                     return
                 }
                 
                 guard let data = data else {
                     onQueue {
-                        callback(Response.failure(ResponseError.emptyResponse))
+                        callback(Result.failure(ResponseError.emptyResponse))
                     }
                     return
                 }
                 
                 guard let value = self.decodeResponse(data) else {
                     onQueue {
-                        callback(Response.failure(ResponseError.unableToDecodeResponse))
+                        callback(Result.failure(ResponseError.unableToDecodeResponse))
                     }
                     return
                 }
                 
                 onQueue {
-                    callback(Response.success(value))
+                    callback(Result.success(value))
                 }
             }
         }.resume()

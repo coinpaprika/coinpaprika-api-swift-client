@@ -122,7 +122,7 @@ class RequestTests: XCTestCase {
     
     func testSuccessResponse() {
         let object = "Test Codable object"
-        let response = Response.success(object)
+        let response = Result<String, Error>.success(object)
         XCTAssert(response.value == object, "Response value should be equal \(object)")
         XCTAssertNil(response.error, "Response error should be empty")
         
@@ -135,7 +135,7 @@ class RequestTests: XCTestCase {
     
     func testFailureResponse() {
         let error = ResponseError.emptyResponse
-        let response = Response<Any>.failure(error)
+        let response = Result<String, Error>.failure(error)
         guard case .emptyResponse = (response.error as! ResponseError) else {
             XCTFail("Response error should be equal \(error)")
             return

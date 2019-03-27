@@ -12,11 +12,11 @@ protocol QueryRepresentable {
 }
 
 internal extension Array where Element: QueryRepresentable {
-    internal var queryValues: [String] {
+    var queryValues: [String] {
         return map { "\($0.queryValue)" }
     }
     
-    internal var asCommaJoinedList: String {
+    var asCommaJoinedList: String {
         return queryValues.joined(separator: ",")
     }
 }

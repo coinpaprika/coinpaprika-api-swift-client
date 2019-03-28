@@ -21,9 +21,5 @@ cache:
 - cocoapods
 - bundler
 
-before_install:
-- gem install bundler
-- bundle install
-
 script:
   - bundle exec fastlane run_ci

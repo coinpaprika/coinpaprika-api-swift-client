@@ -72,7 +72,4 @@ lane :run_ci do |options|
 
   UI.header "tvOS Tests"
   run_tests(scheme: "CoinpaprikaAPI_Example_tvOS")
-
-  UI.header "Cocoapods Lint"
-  pod_lib_lint
 end

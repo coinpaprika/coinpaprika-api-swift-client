@@ -21,7 +21,7 @@ public enum Result<Success, Failure> {
 }
 #endif
 
-extension Result {
+extension Result where Success: CodableModel {
     
     /// Model, non empty on .success
     public var value: Success? {

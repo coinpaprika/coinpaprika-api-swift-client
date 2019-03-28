@@ -1,0 +1,51 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+fastlane_require "xcodeproj"
+
+default_platform(:ios)
+
+before_all do
+  ENV['SCAN_WORKSPACE'] = "Example/CoinpaprikaAPI.xcworkspace"
+  ENV['PROJECT_PATH'] = "../Example/CoinpaprikaAPI.xcodeproj"
+  ENV['FL_COCOAPODS_PODFILE'] = "Example/Podfile"
+end
+
+desc "Update Swift Version"
+private_lane :update_swift do |options|
+  version = options[:version] || ENV["SWIFT_VERSION"]
+
+  UI.user_error!("Set SWIFT_VERSION env or pass version param.") if version.nil?
+
+  project_path = ENV['PROJECT_PATH']
+  project = Xcodeproj::Project.open(project_path)
+  project.targets.each do |target|
+    puts target.name
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = version
+    end
+  end
+  project.save
+end
+
+desc "Run CI tests pipeline"
+lane :run_ci do |options|
+  update_swift(options)
+  cocoapods()
+  run_tests(scheme: "CoinpaprikaAPI_Example")
+  run_tests(scheme: "CoinpaprikaAPI_Example_macOS", destination: "platform=macOS")
+  run_tests(scheme: "CoinpaprikaAPI_Example_tvOS")
+  pod_lib_lint
+end

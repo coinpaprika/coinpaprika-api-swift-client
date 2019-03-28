@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CoinpaprikaAPI
+import CoinpaprikaAPI
 
 class RequestTests: XCTestCase {
     
@@ -121,8 +121,11 @@ class RequestTests: XCTestCase {
     }
     
     func testSuccessResponse() {
-        let object = "Test Codable object"
-        let response = Result<String, Error>.success(object)
+        // Swift 5 version
+        // let json = #"{"id":"usd", "name": "US Dollar", "symbol": "$"}"#
+        let json = "{\"id\":\"usd\", \"name\": \"US Dollar\", \"symbol\": \"$\"}"
+        let object = try! Fiat.decoder.decode(Fiat.self, from: json.data(using: .utf8)!)
+        let response = Result<Fiat, Error>.success(object)
         XCTAssert(response.value == object, "Response value should be equal \(object)")
         XCTAssertNil(response.error, "Response error should be empty")
         
@@ -135,7 +138,7 @@ class RequestTests: XCTestCase {
     
     func testFailureResponse() {
         let error = ResponseError.emptyResponse
-        let response = Result<String, Error>.failure(error)
+        let response = Result<Fiat, Error>.failure(error)
         guard case .emptyResponse = (response.error as! ResponseError) else {
             XCTFail("Response error should be equal \(error)")
             return

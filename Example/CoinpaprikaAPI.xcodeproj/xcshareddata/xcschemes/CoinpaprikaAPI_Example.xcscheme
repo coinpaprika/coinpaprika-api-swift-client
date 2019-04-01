@@ -22,10 +22,10 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
+            buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
@@ -60,16 +60,6 @@
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
                BuildableName = "CoinpaprikaAPI_Tests.xctest"
                BlueprintName = "CoinpaprikaAPI_Tests"
-               ReferencedContainer = "container:CoinpaprikaAPI.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9540F17215B8DD6000CF087"
-               BuildableName = "CoinpaprikaAPI watchOSTests.xctest"
-               BlueprintName = "CoinpaprikaAPI watchOSTests"
                ReferencedContainer = "container:CoinpaprikaAPI.xcodeproj">
             </BuildableReference>
          </TestableReference>

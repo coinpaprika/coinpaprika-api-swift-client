@@ -43,7 +43,13 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
     
     private let bodyEncoding: BodyEncoding
     
-    private let authorisationToken: String?
+    public enum AuthorisationMethod {
+        case none
+        case basic(login: String, password: String)
+        case bearer(token: String)
+    }
+    
+    private let authorisation: AuthorisationMethod
     
     /// Request initializer that may be used if you want to extend client API with another methods
     ///
@@ -52,14 +58,14 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
     ///   - method: HTTP Method
     ///   - path: endpoint path like tickers/btc-bitcoin
     ///   - params: array of parameters appended in URL Query
-    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String = "Coinpaprika API Client - Swift", bodyEncoding: BodyEncoding = .json, authorisationToken: String? = nil) {
+    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String = "Coinpaprika API Client - Swift", bodyEncoding: BodyEncoding = .json, authorisation: AuthorisationMethod = .none) {
         self.baseUrl = baseUrl
         self.method = method
         self.path = path
         self.params = params
         self.userAgent = userAgent
         self.bodyEncoding = bodyEncoding
-        self.authorisationToken = authorisationToken
+        self.authorisation = authorisation
     }
     
     /// Perform API request
@@ -131,8 +137,14 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
-        if let authorisationToken = authorisationToken {
-            request.addValue("Bearer \(authorisationToken)", forHTTPHeaderField: "Authorisation")
+        switch authorisation {
+        case .basic(let login, let password):
+            let encoded = "\(login):\(password)".data(using: .ascii)!.base64EncodedString()
+            request.addValue("Basic \(encoded)", forHTTPHeaderField: "Authorisation")
+        case .bearer(let token):
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorisation")
+        case .none:
+            break
         }
         
         request.addValue("application/json", forHTTPHeaderField: "Accept")

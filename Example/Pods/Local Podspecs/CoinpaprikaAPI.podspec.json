@@ -28,5 +28,20 @@
     "5.0"
   ],
   "cocoapods_version": "> 1.6.1",
-  "source_files": "CoinpaprikaAPI/Classes/**/*.swift"
+  "default_subspecs": "Client",
+  "subspecs": [
+    {
+      "name": "Networking",
+      "source_files": "CoinpaprikaAPI/Classes/Networking/**/*.swift"
+    },
+    {
+      "name": "Client",
+      "source_files": "CoinpaprikaAPI/Classes/Client/**/*.swift",
+      "dependencies": {
+        "CoinpaprikaAPI/Networking": [
+
+        ]
+      }
+    }
+  ]
 }

@@ -140,7 +140,7 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
         switch authorisation {
         case .basic(let login, let password):
             let encoded = "\(login):\(password)".data(using: .ascii)!.base64EncodedString()
-            request.addValue("Basic \(encoded)", forHTTPHeaderField: "Authorisation")
+            request.addValue("Basic \(encoded)", forHTTPHeaderField: "Authorization")
         case .bearer(let token):
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorisation")
         case .none:
@@ -220,6 +220,7 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
         } catch DecodingError.keyNotFound(let key, let context) {
             assertionFailure("\(Model.self): \(key.stringValue) was not found, \(context.debugDescription) from \(debugDecodeData(data))")
         } catch DecodingError.typeMismatch(let type, let context) {
+            dump(context.codingPath)
             assertionFailure("\(Model.self): \(type) was expected, \(context.debugDescription) from \(debugDecodeData(data))")
         } catch DecodingError.valueNotFound(let type, let context) {
             assertionFailure("\(Model.self): no value was found for \(type), \(context.debugDescription) from \(debugDecodeData(data))")

@@ -40,6 +40,15 @@ Pod::Spec.new do |s|
 
   s.swift_versions = ['4.2', '5.0']
   s.cocoapods_version = '> 1.6.1'
-
-  s.source_files = 'CoinpaprikaAPI/Classes/**/*.swift'
+  
+  s.subspec 'Networking' do |sp|
+      sp.source_files = 'CoinpaprikaAPI/Classes/Networking/**/*.swift'
+  end
+  
+  s.subspec 'Client' do |sp|
+      sp.source_files = 'CoinpaprikaAPI/Classes/Client/**/*.swift'
+      sp.dependency 'CoinpaprikaAPI/Networking'
+  end
+  
+  s.default_subspec = 'Client'
 end

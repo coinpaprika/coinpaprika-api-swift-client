@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
 [![Platform](https://img.shields.io/cocoapods/p/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-![Swift 5.0](https://img.shields.io/badge/swift-4.2 / 5.0-orange.svg)
+![Swift 5.0](https://img.shields.io/badge/swift-4.2 | 5.0-orange.svg)
 
 ### [Documentation](https://coinpaprika.github.io/coinpaprika-api-swift-client) | [Repository](https://github.com/coinpaprika/coinpaprika-api-swift-client) | [Installation](#installation)
 

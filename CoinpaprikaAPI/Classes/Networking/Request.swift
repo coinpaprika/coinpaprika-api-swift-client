@@ -48,6 +48,7 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
         case basic(login: String, password: String)
         case bearer(token: String)
         case custom(headers: [String: String])
+        case dynamic(signer: (inout URLRequest) -> Void)
     }
     
     private let authorisation: AuthorisationMethod
@@ -138,6 +139,15 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
+        
+        do {
+            request.httpBody = try encodeBody()
+        } catch {
+            throw RequestError.unableToEncodeParams
+        }
+        
         switch authorisation {
         case .basic(let login, let password):
             let encoded = "\(login):\(password)".data(using: .ascii)!.base64EncodedString()
@@ -148,17 +158,10 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
             headers.forEach { (header) in
                 request.addValue(header.value, forHTTPHeaderField: header.key)
             }
+        case .dynamic(let signer):
+            signer(&request)
         case .none:
             break
-        }
-        
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
-        
-        do {
-            request.httpBody = try encodeBody()
-        } catch {
-            throw RequestError.unableToEncodeParams
         }
         
         return request

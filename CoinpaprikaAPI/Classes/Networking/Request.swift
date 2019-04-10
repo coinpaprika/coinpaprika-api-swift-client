@@ -47,6 +47,7 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
         case none
         case basic(login: String, password: String)
         case bearer(token: String)
+        case custom(headers: [String: String])
     }
     
     private let authorisation: AuthorisationMethod
@@ -143,6 +144,10 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
             request.addValue("Basic \(encoded)", forHTTPHeaderField: "Authorization")
         case .bearer(let token):
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorisation")
+        case .custom(let headers):
+            headers.forEach { (header) in
+                request.addValue(header.value, forHTTPHeaderField: header.key)
+            }
         case .none:
             break
         }

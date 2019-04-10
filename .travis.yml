@@ -2,15 +2,24 @@
 # * https://www.objc.io/issues/6-build-tools/travis-ci/
 # * https://github.com/supermarin/xcpretty#usage
 
-osx_image: xcode10
 language: swift
-cache: cocoapods
-podfile: Example/Podfile
-before_install:
-- gem install cocoapods --pre # Since Travis is not always on latest version
-- pod install --project-directory=Example
+
+osx_image:
+- xcode10.1
+- xcode10.2
+
+env:
+- SWIFT_VERSION=5.0
+- SWIFT_VERSION=4.2
+
+matrix:
+  exclude:
+  - osx_image: xcode10.1
+    env: SWIFT_VERSION=5.0
+
+cache:
+- cocoapods
+- bundler
+
 script:
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/CoinpaprikaAPI.xcworkspace -scheme CoinpaprikaAPI-Example -sdk iphonesimulator12.0 -destination "platform=iOS Simulator,name=iPhone XR" ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-#- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/CoinpaprikaAPI.xcworkspace -scheme CoinpaprikaAPI_Example_macOS -sdk macosx10.14 ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-#- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/CoinpaprikaAPI.xcworkspace -scheme CoinpaprikaAPI_Example_tvOS -sdk appletvsimulator12.0 -destination "platform=tvOS Simulator,name=Apple TV" ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-- pod lib lint
+  - bundle exec fastlane run_ci

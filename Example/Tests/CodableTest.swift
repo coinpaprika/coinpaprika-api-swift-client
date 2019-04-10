@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CoinpaprikaAPI
+import CoinpaprikaAPI
 
 class CodableTest: XCTestCase {
     

@@ -98,7 +98,7 @@ public extension Array where Element == CoinExtended.Link {
     ///
     /// - Parameter type: requested link type
     /// - Returns: links array
-    public func with(type: CoinExtended.Link.LinkType) -> [CoinExtended.Link] {
+    func with(type: CoinExtended.Link.LinkType) -> [CoinExtended.Link] {
         return filter({ $0.type == type })
     }
     
@@ -106,7 +106,7 @@ public extension Array where Element == CoinExtended.Link {
     ///
     /// - Parameter type: requested link type
     /// - Returns: links array
-    public func with(types: [CoinExtended.Link.LinkType]) -> [CoinExtended.Link] {
+    func with(types: [CoinExtended.Link.LinkType]) -> [CoinExtended.Link] {
         return filter({ types.contains($0.type) })
     }
     
@@ -117,61 +117,61 @@ public extension Array where Element == CoinExtended.Link {
     
     /// Project blockchain explorer
     @available(*, deprecated, message: "Use .with(type: .explorer) method directly")
-    public var explorer: [URL]? {
+    var explorer: [URL]? {
         return with(type: .explorer).map({ $0.url })
     }
     
     /// Project Facebook profile page
     @available(*, deprecated, message: "Use .with(type: .facebook) method directly")
-    public var facebook: [URL]? {
+    var facebook: [URL]? {
         return with(type: .facebook).map({ $0.url })
     }
 
     /// Project subreddit at Reddit
     @available(*, deprecated, message: "Use .with(type: .reddit) method directly")
-    public var reddit: [URL]? {
+    var reddit: [URL]? {
         return with(type: .reddit).map({ $0.url })
     }
 
     /// Project twitter account
     @available(*, deprecated, message: "Use .with(type: .twitter) method directly")
-    public var twitter: [URL]? {
+    var twitter: [URL]? {
         return with(type: .twitter).map({ $0.url })
     }
 
     /// Project code repository
     @available(*, deprecated, message: "Use .with(type: .sourceCode) method directly")
-    public var sourceCode: [URL]? {
+    var sourceCode: [URL]? {
         return with(type: .sourceCode).map({ $0.url })
     }
 
     /// Project website
     @available(*, deprecated, message: "Use .with(type: .website) method directly")
-    public var website: [URL]? {
+    var website: [URL]? {
         return with(type: .website).map({ $0.url })
     }
 
     /// Project blog at Medium
     @available(*, deprecated, message: "Use .with(type: .medium) method directly")
-    public var medium: [URL]? {
+    var medium: [URL]? {
         return with(type: .medium).map({ $0.url })
     }
 
     /// Project explanation/marketing video at Youtube
     @available(*, deprecated, message: "Use .with(type: .youtube) method directly")
-    public var youtube: [URL]? {
+    var youtube: [URL]? {
         return with(type: .youtube).map({ $0.url })
     }
 
     /// Project explanation/marketing video at Vimeo
     @available(*, deprecated, message: "Use .with(type: .vimeo) method directly")
-    public var vimeo: [URL]? {
+    var vimeo: [URL]? {
         return with(type: .vimeo).map({ $0.url })
     }
 
     /// Project explanation video
     @available(*, deprecated, message: "Use .with(type: .videoFile) method directly")
-    public var videoFile: [URL]? {
+    var videoFile: [URL]? {
         return with(type: .videoFile).map({ $0.url })
     }
 

@@ -1,0 +1,83 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+fastlane_require "xcodeproj"
+
+default_platform(:ios)
+
+before_all do
+  ENV['SCAN_WORKSPACE'] = "Example/CoinpaprikaAPI.xcworkspace"
+  ENV['PROJECT_PATH'] = "../Example/CoinpaprikaAPI.xcodeproj"
+  ENV['PODS_PROJECT_PATH'] = "../Example/Pods/Pods.xcodeproj"
+  ENV['FL_COCOAPODS_PODFILE'] = "Example/Podfile"
+end
+
+desc "Update Swift Version"
+private_lane :update_swift do |options|
+  version = swift_version(options)
+  project = options[:project] || ENV["PROJECT_PATH"]
+
+  UI.user_error!("Set SWIFT_VERSION env or pass version param.") if version.nil?
+
+  project = Xcodeproj::Project.open(project)
+  project.targets.each do |target|
+    puts target.name
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = version
+    end
+  end
+  project.save
+end
+
+desc "Update Swift Version"
+private_lane :fix_pods_swift_version do |options|
+  version = options[:version] || ENV["SWIFT_VERSION"]
+  project = options[:project] || ENV["PODS_PROJECT_PATH"]
+
+  update_swift(
+    version: version,
+    project: project
+  )
+end
+
+private_lane :swift_version do |options|
+    options[:version] || ENV["SWIFT_VERSION"]
+end
+
+desc "Run CI tests pipeline"
+lane :run_ci do |options|
+  UI.header "Update Swift version"
+  update_swift(options)
+
+  UI.header "Install Cocoapods"
+  cocoapods()
+
+  UI.header "Fix Pods project Swift version"
+  fix_pods_swift_version(options)
+
+  UI.header "iOS Tests"
+  run_tests(scheme: "CoinpaprikaAPI_Example")
+
+  if swift_version(options).to_f >= 5 then
+    UI.header "macOS Tests"
+    run_tests(scheme: "CoinpaprikaAPI_Example_macOS", destination: "platform=macOS")
+
+    UI.header "tvOS Tests"
+    run_tests(scheme: "CoinpaprikaAPI_Example_tvOS")
+
+    UI.header "Cocoapods Lint"
+    pod_lib_lint
+  end
+end

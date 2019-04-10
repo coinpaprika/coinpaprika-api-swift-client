@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E4AA90E9AD63619A468A8895532680AC"
+               BlueprintIdentifier = "85D173419EDD9A0AFA348FB2984DBC54"
                BuildableName = "CoinpaprikaAPI.framework"
                BlueprintName = "CoinpaprikaAPI-macOS"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E4AA90E9AD63619A468A8895532680AC"
+            BlueprintIdentifier = "85D173419EDD9A0AFA348FB2984DBC54"
             BuildableName = "CoinpaprikaAPI.framework"
             BlueprintName = "CoinpaprikaAPI-macOS"
             ReferencedContainer = "container:Pods.xcodeproj">

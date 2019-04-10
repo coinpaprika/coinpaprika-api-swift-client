@@ -10,7 +10,7 @@ import Foundation
 
 public protocol Requestable {
     associatedtype Model: Codable & CodableModel
-    func perform(responseQueue: DispatchQueue?, cachePolicy: URLRequest.CachePolicy?, _ callback: @escaping (Response<Model>) -> Void)
+    func perform(responseQueue: DispatchQueue?, cachePolicy: URLRequest.CachePolicy?, _ callback: @escaping (Result<Model, Error>) -> Void)
 }
 
 /// Request representation returned by CoinpaprikaAPI methods.
@@ -43,7 +43,14 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
     
     private let bodyEncoding: BodyEncoding
     
-    private let authorisationToken: String?
+    public enum AuthorisationMethod {
+        case none
+        case basic(login: String, password: String)
+        case bearer(token: String)
+        case custom(headers: [String: String])
+    }
+    
+    private let authorisation: AuthorisationMethod
     
     /// Request initializer that may be used if you want to extend client API with another methods
     ///
@@ -52,14 +59,14 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
     ///   - method: HTTP Method
     ///   - path: endpoint path like tickers/btc-bitcoin
     ///   - params: array of parameters appended in URL Query
-    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String = "Coinpaprika API Client - Swift", bodyEncoding: BodyEncoding = .json, authorisationToken: String? = nil) {
+    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String = "Coinpaprika API Client - Swift", bodyEncoding: BodyEncoding = .json, authorisation: AuthorisationMethod = .none) {
         self.baseUrl = baseUrl
         self.method = method
         self.path = path
         self.params = params
         self.userAgent = userAgent
         self.bodyEncoding = bodyEncoding
-        self.authorisationToken = authorisationToken
+        self.authorisation = authorisation
     }
     
     /// Perform API request
@@ -68,7 +75,7 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
     ///   - responseQueue: The queue on which the completion handler is dispatched
     ///   - cachePolicy: cache policy that should be used in this request
     ///   - callback: Completion handler triggered on request success & failure
-    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, _ callback: @escaping (Response<Model>) -> Void) {
+    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, _ callback: @escaping (Result<Model, Error>) -> Void) {
         let onQueue = { (_ block: @escaping () -> Void) -> Void in
             (responseQueue ?? DispatchQueue.main).async(execute: block)
         }
@@ -79,12 +86,12 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
             request = try buildRequest(cachePolicy: cachePolicy)
         } catch RequestError.unableToEncodeParams {
             onQueue {
-                callback(Response.failure(RequestError.unableToEncodeParams))
+                callback(Result.failure(RequestError.unableToEncodeParams))
             }
             return
         } catch {
             onQueue {
-                callback(Response.failure(RequestError.unableToCreateRequest))
+                callback(Result.failure(RequestError.unableToCreateRequest))
             }
             return
         }
@@ -92,32 +99,32 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
         URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
             if let error = error {
                 onQueue {
-                    callback(Response.failure(error))
+                    callback(Result.failure(error))
                 }
             } else {
                 guard let httpResponse = urlResponse as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) else {
                     onQueue {
-                        callback(Response.failure(self.findFailureReason(data: data, response: urlResponse)))
+                        callback(Result.failure(self.findFailureReason(data: data, response: urlResponse)))
                     }
                     return
                 }
                 
                 guard let data = data else {
                     onQueue {
-                        callback(Response.failure(ResponseError.emptyResponse))
+                        callback(Result.failure(ResponseError.emptyResponse))
                     }
                     return
                 }
                 
                 guard let value = self.decodeResponse(data) else {
                     onQueue {
-                        callback(Response.failure(ResponseError.unableToDecodeResponse))
+                        callback(Result.failure(ResponseError.unableToDecodeResponse))
                     }
                     return
                 }
                 
                 onQueue {
-                    callback(Response.success(value))
+                    callback(Result.success(value))
                 }
             }
         }.resume()
@@ -131,8 +138,18 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
-        if let authorisationToken = authorisationToken {
-            request.addValue("Bearer \(authorisationToken)", forHTTPHeaderField: "Authorisation")
+        switch authorisation {
+        case .basic(let login, let password):
+            let encoded = "\(login):\(password)".data(using: .ascii)!.base64EncodedString()
+            request.addValue("Basic \(encoded)", forHTTPHeaderField: "Authorization")
+        case .bearer(let token):
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorisation")
+        case .custom(let headers):
+            headers.forEach { (header) in
+                request.addValue(header.value, forHTTPHeaderField: header.key)
+            }
+        case .none:
+            break
         }
         
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -208,6 +225,7 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
         } catch DecodingError.keyNotFound(let key, let context) {
             assertionFailure("\(Model.self): \(key.stringValue) was not found, \(context.debugDescription) from \(debugDecodeData(data))")
         } catch DecodingError.typeMismatch(let type, let context) {
+            dump(context.codingPath)
             assertionFailure("\(Model.self): \(type) was expected, \(context.debugDescription) from \(debugDecodeData(data))")
         } catch DecodingError.valueNotFound(let type, let context) {
             assertionFailure("\(Model.self): no value was found for \(type), \(context.debugDescription) from \(debugDecodeData(data))")

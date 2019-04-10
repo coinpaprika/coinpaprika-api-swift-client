@@ -27,15 +27,15 @@ public protocol CodableModel {
 }
 
 public extension CodableModel {
-    public static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {
+    static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {
         return .iso8601
     }
     
-    public static var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy? {
+    static var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy? {
         return .iso8601
     }
     
-    public static var decoder: JSONDecoder {
+    static var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         
         if let dateDecodingStrategy = dateDecodingStrategy {
@@ -45,7 +45,7 @@ public extension CodableModel {
         return decoder
     }
     
-    public static var encoder: JSONEncoder {
+    static var encoder: JSONEncoder {
         let encoder = JSONEncoder()
         
         if let dateEncodingStrategy = dateEncodingStrategy {

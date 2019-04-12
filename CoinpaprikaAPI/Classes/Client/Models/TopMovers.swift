@@ -8,7 +8,7 @@
 import Foundation
 
 /// TopMovers
-public struct TopMovers: Codable, Equatable, CodableModel {
+public struct TopMovers: Equatable, CodableModel {
     
     /// Top Gainers
     public let gainers: [Coin]

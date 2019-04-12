@@ -15,7 +15,7 @@ public protocol TagType {
 }
 
 /// Tag for ICO & Coins
-public struct Tag: Codable, Equatable, CodableModel, TagType {
+public struct Tag: Equatable, CodableModel, TagType {
     
     /// Tag id, eg. smart-contracts
     public let id: String

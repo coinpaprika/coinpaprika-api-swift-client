@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct StatusResponse: Codable, CodableModel {
+public struct StatusResponse: CodableModel {
     enum Status: String, Codable {
         case success
     }

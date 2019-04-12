@@ -8,7 +8,7 @@
 import Foundation
 
 /// Coin Exchange
-public struct CoinExchange: Codable, Equatable, CodableModel {
+public struct CoinExchange: Equatable, CodableModel {
     
     /// Coin id, eg. binance
     public let id: String

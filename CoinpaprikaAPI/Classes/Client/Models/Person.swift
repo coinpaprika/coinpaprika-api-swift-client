@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Person: Codable, Equatable, CodableModel {
+public struct Person: Equatable, CodableModel {
     
     /// Person id, eg. satoshi-nakamoto
     public let id: String

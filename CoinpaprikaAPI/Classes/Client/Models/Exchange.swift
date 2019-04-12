@@ -8,7 +8,7 @@
 import Foundation
 
 /// Exchange
-public struct Exchange: Codable, Equatable, CodableModel {
+public struct Exchange: Equatable, CodableModel {
     /// Exchange id, eg. binance
     public let id: String
     

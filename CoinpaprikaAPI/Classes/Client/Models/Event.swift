@@ -8,7 +8,7 @@
 import Foundation
 
 /// Event
-public struct Event: Codable, Equatable, CodableModel {
+public struct Event: Equatable, CodableModel {
     
     /// Event id, eg. 2113-bitcoin-conference
     public let id: String

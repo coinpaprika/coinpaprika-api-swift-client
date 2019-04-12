@@ -8,7 +8,7 @@
 import Foundation
 
 /// Exchange Market
-public struct Market: Codable, Equatable, CodableModel {
+public struct Market: Equatable, CodableModel {
     
     /// Exchange pair, eg. ETH/BTC
     public let pair: String

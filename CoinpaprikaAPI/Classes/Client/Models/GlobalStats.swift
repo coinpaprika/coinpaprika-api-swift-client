@@ -9,7 +9,7 @@
 import Foundation
 
 /// Global market data
-public struct GlobalStats: Codable, Equatable, CodableModel {
+public struct GlobalStats: Equatable, CodableModel {
     
     /// Market capitalization in USD
     public let marketCapUsd: Decimal

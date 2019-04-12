@@ -8,7 +8,7 @@
 import Foundation
 
 /// Open/High/Low/Close values with volume and market_cap
-public struct Ohlcv: Codable, Equatable, CodableModel {
+public struct Ohlcv: Equatable, CodableModel {
     
     /// Session open date
     public let timeOpen: Date

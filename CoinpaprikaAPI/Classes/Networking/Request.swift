@@ -9,14 +9,14 @@
 import Foundation
 
 public protocol Requestable {
-    associatedtype Model: Codable & CodableModel
+    associatedtype Model: Decodable
     func perform(responseQueue: DispatchQueue?, cachePolicy: URLRequest.CachePolicy?, _ callback: @escaping (Result<Model, Error>) -> Void)
 }
 
+
 /// Request representation returned by CoinpaprikaAPI methods.
 /// To perform request use .perform() method. It will call callback with error reason or
-public struct Request<Model: Codable & CodableModel>: Requestable {
-    
+public struct Request<Model: Decodable>: Requestable {
     private let baseUrl: URL
     
     public enum Method: String {
@@ -219,8 +219,6 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
     }
     
     private func decodeResponse(_ data: Data) -> Model? {
-        let decoder = Model.decoder
-        
         do {
             return try decoder.decode(Model.self, from: data)
         } catch DecodingError.dataCorrupted(let context) {
@@ -228,7 +226,6 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
         } catch DecodingError.keyNotFound(let key, let context) {
             assertionFailure("\(Model.self): \(key.stringValue) was not found, \(context.debugDescription) from \(debugDecodeData(data))")
         } catch DecodingError.typeMismatch(let type, let context) {
-            dump(context.codingPath)
             assertionFailure("\(Model.self): \(type) was expected, \(context.debugDescription) from \(debugDecodeData(data))")
         } catch DecodingError.valueNotFound(let type, let context) {
             assertionFailure("\(Model.self): no value was found for \(type), \(context.debugDescription) from \(debugDecodeData(data))")
@@ -237,6 +234,14 @@ public struct Request<Model: Codable & CodableModel>: Requestable {
         }
         
         return nil
+    }
+    
+    private var decoder: JSONDecoder {
+        guard let decodableModel = Model.self as? DecodableModel.Type else {
+            return JSONDecoder()
+        }
+        
+        return decodableModel.decoder
     }
     
     private func debugDecodeData(_ data: Data) -> String {

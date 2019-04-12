@@ -8,7 +8,7 @@
 import Foundation
 
 /// Search results wrapper
-public struct SearchResults: Codable, Equatable, CodableModel {
+public struct SearchResults: Equatable, CodableModel {
     
     /// Currencies (coins) matching search criteria
     /// - It will exist only when a request was performed with `currencies` category

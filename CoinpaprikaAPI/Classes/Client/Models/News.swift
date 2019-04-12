@@ -8,7 +8,7 @@
 import Foundation
 
 /// News
-public struct News: Codable, Equatable, CodableModel {
+public struct News: Equatable, CodableModel {
     
     /// News title
     public let title: String

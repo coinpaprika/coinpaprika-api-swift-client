@@ -8,7 +8,7 @@
 import Foundation
 
 /// Fiat definition
-public struct Fiat: Codable, Equatable, CodableModel {
+public struct Fiat: Equatable, CodableModel {
     
     /// Coin id, eg. usd-us-dollars
     public let id: String

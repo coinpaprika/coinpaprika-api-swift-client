@@ -15,7 +15,7 @@ public protocol CoinType {
 }
 
 /// Coin
-public struct Coin: Codable, Equatable, CodableModel, CoinType {
+public struct Coin: Equatable, CodableModel, CoinType {
     
     /// Coin id, eg. btc-bitcoin
     public let id: String
@@ -65,7 +65,7 @@ public struct Coin: Codable, Equatable, CodableModel, CoinType {
 
 }
 
-public struct CoinExtended: Codable, Equatable, CodableModel, CoinType {
+public struct CoinExtended: Equatable, CodableModel, CoinType {
     
     /// Coin id, eg. btc-bitcoin
     public let id: String

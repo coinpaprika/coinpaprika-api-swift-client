@@ -8,7 +8,7 @@
 import Foundation
 
 /// Tweet
-public struct Tweet: Codable, Equatable, CodableModel {
+public struct Tweet: Equatable, CodableModel {
     
     /// Tweet id
     public let id: String

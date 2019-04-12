@@ -8,7 +8,7 @@
 import Foundation
 
 /// Coin Ticker historical data
-public struct TickerHistory: Codable, Equatable, CodableModel {
+public struct TickerHistory: Equatable, CodableModel {
     
     /// Data save time
     public let timestamp: Date

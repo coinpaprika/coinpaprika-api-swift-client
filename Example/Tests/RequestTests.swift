@@ -137,14 +137,16 @@ class RequestTests: XCTestCase {
     }
     
     func testFailureResponse() {
-        let error = ResponseError.emptyResponse
+        let url = URL(string: "https://testapi.coinpaprika.com/")
+        let error = ResponseError.emptyResponse(url: url)
         let response = Result<Fiat, Error>.failure(error)
-        guard case .emptyResponse = (response.error as! ResponseError) else {
+        guard case .emptyResponse(let responseUrl) = (response.error as! ResponseError) else {
             XCTFail("Response error should be equal \(error)")
             return
         }
         
         XCTAssertNil(response.value, "Response value should be empty")
+        XCTAssertEqual(responseUrl, url)
         
         guard case .failure(let responseError) = response, case .emptyResponse = (responseError as! ResponseError) else {
             XCTFail("Response should be equal .failure")
@@ -163,8 +165,9 @@ class RequestTests: XCTestCase {
             let responseError = (response.error as? ResponseError)
             XCTAssertNotNil(responseError, "Response error shouldn't be empty")
             
-            if case .invalidRequest(let code, let message) = responseError! {
+            if case .invalidRequest(let code, let url, let message) = responseError! {
                 XCTAssert(code == expectedCode, "Error code should be equal to \(expectedCode)")
+                XCTAssertNotNil(url, "Response url should be not empty")
                 XCTAssert(message == expectedMessage, "Error message should be equal to \(expectedMessage)")
             } else {
                 XCTFail("Error should be equal to .invalidRequest with proper associated values")

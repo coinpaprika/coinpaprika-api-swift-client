@@ -24,11 +24,22 @@ extension RequestError: LocalizedError {
 }
 
 public enum ResponseError: Error {
-    case emptyResponse
-    case unableToDecodeResponse
-    case requestsLimitExceeded
-    case invalidRequest(httpCode: Int, message: String?)
-    case serverError(httpCode: Int)
+    case emptyResponse(url: URL?)
+    case unableToDecodeResponse(url: URL?)
+    case requestsLimitExceeded(url: URL?)
+    case invalidRequest(httpCode: Int, url: URL?, message: String?)
+    case serverError(httpCode: Int, url: URL?)
+    
+    public var url: URL? {
+        switch self {
+        case .emptyResponse(let url),
+            .unableToDecodeResponse(let url),
+            .requestsLimitExceeded(let url),
+            .invalidRequest(_, let url, _),
+            .serverError(_, let url):
+            return url
+        }
+    }
 }
 
 extension ResponseError: LocalizedError {
@@ -40,7 +51,7 @@ extension ResponseError: LocalizedError {
             return "Unable to decode response"
         case .requestsLimitExceeded:
             return "Requests limit exceeded"
-        case .invalidRequest(let httpCode, let message):
+        case .invalidRequest(let httpCode, _, let message):
             guard let message = message else {
                 return "Invalid request [\(httpCode)]"
             }
@@ -55,9 +66,9 @@ extension ResponseError: LocalizedError {
 extension ResponseError: CustomNSError {
     public var errorCode: Int {
         switch self {
-        case .invalidRequest(let httpCode, _):
+        case .invalidRequest(let httpCode, _, _):
             return httpCode
-        case .serverError(let httpCode):
+        case .serverError(let httpCode, _):
             return httpCode
         default:
             return 0

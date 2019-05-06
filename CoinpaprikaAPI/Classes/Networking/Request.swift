@@ -112,14 +112,14 @@ public struct Request<Model: Decodable>: Requestable {
                 
                 guard let data = data else {
                     onQueue {
-                        callback(Result.failure(ResponseError.emptyResponse))
+                        callback(Result.failure(ResponseError.emptyResponse(url: httpResponse.url)))
                     }
                     return
                 }
                 
                 guard let value = self.decodeResponse(data) else {
                     onQueue {
-                        callback(Result.failure(ResponseError.unableToDecodeResponse))
+                        callback(Result.failure(ResponseError.unableToDecodeResponse(url: httpResponse.url)))
                     }
                     return
                 }
@@ -199,23 +199,23 @@ public struct Request<Model: Decodable>: Requestable {
 
     private func findFailureReason(data: Data?, response: URLResponse?) -> ResponseError {
         guard let response = response as? HTTPURLResponse else {
-            return .emptyResponse
+            return .emptyResponse(url: nil)
         }
         
         switch response.statusCode {
         case 429:
-            return .requestsLimitExceeded
+            return .requestsLimitExceeded(url: response.url)
         case 400 ..< 500:
             let decoder = JSONDecoder()
             if let data = data, let value = try? decoder.decode(APIError.self, from: data) {
-                return .invalidRequest(httpCode: response.statusCode, message: value.error)
+                return .invalidRequest(httpCode: response.statusCode, url: response.url, message: value.error)
             }
             
-            return .invalidRequest(httpCode: response.statusCode, message: nil)
+            return .invalidRequest(httpCode: response.statusCode, url: response.url, message: nil)
         default: break
         }
         
-        return .serverError(httpCode: response.statusCode)
+        return .serverError(httpCode: response.statusCode, url: response.url)
     }
     
     private func decodeResponse(_ data: Data) -> Model? {

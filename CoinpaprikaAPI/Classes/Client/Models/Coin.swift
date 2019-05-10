@@ -45,6 +45,9 @@ public struct Coin: Equatable, CodableModel, CoinType {
     /// Logo revision, filled when additionalFields contains .imgRev option
     public var imgRev: Int?
     
+    /// Smart contract address, filled when additionalFields contains .contract option
+    public var contract: String?
+    
     public enum TypeValue: String, Codable {
         case coin
         case token
@@ -60,9 +63,8 @@ public struct Coin: Equatable, CodableModel, CoinType {
         case isActive = "is_active"
         case typeStorage = "type"
         case imgRev = "img_rev"
+        case contract
     }
-    
-
 }
 
 public struct CoinExtended: Equatable, CodableModel, CoinType {
@@ -156,7 +158,7 @@ public struct CoinExtended: Equatable, CodableModel, CoinType {
         /// Link to the thumbnail of document
         public let thumbnail: URL?
     }
-    
+
     /// Coin whitepaper
     public let whitepaper: Whitepaper
     
@@ -166,6 +168,15 @@ public struct CoinExtended: Equatable, CodableModel, CoinType {
     public var type: Coin.TypeValue {
         return typeStorage ?? .unknown
     }
+    
+    /// First ticker data
+    public let firstDataAt: Date?
+    
+    /// Last ticker data
+    public let lastDataAt: Date?
+    
+    /// Smart contract address, filled when additionalFields contains .contract option
+    public var contract: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -189,5 +200,8 @@ public struct CoinExtended: Equatable, CodableModel, CoinType {
         case links = "links_extended"
         case whitepaper
         case typeStorage = "type"
+        case firstDataAt = "first_data_at"
+        case lastDataAt = "last_data_at"
+        case contract
     }
 }

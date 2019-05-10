@@ -25,6 +25,7 @@ public struct CoinpaprikaAPI {
     /// - coins: add this field if you want to match Coins with Tags
     public enum CoinsAdditionalFields: String, CaseIterable, QueryRepresentable {
         case imgRev = "img_rev"
+        case contract
     }
     
     /// Get all coins listed on coinpaprika

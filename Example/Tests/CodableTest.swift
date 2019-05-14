@@ -50,10 +50,10 @@ class CodableTest: XCTestCase {
             XCTAssertNotNil(decodedBitcoin, "Ticker should exist")
             XCTAssert(bitcoin?.id == decodedBitcoin.id, "BTC not found")
             XCTAssert(bitcoin?.symbol == decodedBitcoin.symbol, "BTC not found")
-            XCTAssert(bitcoin?[.btc].price == decodedBitcoin[.btc].price, "priceBtc isn't equal")
-            XCTAssert(bitcoin?[.usd].price == decodedBitcoin[.usd].price, "priceUsd isn't equal")
-            XCTAssert(bitcoin?[.btc].marketCap == decodedBitcoin[.btc].marketCap, "marketCapBtc isn't equal")
-            XCTAssert(bitcoin?[.usd].athDate == decodedBitcoin[.usd].athDate, "athDate isn't equal")
+            XCTAssert(bitcoin?[.btc].price == decodedBitcoin[.btc].price, "priceBtc \(String(describing: bitcoin?[.btc].price)) isn't equal \(decodedBitcoin[.btc].price)")
+            XCTAssert(bitcoin?[.usd].price == decodedBitcoin[.usd].price, "priceUsd \(String(describing: bitcoin?[.usd].price)) isn't equal \(decodedBitcoin[.usd].price)")
+            XCTAssert(bitcoin?[.btc].marketCap == decodedBitcoin[.btc].marketCap, "marketCapBtc \(String(describing: bitcoin?[.btc].marketCap)) isn't equal \(decodedBitcoin[.btc].marketCap)")
+            XCTAssert(bitcoin?[.usd].athDate == decodedBitcoin[.usd].athDate, "athDate \(String(describing: bitcoin?[.usd].athDate)) isn't equal \(String(describing: decodedBitcoin[.usd].athDate))")
             
             expectation.fulfill()
         }

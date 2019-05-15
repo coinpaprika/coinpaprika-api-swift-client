@@ -161,10 +161,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-macOS/CoinpaprikaAPI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-macOS/Coinpaprika.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-macOS/CoinpaprikaAPI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-macOS/Coinpaprika.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

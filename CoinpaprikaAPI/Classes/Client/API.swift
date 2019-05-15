@@ -8,8 +8,10 @@
 
 import Foundation
 
+public typealias CoinpaprikaAPI = API
+
 /// Coinpaprika API endpoints
-public struct CoinpaprikaAPI {
+public struct API {
     
     private static let baseUrl = URL(string: "https://api.coinpaprika.com/v1/")!
     

@@ -47,7 +47,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C14C41CDDB7ADBEEE4A5AFAC5A03134"
-            BuildableName = "CoinpaprikaAPI.framework"
+            BuildableName = "Coinpaprika.framework"
             BlueprintName = "CoinpaprikaAPI-iOS"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>

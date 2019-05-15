@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double CoinpaprikaAPIVersionNumber;
-FOUNDATION_EXPORT const unsigned char CoinpaprikaAPIVersionString[];
+FOUNDATION_EXPORT double CoinpaprikaVersionNumber;
+FOUNDATION_EXPORT const unsigned char CoinpaprikaVersionString[];
 

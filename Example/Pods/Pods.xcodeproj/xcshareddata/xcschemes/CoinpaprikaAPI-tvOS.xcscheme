@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A410201D14BABB5F2AE02267656496A8"
-               BuildableName = "CoinpaprikaAPI.framework"
+               BuildableName = "Coinpaprika.framework"
                BlueprintName = "CoinpaprikaAPI-tvOS"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A410201D14BABB5F2AE02267656496A8"
-            BuildableName = "CoinpaprikaAPI.framework"
+            BuildableName = "Coinpaprika.framework"
             BlueprintName = "CoinpaprikaAPI-tvOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>

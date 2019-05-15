@@ -1,4 +1,4 @@
-framework module CoinpaprikaAPI {
+framework module Coinpaprika {
   umbrella header "CoinpaprikaAPI-iOS-umbrella.h"
 
   export *

@@ -8,7 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CoinpaprikaAPI'
-  s.version          = '2.1.1'
+  s.module_name      = 'Coinpaprika'
+  s.version          = '2.2'
   s.summary          = 'Full market data from the world of crypto: coin prices, volumes, market caps, ATHs, return rates and more.'
 
 # This description is used to generate tags and improve search results.

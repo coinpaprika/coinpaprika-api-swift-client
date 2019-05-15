@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import CoinpaprikaAPI
+import Coinpaprika
 
 class RequestTests: XCTestCase {
     
@@ -18,7 +18,7 @@ class RequestTests: XCTestCase {
     func testGlobalStatsRequest() {
         let expectation = self.expectation(description: "Waiting for global stats")
         
-        CoinpaprikaAPI.global().perform { (response) in
+        Coinpaprika.API.global().perform { (response) in
             let stats = response.value
             XCTAssertNotNil(stats, "Stats object should exist")
             
@@ -35,7 +35,7 @@ class RequestTests: XCTestCase {
     func testCoinsRequest() {
         let expectation = self.expectation(description: "Waiting for coins")
         
-        CoinpaprikaAPI.coins().perform { (response) in
+        Coinpaprika.API.coins().perform { (response) in
             let coins = response.value
             XCTAssertNotNil(coins, "Coins list should exist")
             
@@ -51,7 +51,7 @@ class RequestTests: XCTestCase {
     func testTickersRequest() {
         let expectation = self.expectation(description: "Waiting for tickers")
         
-        CoinpaprikaAPI.tickers(quotes: [.usd, .btc]).perform { (response) in
+        Coinpaprika.API.tickers(quotes: [.usd, .btc]).perform { (response) in
             let tickers = response.value
             XCTAssertNotNil(tickers, "Tickers list should exist")
             
@@ -70,7 +70,7 @@ class RequestTests: XCTestCase {
         let expectation = self.expectation(description: "Waiting for ticker")
         
         
-        CoinpaprikaAPI.ticker(id: bitcoinId, quotes: [.usd, .btc]).perform { (response) in
+        Coinpaprika.API.ticker(id: bitcoinId, quotes: [.usd, .btc]).perform { (response) in
             let bitcoin = response.value
             
             XCTAssertNotNil(bitcoin, "Ticker should exist")
@@ -88,7 +88,7 @@ class RequestTests: XCTestCase {
     func testSearchRequest() {
         let expectation = self.expectation(description: "Waiting for search results")
         
-        CoinpaprikaAPI.search(query: "bitcoin", categories: CoinpaprikaAPI.SearchCategory.allCases, limit: 15).perform { (response) in
+        Coinpaprika.API.search(query: "bitcoin", categories: Coinpaprika.API.SearchCategory.allCases, limit: 15).perform { (response) in
     
             let searchResults = response.value
             XCTAssertNotNil(searchResults)
@@ -106,7 +106,7 @@ class RequestTests: XCTestCase {
     func testSearchWithoutCoins() {
         let expectation = self.expectation(description: "Waiting for search results")
         
-        CoinpaprikaAPI.search(query: "bitcoin", categories: [.exchanges, .icos, .people, .tags], limit: 15).perform { (response) in
+        Coinpaprika.API.search(query: "bitcoin", categories: [.exchanges, .icos, .people, .tags], limit: 15).perform { (response) in
             
             let searchResults = response.value
             XCTAssertNotNil(searchResults)
@@ -157,7 +157,7 @@ class RequestTests: XCTestCase {
     func testRequestError() {
         let expectation = self.expectation(description: "Waiting for ticker")
         
-        CoinpaprikaAPI.ticker(id: "unexisting-coin-id", quotes: [.usd]).perform { (response) in
+        Coinpaprika.API.ticker(id: "unexisting-coin-id", quotes: [.usd]).perform { (response) in
             let expectedCode = 404
             let expectedMessage = "id not found"
             
@@ -183,7 +183,7 @@ class RequestTests: XCTestCase {
     func testExchangeRequest() {
         let expectation = self.expectation(description: "Waiting for exchange")
         
-        CoinpaprikaAPI.exchange(id: binanceId, quotes: [.pln]).perform { (response) in
+        Coinpaprika.API.exchange(id: binanceId, quotes: [.pln]).perform { (response) in
             let exchange = response.value
             XCTAssertNotNil(exchange, "Exchange should exist")
             
@@ -198,7 +198,7 @@ class RequestTests: XCTestCase {
     func testMarketRequest() {
         let expectation = self.expectation(description: "Waiting for exchange market")
         
-        CoinpaprikaAPI.exchangeMarkets(id: binanceId).perform { (response) in
+        Coinpaprika.API.exchangeMarkets(id: binanceId).perform { (response) in
             let markets = response.value
             XCTAssertFalse(markets?.isEmpty ?? true, "Markets should exist")
             
@@ -213,7 +213,7 @@ class RequestTests: XCTestCase {
     func testTickerHistoryRequest() {
         let expectation = self.expectation(description: "Waiting for ticker history")
         let limit = 5
-        CoinpaprikaAPI.tickerHistory(id: bitcoinId, start: Date(timeIntervalSinceNow: -60*60*24), limit: limit, quote: .usd, interval: .minutes30).perform { (response) in
+        Coinpaprika.API.tickerHistory(id: bitcoinId, start: Date(timeIntervalSinceNow: -60*60*24), limit: limit, quote: .usd, interval: .minutes30).perform { (response) in
             let history = response.value
             XCTAssert(history?.count == limit, "Tickers lists count should be equal \(limit)")
             XCTAssert((history?.first?.price ?? 0) > 0, "Price should be greater than 0")
@@ -226,7 +226,7 @@ class RequestTests: XCTestCase {
     func testCoinDetailsRequest() {
         let expectation = self.expectation(description: "Waiting for coin details")
         
-        CoinpaprikaAPI.coin(id: bitcoinId).perform { (response) in
+        Coinpaprika.API.coin(id: bitcoinId).perform { (response) in
             let bitcoin = response.value
             
             XCTAssertNotNil(bitcoin, "Ticker should exist")
@@ -253,7 +253,7 @@ class RequestTests: XCTestCase {
     func testCoinExchangesRequest() {
         let expectation = self.expectation(description: "Waiting for exchanges")
         
-        CoinpaprikaAPI.coinExchanges(id: bitcoinId).perform { (response) in
+        Coinpaprika.API.coinExchanges(id: bitcoinId).perform { (response) in
             let exchange = response.value?.first
             
             XCTAssertNotNil(exchange, "Exchange should exist")
@@ -267,7 +267,7 @@ class RequestTests: XCTestCase {
     func testCoinMarketsRequest() {
         let expectation = self.expectation(description: "Waiting for exchange markets")
         
-        CoinpaprikaAPI.coinMarkets(id: bitcoinId).perform { (response) in
+        Coinpaprika.API.coinMarkets(id: bitcoinId).perform { (response) in
             let markets = response.value
             XCTAssertFalse(markets?.isEmpty ?? true, "Markets should exist")
             
@@ -282,7 +282,7 @@ class RequestTests: XCTestCase {
     func testPersonRequest() {
         let expectation = self.expectation(description: "Waiting for person details")
         
-        CoinpaprikaAPI.person(id: satoshiId).perform { (response) in
+        Coinpaprika.API.person(id: satoshiId).perform { (response) in
             let person = response.value
             XCTAssertNotNil(person, "Person should exist")
             
@@ -296,7 +296,7 @@ class RequestTests: XCTestCase {
     func testEventsRequest() {
         let expectation = self.expectation(description: "Waiting for event details")
         
-        CoinpaprikaAPI.coinEvents(id: bitcoinId).perform { (response) in
+        Coinpaprika.API.coinEvents(id: bitcoinId).perform { (response) in
             let events = response.value
             XCTAssertNotNil(events?.first, "Event should exist")
             
@@ -309,7 +309,7 @@ class RequestTests: XCTestCase {
     func testTweetsRequest() {
         let expectation = self.expectation(description: "Waiting for a list of tweets")
         
-        CoinpaprikaAPI.coinTweets(id: bitcoinId).perform { (response) in
+        Coinpaprika.API.coinTweets(id: bitcoinId).perform { (response) in
             let tweets = response.value
             XCTAssertNotNil(tweets?.first, "Tweet should exist")
             
@@ -322,7 +322,7 @@ class RequestTests: XCTestCase {
     func testCoinLatestOhlcvRequest() {
         let expectation = self.expectation(description: "Waiting for a latest ohlcv")
         
-        CoinpaprikaAPI.coinLatestOhlcv(id: bitcoinId).perform { (response) in
+        Coinpaprika.API.coinLatestOhlcv(id: bitcoinId).perform { (response) in
             let ohlcv = response.value
             XCTAssertNotNil(ohlcv?.first, "Ohlcv should exist")
             
@@ -335,7 +335,7 @@ class RequestTests: XCTestCase {
     func testCoinHistoricalOhlcvRequest() {
         let expectation = self.expectation(description: "Waiting for a latest ohlcv")
         
-        CoinpaprikaAPI.coinHistoricalOhlcv(id: bitcoinId, start: Date(timeIntervalSinceNow: -60*60*24)).perform { (response) in
+        Coinpaprika.API.coinHistoricalOhlcv(id: bitcoinId, start: Date(timeIntervalSinceNow: -60*60*24)).perform { (response) in
             let ohlcv = response.value
             XCTAssertNotNil(ohlcv?.first, "Ohlcv should exist")
             
@@ -348,7 +348,7 @@ class RequestTests: XCTestCase {
     func testFiatsRequest() {
         let expectation = self.expectation(description: "Waiting for a fiats list")
         
-        CoinpaprikaAPI.fiats().perform { (response) in
+        Coinpaprika.API.fiats().perform { (response) in
             let fiats = response.value
             XCTAssertNotNil(fiats?.contains(where: { $0.symbol == "USD" }), "USD should exist")
             

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DecodableModel Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/DecodableModel" class="dashAnchor"></a>
+    <a title="DecodableModel Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Coinpaprika Docs</a> (79% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Coinpaprika Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DecodableModel Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/QuoteCurrency.html">QuoteCurrency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RequestError.html">RequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResponseError.html">ResponseError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Result.html">Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CoinType.html">CoinType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DecodableModel.html">DecodableModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EncodableModel.html">EncodableModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Requestable.html">Requestable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TagType.html">TagType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/API.html">API</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/API/CoinsAdditionalFields.html">– CoinsAdditionalFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/API/SearchCategory.html">– SearchCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/API/TagsAdditionalFields.html">– TagsAdditionalFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/API/TickerHistoryInterval.html">– TickerHistoryInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/API/TopMoversType.html">– TopMoversType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/API/TopMoversTimeRange.html">– TopMoversTimeRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/API/TopMoversLimit.html">– TopMoversLimit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Coin.html">Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Coin/TypeValue.html">– TypeValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExchange.html">CoinExchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended.html">CoinExtended</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/ParentCoin.html">– ParentCoin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Person.html">– Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Whitepaper.html">– Whitepaper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinExtended/Link.html">– Link</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CoinMarket.html">CoinMarket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange.html">Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange/Quote.html">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange/Fiat.html">– Fiat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Fiat.html">Fiat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GlobalStats.html">GlobalStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Market.html">Market</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Market/Quote.html">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Market/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Market/FeeType.html">– FeeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/News.html">News</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Ohlcv.html">Ohlcv</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person.html">Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person/Project.html">– Project</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person/Link.html">– Link</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Person/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request/Method.html">– Method</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request/BodyEncoding.html">– BodyEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request/AuthorisationMethod.html">– AuthorisationMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults.html">SearchResults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults/Person.html">– Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults/Ico.html">– Ico</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults/Exchange.html">– Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults/Tag.html">– Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:11Coinpaprika14StatusResponseV">StatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tag.html">Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tag/TypeCategory.html">– TypeCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Ticker.html">Ticker</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Ticker/Quote.html">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TickerHistory.html">TickerHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TopMovers.html">TopMovers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TopMovers/Coin.html">– Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tweet.html">Tweet</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11Coinpaprika12CodableModela">CodableModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11Coinpaprika0A3APIa">CoinpaprikaAPI</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DecodableModel</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DecodableModel</span> <span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Helper providing informations to sucessfully decode each model.
+Each CoinapaprikaAPI Model conforms to this protocol.
+Use decoder properties if you want to store our models.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11Coinpaprika14DecodableModelP7decoder10Foundation11JSONDecoderCvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/decoder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11Coinpaprika14DecodableModelP7decoder10Foundation11JSONDecoderCvpZ">decoder</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>JSONDecoder ready to decode the model.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">JSONDecoder</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11Coinpaprika14DecodableModelP20dateDecodingStrategy10Foundation11JSONDecoderC04DateeF0OSgvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/dateDecodingStrategy" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11Coinpaprika14DecodableModelP20dateDecodingStrategy10Foundation11JSONDecoderC04DateeF0OSgvpZ">dateDecodingStrategy</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>DateDecodingStrategy for JSONDecoder, it could be either iso8601 or unix timestamp.
+Use it only if you want to build your own decoder.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">dateDecodingStrategy</span><span class="p">:</span> <span class="kt">JSONDecoder</span><span class="o">.</span><span class="kt">DateDecodingStrategy</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Coinpaprika.com</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

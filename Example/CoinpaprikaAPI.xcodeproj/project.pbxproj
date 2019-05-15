@@ -601,11 +601,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CoinpaprikaAPI_Example/Pods-CoinpaprikaAPI_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-iOS/CoinpaprikaAPI.framework",
+				"${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-iOS/Coinpaprika.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoinpaprikaAPI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Coinpaprika.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -619,11 +619,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CoinpaprikaAPI_Example_macOS/Pods-CoinpaprikaAPI_Example_macOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-macOS/CoinpaprikaAPI.framework",
+				"${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-macOS/Coinpaprika.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoinpaprikaAPI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Coinpaprika.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -747,11 +747,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CoinpaprikaAPI_Example_tvOS/Pods-CoinpaprikaAPI_Example_tvOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-tvOS/CoinpaprikaAPI.framework",
+				"${BUILT_PRODUCTS_DIR}/CoinpaprikaAPI-tvOS/Coinpaprika.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoinpaprikaAPI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Coinpaprika.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

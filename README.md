@@ -15,10 +15,14 @@ This library provides convenient way to use [Coinpaprika.com API](https://api.co
 
 [Coinpaprika](https://coinpaprika.com) delivers full market data to the world of crypto: coin prices, volumes, market caps, ATHs, return rates and more.
 
+### Import
+
 ### Market Stats
 
 ```swift
-CoinpaprikaAPI.global().perform { (response) in
+import Coinpaprika
+
+Coinpaprika.API.global().perform { (response) in
   switch response {
     case .success(let stats):
     // Successfully downloaded GlobalStats
@@ -35,7 +39,9 @@ CoinpaprikaAPI.global().perform { (response) in
 ### Coins list
 
 ```swift
-CoinpaprikaAPI.coins().perform { (response) in
+import Coinpaprika
+
+Coinpaprika.API.coins().perform { (response) in
   switch response {
     case .success(let coins):
     // Successfully downloaded [Coin]
@@ -51,7 +57,9 @@ CoinpaprikaAPI.coins().perform { (response) in
 ### Ticker data for all coins
 
 ```swift
-CoinpaprikaAPI.tickers(quotes: [.usd, .btc]).perform { (response) in
+import Coinpaprika
+
+Coinpaprika.API.tickers(quotes: [.usd, .btc]).perform { (response) in
   switch response {
     case .success(let tickers):
     // Successfully downloaded [Ticker]
@@ -66,7 +74,9 @@ CoinpaprikaAPI.tickers(quotes: [.usd, .btc]).perform { (response) in
 ### Ticker data for selected coin
 
 ```swift
-CoinpaprikaAPI.ticker(id: "bitcoin-btc", quotes: [.usd, .btc]).perform { (response) in
+import Coinpaprika
+
+Coinpaprika.API.ticker(id: "bitcoin-btc", quotes: [.usd, .btc]).perform { (response) in
   switch response {
     case .success(let ticker):
     // Successfully downloaded Ticker
@@ -115,7 +125,9 @@ CoinpaprikaAPI.ticker(id: "bitcoin-btc", quotes: [.usd, .btc]).perform { (respon
 ### Search
 
 ```swift
-CoinpaprikaAPI.search(query: "bitcoin", categories: [.coins, .exchanges, .icos, .people, .tags], limit: 20).perform { (response) in
+import Coinpaprika
+
+Coinpaprika.API.search(query: "bitcoin", categories: [.coins, .exchanges, .icos, .people, .tags], limit: 20).perform { (response) in
   switch response {
     case .success(let searchResults):
     // Successfully downloaded SearchResults

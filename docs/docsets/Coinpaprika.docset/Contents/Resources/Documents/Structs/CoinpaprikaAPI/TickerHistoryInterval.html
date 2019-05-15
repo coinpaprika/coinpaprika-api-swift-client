@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TickerHistoryInterval Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../../js/jquery.min.js" defer></script>
+    <script src="../../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/TickerHistoryInterval" class="dashAnchor"></a>
+    <a title="TickerHistoryInterval Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../../index.html">CoinpaprikaAPI Docs</a> (83% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../../index.html">CoinpaprikaAPI Reference</a>
+        <img id="carat" src="../../img/carat.png" />
+        TickerHistoryInterval Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Enums/QuoteCurrency.html">QuoteCurrency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/RequestError.html">RequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/ResponseError.html">ResponseError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Result.html">Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Protocols/CodableModel.html">CodableModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Protocols/CoinType.html">CoinType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Protocols/Requestable.html">Requestable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Protocols/TagType.html">TagType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Structs/Coin.html">Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Coin/TypeValue.html">– TypeValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinExchange.html">CoinExchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinExtended.html">CoinExtended</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinExtended/ParentCoin.html">– ParentCoin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinExtended/Person.html">– Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinExtended/Whitepaper.html">– Whitepaper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinExtended/Link.html">– Link</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinMarket.html">CoinMarket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinpaprikaAPI.html">CoinpaprikaAPI</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinpaprikaAPI/CoinsAdditionalFields.html">– CoinsAdditionalFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinpaprikaAPI/SearchCategory.html">– SearchCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinpaprikaAPI/TagsAdditionalFields.html">– TagsAdditionalFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinpaprikaAPI/TickerHistoryInterval.html">– TickerHistoryInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinpaprikaAPI/TopMoversType.html">– TopMoversType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinpaprikaAPI/TopMoversTimeRange.html">– TopMoversTimeRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinpaprikaAPI/TopMoversLimit.html">– TopMoversLimit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Exchange.html">Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Exchange/Quote.html">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Exchange/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Exchange/Fiat.html">– Fiat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Fiat.html">Fiat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/GlobalStats.html">GlobalStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Market.html">Market</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Market/Quote.html">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Market/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Market/FeeType.html">– FeeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/News.html">News</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Ohlcv.html">Ohlcv</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Person.html">Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Person/Project.html">– Project</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Person/Link.html">– Link</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Person/Links.html">– Links</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Request/Method.html">– Method</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Request/BodyEncoding.html">– BodyEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/SearchResults.html">SearchResults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/SearchResults/Person.html">– Person</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/SearchResults/Ico.html">– Ico</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/SearchResults/Exchange.html">– Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/SearchResults/Tag.html">– Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs.html#/s:14CoinpaprikaAPI14StatusResponseV">StatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Tag.html">Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Tag/TypeCategory.html">– TypeCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Ticker.html">Ticker</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Ticker/Quote.html">– Quote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/TickerHistory.html">TickerHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/TopMovers.html">TopMovers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/TopMovers/Coin.html">– Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Tweet.html">Tweet</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>TickerHistoryInterval</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TickerHistoryInterval</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CaseIterable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Intervals for historical data endpoint</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO8minutes5yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/minutes5" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO8minutes5yA2DmF">minutes5</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>5 minutes interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">minutes5</span> <span class="o">=</span> <span class="s">"5m"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO9minutes10yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/minutes10" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO9minutes10yA2DmF">minutes10</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>10 minutes interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">minutes10</span> <span class="o">=</span> <span class="s">"10m"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO9minutes15yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/minutes15" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO9minutes15yA2DmF">minutes15</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>15 minutes interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">minutes15</span> <span class="o">=</span> <span class="s">"15m"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO9minutes30yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/minutes30" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO9minutes30yA2DmF">minutes30</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>30 minutes interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">minutes30</span> <span class="o">=</span> <span class="s">"30m"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO9minutes45yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/minutes45" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO9minutes45yA2DmF">minutes45</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>45 minutes interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">minutes45</span> <span class="o">=</span> <span class="s">"45m"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6hours1yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/hours1" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6hours1yA2DmF">hours1</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>1 hour interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hours1</span> <span class="o">=</span> <span class="s">"1h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6hours2yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/hours2" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6hours2yA2DmF">hours2</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>2 hours interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hours2</span> <span class="o">=</span> <span class="s">"2h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6hours3yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/hours3" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6hours3yA2DmF">hours3</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>3 hours interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hours3</span> <span class="o">=</span> <span class="s">"3h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6hours6yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/hours6" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6hours6yA2DmF">hours6</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>6 hours interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hours6</span> <span class="o">=</span> <span class="s">"6h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO7hours12yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/hours12" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO7hours12yA2DmF">hours12</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>12 hours interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hours12</span> <span class="o">=</span> <span class="s">"12h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO7hours24yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/hours24" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO7hours24yA2DmF">hours24</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>24 hours interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hours24</span> <span class="o">=</span> <span class="s">"24h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO5days1yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/days1" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO5days1yA2DmF">days1</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>1 day interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">days1</span> <span class="o">=</span> <span class="s">"1d"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO5days7yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/days7" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO5days7yA2DmF">days7</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>7 days interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">days7</span> <span class="o">=</span> <span class="s">"7d"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6days14yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/days14" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6days14yA2DmF">days14</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>14 days interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">days14</span> <span class="o">=</span> <span class="s">"14d"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6days30yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/days30" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6days30yA2DmF">days30</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>30 days interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">days30</span> <span class="o">=</span> <span class="s">"30d"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6days90yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/days90" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO6days90yA2DmF">days90</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>90 days interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">days90</span> <span class="o">=</span> <span class="s">"90d"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO7days365yA2DmF"></a>
+                    <a name="//apple_ref/swift/Element/days365" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14CoinpaprikaAPIAAV21TickerHistoryIntervalO7days365yA2DmF">days365</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>365 days interval</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">days365</span> <span class="o">=</span> <span class="s">"365d"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Coinpaprika.com</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

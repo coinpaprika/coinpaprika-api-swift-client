@@ -9,7 +9,7 @@
 import Foundation
 
 /// Coin Ticker
-public struct Ticker: Equatable, CodableModel {
+public struct Ticker: Equatable, CodableModel, CoinType {
     
     /// Coin id, eg. btc-bitcoin
     public let id: String

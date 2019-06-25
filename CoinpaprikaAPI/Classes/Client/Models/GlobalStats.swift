@@ -7,8 +7,8 @@
 //
 
 import Foundation
-#if canImport(CoinpaprikaNetworking)
-import CoinpaprikaNetworking
+#if canImport(Networking)
+import Networking
 #endif
 
 /// Global market data

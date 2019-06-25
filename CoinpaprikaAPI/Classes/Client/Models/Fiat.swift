@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
+#endif
 
 /// Fiat definition
 public struct Fiat: Equatable, CodableModel {

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
+#endif
 
 /// News
 public struct News: Equatable, CodableModel {

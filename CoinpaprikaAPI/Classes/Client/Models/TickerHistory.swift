@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
+#endif
 
 /// Coin Ticker historical data
 public struct TickerHistory: Equatable, CodableModel {

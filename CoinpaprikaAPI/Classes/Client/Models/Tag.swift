@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
+#endif
 
 public protocol TagType {
     var id: String { get }

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
+#endif
 
 /// Exchange
 public struct Exchange: Equatable, CodableModel {

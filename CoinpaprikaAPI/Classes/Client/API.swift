@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
+#endif
 
 public typealias CoinpaprikaAPI = API
 

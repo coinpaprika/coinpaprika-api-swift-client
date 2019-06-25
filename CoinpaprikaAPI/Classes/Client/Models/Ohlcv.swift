@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
+#endif
 
 /// Open/High/Low/Close values with volume and market_cap
 public struct Ohlcv: Equatable, CodableModel {

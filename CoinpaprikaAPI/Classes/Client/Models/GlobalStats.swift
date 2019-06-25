@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
+#endif
 
 /// Global market data
 public struct GlobalStats: Equatable, CodableModel {

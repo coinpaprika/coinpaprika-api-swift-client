@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
+#endif
 
 /// Coin Ticker
 public struct Ticker: Equatable, CodableModel, CoinType {

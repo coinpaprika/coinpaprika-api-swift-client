@@ -5,11 +5,11 @@ let package = Package(
     name: "Coinpaprika",
     platforms: [.iOS(.v10), .macOS(.v10_12), .tvOS(.v10), .watchOS(.v3)],
     products: [
-        .library(name: "Coinpaprika", targets: ["Client", "Networking"])
+        .library(name: "Coinpaprika", targets: ["Coinpaprika", "Networking"])
     ],
     targets: [
         .target(
-            name: "Client",
+            name: "Coinpaprika",
             dependencies: [.target(name: "Networking")],
             path: "CoinpaprikaAPI/Classes/Client"
             ),

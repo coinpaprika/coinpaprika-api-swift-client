@@ -5,7 +5,8 @@ let package = Package(
     name: "Coinpaprika",
     platforms: [.iOS(.v10), .macOS(.v10_12), .tvOS(.v10), .watchOS(.v3)],
     products: [
-        .library(name: "Coinpaprika", targets: ["Coinpaprika", "CoinpaprikaNetworking"])
+        .library(name: "Coinpaprika", targets: ["Coinpaprika"]),
+        .library(name: "CoinpaprikaNetworking", targets: ["CoinpaprikaNetworking"])
     ],
     targets: [
         .target(

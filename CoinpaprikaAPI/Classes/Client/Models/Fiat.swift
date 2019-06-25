@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 /// Fiat definition
 public struct Fiat: Equatable, CodableModel {

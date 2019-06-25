@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 /// Tweet
 public struct Tweet: Equatable, CodableModel {

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 public struct Person: Equatable, CodableModel {
     

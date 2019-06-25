@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 public protocol TagType {
     var id: String { get }

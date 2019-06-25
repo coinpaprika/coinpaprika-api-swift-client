@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 /// Event
 public struct Event: Equatable, CodableModel {

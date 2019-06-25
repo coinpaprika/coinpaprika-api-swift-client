@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 /// Search results wrapper
 public struct SearchResults: Equatable, CodableModel {

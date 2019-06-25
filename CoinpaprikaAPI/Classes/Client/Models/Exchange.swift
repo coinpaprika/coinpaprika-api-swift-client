@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 /// Exchange
 public struct Exchange: Equatable, CodableModel {

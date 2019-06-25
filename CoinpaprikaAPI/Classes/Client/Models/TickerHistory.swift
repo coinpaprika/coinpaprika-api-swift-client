@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 /// Coin Ticker historical data
 public struct TickerHistory: Equatable, CodableModel {

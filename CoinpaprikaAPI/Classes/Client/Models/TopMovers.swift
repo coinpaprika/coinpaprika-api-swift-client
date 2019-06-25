@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 /// TopMovers
 public struct TopMovers: Equatable, CodableModel {

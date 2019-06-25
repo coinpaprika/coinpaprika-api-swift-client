@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 /// Global market data
 public struct GlobalStats: Equatable, CodableModel {

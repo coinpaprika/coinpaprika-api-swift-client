@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if canImport(Networking)
+import Networking
+#endif
 
 public protocol CoinType {
     var id: String { get }

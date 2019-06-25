@@ -148,6 +148,12 @@ Other endpoints could be found in [CoinpaprikaAPI reference](https://coinpaprika
 
 ## Installation
 
+### Swift Package Manager (SPM)
+CoinpaprikaAPI is available through [SPM](https://swift.org/package-manager/). To install it, simply add the following dependency (for example in Xcode 11 built-in manager): 
+```
+https://github.com/coinpaprika/coinpaprika-api-swift-client
+```
+
 ### Cocoapods
 
 CoinpaprikaAPI is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:

@@ -6,16 +6,16 @@ let package = Package(
     platforms: [.iOS(.v10), .macOS(.v10_12), .tvOS(.v10), .watchOS(.v3)],
     products: [
         .library(name: "Coinpaprika", targets: ["Coinpaprika"]),
-        .library(name: "CoinpaprikaNetworking", targets: ["CoinpaprikaNetworking"])
+        .library(name: "Networking", targets: ["Networking"])
     ],
     targets: [
         .target(
             name: "Coinpaprika",
-            dependencies: [.target(name: "CoinpaprikaNetworking")],
+            dependencies: [.target(name: "Networking")],
             path: "CoinpaprikaAPI/Classes/Client"
             ),
         .target(
-            name: "CoinpaprikaNetworking",
+            name: "Networking",
             path: "CoinpaprikaAPI/Classes/Networking"
         )   
     ]

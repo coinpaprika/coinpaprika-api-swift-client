@@ -6,8 +6,8 @@
 //
 
 import Foundation
-#if canImport(Networking)
-import Networking
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
 #endif
 
 /// Open/High/Low/Close values with volume and market_cap

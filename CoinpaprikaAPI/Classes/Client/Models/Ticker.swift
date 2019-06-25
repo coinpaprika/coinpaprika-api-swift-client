@@ -7,8 +7,8 @@
 //
 
 import Foundation
-#if canImport(Networking)
-import Networking
+#if canImport(CoinpaprikaNetworking)
+import CoinpaprikaNetworking
 #endif
 
 /// Coin Ticker

@@ -8,6 +8,9 @@
 
 import XCTest
 import Coinpaprika
+#if canImport(Networking)
+import Networking
+#endif
 
 class RequestTests: XCTestCase {
     

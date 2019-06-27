@@ -17,6 +17,11 @@ let package = Package(
         .target(
             name: "Networking",
             path: "CoinpaprikaAPI/Classes/Networking"
-        )   
+        ),
+        .testTarget(
+            name: "CoinpaprikaTests",
+            dependencies: ["Coinpaprika"],
+            path: "Example/Tests"
+        )
     ]
 )

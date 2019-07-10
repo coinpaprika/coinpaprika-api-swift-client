@@ -9,11 +9,6 @@ osx_image:
 
 env:
 - SWIFT_VERSION=5.0
-- SWIFT_VERSION=4.2
-
-cache:
-- cocoapods
-- bundler
 
 script:
-  - bundle exec fastlane run_ci
+  - swift test

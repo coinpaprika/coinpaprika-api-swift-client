@@ -43,11 +43,11 @@ Pod::Spec.new do |s|
   s.cocoapods_version = '> 1.6.1'
   
   s.subspec 'Networking' do |sp|
-      sp.source_files = 'CoinpaprikaAPI/Classes/Networking/**/*.swift'
+      sp.source_files = 'Sources/Networking/**/*.swift'
   end
-  
+
   s.subspec 'Client' do |sp|
-      sp.source_files = 'CoinpaprikaAPI/Classes/Client/**/*.swift'
+      sp.source_files = 'Sources/Client/**/*.swift'
       sp.dependency 'CoinpaprikaAPI/Networking'
   end
   

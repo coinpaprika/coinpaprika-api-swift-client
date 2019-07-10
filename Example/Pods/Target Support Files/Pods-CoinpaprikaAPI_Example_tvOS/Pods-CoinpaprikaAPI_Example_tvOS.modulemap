@@ -1,6 +1,0 @@
-framework module Pods_CoinpaprikaAPI_Example_tvOS {
-  umbrella header "Pods-CoinpaprikaAPI_Example_tvOS-umbrella.h"
-
-  export *
-  module * { export * }
-}

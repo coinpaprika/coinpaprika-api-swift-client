@@ -111,7 +111,6 @@ class RequestTests: XCTestCase {
     func testTickerRequest() {
         let expectation = self.expectation(description: "Waiting for ticker")
         
-        
         Coinpaprika.API.ticker(id: bitcoinId, quotes: [.usd, .btc]).perform { (response) in
             let bitcoin = response.value
             
@@ -390,10 +389,15 @@ class RequestTests: XCTestCase {
     func testFiatsRequest() {
         let expectation = self.expectation(description: "Waiting for a fiats list")
         
-        Coinpaprika.API.fiats().perform { (response) in
+        let expectedModel = [Fiat(id: "usd-us-dollars", name: "US Dollars", symbol: "USD")]
+        
+        Coinpaprika.API.fiats().perform(session: URLSessionMock(expectedModel)) { (response) in
             let fiats = response.value
-            XCTAssertNotNil(fiats?.contains(where: { $0.symbol == "USD" }), "USD should exist")
-            
+            for (index, fiat) in fiats!.enumerated() {
+                XCTAssertEqual(fiat.id, expectedModel[index].id)
+                XCTAssertEqual(fiat.name, expectedModel[index].name)
+                XCTAssertEqual(fiat.symbol, expectedModel[index].symbol)
+            }
             expectation.fulfill()
         }
         

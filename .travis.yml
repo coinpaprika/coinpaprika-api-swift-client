@@ -7,8 +7,5 @@ language: swift
 osx_image:
 - xcode10.2
 
-env:
-- SWIFT_VERSION=5.0
-
 script:
   - swift test

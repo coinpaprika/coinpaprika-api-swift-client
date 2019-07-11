@@ -10,7 +10,7 @@ import Foundation
 
 public protocol Requestable {
     associatedtype Model: Decodable
-    func perform(responseQueue: DispatchQueue?, cachePolicy: URLRequest.CachePolicy?, session: URLSession, _ callback: @escaping (Result<Model, Error>) -> Void)
+    func perform(responseQueue: DispatchQueue?, cachePolicy: URLRequest.CachePolicy?, session: NetworkSession, _ callback: @escaping (Result<Model, Error>) -> Void)
 }
 
 
@@ -76,7 +76,7 @@ public struct Request<Model: Decodable>: Requestable {
     ///   - responseQueue: The queue on which the completion handler is dispatched
     ///   - cachePolicy: cache policy that should be used in this request
     ///   - callback: Completion handler triggered on request success & failure
-    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, session: URLSession = .shared, _ callback: @escaping (Result<Model, Error>) -> Void) {
+    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, session: NetworkSession = URLSession.shared, _ callback: @escaping (Result<Model, Error>) -> Void) {
         let onQueue = { (_ block: @escaping () -> Void) -> Void in
             (responseQueue ?? DispatchQueue.main).async(execute: block)
         }
@@ -97,7 +97,7 @@ public struct Request<Model: Decodable>: Requestable {
             return
         }
         
-        session.dataTask(with: request) { (data, urlResponse, error) in
+        session.loadData(with: request) { (data, urlResponse, error) in
             if let error = error {
                 onQueue {
                     callback(Result.failure(error))
@@ -128,7 +128,7 @@ public struct Request<Model: Decodable>: Requestable {
                     callback(Result.success(value))
                 }
             }
-        }.resume()
+        }
     }
     
     private func buildRequest(cachePolicy: URLRequest.CachePolicy? = nil) throws -> URLRequest {

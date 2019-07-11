@@ -55,7 +55,31 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Coinpaprika::Coinpaprika"
+            BuildableName = "Coinpaprika.framework"
+            BlueprintName = "Coinpaprika"
+            ReferencedContainer = "container:Coinpaprika.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Coinpaprika::Networking"
+            BuildableName = "Networking.framework"
+            BlueprintName = "Networking"
+            ReferencedContainer = "container:Coinpaprika.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Coinpaprika::NetworkingMocks"
+            BuildableName = "NetworkingMocks.framework"
+            BlueprintName = "NetworkingMocks"
+            ReferencedContainer = "container:Coinpaprika.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">

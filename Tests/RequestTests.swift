@@ -244,6 +244,7 @@ class RequestTests: XCTestCase {
             XCTAssertFalse(markets?.isEmpty ?? true, "Markets should exist")
             
             XCTAssert((markets?.first?[.usd].price ?? 0) > 0, "Price should be greater than 0")
+            XCTAssert((markets?.first?[.usd].volume24h ?? 0) > 0, "Volume24h should be greater than 0")
             
             expectation.fulfill()
         }

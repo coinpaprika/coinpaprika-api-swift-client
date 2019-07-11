@@ -1,1197 +1,884 @@
 // !$*UTF8*$!
 {
-   archiveVersion = "1";
-   objectVersion = "46";
-   objects = {
-      "Coinpaprika::Coinpaprika" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_54";
-         buildPhases = (
-            "OBJ_57",
-            "OBJ_80"
-         );
-         dependencies = (
-            "OBJ_82"
-         );
-         name = "Coinpaprika";
-         productName = "Coinpaprika";
-         productReference = "Coinpaprika::Coinpaprika::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "Coinpaprika::Coinpaprika::Product" = {
-         isa = "PBXFileReference";
-         path = "Coinpaprika.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "Coinpaprika::CoinpaprikaPackageTests::ProductTarget" = {
-         isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_91";
-         buildPhases = (
-         );
-         dependencies = (
-            "OBJ_94"
-         );
-         name = "CoinpaprikaPackageTests";
-         productName = "CoinpaprikaPackageTests";
-      };
-      "Coinpaprika::CoinpaprikaTests" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_96";
-         buildPhases = (
-            "OBJ_99",
-            "OBJ_102"
-         );
-         dependencies = (
-            "OBJ_106",
-            "OBJ_108",
-            "OBJ_109"
-         );
-         name = "CoinpaprikaTests";
-         productName = "CoinpaprikaTests";
-         productReference = "Coinpaprika::CoinpaprikaTests::Product";
-         productType = "com.apple.product-type.bundle.unit-test";
-      };
-      "Coinpaprika::CoinpaprikaTests::Product" = {
-         isa = "PBXFileReference";
-         path = "CoinpaprikaTests.xctest";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "Coinpaprika::Networking" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_110";
-         buildPhases = (
-            "OBJ_113",
-            "OBJ_119"
-         );
-         dependencies = (
-         );
-         name = "Networking";
-         productName = "Networking";
-         productReference = "Coinpaprika::Networking::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "Coinpaprika::Networking::Product" = {
-         isa = "PBXFileReference";
-         path = "Networking.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "Coinpaprika::NetworkingMocks" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_120";
-         buildPhases = (
-            "OBJ_123",
-            "OBJ_125"
-         );
-         dependencies = (
-            "OBJ_127"
-         );
-         name = "NetworkingMocks";
-         productName = "NetworkingMocks";
-         productReference = "Coinpaprika::NetworkingMocks::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "Coinpaprika::NetworkingMocks::Product" = {
-         isa = "PBXFileReference";
-         path = "NetworkingMocks.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "Coinpaprika::SwiftPMPackageDescription" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_85";
-         buildPhases = (
-            "OBJ_88"
-         );
-         dependencies = (
-         );
-         name = "CoinpaprikaPackageDescription";
-         productName = "CoinpaprikaPackageDescription";
-         productType = "com.apple.product-type.framework";
-      };
-      "OBJ_1" = {
-         isa = "PBXProject";
-         attributes = {
-            LastSwiftMigration = "9999";
-            LastUpgradeCheck = "9999";
-         };
-         buildConfigurationList = "OBJ_2";
-         compatibilityVersion = "Xcode 3.2";
-         developmentRegion = "en";
-         hasScannedForEncodings = "0";
-         knownRegions = (
-            "en"
-         );
-         mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_44";
-         projectDirPath = ".";
-         targets = (
-            "Coinpaprika::Coinpaprika",
-            "Coinpaprika::SwiftPMPackageDescription",
-            "Coinpaprika::CoinpaprikaPackageTests::ProductTarget",
-            "Coinpaprika::CoinpaprikaTests",
-            "Coinpaprika::Networking",
-            "Coinpaprika::NetworkingMocks"
-         );
-      };
-      "OBJ_10" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_11"
-         );
-         name = "Helpers";
-         path = "Helpers";
-         sourceTree = "<group>";
-      };
-      "OBJ_100" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_42";
-      };
-      "OBJ_101" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_43";
-      };
-      "OBJ_102" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_103",
-            "OBJ_104",
-            "OBJ_105"
-         );
-      };
-      "OBJ_103" = {
-         isa = "PBXBuildFile";
-         fileRef = "Coinpaprika::NetworkingMocks::Product";
-      };
-      "OBJ_104" = {
-         isa = "PBXBuildFile";
-         fileRef = "Coinpaprika::Coinpaprika::Product";
-      };
-      "OBJ_105" = {
-         isa = "PBXBuildFile";
-         fileRef = "Coinpaprika::Networking::Product";
-      };
-      "OBJ_106" = {
-         isa = "PBXTargetDependency";
-         target = "Coinpaprika::NetworkingMocks";
-      };
-      "OBJ_108" = {
-         isa = "PBXTargetDependency";
-         target = "Coinpaprika::Coinpaprika";
-      };
-      "OBJ_109" = {
-         isa = "PBXTargetDependency";
-         target = "Coinpaprika::Networking";
-      };
-      "OBJ_11" = {
-         isa = "PBXFileReference";
-         path = "QueryRepresentable.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_110" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_111",
-            "OBJ_112"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_111" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Coinpaprika.xcodeproj/Networking_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "10.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.12";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "Networking";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Networking";
-            TVOS_DEPLOYMENT_TARGET = "10.0";
-            WATCHOS_DEPLOYMENT_TARGET = "3.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_112" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Coinpaprika.xcodeproj/Networking_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "10.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.12";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "Networking";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Networking";
-            TVOS_DEPLOYMENT_TARGET = "10.0";
-            WATCHOS_DEPLOYMENT_TARGET = "3.0";
-         };
-         name = "Release";
-      };
-      "OBJ_113" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_114",
-            "OBJ_115",
-            "OBJ_116",
-            "OBJ_117",
-            "OBJ_118"
-         );
-      };
-      "OBJ_114" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_34";
-      };
-      "OBJ_115" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_35";
-      };
-      "OBJ_116" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_36";
-      };
-      "OBJ_117" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_37";
-      };
-      "OBJ_118" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_38";
-      };
-      "OBJ_119" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_12" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_13",
-            "OBJ_14",
-            "OBJ_15",
-            "OBJ_16",
-            "OBJ_17",
-            "OBJ_18",
-            "OBJ_19",
-            "OBJ_20",
-            "OBJ_21",
-            "OBJ_22",
-            "OBJ_23",
-            "OBJ_24",
-            "OBJ_25",
-            "OBJ_26",
-            "OBJ_27",
-            "OBJ_28",
-            "OBJ_29",
-            "OBJ_30",
-            "OBJ_31",
-            "OBJ_32"
-         );
-         name = "Models";
-         path = "Models";
-         sourceTree = "<group>";
-      };
-      "OBJ_120" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_121",
-            "OBJ_122"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_121" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Coinpaprika.xcodeproj/NetworkingMocks_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "10.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.12";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "NetworkingMocks";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NetworkingMocks";
-            TVOS_DEPLOYMENT_TARGET = "10.0";
-            WATCHOS_DEPLOYMENT_TARGET = "3.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_122" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Coinpaprika.xcodeproj/NetworkingMocks_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "10.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.12";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "NetworkingMocks";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NetworkingMocks";
-            TVOS_DEPLOYMENT_TARGET = "10.0";
-            WATCHOS_DEPLOYMENT_TARGET = "3.0";
-         };
-         name = "Release";
-      };
-      "OBJ_123" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_124"
-         );
-      };
-      "OBJ_124" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_40";
-      };
-      "OBJ_125" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_126"
-         );
-      };
-      "OBJ_126" = {
-         isa = "PBXBuildFile";
-         fileRef = "Coinpaprika::Networking::Product";
-      };
-      "OBJ_127" = {
-         isa = "PBXTargetDependency";
-         target = "Coinpaprika::Networking";
-      };
-      "OBJ_13" = {
-         isa = "PBXFileReference";
-         path = "Coin.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_14" = {
-         isa = "PBXFileReference";
-         path = "CoinExchange.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_15" = {
-         isa = "PBXFileReference";
-         path = "CoinLink.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_16" = {
-         isa = "PBXFileReference";
-         path = "CoinMarket.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_17" = {
-         isa = "PBXFileReference";
-         path = "Event.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_18" = {
-         isa = "PBXFileReference";
-         path = "Exchange.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_19" = {
-         isa = "PBXFileReference";
-         path = "Fiat.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_2" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_3",
-            "OBJ_4"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_20" = {
-         isa = "PBXFileReference";
-         path = "GlobalStats.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_21" = {
-         isa = "PBXFileReference";
-         path = "Market.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_22" = {
-         isa = "PBXFileReference";
-         path = "News.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_23" = {
-         isa = "PBXFileReference";
-         path = "Ohlcv.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_24" = {
-         isa = "PBXFileReference";
-         path = "Person.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_25" = {
-         isa = "PBXFileReference";
-         path = "QuoteCurrency.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_26" = {
-         isa = "PBXFileReference";
-         path = "SearchResults.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_27" = {
-         isa = "PBXFileReference";
-         path = "StatusResponse.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_28" = {
-         isa = "PBXFileReference";
-         path = "Tag.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_29" = {
-         isa = "PBXFileReference";
-         path = "Ticker.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_3" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_OBJC_ARC = "YES";
-            COMBINE_HIDPI_IMAGES = "YES";
-            COPY_PHASE_STRIP = "NO";
-            DEBUG_INFORMATION_FORMAT = "dwarf";
-            DYLIB_INSTALL_NAME_BASE = "@rpath";
-            ENABLE_NS_ASSERTIONS = "YES";
-            GCC_OPTIMIZATION_LEVEL = "0";
-            GCC_PREPROCESSOR_DEFINITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE=1",
-               "DEBUG=1"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            ONLY_ACTIVE_ARCH = "YES";
-            OTHER_SWIFT_FLAGS = (
-               "-DXcode"
-            );
-            PRODUCT_NAME = "$(TARGET_NAME)";
-            SDKROOT = "macosx";
-            SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE",
-               "DEBUG"
-            );
-            SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-            USE_HEADERMAP = "NO";
-         };
-         name = "Debug";
-      };
-      "OBJ_30" = {
-         isa = "PBXFileReference";
-         path = "TickerHistory.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_31" = {
-         isa = "PBXFileReference";
-         path = "TopMovers.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_32" = {
-         isa = "PBXFileReference";
-         path = "Tweet.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_33" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_34",
-            "OBJ_35",
-            "OBJ_36",
-            "OBJ_37",
-            "OBJ_38"
-         );
-         name = "Networking";
-         path = "Sources/Networking";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_34" = {
-         isa = "PBXFileReference";
-         path = "CodableModel.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_35" = {
-         isa = "PBXFileReference";
-         path = "Errors.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_36" = {
-         isa = "PBXFileReference";
-         path = "NetworkSession.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_37" = {
-         isa = "PBXFileReference";
-         path = "Request.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_38" = {
-         isa = "PBXFileReference";
-         path = "Result.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_39" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_40"
-         );
-         name = "NetworkingMocks";
-         path = "Sources/NetworkingMocks";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_4" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_OBJC_ARC = "YES";
-            COMBINE_HIDPI_IMAGES = "YES";
-            COPY_PHASE_STRIP = "YES";
-            DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-            DYLIB_INSTALL_NAME_BASE = "@rpath";
-            GCC_OPTIMIZATION_LEVEL = "s";
-            GCC_PREPROCESSOR_DEFINITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE=1"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_SWIFT_FLAGS = (
-               "-DXcode"
-            );
-            PRODUCT_NAME = "$(TARGET_NAME)";
-            SDKROOT = "macosx";
-            SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE"
-            );
-            SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-            USE_HEADERMAP = "NO";
-         };
-         name = "Release";
-      };
-      "OBJ_40" = {
-         isa = "PBXFileReference";
-         path = "URLSessionMock.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_41" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_42",
-            "OBJ_43"
-         );
-         name = "Tests";
-         path = "Tests";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_42" = {
-         isa = "PBXFileReference";
-         path = "CodableTest.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_43" = {
-         isa = "PBXFileReference";
-         path = "RequestTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_44" = {
-         isa = "PBXGroup";
-         children = (
-            "Coinpaprika::Networking::Product",
-            "Coinpaprika::CoinpaprikaTests::Product",
-            "Coinpaprika::Coinpaprika::Product",
-            "Coinpaprika::NetworkingMocks::Product"
-         );
-         name = "Products";
-         path = "";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "OBJ_49" = {
-         isa = "PBXFileReference";
-         path = "docs";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_5" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_6",
-            "OBJ_7",
-            "OBJ_41",
-            "OBJ_44",
-            "OBJ_49",
-            "OBJ_50",
-            "OBJ_51",
-            "OBJ_52"
-         );
-         path = "";
-         sourceTree = "<group>";
-      };
-      "OBJ_50" = {
-         isa = "PBXFileReference";
-         path = "CoinpaprikaAPI.podspec";
-         sourceTree = "<group>";
-      };
-      "OBJ_51" = {
-         isa = "PBXFileReference";
-         path = "LICENSE";
-         sourceTree = "<group>";
-      };
-      "OBJ_52" = {
-         isa = "PBXFileReference";
-         path = "README.md";
-         sourceTree = "<group>";
-      };
-      "OBJ_54" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_55",
-            "OBJ_56"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_55" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Coinpaprika.xcodeproj/Coinpaprika_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "10.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.12";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "Coinpaprika";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Coinpaprika";
-            TVOS_DEPLOYMENT_TARGET = "10.0";
-            WATCHOS_DEPLOYMENT_TARGET = "3.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_56" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Coinpaprika.xcodeproj/Coinpaprika_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "10.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.12";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "Coinpaprika";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Coinpaprika";
-            TVOS_DEPLOYMENT_TARGET = "10.0";
-            WATCHOS_DEPLOYMENT_TARGET = "3.0";
-         };
-         name = "Release";
-      };
-      "OBJ_57" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_58",
-            "OBJ_59",
-            "OBJ_60",
-            "OBJ_61",
-            "OBJ_62",
-            "OBJ_63",
-            "OBJ_64",
-            "OBJ_65",
-            "OBJ_66",
-            "OBJ_67",
-            "OBJ_68",
-            "OBJ_69",
-            "OBJ_70",
-            "OBJ_71",
-            "OBJ_72",
-            "OBJ_73",
-            "OBJ_74",
-            "OBJ_75",
-            "OBJ_76",
-            "OBJ_77",
-            "OBJ_78",
-            "OBJ_79"
-         );
-      };
-      "OBJ_58" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
-      };
-      "OBJ_59" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_11";
-      };
-      "OBJ_6" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         path = "Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_60" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
-      };
-      "OBJ_61" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_14";
-      };
-      "OBJ_62" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_15";
-      };
-      "OBJ_63" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
-      };
-      "OBJ_64" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
-      };
-      "OBJ_65" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_18";
-      };
-      "OBJ_66" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_19";
-      };
-      "OBJ_67" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_20";
-      };
-      "OBJ_68" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_21";
-      };
-      "OBJ_69" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_22";
-      };
-      "OBJ_7" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_8",
-            "OBJ_33",
-            "OBJ_39"
-         );
-         name = "Sources";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_70" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_23";
-      };
-      "OBJ_71" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_24";
-      };
-      "OBJ_72" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_25";
-      };
-      "OBJ_73" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_26";
-      };
-      "OBJ_74" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_27";
-      };
-      "OBJ_75" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_28";
-      };
-      "OBJ_76" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_29";
-      };
-      "OBJ_77" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_30";
-      };
-      "OBJ_78" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_31";
-      };
-      "OBJ_79" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_32";
-      };
-      "OBJ_8" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_9",
-            "OBJ_10",
-            "OBJ_12"
-         );
-         name = "Coinpaprika";
-         path = "Sources/Client";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_80" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_81"
-         );
-      };
-      "OBJ_81" = {
-         isa = "PBXBuildFile";
-         fileRef = "Coinpaprika::Networking::Product";
-      };
-      "OBJ_82" = {
-         isa = "PBXTargetDependency";
-         target = "Coinpaprika::Networking";
-      };
-      "OBJ_85" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_86",
-            "OBJ_87"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_86" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_87" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
-      };
-      "OBJ_88" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_89"
-         );
-      };
-      "OBJ_89" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
-      };
-      "OBJ_9" = {
-         isa = "PBXFileReference";
-         path = "API.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_91" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_92",
-            "OBJ_93"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_92" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Debug";
-      };
-      "OBJ_93" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Release";
-      };
-      "OBJ_94" = {
-         isa = "PBXTargetDependency";
-         target = "Coinpaprika::CoinpaprikaTests";
-      };
-      "OBJ_96" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_97",
-            "OBJ_98"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_97" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Coinpaprika.xcodeproj/CoinpaprikaTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "10.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.12";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "CoinpaprikaTests";
-            TVOS_DEPLOYMENT_TARGET = "10.0";
-            WATCHOS_DEPLOYMENT_TARGET = "3.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_98" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Coinpaprika.xcodeproj/CoinpaprikaTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "10.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.12";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "CoinpaprikaTests";
-            TVOS_DEPLOYMENT_TARGET = "10.0";
-            WATCHOS_DEPLOYMENT_TARGET = "3.0";
-         };
-         name = "Release";
-      };
-      "OBJ_99" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_100",
-            "OBJ_101"
-         );
-      };
-   };
-   rootObject = "OBJ_1";
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		"Coinpaprika::CoinpaprikaPackageTests::ProductTarget" /* CoinpaprikaPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_91 /* Build configuration list for PBXAggregateTarget "CoinpaprikaPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_94 /* PBXTargetDependency */,
+			);
+			name = CoinpaprikaPackageTests;
+			productName = CoinpaprikaPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		D94A7E9722D7431300CA87BA /* QuotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A7E9622D7431300CA87BA /* QuotesTests.swift */; };
+		OBJ_100 /* CodableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* CodableTest.swift */; };
+		OBJ_101 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* RequestTests.swift */; };
+		OBJ_103 /* NetworkingMocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Coinpaprika::NetworkingMocks::Product" /* NetworkingMocks.framework */; };
+		OBJ_104 /* Coinpaprika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Coinpaprika::Coinpaprika::Product" /* Coinpaprika.framework */; };
+		OBJ_105 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Coinpaprika::Networking::Product" /* Networking.framework */; };
+		OBJ_114 /* CodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* CodableModel.swift */; };
+		OBJ_115 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Errors.swift */; };
+		OBJ_116 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* NetworkSession.swift */; };
+		OBJ_117 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* Request.swift */; };
+		OBJ_118 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* Result.swift */; };
+		OBJ_124 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* URLSessionMock.swift */; };
+		OBJ_126 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Coinpaprika::Networking::Product" /* Networking.framework */; };
+		OBJ_58 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* API.swift */; };
+		OBJ_59 /* QueryRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* QueryRepresentable.swift */; };
+		OBJ_60 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Coin.swift */; };
+		OBJ_61 /* CoinExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* CoinExchange.swift */; };
+		OBJ_62 /* CoinLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* CoinLink.swift */; };
+		OBJ_63 /* CoinMarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* CoinMarket.swift */; };
+		OBJ_64 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Event.swift */; };
+		OBJ_65 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Exchange.swift */; };
+		OBJ_66 /* Fiat.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Fiat.swift */; };
+		OBJ_67 /* GlobalStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* GlobalStats.swift */; };
+		OBJ_68 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Market.swift */; };
+		OBJ_69 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* News.swift */; };
+		OBJ_70 /* Ohlcv.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Ohlcv.swift */; };
+		OBJ_71 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Person.swift */; };
+		OBJ_72 /* QuoteCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* QuoteCurrency.swift */; };
+		OBJ_73 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* SearchResults.swift */; };
+		OBJ_74 /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* StatusResponse.swift */; };
+		OBJ_75 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* Tag.swift */; };
+		OBJ_76 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Ticker.swift */; };
+		OBJ_77 /* TickerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* TickerHistory.swift */; };
+		OBJ_78 /* TopMovers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* TopMovers.swift */; };
+		OBJ_79 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Tweet.swift */; };
+		OBJ_81 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Coinpaprika::Networking::Product" /* Networking.framework */; };
+		OBJ_89 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D94A7E9122D7383E00CA87BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Coinpaprika::Networking";
+			remoteInfo = Networking;
+		};
+		D94A7E9222D7383E00CA87BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Coinpaprika::Networking";
+			remoteInfo = Networking;
+		};
+		D94A7E9322D7383F00CA87BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Coinpaprika::NetworkingMocks";
+			remoteInfo = NetworkingMocks;
+		};
+		D94A7E9422D7383F00CA87BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Coinpaprika::Coinpaprika";
+			remoteInfo = Coinpaprika;
+		};
+		D94A7E9522D7383F00CA87BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Coinpaprika::Networking";
+			remoteInfo = Networking;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		"Coinpaprika::Coinpaprika::Product" /* Coinpaprika.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Coinpaprika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Coinpaprika::CoinpaprikaTests::Product" /* CoinpaprikaTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoinpaprikaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Coinpaprika::Networking::Product" /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Coinpaprika::NetworkingMocks::Product" /* NetworkingMocks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkingMocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D94A7E9622D7431300CA87BA /* QuotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTests.swift; sourceTree = "<group>"; };
+		OBJ_11 /* QueryRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryRepresentable.swift; sourceTree = "<group>"; };
+		OBJ_13 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		OBJ_14 /* CoinExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinExchange.swift; sourceTree = "<group>"; };
+		OBJ_15 /* CoinLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLink.swift; sourceTree = "<group>"; };
+		OBJ_16 /* CoinMarket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarket.swift; sourceTree = "<group>"; };
+		OBJ_17 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		OBJ_18 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Fiat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fiat.swift; sourceTree = "<group>"; };
+		OBJ_20 /* GlobalStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStats.swift; sourceTree = "<group>"; };
+		OBJ_21 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		OBJ_22 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		OBJ_23 /* Ohlcv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ohlcv.swift; sourceTree = "<group>"; };
+		OBJ_24 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		OBJ_25 /* QuoteCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCurrency.swift; sourceTree = "<group>"; };
+		OBJ_26 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		OBJ_27 /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
+		OBJ_28 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		OBJ_29 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		OBJ_30 /* TickerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerHistory.swift; sourceTree = "<group>"; };
+		OBJ_31 /* TopMovers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMovers.swift; sourceTree = "<group>"; };
+		OBJ_32 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		OBJ_34 /* CodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableModel.swift; sourceTree = "<group>"; };
+		OBJ_35 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		OBJ_36 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		OBJ_37 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		OBJ_38 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		OBJ_40 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		OBJ_42 /* CodableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTest.swift; sourceTree = "<group>"; };
+		OBJ_43 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		OBJ_49 /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = SOURCE_ROOT; };
+		OBJ_50 /* CoinpaprikaAPI.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoinpaprikaAPI.podspec; sourceTree = "<group>"; };
+		OBJ_51 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		OBJ_52 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_102 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_103 /* NetworkingMocks.framework in Frameworks */,
+				OBJ_104 /* Coinpaprika.framework in Frameworks */,
+				OBJ_105 /* Networking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_119 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_125 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_126 /* Networking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_81 /* Networking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		OBJ_10 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* QueryRepresentable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		OBJ_12 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_13 /* Coin.swift */,
+				OBJ_14 /* CoinExchange.swift */,
+				OBJ_15 /* CoinLink.swift */,
+				OBJ_16 /* CoinMarket.swift */,
+				OBJ_17 /* Event.swift */,
+				OBJ_18 /* Exchange.swift */,
+				OBJ_19 /* Fiat.swift */,
+				OBJ_20 /* GlobalStats.swift */,
+				OBJ_21 /* Market.swift */,
+				OBJ_22 /* News.swift */,
+				OBJ_23 /* Ohlcv.swift */,
+				OBJ_24 /* Person.swift */,
+				OBJ_25 /* QuoteCurrency.swift */,
+				OBJ_26 /* SearchResults.swift */,
+				OBJ_27 /* StatusResponse.swift */,
+				OBJ_28 /* Tag.swift */,
+				OBJ_29 /* Ticker.swift */,
+				OBJ_30 /* TickerHistory.swift */,
+				OBJ_31 /* TopMovers.swift */,
+				OBJ_32 /* Tweet.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		OBJ_33 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_34 /* CodableModel.swift */,
+				OBJ_35 /* Errors.swift */,
+				OBJ_36 /* NetworkSession.swift */,
+				OBJ_37 /* Request.swift */,
+				OBJ_38 /* Result.swift */,
+			);
+			name = Networking;
+			path = Sources/Networking;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_39 /* NetworkingMocks */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_40 /* URLSessionMock.swift */,
+			);
+			name = NetworkingMocks;
+			path = Sources/NetworkingMocks;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_41 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_42 /* CodableTest.swift */,
+				OBJ_43 /* RequestTests.swift */,
+				D94A7E9622D7431300CA87BA /* QuotesTests.swift */,
+			);
+			path = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"Coinpaprika::Networking::Product" /* Networking.framework */,
+				"Coinpaprika::CoinpaprikaTests::Product" /* CoinpaprikaTests.xctest */,
+				"Coinpaprika::Coinpaprika::Product" /* Coinpaprika.framework */,
+				"Coinpaprika::NetworkingMocks::Product" /* NetworkingMocks.framework */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_41 /* Tests */,
+				OBJ_44 /* Products */,
+				OBJ_49 /* docs */,
+				OBJ_50 /* CoinpaprikaAPI.podspec */,
+				OBJ_51 /* LICENSE */,
+				OBJ_52 /* README.md */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* Coinpaprika */,
+				OBJ_33 /* Networking */,
+				OBJ_39 /* NetworkingMocks */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* Coinpaprika */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* API.swift */,
+				OBJ_10 /* Helpers */,
+				OBJ_12 /* Models */,
+			);
+			name = Coinpaprika;
+			path = Sources/Client;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"Coinpaprika::Coinpaprika" /* Coinpaprika */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_54 /* Build configuration list for PBXNativeTarget "Coinpaprika" */;
+			buildPhases = (
+				OBJ_57 /* Sources */,
+				OBJ_80 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_82 /* PBXTargetDependency */,
+			);
+			name = Coinpaprika;
+			productName = Coinpaprika;
+			productReference = "Coinpaprika::Coinpaprika::Product" /* Coinpaprika.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"Coinpaprika::CoinpaprikaTests" /* CoinpaprikaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_96 /* Build configuration list for PBXNativeTarget "CoinpaprikaTests" */;
+			buildPhases = (
+				OBJ_99 /* Sources */,
+				OBJ_102 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_106 /* PBXTargetDependency */,
+				OBJ_108 /* PBXTargetDependency */,
+				OBJ_109 /* PBXTargetDependency */,
+			);
+			name = CoinpaprikaTests;
+			productName = CoinpaprikaTests;
+			productReference = "Coinpaprika::CoinpaprikaTests::Product" /* CoinpaprikaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"Coinpaprika::Networking" /* Networking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_110 /* Build configuration list for PBXNativeTarget "Networking" */;
+			buildPhases = (
+				OBJ_113 /* Sources */,
+				OBJ_119 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Networking;
+			productName = Networking;
+			productReference = "Coinpaprika::Networking::Product" /* Networking.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"Coinpaprika::NetworkingMocks" /* NetworkingMocks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_120 /* Build configuration list for PBXNativeTarget "NetworkingMocks" */;
+			buildPhases = (
+				OBJ_123 /* Sources */,
+				OBJ_125 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_127 /* PBXTargetDependency */,
+			);
+			name = NetworkingMocks;
+			productName = NetworkingMocks;
+			productReference = "Coinpaprika::NetworkingMocks::Product" /* NetworkingMocks.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"Coinpaprika::SwiftPMPackageDescription" /* CoinpaprikaPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_85 /* Build configuration list for PBXNativeTarget "CoinpaprikaPackageDescription" */;
+			buildPhases = (
+				OBJ_88 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoinpaprikaPackageDescription;
+			productName = CoinpaprikaPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Coinpaprika" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"Coinpaprika::Coinpaprika" /* Coinpaprika */,
+				"Coinpaprika::SwiftPMPackageDescription" /* CoinpaprikaPackageDescription */,
+				"Coinpaprika::CoinpaprikaPackageTests::ProductTarget" /* CoinpaprikaPackageTests */,
+				"Coinpaprika::CoinpaprikaTests" /* CoinpaprikaTests */,
+				"Coinpaprika::Networking" /* Networking */,
+				"Coinpaprika::NetworkingMocks" /* NetworkingMocks */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_113 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_114 /* CodableModel.swift in Sources */,
+				OBJ_115 /* Errors.swift in Sources */,
+				OBJ_116 /* NetworkSession.swift in Sources */,
+				OBJ_117 /* Request.swift in Sources */,
+				OBJ_118 /* Result.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_123 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_124 /* URLSessionMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_58 /* API.swift in Sources */,
+				OBJ_59 /* QueryRepresentable.swift in Sources */,
+				OBJ_60 /* Coin.swift in Sources */,
+				OBJ_61 /* CoinExchange.swift in Sources */,
+				OBJ_62 /* CoinLink.swift in Sources */,
+				OBJ_63 /* CoinMarket.swift in Sources */,
+				OBJ_64 /* Event.swift in Sources */,
+				OBJ_65 /* Exchange.swift in Sources */,
+				OBJ_66 /* Fiat.swift in Sources */,
+				OBJ_67 /* GlobalStats.swift in Sources */,
+				OBJ_68 /* Market.swift in Sources */,
+				OBJ_69 /* News.swift in Sources */,
+				OBJ_70 /* Ohlcv.swift in Sources */,
+				OBJ_71 /* Person.swift in Sources */,
+				OBJ_72 /* QuoteCurrency.swift in Sources */,
+				OBJ_73 /* SearchResults.swift in Sources */,
+				OBJ_74 /* StatusResponse.swift in Sources */,
+				OBJ_75 /* Tag.swift in Sources */,
+				OBJ_76 /* Ticker.swift in Sources */,
+				OBJ_77 /* TickerHistory.swift in Sources */,
+				OBJ_78 /* TopMovers.swift in Sources */,
+				OBJ_79 /* Tweet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_89 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				D94A7E9722D7431300CA87BA /* QuotesTests.swift in Sources */,
+				OBJ_100 /* CodableTest.swift in Sources */,
+				OBJ_101 /* RequestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_106 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Coinpaprika::NetworkingMocks" /* NetworkingMocks */;
+			targetProxy = D94A7E9322D7383F00CA87BA /* PBXContainerItemProxy */;
+		};
+		OBJ_108 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Coinpaprika::Coinpaprika" /* Coinpaprika */;
+			targetProxy = D94A7E9422D7383F00CA87BA /* PBXContainerItemProxy */;
+		};
+		OBJ_109 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Coinpaprika::Networking" /* Networking */;
+			targetProxy = D94A7E9522D7383F00CA87BA /* PBXContainerItemProxy */;
+		};
+		OBJ_127 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Coinpaprika::Networking" /* Networking */;
+			targetProxy = D94A7E9122D7383E00CA87BA /* PBXContainerItemProxy */;
+		};
+		OBJ_82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Coinpaprika::Networking" /* Networking */;
+			targetProxy = D94A7E9222D7383E00CA87BA /* PBXContainerItemProxy */;
+		};
+		OBJ_94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Coinpaprika::CoinpaprikaTests" /* CoinpaprikaTests */;
+			targetProxy = "Coinpaprika::CoinpaprikaTests" /* CoinpaprikaTests */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Coinpaprika.xcodeproj/Networking_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Networking;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Networking;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		OBJ_112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Coinpaprika.xcodeproj/Networking_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Networking;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Networking;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		OBJ_121 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Coinpaprika.xcodeproj/NetworkingMocks_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NetworkingMocks;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = NetworkingMocks;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		OBJ_122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Coinpaprika.xcodeproj/NetworkingMocks_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NetworkingMocks;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = NetworkingMocks;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Coinpaprika.xcodeproj/Coinpaprika_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Coinpaprika;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Coinpaprika;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		OBJ_56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Coinpaprika.xcodeproj/Coinpaprika_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Coinpaprika;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Coinpaprika;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		OBJ_86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Coinpaprika.xcodeproj/CoinpaprikaTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = CoinpaprikaTests;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		OBJ_98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Coinpaprika.xcodeproj/CoinpaprikaTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = CoinpaprikaTests;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_110 /* Build configuration list for PBXNativeTarget "Networking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_111 /* Debug */,
+				OBJ_112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_120 /* Build configuration list for PBXNativeTarget "NetworkingMocks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_121 /* Debug */,
+				OBJ_122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "Coinpaprika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_54 /* Build configuration list for PBXNativeTarget "Coinpaprika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_55 /* Debug */,
+				OBJ_56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_85 /* Build configuration list for PBXNativeTarget "CoinpaprikaPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_86 /* Debug */,
+				OBJ_87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_91 /* Build configuration list for PBXAggregateTarget "CoinpaprikaPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_92 /* Debug */,
+				OBJ_93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_96 /* Build configuration list for PBXNativeTarget "CoinpaprikaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_97 /* Debug */,
+				OBJ_98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
 }

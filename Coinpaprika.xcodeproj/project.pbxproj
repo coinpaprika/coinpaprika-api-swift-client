@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		D943301A22D7561F006D523C /* ErrorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D943301922D7561F006D523C /* ErrorsTests.swift */; };
 		D94A7E9722D7431300CA87BA /* QuotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A7E9622D7431300CA87BA /* QuotesTests.swift */; };
 		D94A7E9A22D7491800CA87BA /* JsonMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A7E9922D7491800CA87BA /* JsonMock.swift */; };
 		OBJ_100 /* CodableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* CodableTest.swift */; };
@@ -111,6 +112,7 @@
 		"Coinpaprika::CoinpaprikaTests::Product" /* CoinpaprikaTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoinpaprikaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Coinpaprika::Networking::Product" /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Coinpaprika::NetworkingMocks::Product" /* NetworkingMocks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkingMocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D943301922D7561F006D523C /* ErrorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsTests.swift; sourceTree = "<group>"; };
 		D94A7E9622D7431300CA87BA /* QuotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTests.swift; sourceTree = "<group>"; };
 		D94A7E9922D7491800CA87BA /* JsonMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonMock.swift; sourceTree = "<group>"; };
 		OBJ_11 /* QueryRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryRepresentable.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				OBJ_42 /* CodableTest.swift */,
 				OBJ_43 /* RequestTests.swift */,
 				D94A7E9622D7431300CA87BA /* QuotesTests.swift */,
+				D943301922D7561F006D523C /* ErrorsTests.swift */,
 			);
 			path = Tests;
 			sourceTree = SOURCE_ROOT;
@@ -266,7 +269,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -278,7 +281,6 @@
 				OBJ_51 /* LICENSE */,
 				OBJ_52 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -404,7 +406,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_44 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -482,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				D943301A22D7561F006D523C /* ErrorsTests.swift in Sources */,
 				D94A7E9722D7431300CA87BA /* QuotesTests.swift in Sources */,
 				OBJ_100 /* CodableTest.swift in Sources */,
 				OBJ_101 /* RequestTests.swift in Sources */,

@@ -31,7 +31,7 @@ class RequestTests: XCTestCase {
                                         bitcoinDominancePercentage: 65.14,
                                         cryptocurrenciesNumber: 2554)
         
-        Coinpaprika.API.global().perform(session: URLSessionMock(expectedModel)) { (response) in
+        Coinpaprika.API.global().perform(session: CodableMock(expectedModel)) { (response) in
             let stats = response.value
             XCTAssertNotNil(stats)
             
@@ -69,7 +69,7 @@ class RequestTests: XCTestCase {
                                           isActive: false,
                                           typeStorage: .token)]
         
-        Coinpaprika.API.coins().perform(session: URLSessionMock(expectedModel)) { (response) in
+        Coinpaprika.API.coins().perform(session: CodableMock(expectedModel)) { (response) in
             let coins = response.value
             XCTAssertNotNil(coins)
             
@@ -268,23 +268,43 @@ class RequestTests: XCTestCase {
     func testCoinDetailsRequest() {
         let expectation = self.expectation(description: "Waiting for coin details")
         
-        Coinpaprika.API.coin(id: bitcoinId).perform { (response) in
-            let bitcoin = response.value
+        let jsonResponse = """
+{"id":"eth-ethereum","name":"Ethereum","symbol":"ETH","rank":2,"is_new":false,"is_active":true,"type":"coin","tags":[{"id":"token-issuance","name":"Token Issuance","coin_counter":73,"ico_counter":24},{"id":"decentralized-applications","name":"Decentralized Applications","coin_counter":106,"ico_counter":38},{"id":"proof-of-work","name":"Proof Of Work","coin_counter":494,"ico_counter":14},{"id":"smart-contracts","name":"Smart Contracts","coin_counter":649,"ico_counter":304}],"team":[{"id":"vitalik-buterin","name":"Vitalik Buterin","position":"Author"},{"id":"jeffrey-wylcke","name":"Jeffrey Wylcke","position":"Go-Ethereum Lead"},{"id":"virgil-griffith","name":"Virgil Griffith","position":"Researcher"},{"id":"alexandre-van-de-sande","name":"Alexandre Van de Sande","position":"UX Design"},{"id":"alex-leverington","name":"Alex Leverington","position":"Core Developer"},{"id":"aya-miyaguchi","name":"Aya Miyaguchi","position":"Executive Director"},{"id":"vlad-zamfir","name":"Vlad Zamfir","position":"Researcher"},{"id":"zach-lebeau","name":"Zach Lebeau","position":"Conceptualist"},{"id":"justin-drake","name":"Justin Drake","position":"Researcher"},{"id":"yoichi-hirai","name":"Yoichi Hirai","position":"Formal Verification Engineer"},{"id":"iuri-matias","name":"Iuri Matias","position":"Developer"},{"id":"karl-floersch","name":"Karl Floersch","position":"Researcher"}],"description":"Ethereum is a decentralized platform for applications. Applications build on it can use smart contracts - computer algorithms which execute themselves when data is supplied to the platform. There is no need for any human operators.","message":"","open_source":true,"started_at":"2015-07-30T00:00:00Z","development_status":"Working product","hardware_wallet":true,"proof_type":"Ethereum consensus (currently proof of work, will be proof of stake later on)","org_structure":"Semi-centralized","hash_algorithm":"Ethash","links":{"explorer":["https://etherscan.io/","https://ethplorer.io/","https://etherchain.org/","https://blockchair.com/ethereum"],"facebook":["https://www.facebook.com/ethereumproject/"],"reddit":["https://www.reddit.com/r/ethereum"],"source_code":["https://github.com/ethereum/go-ethereum"],"website":["https://www.ethereum.org/"],"youtube":["https://www.youtube.com/watch?v=TDGq4aeevgY"]},"links_extended":[{"url":"https://bitcointalk.org/index.php?topic=428589.0","type":"announcement"},{"url":"https://blog.ethereum.org/","type":"blog"},{"url":"https://gitter.im/orgs/ethereum/rooms","type":"chat"},{"url":"https://blockchair.com/ethereum","type":"explorer"},{"url":"https://etherscan.io/","type":"explorer"},{"url":"https://ethplorer.io/","type":"explorer"},{"url":"https://etherchain.org/","type":"explorer"},{"url":"https://www.facebook.com/ethereumproject/","type":"facebook"},{"url":"https://forum.ethereum.org/","type":"message_board"},{"url":"https://www.reddit.com/r/ethereum","type":"reddit","stats":{"subscribers":442074}},{"url":"https://github.com/ethereum/go-ethereum","type":"source_code","stats":{"contributors":447,"stars":23783}},{"url":"https://twitter.com/ethereum","type":"twitter","stats":{"followers":445752}},{"url":"https://github.com/ethereum/mist/releases","type":"wallet"},{"url":"https://www.ethereum.org/","type":"website"},{"url":"https://www.youtube.com/watch?v=TDGq4aeevgY","type":"youtube"}],"whitepaper":{"link":"https://github.com/ethereum/wiki/wiki/White-Paper","thumbnail":"https://static.coinpaprika.com/storage/cdn/whitepapers/1689.jpg"},"first_data_at":"2015-08-07T00:00:00Z","last_data_at":"2019-07-11T10:20:00Z"}
+"""
+        
+        Coinpaprika.API.coin(id: bitcoinId).perform(session: JsonMock(jsonResponse)) { (response) in
+            let coin = response.value
             
-            XCTAssertNotNil(bitcoin, "Ticker should exist")
-            XCTAssert(bitcoin?.id == self.bitcoinId, "BTC not found")
-            XCTAssert(bitcoin?.symbol == "BTC", "BTC not found")
+            XCTAssertNotNil(coin, "Ticker should exist")
+            XCTAssertEqual(coin?.id, "eth-ethereum")
+            XCTAssertEqual(coin?.name, "Ethereum")
+            XCTAssertEqual(coin?.symbol, "ETH")
+            XCTAssertEqual(coin?.rank, 2)
+            XCTAssertEqual(coin?.type, .coin)
             
-            XCTAssertNotNil(bitcoin?.whitepaper.link, "Whitepaper URL should exist")
-            XCTAssertNotNil(bitcoin?.whitepaper.thumbnail, "Whitepaper Thumbnail should exist")
+            let tagId = "proof-of-work"
+            let tag = coin?.tags?.first(where: { $0.id == tagId })
+            XCTAssertEqual(tag?.id, tagId)
+            XCTAssertEqual(tag?.name, "Proof Of Work")
+            XCTAssertEqual(tag?.coinCounter, 494)
+            XCTAssertEqual(tag?.icoCounter, 14)
             
-            XCTAssertNotNil(bitcoin?.team?.first, "Team should exist")
+            XCTAssertNotNil(coin?.description)
             
-            XCTAssertNotNil(bitcoin?.description, "Description should exist")
+            XCTAssertEqual(coin?.whitepaper.link?.absoluteString, "https://github.com/ethereum/wiki/wiki/White-Paper")
             
-            XCTAssertNotNil(bitcoin?.links.with(type: .sourceCode).first, "Source Code link should exist")
+            XCTAssertEqual(coin?.links.with(type: .explorer).first?.url.absoluteString, "https://blockchair.com/ethereum")
+            XCTAssertEqual(coin?.links.with(type: .sourceCode).first?.contributors, 447)
+            XCTAssertEqual(coin?.links.with(type: .sourceCode).first?.stars, 23783)
             
-            XCTAssertNotNil(bitcoin?.links.with(type: .explorer).first, "Explorer link should exist")
+            XCTAssertEqual(coin?.links.explorer, coin?.links.with(type: .explorer).map({ $0.url }))
+            XCTAssertEqual(coin?.links.website, coin?.links.with(type: .website).map({ $0.url }))
+            XCTAssertEqual(coin?.links.facebook, coin?.links.with(type: .facebook).map({ $0.url }))
+            XCTAssertEqual(coin?.links.twitter, coin?.links.with(type: .twitter).map({ $0.url }))
+            XCTAssertEqual(coin?.links.reddit, coin?.links.with(type: .reddit).map({ $0.url }))
+            XCTAssertEqual(coin?.links.youtube, coin?.links.with(type: .youtube).map({ $0.url }))
+            XCTAssertEqual(coin?.links.vimeo, coin?.links.with(type: .vimeo).map({ $0.url }))
+            XCTAssertEqual(coin?.links.videoFile, coin?.links.with(type: .videoFile).map({ $0.url }))
             
             expectation.fulfill()
         }
@@ -392,7 +412,7 @@ class RequestTests: XCTestCase {
         
         let expectedModel = [Fiat(id: "usd-us-dollars", name: "US Dollars", symbol: "USD")]
         
-        Coinpaprika.API.fiats().perform(session: URLSessionMock(expectedModel)) { (response) in
+        Coinpaprika.API.fiats().perform(session: CodableMock(expectedModel)) { (response) in
             let fiats = response.value
             for (index, fiat) in fiats!.enumerated() {
                 XCTAssertEqual(fiat.id, expectedModel[index].id)
@@ -403,5 +423,34 @@ class RequestTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 30)
+    }
+    
+    func testTweetRequest() {
+        
+        let expectation = self.expectation(description: "Waiting for API")
+        
+        let expectedModel = [Tweet(id: "1145701967769067520", status: "Tweet text", userName: "Username", isRetweet: false, date: Date(timeIntervalSince1970: 1562762622), statusLink: URL(string: "https://twitter.com/ethereum/status/1145701967769067520")!, mediaLink: URL(string: "https://pbs.twimg.com/media/image.jpg"), videoLink: URL(string: "https://pbs.twimg.com/media/video.mp4"), userImageLink: URL(string: "http://pbs.twimg.com/profile_images/avatar.png"), retweeetCount: 10, likeCount: 20)]
+        
+        Coinpaprika.API.coinTweets(id: "eth-ethereum").perform(session: CodableMock(expectedModel)) { (response) in
+            let tweets = response.value
+            for (index, tweet) in tweets!.enumerated() {
+                XCTAssertEqual(tweet.id, expectedModel[index].id)
+                XCTAssertEqual(tweet.status, expectedModel[index].status)
+                XCTAssertEqual(tweet.userName, expectedModel[index].userName)
+                XCTAssertEqual(tweet.isRetweet, expectedModel[index].isRetweet)
+                XCTAssertEqual(tweet.date, expectedModel[index].date)
+                XCTAssertEqual(tweet.statusLink, expectedModel[index].statusLink)
+                XCTAssertEqual(tweet.mediaLink, expectedModel[index].mediaLink)
+                XCTAssertEqual(tweet.videoLink, expectedModel[index].videoLink)
+                XCTAssertEqual(tweet.userImageLink, expectedModel[index].userImageLink)
+                XCTAssertEqual(tweet.retweeetCount, expectedModel[index].retweeetCount)
+                XCTAssertEqual(tweet.likeCount, expectedModel[index].likeCount)
+                XCTAssertEqual(tweet.imageLink, expectedModel[index].mediaLink)
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+        
     }
 }

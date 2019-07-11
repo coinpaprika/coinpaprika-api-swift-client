@@ -1,5 +1,5 @@
 //
-//  URLSessionMock.swift
+//  CodableMock.swift
 //  
 //
 //  Created by Dominique Stranz on 10/07/2019.
@@ -8,7 +8,7 @@
 import Foundation
 import Networking
 
-public class URLSessionMock<Model: Encodable>: NetworkSession {
+public class CodableMock<Model: Encodable>: NetworkSession {
     let responseObject: Model
     
     public init(_ responseObject: Model) {

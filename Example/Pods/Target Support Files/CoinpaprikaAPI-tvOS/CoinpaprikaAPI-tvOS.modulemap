@@ -1,6 +1,0 @@
-framework module Coinpaprika {
-  umbrella header "CoinpaprikaAPI-tvOS-umbrella.h"
-
-  export *
-  module * { export * }
-}

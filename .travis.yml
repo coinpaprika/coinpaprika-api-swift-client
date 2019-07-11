@@ -7,13 +7,8 @@ language: swift
 osx_image:
 - xcode10.2
 
-env:
-- SWIFT_VERSION=5.0
-- SWIFT_VERSION=4.2
-
-cache:
-- cocoapods
-- bundler
-
 script:
-  - bundle exec fastlane run_ci
+  - xcodebuild -scheme Coinpaprika-Package build test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

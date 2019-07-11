@@ -1,6 +1,7 @@
 # Coinpaprika API Swift Client
 
 [![Build Status](https://travis-ci.org/coinpaprika/coinpaprika-api-swift-client.svg?branch=master)](https://travis-ci.org/coinpaprika/coinpaprika-api-swift-client)
+[![codecov](https://codecov.io/gh/coinpaprika/coinpaprika-api-swift-client/branch/master/graph/badge.svg)](https://codecov.io/gh/coinpaprika/coinpaprika-api-swift-client)
 [![Version](https://img.shields.io/cocoapods/v/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
 [![License](https://img.shields.io/cocoapods/l/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)
 [![Platform](https://img.shields.io/cocoapods/p/CoinpaprikaAPI.svg?style=flat)](https://cocoapods.org/pods/CoinpaprikaAPI)

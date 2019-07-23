@@ -57,7 +57,7 @@ extension ResponseError: LocalizedError {
             }
             
             return message
-        case .serverError(let httpCode):
+        case .serverError(let httpCode, _):
             return "Server error [\(httpCode)]"
         }
     }

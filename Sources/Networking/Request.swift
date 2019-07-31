@@ -53,6 +53,9 @@ public struct Request<Model: Decodable>: Requestable {
     
     private let authorisation: AuthorisationMethod
     
+    public typealias ErrorParser = (_ response: HTTPURLResponse, _ data: Data) -> Error?
+    private let errorParser: ErrorParser
+    
     /// Request initializer that may be used if you want to extend client API with another methods
     ///
     /// - Parameters:
@@ -60,7 +63,7 @@ public struct Request<Model: Decodable>: Requestable {
     ///   - method: HTTP Method
     ///   - path: endpoint path like tickers/btc-bitcoin
     ///   - params: array of parameters appended in URL Query
-    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String = "Coinpaprika API Client - Swift", bodyEncoding: BodyEncoding = .json, authorisation: AuthorisationMethod = .none) {
+    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String = "Coinpaprika API Client - Swift", bodyEncoding: BodyEncoding = .json, authorisation: AuthorisationMethod = .none, errorParser: @escaping ErrorParser = defaultErrorParser()) {
         self.baseUrl = baseUrl
         self.method = method
         self.path = path
@@ -68,6 +71,7 @@ public struct Request<Model: Decodable>: Requestable {
         self.userAgent = userAgent
         self.bodyEncoding = bodyEncoding
         self.authorisation = authorisation
+        self.errorParser = errorParser
     }
     
     /// Perform API request
@@ -197,25 +201,35 @@ public struct Request<Model: Decodable>: Requestable {
         }
     }
 
-    private func findFailureReason(data: Data?, response: URLResponse?) -> ResponseError {
+    private func findFailureReason(data: Data?, response: URLResponse?) -> Error {
         guard let response = response as? HTTPURLResponse else {
-            return .emptyResponse(url: nil)
+            return ResponseError.emptyResponse(url: nil)
         }
         
         switch response.statusCode {
         case 429:
-            return .requestsLimitExceeded(url: response.url)
+            return ResponseError.requestsLimitExceeded(url: response.url)
         case 400 ..< 500:
-            let decoder = JSONDecoder()
-            if let data = data, let value = try? decoder.decode(APIError.self, from: data) {
-                return .invalidRequest(httpCode: response.statusCode, url: response.url, message: value.error)
+            if let data = data, let error = errorParser(response, data) {
+                return error
             }
             
-            return .invalidRequest(httpCode: response.statusCode, url: response.url, message: nil)
+            return ResponseError.invalidRequest(httpCode: response.statusCode, url: response.url, message: nil)
         default: break
         }
         
-        return .serverError(httpCode: response.statusCode, url: response.url)
+        return ResponseError.serverError(httpCode: response.statusCode, url: response.url)
+    }
+    
+    public static func defaultErrorParser() -> ErrorParser {
+        return { (response, data) in
+            let decoder = JSONDecoder()
+            guard let value = try? decoder.decode(APIError.self, from: data) else {
+                return nil
+            }
+           
+            return ResponseError.invalidRequest(httpCode: response.statusCode, url: response.url, message: value.error)
+        }
     }
     
     private func decodeResponse(_ data: Data) -> Model? {

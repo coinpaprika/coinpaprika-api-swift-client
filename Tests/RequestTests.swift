@@ -451,6 +451,53 @@ class RequestTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 30)
+    }
+    
+    func testRequestLimitExceeded() {
+        let expectation = self.expectation(description: "Waiting for API")
+        Coinpaprika.API.global().perform(session: JsonMock("[]", statusCode: 429)) { (response) in
+            if case .requestsLimitExceeded(let url) = response.error as? ResponseError {
+                XCTAssertNotNil(url)
+            } else {
+                XCTFail()
+            }
+            expectation.fulfill()
+        }
         
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testRequestErrorMessage() {
+        let expectation = self.expectation(description: "Waiting for API")
+        let errorMessage = "Test Error"
+        let errorCode = 401
+        Coinpaprika.API.global().perform(session: JsonMock("{\"error\": \"\(errorMessage)\"}", statusCode: errorCode)) { (response) in
+            if case .invalidRequest(let httpCode, let url, let message) = response.error as? ResponseError {
+                XCTAssertEqual(httpCode, errorCode)
+                XCTAssertEqual(message, errorMessage)
+                XCTAssertNotNil(url)
+            } else {
+                XCTFail()
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testServerErrorMessage() {
+        let expectation = self.expectation(description: "Waiting for API")
+        let errorCode = 500
+        Coinpaprika.API.global().perform(session: JsonMock("[]", statusCode: errorCode)) { (response) in
+            if case .serverError(let httpCode, let url) = response.error as? ResponseError {
+                XCTAssertEqual(httpCode, errorCode)
+                XCTAssertNotNil(url)
+            } else {
+                XCTFail()
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30)
     }
 }

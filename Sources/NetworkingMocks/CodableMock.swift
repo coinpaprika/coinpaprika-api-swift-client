@@ -10,13 +10,15 @@ import Networking
 
 public class CodableMock<Model: Encodable>: NetworkSession {
     let responseObject: Model
+    let statusCode: Int
     
-    public init(_ responseObject: Model) {
+    public init(_ responseObject: Model, statusCode: Int = 200) {
         self.responseObject = responseObject
+        self.statusCode = statusCode
     }
     
     public func loadData(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        let response = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "application/json"])
+        let response = HTTPURLResponse(url: request.url!, statusCode: statusCode, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "application/json"])
         completionHandler(self.responseData, response, nil)
     }
     

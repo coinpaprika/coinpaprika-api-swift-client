@@ -206,29 +206,28 @@ public struct Request<Model: Decodable>: Requestable {
             return ResponseError.emptyResponse(url: nil)
         }
         
-        switch response.statusCode {
-        case 429:
-            return ResponseError.requestsLimitExceeded(url: response.url)
-        case 400 ..< 500:
-            if let data = data, let error = errorParser(response, data) {
-                return error
-            }
-            
-            return ResponseError.invalidRequest(httpCode: response.statusCode, url: response.url, message: nil)
-        default: break
+        if let data = data, let error = errorParser(response, data) {
+            return error
         }
-        
+               
         return ResponseError.serverError(httpCode: response.statusCode, url: response.url)
     }
     
     public static func defaultErrorParser() -> ErrorParser {
         return { (response, data) in
-            let decoder = JSONDecoder()
-            guard let value = try? decoder.decode(APIError.self, from: data) else {
+            switch response.statusCode {
+              case 429:
+                  return ResponseError.requestsLimitExceeded(url: response.url)
+              case 400 ..< 500:
+                    let decoder = JSONDecoder()
+                    guard let value = try? decoder.decode(APIError.self, from: data) else {
+                        return ResponseError.invalidRequest(httpCode: response.statusCode, url: response.url, message: nil)
+                    }
+                           
+                    return ResponseError.invalidRequest(httpCode: response.statusCode, url: response.url, message: value.error)
+              default:
                 return nil
             }
-           
-            return ResponseError.invalidRequest(httpCode: response.statusCode, url: response.url, message: value.error)
         }
     }
     

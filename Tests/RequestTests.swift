@@ -456,7 +456,7 @@ class RequestTests: XCTestCase {
     func testRequestLimitExceeded() {
         let expectation = self.expectation(description: "Waiting for API")
         Coinpaprika.API.global().perform(session: JsonMock("[]", statusCode: 429)) { (response) in
-            if case .requestsLimitExceeded(let url) = response.error as? ResponseError {
+            if let responseError = response.error as? ResponseError, case .requestsLimitExceeded(let url) = responseError {
                 XCTAssertNotNil(url)
             } else {
                 XCTFail()
@@ -472,7 +472,7 @@ class RequestTests: XCTestCase {
         let errorMessage = "Test Error"
         let errorCode = 401
         Coinpaprika.API.global().perform(session: JsonMock("{\"error\": \"\(errorMessage)\"}", statusCode: errorCode)) { (response) in
-            if case .invalidRequest(let httpCode, let url, let message) = response.error as? ResponseError {
+            if let responseError = response.error as? ResponseError, case .invalidRequest(let httpCode, let url, let message) = responseError {
                 XCTAssertEqual(httpCode, errorCode)
                 XCTAssertEqual(message, errorMessage)
                 XCTAssertNotNil(url)
@@ -489,7 +489,7 @@ class RequestTests: XCTestCase {
         let expectation = self.expectation(description: "Waiting for API")
         let errorCode = 500
         Coinpaprika.API.global().perform(session: JsonMock("[]", statusCode: errorCode)) { (response) in
-            if case .serverError(let httpCode, let url) = response.error as? ResponseError {
+            if let responseError = response.error as? ResponseError, case .serverError(let httpCode, let url) = responseError {
                 XCTAssertEqual(httpCode, errorCode)
                 XCTAssertNotNil(url)
             } else {

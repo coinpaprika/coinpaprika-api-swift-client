@@ -16,13 +16,11 @@ public typealias CoinpaprikaAPI = API
 /// Coinpaprika API endpoints
 public struct API {
     
-    private static let baseUrl = URL(string: "https://api.coinpaprika.com/v1/")!
-    
     /// Get global information
     ///
     /// - Returns: Request to perform
     public static func global() -> Request<GlobalStats> {
-        return Request<GlobalStats>(baseUrl: baseUrl, method: .get, path: "global", params: nil)
+        return request(method: .get, path: "global", params: nil)
     }
     
     /// Additional fields available in Tag response
@@ -38,7 +36,7 @@ public struct API {
     /// - Parameter additionalFields: list of additional fields that should be included in response, default: empty - see CoinsAdditionalFields for available options
     /// - Returns: Request to perform
     public static func coins(additionalFields: [CoinsAdditionalFields] = []) -> Request<[Coin]> {
-        return Request<[Coin]>(baseUrl: baseUrl, method: .get, path: "coins", params: ["additional_fields": additionalFields.asCommaJoinedList])
+        return request(method: .get, path: "coins", params: ["additional_fields": additionalFields.asCommaJoinedList])
     }
     
     /// Get coin details
@@ -46,7 +44,7 @@ public struct API {
     /// - Parameter id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
     public static func coin(id: String) -> Request<CoinExtended> {
-        return Request<CoinExtended>(baseUrl: baseUrl, method: .get, path: "coins/\(id)", params: nil)
+        return request(method: .get, path: "coins/\(id)", params: nil)
     }
     
     /// Get a list of exchanges where coin is listed
@@ -54,7 +52,7 @@ public struct API {
     /// - Parameter id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
     public static func coinExchanges(id: String) -> Request<[CoinExchange]> {
-        return Request<[CoinExchange]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/exchanges", params: nil)
+        return request(method: .get, path: "coins/\(id)/exchanges", params: nil)
     }
     
     /// Get a list of markets where coin is available
@@ -64,7 +62,7 @@ public struct API {
     ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func coinMarkets(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<[CoinMarket]> {
-        return Request<[CoinMarket]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "coins/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Get a list of events related to this coin
@@ -73,7 +71,7 @@ public struct API {
     ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
     public static func coinEvents(id: String) -> Request<[Event]> {
-        return Request<[Event]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/events", params: nil)
+        return request(method: .get, path: "coins/\(id)/events", params: nil)
     }
     
     public static func createEvent(coinId: String, date: String, dateTo: String?, name: String, description: String?, isConference: Bool, link: URL, proofImageLink: URL?) -> Request<StatusResponse>  {
@@ -96,8 +94,7 @@ public struct API {
             params["proof_image_link"] = proofImageLink.absoluteString
         }
         
-        dump(params)
-        return Request<StatusResponse>(baseUrl: baseUrl, method: .post, path: "coins/\(coinId)/events", params: params)
+        return request(method: .get, path: "coins/\(coinId)/events", params: params)
     }
 
     
@@ -107,7 +104,7 @@ public struct API {
     ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
     public static func coinTweets(id: String) -> Request<[Tweet]> {
-        return Request<[Tweet]>(baseUrl: baseUrl, method: .get, path: "coins/\(id)/twitter", params: nil)
+        return request(method: .get, path: "coins/\(id)/twitter", params: nil)
     }
     
     /// Get ticker information for all coins
@@ -115,7 +112,7 @@ public struct API {
     /// - Parameter quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func tickers(quotes: [QuoteCurrency] = [.usd]) -> Request<[Ticker]> {
-        return Request<[Ticker]>(baseUrl: baseUrl, method: .get, path: "tickers", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "tickers", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Get ticker information for specific coin
@@ -125,7 +122,7 @@ public struct API {
     ///    - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func ticker(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Ticker> {
-        return Request<Ticker>(baseUrl: baseUrl, method: .get, path: "tickers/\(id)", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "tickers/\(id)", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Search results scope
@@ -154,7 +151,7 @@ public struct API {
     ///   - limit: limit of results per category, default 6 (max 250)
     /// - Returns: Request to perform
     public static func search(query: String, categories: [SearchCategory] = SearchCategory.allCases, limit: UInt = 6) -> Request<SearchResults> {
-        return Request<SearchResults>(baseUrl: baseUrl, method: .get, path: "search", params: ["q": query, "c": categories.asCommaJoinedList, "limit": "\(limit)"])
+        return request(method: .get, path: "search", params: ["q": query, "c": categories.asCommaJoinedList, "limit": "\(limit)"])
     }
     
     /// Additional fields available in Tag response
@@ -169,7 +166,7 @@ public struct API {
     /// - Parameter additionalFields: list of additional fields that should be included in response, default: empty - see TagsAdditionalFields for available options
     /// - Returns: Request to perform
     public static func tags(additionalFields: [TagsAdditionalFields] = []) -> Request<[Tag]> {
-        return Request<[Tag]>(baseUrl: baseUrl, method: .get, path: "tags", params: ["additional_fields": additionalFields.asCommaJoinedList])
+        return request(method: .get, path: "tags", params: ["additional_fields": additionalFields.asCommaJoinedList])
     }
     
     /// Tag details
@@ -179,14 +176,14 @@ public struct API {
     ///   - additionalFields: list of additional fields that should be included in response, default: empty - see TagsAdditionalFields for available options
     /// - Returns: Request to perform
     public static func tag(id: String, additionalFields: [TagsAdditionalFields] = []) -> Request<Tag> {
-        return Request<Tag>(baseUrl: baseUrl, method: .get, path: "tags/\(id)", params: ["additional_fields": additionalFields.asCommaJoinedList])
+        return request(method: .get, path: "tags/\(id)", params: ["additional_fields": additionalFields.asCommaJoinedList])
     }
     
     /// Exchanges list
     ///
     /// - Returns: Request to perform
     public static func exchanges(quotes: [QuoteCurrency] = [.usd]) -> Request<[Exchange]> {
-        return Request<[Exchange]>(baseUrl: baseUrl, method: .get, path: "exchanges", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "exchanges", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Exchange details
@@ -196,7 +193,7 @@ public struct API {
     ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func exchange(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Exchange> {
-        return Request<Exchange>(baseUrl: baseUrl, method: .get, path: "exchanges/\(id)", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "exchanges/\(id)", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Exchange markets
@@ -206,7 +203,7 @@ public struct API {
     ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func exchangeMarkets(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<[Market]> {
-        return Request<[Market]>(baseUrl: baseUrl, method: .get, path: "exchanges/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "exchanges/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Person details
@@ -214,7 +211,7 @@ public struct API {
     /// - Parameter id: person id eg. satoshi-nakamoto
     /// - Returns: Request to perform
     public static func person(id: String) -> Request<Person> {
-        return Request<Person>(baseUrl: baseUrl, method: .get, path: "people/\(id)", params: nil)
+        return request(method: .get, path: "people/\(id)", params: nil)
     }
     
     /// Get a list of tweets related to this person
@@ -223,7 +220,7 @@ public struct API {
     ///   -  id: person id eg. satoshi-nakamoto
     /// - Returns: Request to perform
     public static func personTweets(id: String) -> Request<[Tweet]> {
-        return Request<[Tweet]>(baseUrl: baseUrl, method: .get, path: "people/\(id)/twitter", params: nil)
+        return request(method: .get, path: "people/\(id)/twitter", params: nil)
     }
     
     private static func validateTickerHistoryQuote(_ quote: QuoteCurrency) {
@@ -305,7 +302,7 @@ public struct API {
     public static func tickerHistory(id: String, start: Date, end: Date = Date(), limit: Int = 1000, quote: QuoteCurrency = .usd, interval: TickerHistoryInterval = .minutes5) -> Request<[TickerHistory]> {
         validateTickerHistoryQuote(quote)
         validateTickerHistoryLimit(limit)
-        return Request<[TickerHistory]>(baseUrl: baseUrl, method: .get, path: "tickers/\(id)/historical", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
+        return request(method: .get, path: "tickers/\(id)/historical", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
     }
     
     private static func validateCoinOhlcvQuote(_ quote: QuoteCurrency) {
@@ -326,7 +323,7 @@ public struct API {
     /// - Returns: Request to perform
     public static func coinLatestOhlcv(id: String, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
         validateCoinOhlcvQuote(quote)
-        return Request<[Ohlcv]>(baseUrl: baseUrl, method: .get, path: "/coins/\(id)/ohlcv/latest", params: ["query": quote.rawValue])
+        return request(method: .get, path: "coins/\(id)/ohlcv/latest", params: ["query": quote.rawValue])
     }
 
     /// Historical Open/High/Low/Close values with volume and market_cap
@@ -348,7 +345,7 @@ public struct API {
             params["end"] = "\(Int(end.timeIntervalSince1970))"
         }
         
-        return Request<[Ohlcv]>(baseUrl: baseUrl, method: .get, path: "/coins/\(id)/ohlcv/historical", params: params)
+        return request(method: .get, path: "coins/\(id)/ohlcv/historical", params: params)
     }
     
     /// Latest News
@@ -357,7 +354,7 @@ public struct API {
     ///   - limit: Returns limit, default 3
     /// - Returns: Request to perform
     public static func latestNews(limit: Int = 3) -> Request<[News]> {
-        return Request<[News]>(baseUrl: baseUrl, method: .get, path: "news/latest", params: ["limit": limit])
+        return request(method: .get, path: "news/latest", params: ["limit": limit])
     }
     
     /// Historical News
@@ -373,7 +370,7 @@ public struct API {
             params["end"] = "\(Int(end.timeIntervalSince1970))"
         }
         
-        return Request<[News]>(baseUrl: baseUrl, method: .get, path: "news/latest", params: params)
+        return request(method: .get, path: "news/historical", params: params)
     }
     
     /// Type for Top Movers endpoint
@@ -422,13 +419,21 @@ public struct API {
     /// - Returns: Request to perform
     public static func topMovers(type: TopMoversType = .price, range: TopMoversTimeRange = .day, limit: TopMoversLimit = .all, quote: QuoteCurrency = .usd, resultsNumber: Int = 10) -> Request<TopMovers> {
         validateTopMoversQuote(quote)
-        return Request<TopMovers>(baseUrl: baseUrl, method: .get, path: "rankings/top-movers", params: ["type": type.rawValue, "time_range": range.rawValue, "marketcap_limit": limit.rawValue, "quote": quote.rawValue, "results_number": resultsNumber])
+        return request(method: .get, path: "rankings/top-movers", params: ["type": type.rawValue, "time_range": range.rawValue, "marketcap_limit": limit.rawValue, "quote": quote.rawValue, "results_number": resultsNumber])
     }
     
     /// List of available Fiat's currencies - accepted as quotes by tickers, exchanges, markets endpoints.
     ///
     /// - Returns: Request to perform
     public static func fiats() -> Request<[Fiat]> {
-        return Request<[Fiat]>(baseUrl: baseUrl, method: .get, path: "fiats", params: nil)
+        return request(method: .get, path: "fiats", params: nil)
+    }
+    
+    private static func request<Model: Decodable>(method: Request<Model>.Method, path: String, params: Request<Model>.Params?) -> Request<Model> {
+        return Request<Model>(baseUrl: Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent)
+    }
+       
+    private static func compact(_ optional: [String: Any?]) -> [String: Any] {
+        return optional.compactMapValues { $0 }
     }
 }

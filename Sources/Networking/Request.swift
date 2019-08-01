@@ -63,7 +63,7 @@ public struct Request<Model: Decodable>: Requestable {
     ///   - method: HTTP Method
     ///   - path: endpoint path like tickers/btc-bitcoin
     ///   - params: array of parameters appended in URL Query
-    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String = "Coinpaprika API Client - Swift", bodyEncoding: BodyEncoding = .json, authorisation: AuthorisationMethod = .none, errorParser: @escaping ErrorParser = defaultErrorParser()) {
+    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String, bodyEncoding: BodyEncoding = .json, authorisation: AuthorisationMethod = .none, errorParser: @escaping ErrorParser = defaultErrorParser()) {
         self.baseUrl = baseUrl
         self.method = method
         self.path = path

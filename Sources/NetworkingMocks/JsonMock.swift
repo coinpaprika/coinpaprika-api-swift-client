@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Networking
+import CoinpaprikaNetworking
 
 public class JsonMock: NetworkSession {
     let responseData: Data?

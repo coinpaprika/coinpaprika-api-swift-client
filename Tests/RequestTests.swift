@@ -8,8 +8,8 @@
 
 import XCTest
 @testable import Coinpaprika
-import Networking
-import NetworkingMocks
+import CoinpaprikaNetworking
+import CoinpaprikaNetworkingMocks
 
 class RequestTests: XCTestCase {
     

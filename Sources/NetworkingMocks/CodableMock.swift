@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Networking
+import CoinpaprikaNetworking
 
 public class CodableMock<Model: Encodable>: NetworkSession {
     let responseObject: Model

@@ -6,27 +6,27 @@ let package = Package(
     platforms: [.iOS(.v10), .macOS(.v10_12), .tvOS(.v10), .watchOS(.v3)],
     products: [
         .library(name: "Coinpaprika", targets: ["Coinpaprika"]),
-        .library(name: "Networking", targets: ["Networking"]),
-        .library(name: "NetworkingMocks", targets: ["NetworkingMocks"])
+        .library(name: "CoinpaprikaNetworking", targets: ["CoinpaprikaNetworking"]),
+        .library(name: "CoinpaprikaNetworkingMocks", targets: ["CoinpaprikaNetworkingMocks"])
     ],
     targets: [
         .target(
             name: "Coinpaprika",
-            dependencies: [.target(name: "Networking")],
+            dependencies: [.target(name: "CoinpaprikaNetworking")],
             path: "Sources/Client"
             ),
         .target(
-            name: "Networking",
+            name: "CoinpaprikaNetworking",
             path: "Sources/Networking"
         ),
         .target(
-            name: "NetworkingMocks",
-            dependencies: ["Networking"],
+            name: "CoinpaprikaNetworkingMocks",
+            dependencies: ["CoinpaprikaNetworking"],
             path: "Sources/NetworkingMocks"
         ),
         .testTarget(
             name: "CoinpaprikaTests",
-            dependencies: ["Coinpaprika", "NetworkingMocks"],
+            dependencies: ["Coinpaprika", "CoinpaprikaNetworkingMocks"],
             path: "Tests"
         )
     ]

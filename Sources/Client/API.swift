@@ -9,7 +9,6 @@
 import Foundation
 #if canImport(CoinpaprikaNetworking)
 import CoinpaprikaNetworking
-public typealias Request = CoinpaprikaNetworking.Request
 #endif
 
 public typealias CoinpaprikaAPI = API

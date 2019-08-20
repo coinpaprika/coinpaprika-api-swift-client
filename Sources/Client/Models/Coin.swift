@@ -51,6 +51,9 @@ public struct Coin: Equatable, CodableModel, CoinType {
     /// Smart contract address, filled when additionalFields contains .contract option
     public var contract: String?
     
+    /// Smart contract platform, filled when additionalFields contains .contract option
+    public var platform: String?
+    
     public enum TypeValue: String, Codable {
         case coin
         case token

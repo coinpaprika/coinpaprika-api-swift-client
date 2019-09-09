@@ -70,6 +70,7 @@ public struct Coin: Equatable, CodableModel, CoinType {
         case typeStorage = "type"
         case imgRev = "img_rev"
         case contract
+        case platform
     }
     
     init(id: String, name: String, symbol: String, rank: Int, isNew: Bool = false, isActive: Bool = true, typeStorage: TypeValue? = nil) {

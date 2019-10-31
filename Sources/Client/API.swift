@@ -94,7 +94,7 @@ public struct API {
             params["proof_image_link"] = proofImageLink.absoluteString
         }
         
-        return request(method: .get, path: "coins/\(coinId)/events", params: params)
+        return request(method: .post, path: "coins/\(coinId)/events", params: params)
     }
 
     

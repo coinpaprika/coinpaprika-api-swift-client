@@ -223,5 +223,6 @@ public struct CoinExtended: Equatable, CodableModel, CoinType {
         case firstDataAt = "first_data_at"
         case lastDataAt = "last_data_at"
         case contract
+        case platform
     }
 }

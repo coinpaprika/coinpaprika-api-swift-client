@@ -192,8 +192,11 @@ public struct CoinExtended: Equatable, CodableModel, CoinType {
     /// Last ticker data
     public let lastDataAt: Date?
     
-    /// Smart contract address, filled when additionalFields contains .contract option
+    /// Smart contract address
     public var contract: String?
+    
+    /// Smart contract platform
+    public var platform: String?
     
     enum CodingKeys: String, CodingKey {
         case id

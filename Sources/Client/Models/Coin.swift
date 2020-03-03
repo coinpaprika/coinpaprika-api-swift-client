@@ -80,6 +80,7 @@ public struct Coin: Equatable, CodableModel, CoinType {
         case imgRev = "img_rev"
         case contract
         case platform
+        case contracts
     }
     
     init(id: String, name: String, symbol: String, rank: Int, isNew: Bool = false, isActive: Bool = true, typeStorage: TypeValue? = nil) {
@@ -236,5 +237,6 @@ public struct CoinExtended: Equatable, CodableModel, CoinType {
         case lastDataAt = "last_data_at"
         case contract
         case platform
+        case contracts
     }
 }

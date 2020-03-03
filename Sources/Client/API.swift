@@ -29,6 +29,7 @@ public struct API {
     public enum CoinsAdditionalFields: String, CaseIterable, QueryRepresentable {
         case imgRev = "img_rev"
         case contract
+        case contracts
     }
     
     /// Get all coins listed on coinpaprika

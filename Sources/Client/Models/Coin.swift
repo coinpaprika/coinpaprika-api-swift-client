@@ -54,6 +54,15 @@ public struct Coin: Equatable, CodableModel, CoinType {
     /// Smart contract platform, filled when additionalFields contains .contract option
     public var platform: String?
     
+    /// Smart contract platforms, filled when additionalFields contains .contracts option
+    public var contracts: [Contract]?
+    
+    public struct Contract: Codable, Equatable {
+        let contract: String
+        let platform: String
+        let type: String
+    }
+    
     public enum TypeValue: String, Codable {
         case coin
         case token
@@ -197,6 +206,9 @@ public struct CoinExtended: Equatable, CodableModel, CoinType {
     
     /// Smart contract platform
     public var platform: String?
+    
+    /// Smart contract platform
+    public var contracts: [Coin.Contract]?
     
     enum CodingKeys: String, CodingKey {
         case id

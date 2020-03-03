@@ -58,9 +58,9 @@ public struct Coin: Equatable, CodableModel, CoinType {
     public var contracts: [Contract]?
     
     public struct Contract: Codable, Equatable {
-        let contract: String
-        let platform: String
-        let type: String
+        public let contract: String
+        public let platform: String
+        public let type: String
     }
     
     public enum TypeValue: String, Codable {

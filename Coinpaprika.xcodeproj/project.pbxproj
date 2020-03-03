@@ -278,7 +278,7 @@
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "5"
             );
@@ -298,7 +298,7 @@
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "5"
             );
@@ -790,9 +790,9 @@
          isa = "PBXGroup";
          children = (
             "Coinpaprika::CoinpaprikaTests::Product",
-            "Coinpaprika::CoinpaprikaNetworking::Product",
+            "Coinpaprika::Coinpaprika::Product",
             "Coinpaprika::CoinpaprikaNetworkingMocks::Product",
-            "Coinpaprika::Coinpaprika::Product"
+            "Coinpaprika::CoinpaprikaNetworking::Product"
          );
          name = "Products";
          path = "";

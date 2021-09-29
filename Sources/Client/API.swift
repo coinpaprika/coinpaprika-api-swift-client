@@ -111,9 +111,12 @@ public struct API {
     /// Get ticker information for all coins
     ///
     /// - Parameter quotes: list of requested quotes, default [.usd]
+    /// - Parameter page: when specified, returns only a subset of the list of tickers (first page has a corresponding value of 1)
     /// - Returns: Request to perform
-    public static func tickers(quotes: [QuoteCurrency] = [.usd]) -> Request<[Ticker]> {
-        return request(method: .get, path: "tickers", params: ["quotes": quotes.asCommaJoinedList])
+    public static func tickers(quotes: [QuoteCurrency] = [.usd], page: Int? = nil) -> Request<[Ticker]> {
+        var params: Request.Params = ["quotes": quotes.asCommaJoinedList]
+        params["page"] = page
+        return request(method: .get, path: "tickers", params: params)
     }
     
     /// Get ticker information for specific coin

@@ -113,9 +113,10 @@ public struct API {
     /// - Parameter quotes: list of requested quotes, default [.usd]
     /// - Parameter page: when specified, returns only a subset of the list of tickers (first page has a corresponding value of 1)
     /// - Returns: Request to perform
-    public static func tickers(quotes: [QuoteCurrency] = [.usd], page: Int? = nil) -> Request<[Ticker]> {
+    public static func tickers(quotes: [QuoteCurrency] = [.usd], page: Int? = nil, additionalParams: [String: Any] = [:]) -> Request<[Ticker]> {
         var params: Request.Params = ["quotes": quotes.asCommaJoinedList]
         params["page"] = page
+        additionalParams.forEach { key, value in params[key] = value }
         return request(method: .get, path: "tickers", params: params)
     }
     

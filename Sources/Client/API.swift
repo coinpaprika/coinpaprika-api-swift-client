@@ -126,8 +126,10 @@ public struct API {
     ///    - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     ///    - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
-    public static func ticker(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Ticker> {
-        return request(method: .get, path: "tickers/\(id)", params: ["quotes": quotes.asCommaJoinedList])
+    public static func ticker(id: String, quotes: [QuoteCurrency] = [.usd], additionalParams: [String: Any] = [:]) -> Request<Ticker> {
+        var params: Request.Params = ["quotes": quotes.asCommaJoinedList]
+        additionalParams.forEach { key, value in params[key] = value }
+        return request(method: .get, path: "tickers/\(id)", params: params)
     }
     
     /// Search results scope

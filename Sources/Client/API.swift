@@ -113,11 +113,11 @@ public struct API {
     /// - Parameter quotes: list of requested quotes, default [.usd]
     /// - Parameter page: when specified, returns only a subset of the list of tickers (first page has a corresponding value of 1)
     /// - Returns: Request to perform
-    public static func tickers(quotes: [QuoteCurrency] = [.usd], page: Int? = nil, additionalParams: [String: Any] = [:]) -> Request<[Ticker]> {
+    public static func tickers(baseUrl: URL? = nil, quotes: [QuoteCurrency] = [.usd], page: Int? = nil, additionalParams: [String: Any] = [:]) -> Request<[Ticker]> {
         var params: Request.Params = ["quotes": quotes.asCommaJoinedList]
         params["page"] = page
         additionalParams.forEach { key, value in params[key] = value }
-        return request(method: .get, path: "tickers", params: params)
+        return request(method: .get, baseUrl: baseUrl, path: "tickers", params: params)
     }
     
     /// Get ticker information for specific coin
@@ -126,10 +126,10 @@ public struct API {
     ///    - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     ///    - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
-    public static func ticker(id: String, quotes: [QuoteCurrency] = [.usd], additionalParams: [String: Any] = [:]) -> Request<Ticker> {
+    public static func ticker(baseUrl: URL? = nil, id: String, quotes: [QuoteCurrency] = [.usd], additionalParams: [String: Any] = [:]) -> Request<Ticker> {
         var params: Request.Params = ["quotes": quotes.asCommaJoinedList]
         additionalParams.forEach { key, value in params[key] = value }
-        return request(method: .get, path: "tickers/\(id)", params: params)
+        return request(method: .get, baseUrl: baseUrl, path: "tickers/\(id)", params: params)
     }
     
     /// Search results scope
@@ -436,8 +436,8 @@ public struct API {
         return request(method: .get, path: "fiats", params: nil)
     }
     
-    private static func request<Model: Decodable>(method: Request<Model>.Method, path: String, params: Request<Model>.Params?) -> Request<Model> {
-        return Request<Model>(baseUrl: Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent)
+    private static func request<Model: Decodable>(method: Request<Model>.Method, baseUrl: URL? = nil, path: String, params: Request<Model>.Params?) -> Request<Model> {
+        return Request<Model>(baseUrl: baseUrl ?? Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent)
     }
        
     private static func compact(_ optional: [String: Any?]) -> [String: Any] {

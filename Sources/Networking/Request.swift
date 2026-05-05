@@ -157,7 +157,11 @@ public struct Request<Model: Decodable>: Requestable {
             let encoded = "\(login):\(password)".data(using: .ascii)!.base64EncodedString()
             request.addValue("Basic \(encoded)", forHTTPHeaderField: "Authorization")
         case .bearer(let token):
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorisation")
+            // CoinPaprika expects the bare API key in the Authorization header.
+            // The "Bearer " prefix triggers a Cloudflare WAF block on api-pro.
+            // The header name is the HTTP-standard "Authorization" (US spelling),
+            // not the previous "Authorisation" typo.
+            request.addValue(token, forHTTPHeaderField: "Authorization")
         case .custom(let headers):
             headers.forEach { (header) in
                 request.addValue(header.value, forHTTPHeaderField: header.key)

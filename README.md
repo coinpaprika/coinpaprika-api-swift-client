@@ -143,7 +143,54 @@ Coinpaprika.API.search(query: "bitcoin", categories: [.coins, .exchanges, .icos,
 }
 ```
 
-### More
+### Pro plan / API key
+
+To use [paid Coinpaprika API plans](https://coinpaprika.com/api/), set the API key and the api-pro base URL once at app launch:
+
+```swift
+import Coinpaprika
+
+Configuration.apiKey = "your-api-key"
+Configuration.baseUrl = URL(string: "https://api-pro.coinpaprika.com/v1/")!
+```
+
+Every static `Coinpaprika.API.*` call then sends the bare key on the `Authorization` header. Set `Configuration.apiKey = nil` to go back to free-tier requests.
+
+### Supported endpoints
+
+Free tier:
+
+| Path | Swift method |
+|---|---|
+| `/global` | `global()` |
+| `/coins` | `coins(additionalFields:)` |
+| `/coins/{id}` | `coin(id:)` |
+| `/coins/{id}/twitter` | `coinTweets(id:)` |
+| `/coins/{id}/events` | `coinEvents(id:)` |
+| `/coins/{id}/exchanges` | `coinExchanges(id:)` |
+| `/coins/{id}/markets` | `coinMarkets(id:quotes:)` |
+| `/coins/{id}/ohlcv/latest` | `coinLatestOhlcv(id:quote:)` |
+| `/coins/{id}/ohlcv/today` | `coinTodayOhlcv(id:quote:)` |
+| `/coins/{id}/ohlcv/historical` | `coinHistoricalOhlcv(id:start:end:limit:quote:)` |
+| `/people/{id}` | `person(id:)` |
+| `/tags`, `/tags/{id}` | `tags(additionalFields:)`, `tag(id:additionalFields:)` |
+| `/tickers`, `/tickers/{id}` | `tickers(quotes:page:)`, `ticker(id:quotes:)` |
+| `/tickers/{id}/historical` | `tickerHistory(id:start:end:limit:quote:interval:)` |
+| `/exchanges`, `/exchanges/{id}`, `/exchanges/{id}/markets` | `exchanges(quotes:)`, `exchange(id:quotes:)`, `exchangeMarkets(id:quotes:)` |
+| `/contracts` | `contractPlatforms()` |
+| `/contracts/{platform}` | `contracts(platformId:)` |
+| `/contracts/{platform}/{address}` | `tickerByContract(platformId:address:quotes:)` |
+| `/contracts/{platform}/{address}/historical` | `tickerHistoryByContract(platformId:address:start:end:limit:quote:interval:)` |
+| `/search` | `search(query:categories:limit:)` |
+| `/price-converter` | `priceConvert(baseCurrencyId:quoteCurrencyId:amount:)` |
+
+Paid tier (require `Configuration.apiKey`):
+
+| Path | Swift method | Plan |
+|---|---|---|
+| `/key/info` | `keyInfo()` | Starter+ |
+| `/coins/mappings` | `coinMappings(coinpaprika:coinmarketcap:coingecko:cryptocompare:isin:dti:)` | Business+ |
+| `/changelog/ids` | `changelogIds(page:)` | Starter+ |
 
 Other endpoints could be found in [CoinpaprikaAPI reference](https://coinpaprika.github.io/coinpaprika-api-swift-client/Structs/CoinpaprikaAPI.html).
 

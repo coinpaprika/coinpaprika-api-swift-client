@@ -147,15 +147,40 @@ public struct API {
         case tags
     }
     
+    /// Modifier value for the `search` endpoint.
+    ///
+    /// Wraps the raw API string so callers can use `.symbolSearch` for type safety
+    /// while still being able to pass any future server-side modifier value via
+    /// `SearchModifier(rawValue:)`.
+    public struct SearchModifier: Equatable, RawRepresentable {
+        public let rawValue: String
+
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+
+        /// Search by symbol only (works for currencies only).
+        public static let symbolSearch = SearchModifier(rawValue: "symbol_search")
+    }
+
     /// Search for currencies/icos/people/exchanges/tags
     ///
     /// - Parameters:
     ///   - query: phrase for search eg. btc
     ///   - categories: one or more categories (comma separated) to search, default .allCases - see SearchCategory for available options
+    ///   - modifier: optional search modifier, eg. `.symbolSearch` to match by symbol only. Default nil (no modifier)
     ///   - limit: limit of results per category, default 6 (max 250)
     /// - Returns: Request to perform
-    public static func search(query: String, categories: [SearchCategory] = SearchCategory.allCases, limit: UInt = 6) -> Request<SearchResults> {
-        return request(method: .get, path: "search", params: ["q": query, "c": categories.asCommaJoinedList, "limit": "\(limit)"])
+    public static func search(query: String, categories: [SearchCategory] = SearchCategory.allCases, modifier: SearchModifier? = nil, limit: UInt = 6) -> Request<SearchResults> {
+        var params: Request<SearchResults>.Params = [
+            "q": query,
+            "c": categories.asCommaJoinedList,
+            "limit": "\(limit)"
+        ]
+        if let modifier = modifier {
+            params["modifier"] = modifier.rawValue
+        }
+        return request(method: .get, path: "search", params: params)
     }
     
     /// Additional fields available in Tag response
@@ -435,7 +460,140 @@ public struct API {
     public static func fiats() -> Request<[Fiat]> {
         return request(method: .get, path: "fiats", params: nil)
     }
-    
+
+    /// API key information including plan and monthly usage. Requires `Configuration.apiKey` set.
+    ///
+    /// - Returns: Request to perform
+    public static func keyInfo() -> Request<KeyInfo> {
+        return request(method: .get, path: "key/info", params: nil)
+    }
+
+    /// Latest 24-hour OHLCV (Open/High/Low/Close + volume + market cap) for a coin.
+    ///
+    /// - Parameters:
+    ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
+    ///   - quote: requested quote, default .usd
+    /// - Returns: Request to perform
+    public static func coinTodayOhlcv(id: String, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
+        validateCoinOhlcvQuote(quote)
+        // Same case sensitivity quirk as `coinLatestOhlcv`: quote must be lowercase.
+        return request(method: .get, path: "coins/\(id)/ohlcv/today", params: ["quote": quote.rawValue.lowercased()])
+    }
+
+    /// Provider used to look up an ID mapping via `/coins/mappings`.
+    ///
+    /// The API requires exactly one provider per request; passing more than one
+    /// returns 400 invalid parameters. The enum makes that constraint unrepresentable.
+    public enum MappingProvider {
+        /// Coinpaprika ID, eg. `btc-bitcoin`.
+        case coinpaprika(String)
+        /// Coinmarketcap numeric ID as a string.
+        case coinmarketcap(String)
+        /// CoinGecko ID, eg. `bitcoin`.
+        case coingecko(String)
+        /// Cryptocompare numeric ID as a string.
+        case cryptocompare(String)
+        /// International Securities Identification Number.
+        case isin(String)
+        /// Digital Token Identifier.
+        case dti(String)
+
+        var queryItem: (name: String, value: String) {
+            switch self {
+            case .coinpaprika(let v):   return ("coinpaprika", v)
+            case .coinmarketcap(let v): return ("coinmarketcap", v)
+            case .coingecko(let v):     return ("coingecko", v)
+            case .cryptocompare(let v): return ("cryptocompare", v)
+            case .isin(let v):          return ("isin", v)
+            case .dti(let v):           return ("dti", v)
+            }
+        }
+    }
+
+    /// Look up a coin id mapping between Coinpaprika and another provider
+    /// (CoinGecko, CoinMarketCap, Cryptocompare, ISIN, DTI). Requires Business plan or higher.
+    ///
+    /// Exactly one provider must be supplied; the API rejects multi-provider queries.
+    ///
+    /// - Parameter provider: provider/id pair to resolve, eg. `.coingecko("bitcoin")`
+    /// - Returns: Request to perform
+    public static func coinMappings(by provider: MappingProvider) -> Request<CoinMapping> {
+        let item = provider.queryItem
+        return request(method: .get, path: "coins/mappings", params: [item.name: item.value])
+    }
+
+    /// List of contract platform ids (eg. eth-ethereum, bsc-binance-smart-chain).
+    ///
+    /// - Returns: Request to perform
+    public static func contractPlatforms() -> Request<[String]> {
+        return request(method: .get, path: "contracts", params: nil)
+    }
+
+    /// All token contracts on a given platform.
+    ///
+    /// - Parameter platformId: platform id, eg. eth-ethereum
+    /// - Returns: Request to perform
+    public static func contracts(platformId: String) -> Request<[Contract]> {
+        return request(method: .get, path: "contracts/\(platformId)", params: nil)
+    }
+
+    /// Ticker for a token by its contract address. Server returns a 301 redirect to
+    /// `/tickers/{coin_id}`; URLSession follows it transparently.
+    ///
+    /// - Parameters:
+    ///   - platformId: platform id, eg. eth-ethereum
+    ///   - address: contract address
+    ///   - quotes: list of requested quotes, default [.usd]
+    /// - Returns: Request to perform
+    public static func tickerByContract(platformId: String, address: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Ticker> {
+        return request(method: .get, path: "contracts/\(platformId)/\(address)", params: ["quotes": quotes.asCommaJoinedList])
+    }
+
+    /// Historical ticker data for a token by its contract address. Server returns a 301 redirect
+    /// to `/tickers/{coin_id}/historical`; URLSession follows it transparently.
+    ///
+    /// - Parameters:
+    ///   - platformId: platform id, eg. eth-ethereum
+    ///   - address: contract address
+    ///   - start: Start date, required
+    ///   - end: End date, default .now
+    ///   - limit: Returns limit, default 1000, max 5000
+    ///   - quote: requested quote, default .usd
+    ///   - interval: data interval, default 5 minutes .minutes5
+    /// - Returns: Request to perform
+    public static func tickerHistoryByContract(platformId: String, address: String, start: Date, end: Date = Date(), limit: Int = 1000, quote: QuoteCurrency = .usd, interval: TickerHistoryInterval = .minutes5) -> Request<[TickerHistory]> {
+        validateTickerHistoryQuote(quote)
+        validateTickerHistoryLimit(limit)
+        return request(method: .get, path: "contracts/\(platformId)/\(address)/historical", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
+    }
+
+    /// Recent coin id changes from the Coinpaprika changelog. Requires Starter plan or higher.
+    ///
+    /// - Parameter page: optional page number for paginated results
+    /// - Returns: Request to perform
+    public static func changelogIds(page: Int? = nil) -> Request<[ChangelogEntry]> {
+        var params: [String: Any] = [:]
+        if let page = page {
+            params["page"] = page
+        }
+        return request(method: .get, path: "changelog/ids", params: params.isEmpty ? nil : params)
+    }
+
+    /// Convert an amount of one currency into another using current prices.
+    ///
+    /// - Parameters:
+    ///   - baseCurrencyId: source currency id, eg. btc-bitcoin
+    ///   - quoteCurrencyId: target currency id, eg. usd-us-dollars
+    ///   - amount: amount to convert, default 1
+    /// - Returns: Request to perform
+    public static func priceConvert(baseCurrencyId: String, quoteCurrencyId: String, amount: Decimal = 1) -> Request<PriceConversion> {
+        return request(method: .get, path: "price-converter", params: [
+            "base_currency_id": baseCurrencyId,
+            "quote_currency_id": quoteCurrencyId,
+            "amount": "\(amount)"
+        ])
+    }
+
     private static func request<Model: Decodable>(method: Request<Model>.Method, path: String, params: Request<Model>.Params?) -> Request<Model> {
         let auth: Request<Model>.AuthorisationMethod = Configuration.apiKey.map { .bearer(token: $0) } ?? .none
         return Request<Model>(baseUrl: Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent, authorisation: auth)

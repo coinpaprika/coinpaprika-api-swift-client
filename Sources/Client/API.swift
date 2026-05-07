@@ -434,7 +434,8 @@ public struct API {
     }
     
     private static func request<Model: Decodable>(method: Request<Model>.Method, path: String, params: Request<Model>.Params?) -> Request<Model> {
-        return Request<Model>(baseUrl: Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent)
+        let auth: Request<Model>.AuthorisationMethod = Configuration.apiKey.map { .bearer(token: $0) } ?? .none
+        return Request<Model>(baseUrl: Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent, authorisation: auth)
     }
        
     private static func compact(_ optional: [String: Any?]) -> [String: Any] {

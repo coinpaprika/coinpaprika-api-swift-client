@@ -854,7 +854,21 @@ class RequestTests: XCTestCase {
     }
 
     func testPriceConvertNonDefaultAmount() {
-        let capture = RequestCapturingSession(stubResponse: "{}")
+        // Stub must decode cleanly as PriceConversion since the SDK calls
+        // assertionFailure on decoder errors in debug. Required fields:
+        // base_currency_id, base_currency_name, quote_currency_id,
+        // quote_currency_name, amount, price.
+        let stub = """
+        {
+          "base_currency_id": "btc-bitcoin",
+          "base_currency_name": "Bitcoin",
+          "quote_currency_id": "eth-ethereum",
+          "quote_currency_name": "Ethereum",
+          "amount": 2.5,
+          "price": 50
+        }
+        """
+        let capture = RequestCapturingSession(stubResponse: stub)
         let expectation = self.expectation(description: "Waiting for request capture")
         Coinpaprika.API.priceConvert(baseCurrencyId: "btc-bitcoin", quoteCurrencyId: "eth-ethereum", amount: 2.5).perform(session: capture) { _ in
             expectation.fulfill()

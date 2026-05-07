@@ -327,7 +327,7 @@ public struct API {
     /// - Returns: Request to perform
     public static func coinLatestOhlcv(id: String, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
         validateCoinOhlcvQuote(quote)
-        return request(method: .get, path: "coins/\(id)/ohlcv/latest", params: ["query": quote.rawValue])
+        return request(method: .get, path: "coins/\(id)/ohlcv/latest", params: ["quote": quote.rawValue])
     }
 
     /// Historical Open/High/Low/Close values with volume and market_cap

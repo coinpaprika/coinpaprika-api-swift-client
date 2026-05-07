@@ -453,6 +453,30 @@
          isa = "PBXBuildFile";
          fileRef = "OBJ_46";
       };
+      "OBJ_135" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_134";
+      };
+      "OBJ_137" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_136";
+      };
+      "OBJ_139" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_138";
+      };
+      "OBJ_141" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_140";
+      };
+      "OBJ_143" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_142";
+      };
+      "OBJ_145" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_144";
+      };
       "OBJ_127" = {
          isa = "PBXFrameworksBuildPhase";
          files = (
@@ -492,6 +516,11 @@
             "OBJ_31",
             "OBJ_32",
             "OBJ_33"
+            "OBJ_134",
+            "OBJ_136",
+            "OBJ_138",
+            "OBJ_140",
+            "OBJ_142",
          );
          name = "Models";
          path = "Models";
@@ -672,6 +701,7 @@
             "OBJ_37",
             "OBJ_38",
             "OBJ_39"
+            "OBJ_144",
          );
          name = "CoinpaprikaNetworking";
          path = "Sources/Networking";
@@ -784,6 +814,36 @@
       "OBJ_46" = {
          isa = "PBXFileReference";
          path = "RequestTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_134" = {
+         isa = "PBXFileReference";
+         path = "ChangelogEntry.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_136" = {
+         isa = "PBXFileReference";
+         path = "CoinMapping.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_138" = {
+         isa = "PBXFileReference";
+         path = "Contract.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_140" = {
+         isa = "PBXFileReference";
+         path = "KeyInfo.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_142" = {
+         isa = "PBXFileReference";
+         path = "PriceConversion.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_144" = {
+         isa = "PBXFileReference";
+         path = "CoinpaprikaSession.swift";
          sourceTree = "<group>";
       };
       "OBJ_47" = {
@@ -956,6 +1016,11 @@
             "OBJ_81",
             "OBJ_82",
             "OBJ_83"
+            "OBJ_135",
+            "OBJ_137",
+            "OBJ_139",
+            "OBJ_141",
+            "OBJ_143",
          );
       };
       "OBJ_61" = {
@@ -1191,6 +1256,7 @@
             "OBJ_94",
             "OBJ_95",
             "OBJ_96"
+            "OBJ_145",
          );
       };
       "OBJ_92" = {

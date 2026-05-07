@@ -528,10 +528,10 @@ class RequestTests: XCTestCase {
     func testApiKeyInjectionWhenSet() {
         Configuration.apiKey = "test-key-abc123"
 
-        let capture = RequestCapturingSession(stubResponse: "{}")
+        let capture = RequestCapturingSession(stubResponse: "[]")
         let expectation = self.expectation(description: "Waiting for request to be captured")
 
-        Coinpaprika.API.global().perform(session: capture) { _ in
+        Coinpaprika.API.fiats().perform(session: capture) { _ in
             expectation.fulfill()
         }
 
@@ -547,10 +547,10 @@ class RequestTests: XCTestCase {
     func testNoAuthorizationHeaderWhenApiKeyNil() {
         Configuration.apiKey = nil
 
-        let capture = RequestCapturingSession(stubResponse: "{}")
+        let capture = RequestCapturingSession(stubResponse: "[]")
         let expectation = self.expectation(description: "Waiting for request to be captured")
 
-        Coinpaprika.API.global().perform(session: capture) { _ in
+        Coinpaprika.API.fiats().perform(session: capture) { _ in
             expectation.fulfill()
         }
 

@@ -80,7 +80,7 @@ public struct Request<Model: Decodable>: Requestable {
     ///   - responseQueue: The queue on which the completion handler is dispatched
     ///   - cachePolicy: cache policy that should be used in this request
     ///   - callback: Completion handler triggered on request success & failure
-    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, session: NetworkSession = URLSession.shared, _ callback: @escaping (Result<Model, Error>) -> Void) {
+    public func perform(responseQueue: DispatchQueue? = nil, cachePolicy: URLRequest.CachePolicy? = nil, session: NetworkSession = CoinpaprikaSession.shared, _ callback: @escaping (Result<Model, Error>) -> Void) {
         let onQueue = { (_ block: @escaping () -> Void) -> Void in
             (responseQueue ?? DispatchQueue.main).async(execute: block)
         }

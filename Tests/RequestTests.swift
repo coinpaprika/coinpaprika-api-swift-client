@@ -14,40 +14,29 @@ import CoinpaprikaNetworkingMocks
 class RequestTests: XCTestCase {
 
     let bitcoinId = "btc-bitcoin"
-    let satoshiId = "satoshi-nakamoto"
+    let personId = "charlie-lee"
     let binanceId = "binance"
 
-    // MARK: - Skip helpers
-    //
-    // A subset of these tests hit live endpoints that are gated to paid plans
-    // (`/tickers/{id}/historical`, `/coins/{id}/ohlcv/historical`). The Swift
-    // SDK currently has no public mechanism for injecting an API key into the
-    // static `Coinpaprika.API.*` calls — `Configuration` has no `apiKey` field
-    // and the static methods build `Request` instances with `.none` auth by
-    // default. Setting `COINPAPRIKA_API_KEY` in the test environment alone is
-    // therefore not enough to make these tests pass.
-    //
-    // To re-enable the paid-tier tests:
-    //   1. Add `Configuration.apiKey: String?`.
-    //   2. Update each affected static method in `API.swift` to construct
-    //      `Request` with
-    //        `authorisation: Configuration.apiKey.map { .bearer(token: $0) } ?? .none`.
-    //   3. Provide a paid key in the `COINPAPRIKA_API_KEY` environment variable.
-    //   4. Remove the `try skipPaidEndpointTest()` call from each affected test.
-    //
-    // Tracked in the DevRel cleanup audit as a follow-up to the Bearer fix.
+    private let freeTierBaseUrl = URL(string: "https://api.coinpaprika.com/v1/")!
+    private let paidTierBaseUrl = URL(string: "https://api-pro.coinpaprika.com/v1/")!
 
-    /// Skip a test that hits a paid-tier endpoint pending SDK auth wiring.
-    private func skipPaidEndpointTest() throws {
-        try XCTSkipIf(
-            true,
-            "Paid-tier endpoint; SDK auth wiring required. See class-level comment for re-enable steps."
-        )
+    override func tearDown() {
+        Configuration.apiKey = nil
+        Configuration.baseUrl = freeTierBaseUrl
+        super.tearDown()
     }
 
-    /// Skip a test whose live fixture id is no longer valid.
-    private func skipStaleFixture(_ details: String) throws {
-        try XCTSkipIf(true, "Stale test fixture: \(details)")
+    /// Skip the test if `COINPAPRIKA_API_KEY` is not set, otherwise configure
+    /// the SDK for paid-tier requests for the duration of the test. Paid-tier
+    /// state is reset in `tearDown`.
+    private func configurePaidTier() throws {
+        let key = ProcessInfo.processInfo.environment["COINPAPRIKA_API_KEY"]
+        try XCTSkipIf(
+            key == nil,
+            "Paid-tier endpoint requires COINPAPRIKA_API_KEY env var. Skipping."
+        )
+        Configuration.apiKey = key
+        Configuration.baseUrl = paidTierBaseUrl
     }
 
     func testGlobalStatsRequest() {
@@ -286,7 +275,7 @@ class RequestTests: XCTestCase {
     }
     
     func testTickerHistoryRequest() throws {
-        try skipPaidEndpointTest()
+        try configurePaidTier()
 
         let expectation = self.expectation(description: "Waiting for ticker history")
         let limit = 5
@@ -376,18 +365,12 @@ class RequestTests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
-    func testPersonRequest() throws {
-        try skipStaleFixture(
-            "person id 'satoshi-nakamoto' returns HTTP 404 from /people/{id} as of 2026-04-29 (verified in DevRel audit). Update fixture id to a person currently in the database before re-enabling."
-        )
-
+    func testPersonRequest() {
         let expectation = self.expectation(description: "Waiting for person details")
 
-        Coinpaprika.API.person(id: satoshiId).perform { (response) in
+        Coinpaprika.API.person(id: personId).perform { (response) in
             let person = response.value
             XCTAssertNotNil(person, "Person should exist")
-
-
             expectation.fulfill()
         }
 
@@ -434,7 +417,7 @@ class RequestTests: XCTestCase {
     }
     
     func testCoinHistoricalOhlcvRequest() throws {
-        try skipPaidEndpointTest()
+        try configurePaidTier()
 
         let expectation = self.expectation(description: "Waiting for a latest ohlcv")
 
@@ -538,7 +521,87 @@ class RequestTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        
+
         waitForExpectations(timeout: 30)
+    }
+
+    func testApiKeyInjectionWhenSet() {
+        Configuration.apiKey = "test-key-abc123"
+
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request to be captured")
+
+        Coinpaprika.API.global().perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 5)
+
+        XCTAssertEqual(
+            capture.capturedRequest?.value(forHTTPHeaderField: "Authorization"),
+            "test-key-abc123",
+            "Authorization header should carry the bare API key when Configuration.apiKey is set"
+        )
+    }
+
+    func testNoAuthorizationHeaderWhenApiKeyNil() {
+        Configuration.apiKey = nil
+
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request to be captured")
+
+        Coinpaprika.API.global().perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 5)
+
+        XCTAssertNil(
+            capture.capturedRequest?.value(forHTTPHeaderField: "Authorization"),
+            "Authorization header should be absent when Configuration.apiKey is nil"
+        )
+    }
+
+    func testCoinLatestOhlcvSendsQuoteParam() {
+        let capture = RequestCapturingSession(stubResponse: "[]")
+        let expectation = self.expectation(description: "Waiting for request to be captured")
+
+        Coinpaprika.API.coinLatestOhlcv(id: bitcoinId, quote: .btc).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(
+            url.contains("quote=btc"),
+            "URL should contain quote=btc, got: \(url)"
+        )
+        XCTAssertFalse(
+            url.contains("query="),
+            "URL should not contain the legacy 'query=' typo, got: \(url)"
+        )
+    }
+}
+
+/// Captures the outgoing URLRequest for header/query-string assertions
+/// while returning a canned response body.
+private final class RequestCapturingSession: NetworkSession {
+    private(set) var capturedRequest: URLRequest?
+    private let stubResponse: Data
+
+    init(stubResponse: String) {
+        self.stubResponse = stubResponse.data(using: .utf8) ?? Data()
+    }
+
+    func loadData(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        capturedRequest = request
+        let response = HTTPURLResponse(
+            url: request.url!,
+            statusCode: 200,
+            httpVersion: "HTTP/1.1",
+            headerFields: ["Content-Type": "application/json"]
+        )
+        completionHandler(stubResponse, response, nil)
     }
 }

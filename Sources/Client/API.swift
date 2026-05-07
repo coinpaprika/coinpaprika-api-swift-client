@@ -327,7 +327,10 @@ public struct API {
     /// - Returns: Request to perform
     public static func coinLatestOhlcv(id: String, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
         validateCoinOhlcvQuote(quote)
-        return request(method: .get, path: "coins/\(id)/ohlcv/latest", params: ["quote": quote.rawValue])
+        // /coins/{id}/ohlcv/latest is case-sensitive on `quote`: uppercase
+        // returns 400 invalid parameters. Other endpoints (`tickers?quotes=`,
+        // `ohlcv/historical?quote=`) accept both cases.
+        return request(method: .get, path: "coins/\(id)/ohlcv/latest", params: ["quote": quote.rawValue.lowercased()])
     }
 
     /// Historical Open/High/Low/Close values with volume and market_cap

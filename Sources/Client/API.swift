@@ -352,9 +352,9 @@ public struct API {
     /// - Returns: Request to perform
     public static func coinLatestOhlcv(id: String, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
         validateCoinOhlcvQuote(quote)
-        // /coins/{id}/ohlcv/latest is case-sensitive on `quote`: uppercase
-        // returns 400 invalid parameters. Other endpoints (`tickers?quotes=`,
-        // `ohlcv/historical?quote=`) accept both cases.
+        // /coins/{id}/ohlcv/{latest,today,historical} are all case-sensitive
+        // on `quote`: uppercase returns 400 invalid parameters on api-pro.
+        // Other endpoints (`tickers?quotes=`, etc) accept both cases.
         return request(method: .get, path: "coins/\(id)/ohlcv/latest", params: ["quote": quote.rawValue.lowercased()])
     }
 
@@ -370,9 +370,11 @@ public struct API {
     public static func coinHistoricalOhlcv(id: String, start: Date, end: Date? = nil, limit: Int = 1, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
         validateCoinOhlcvQuote(quote)
         validateCoinOhlcvLimit(limit)
-        
-        var params = ["start": "\(Int(start.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue]
-        
+
+        // Same case sensitivity as ohlcv/latest and ohlcv/today: uppercase
+        // returns 400 on api-pro.
+        var params = ["start": "\(Int(start.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue.lowercased()]
+
         if let end = end {
             params["end"] = "\(Int(end.timeIntervalSince1970))"
         }

@@ -35,16 +35,6 @@ public struct CoinMapping: Equatable, CodableModel {
     /// Mapping last update timestamp, RFC3999 (ISO-8601) format.
     public let updatedAt: String?
 
-    public init(coinpaprika: String?, coinmarketcap: String?, coingecko: String?, cryptocompare: String?, isin: String?, dti: String?, updatedAt: String?) {
-        self.coinpaprika = coinpaprika
-        self.coinmarketcap = coinmarketcap
-        self.coingecko = coingecko
-        self.cryptocompare = cryptocompare
-        self.isin = isin
-        self.dti = dti
-        self.updatedAt = updatedAt
-    }
-
     enum CodingKeys: String, CodingKey {
         case coinpaprika
         case coinmarketcap

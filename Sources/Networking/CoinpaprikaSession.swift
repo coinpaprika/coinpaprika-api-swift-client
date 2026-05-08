@@ -17,11 +17,15 @@ import Foundation
 ///    delegate fires, but the session also performs the upgrade explicitly as
 ///    defense-in-depth for environments where ATS is disabled.
 ///
-/// 2. CFNetwork strips the `Authorization` header on cross-redirect (and
-///    substitutes a default `Accept`) as part of its sensitive-header policy.
-///    For redirects to a `coinpaprika.com` host this session re-attaches the
-///    original request's `Authorization`, `Accept`, and `User-Agent` headers
-///    so the redirected call still authenticates against api-pro.
+/// 2. CFNetwork strips the `Authorization` header on cross-redirect as part
+///    of its sensitive-header policy. For redirects to a `coinpaprika.com`
+///    host this session re-attaches the original request's `Authorization`
+///    header so the redirected call still authenticates against api-pro.
+///    `Accept` and `User-Agent` are also re-attached when missing, but
+///    CFNetwork substitutes its own defaults for both, so in the live path
+///    the missing-header guard typically short-circuits for those two and
+///    the original values do not overwrite the defaults. The Authorization
+///    re-attach is the load-bearing behaviour.
 ///
 /// Used by default in `Request.perform(...)`. To opt out and use a vanilla
 /// `URLSession`, pass it explicitly:
@@ -51,12 +55,25 @@ public final class CoinpaprikaSession: NetworkSession {
 
 /// `URLSessionTaskDelegate` that handles the two CoinPaprika-specific redirect
 /// quirks: scheme upgrade for `http://*.coinpaprika.com` targets, and
-/// re-attaching `Authorization`/`Accept`/`User-Agent` headers that CFNetwork
-/// strips on cross-redirect. Internal — used only by `CoinpaprikaSession`.
+/// re-attaching the `Authorization` header that CFNetwork strips on
+/// cross-redirect. Internal — used only by `CoinpaprikaSession`.
+///
+/// Chained-redirect note: `task.originalRequest` is the first-in-chain
+/// request, so on each redirect hop the same original headers get
+/// re-attached. Coinpaprika's `/contracts/...` endpoints are single-hop
+/// 301s today, which this design handles correctly. If the API ever serves
+/// a chain of redirects, the original headers will be re-attached on every
+/// hop as long as each hop targets a coinpaprika host. A redirect that
+/// crosses to a non-coinpaprika host mid-chain short-circuits the
+/// `isCoinpaprikaHost` guard and headers stay stripped.
 final class RedirectRewriter: NSObject, URLSessionTaskDelegate {
 
-    /// Headers CFNetwork strips on redirect that the SDK needs preserved when
-    /// the redirect target is still a coinpaprika host.
+    /// Headers re-attached from the original request when the redirect target
+    /// is still a coinpaprika host. `Authorization` is the load-bearing one:
+    /// CFNetwork strips it on cross-redirect. `Accept` and `User-Agent` are
+    /// listed for defense-in-depth and rarely fire in practice — CFNetwork
+    /// substitutes its own defaults for both, so the missing-header guard
+    /// typically short-circuits for those two.
     static let preservedHeaders = ["Authorization", "Accept", "User-Agent"]
 
     func urlSession(_ session: URLSession,

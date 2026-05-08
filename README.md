@@ -128,7 +128,7 @@ Coinpaprika.API.ticker(id: "bitcoin-btc", quotes: [.usd, .btc]).perform { (respo
 ```swift
 import Coinpaprika
 
-Coinpaprika.API.search(query: "bitcoin", categories: [.coins, .exchanges, .icos, .people, .tags], limit: 20).perform { (response) in
+Coinpaprika.API.search(query: "bitcoin", categories: [.currencies, .exchanges, .icos, .people, .tags], limit: 20).perform { (response) in
   switch response {
     case .success(let searchResults):
     // Successfully downloaded SearchResults
@@ -181,7 +181,7 @@ Free tier:
 | `/contracts/{platform}` | `contracts(platformId:)` |
 | `/contracts/{platform}/{address}` | `tickerByContract(platformId:address:quotes:)` |
 | `/contracts/{platform}/{address}/historical` | `tickerHistoryByContract(platformId:address:start:end:limit:quote:interval:)` |
-| `/search` | `search(query:categories:limit:)` |
+| `/search` | `search(query:categories:modifier:limit:)` |
 | `/price-converter` | `priceConvert(baseCurrencyId:quoteCurrencyId:amount:)` |
 
 Paid tier (require `Configuration.apiKey`):
@@ -189,7 +189,7 @@ Paid tier (require `Configuration.apiKey`):
 | Path | Swift method | Plan |
 |---|---|---|
 | `/key/info` | `keyInfo()` | Starter+ |
-| `/coins/mappings` | `coinMappings(coinpaprika:coinmarketcap:coingecko:cryptocompare:isin:dti:)` | Business+ |
+| `/coins/mappings` | `coinMappings(by:)` | Business+ |
 | `/changelog/ids` | `changelogIds(page:)` | Starter+ |
 
 Other endpoints could be found in [CoinpaprikaAPI reference](https://coinpaprika.github.io/coinpaprika-api-swift-client/Structs/CoinpaprikaAPI.html).

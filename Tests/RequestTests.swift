@@ -1002,6 +1002,137 @@ class RequestTests: XCTestCase {
         let rewritten = rewriter.rewrite(httpRequest)
         XCTAssertEqual(rewritten.url?.scheme, "https", "Host match should be case-insensitive")
     }
+
+    func testRedirectRewriterReattachesAuthorizationFromOriginalRequest() {
+        // CFNetwork strips Authorization on cross-redirect; the rewriter must
+        // re-attach it from the original request when the target is a
+        // coinpaprika host. Without this, api-pro returns 403 Cloudflare WAF
+        // on the followed redirect.
+        let rewriter = RedirectRewriter()
+        var original = URLRequest(url: URL(string: "https://api-pro.coinpaprika.com/v1/contracts/eth-ethereum/0xUSDT")!)
+        original.setValue("test-key-abc123", forHTTPHeaderField: "Authorization")
+        original.setValue("application/json", forHTTPHeaderField: "Accept")
+        original.setValue("Coinpaprika API Client - Swift", forHTTPHeaderField: "User-Agent")
+
+        // The redirected request as URLSession sees it after CFNetwork strips
+        // sensitive headers and substitutes Accept.
+        let stripped = URLRequest(url: URL(string: "https://api-pro.coinpaprika.com/v1/tickers/usdt-tether?contract=0xUSDT")!)
+
+        let rewritten = rewriter.rewrite(stripped, originalRequest: original)
+
+        XCTAssertEqual(rewritten.value(forHTTPHeaderField: "Authorization"), "test-key-abc123")
+        XCTAssertEqual(rewritten.value(forHTTPHeaderField: "Accept"), "application/json")
+        XCTAssertEqual(rewritten.value(forHTTPHeaderField: "User-Agent"), "Coinpaprika API Client - Swift")
+    }
+
+    func testRedirectRewriterDoesNotOverwriteExistingHeaders() {
+        let rewriter = RedirectRewriter()
+        var original = URLRequest(url: URL(string: "https://api-pro.coinpaprika.com/v1/x")!)
+        original.setValue("original-key", forHTTPHeaderField: "Authorization")
+
+        var redirected = URLRequest(url: URL(string: "https://api-pro.coinpaprika.com/v1/y")!)
+        redirected.setValue("explicit-different-key", forHTTPHeaderField: "Authorization")
+
+        let rewritten = rewriter.rewrite(redirected, originalRequest: original)
+        XCTAssertEqual(
+            rewritten.value(forHTTPHeaderField: "Authorization"),
+            "explicit-different-key",
+            "Existing header on the redirected request must not be overwritten"
+        )
+    }
+
+    func testRedirectRewriterDoesNotAddAuthorizationOnNonCoinpaprikaHost() {
+        let rewriter = RedirectRewriter()
+        var original = URLRequest(url: URL(string: "https://api.coinpaprika.com/v1/x")!)
+        original.setValue("test-key-abc123", forHTTPHeaderField: "Authorization")
+
+        let externalRedirect = URLRequest(url: URL(string: "https://example.com/anywhere")!)
+
+        let rewritten = rewriter.rewrite(externalRedirect, originalRequest: original)
+        XCTAssertNil(
+            rewritten.value(forHTTPHeaderField: "Authorization"),
+            "Authorization must not leak to redirects pointing outside coinpaprika.com"
+        )
+    }
+
+    func testRedirectRewriterRejectsHostnameSuffixAttack() {
+        let rewriter = RedirectRewriter()
+        let attack = URLRequest(url: URL(string: "http://coinpaprika.com.evil.example.com/x")!)
+        let rewritten = rewriter.rewrite(attack)
+        XCTAssertEqual(
+            rewritten.url?.scheme,
+            "http",
+            "Suffix attack (coinpaprika.com.evil.example.com) must not match"
+        )
+        XCTAssertEqual(rewritten.url?.host, "coinpaprika.com.evil.example.com")
+    }
+
+    // MARK: - Lowercase quote guardrails for ohlcv endpoints
+
+    func testCoinTodayOhlcvSendsLowercaseQuote() {
+        let capture = RequestCapturingSession(stubResponse: "[]")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.coinTodayOhlcv(id: bitcoinId, quote: .btc).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(url.contains("quote=btc"), "URL should contain quote=btc, got: \(url)")
+        XCTAssertFalse(url.contains("quote=BTC"), "Quote value must be lowercased, got: \(url)")
+    }
+
+    func testCoinHistoricalOhlcvSendsLowercaseQuote() {
+        let capture = RequestCapturingSession(stubResponse: "[]")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.coinHistoricalOhlcv(id: bitcoinId, start: Date(timeIntervalSinceNow: -3600), quote: .btc).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(url.contains("quote=btc"), "URL should contain quote=btc, got: \(url)")
+        XCTAssertFalse(url.contains("quote=BTC"), "Quote value must be lowercased, got: \(url)")
+    }
+
+    // MARK: - MappingProvider full case coverage
+
+    func testMappingProviderQueryItemAllCases() {
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coinpaprika("btc-bitcoin").queryItem.name, "coinpaprika")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coinpaprika("btc-bitcoin").queryItem.value, "btc-bitcoin")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coinmarketcap("1").queryItem.name, "coinmarketcap")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coinmarketcap("1").queryItem.value, "1")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coingecko("bitcoin").queryItem.name, "coingecko")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.cryptocompare("1").queryItem.name, "cryptocompare")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.isin("XTV15WLZJMF0").queryItem.name, "isin")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.isin("XTV15WLZJMF0").queryItem.value, "XTV15WLZJMF0")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.dti("V15WLZJMF").queryItem.name, "dti")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.dti("V15WLZJMF").queryItem.value, "V15WLZJMF")
+    }
+
+    func testChangelogIdsSendsPageParamWhenProvided() {
+        let capture = RequestCapturingSession(stubResponse: "[]")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.changelogIds(page: 3).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(url.contains("page=3"), "URL should contain page=3, got: \(url)")
+    }
+
+    func testChangelogIdsOmitsPageParamWhenNil() {
+        let capture = RequestCapturingSession(stubResponse: "[]")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.changelogIds().perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertFalse(url.contains("page="), "URL should not contain page when nil, got: \(url)")
+    }
 }
 
 /// Captures the outgoing URLRequest for header/query-string assertions

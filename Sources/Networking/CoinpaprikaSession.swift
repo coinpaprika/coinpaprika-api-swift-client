@@ -8,15 +8,20 @@ import Foundation
 /// `NetworkSession` implementation backed by `URLSession` with redirect handling
 /// tuned for the CoinPaprika API.
 ///
-/// Some CoinPaprika endpoints (notably `/contracts/{platform}/{address}` and its
-/// `/historical` variant) respond with a `301` whose `Location` uses the `http://`
-/// scheme even when the original request was `https://`. On `api-pro.coinpaprika.com`
-/// the `http` host returns no body, so a default `URLSession` that blindly follows
-/// the redirect ends up empty-handed.
+/// Two redirect quirks that this session works around:
 ///
-/// `CoinpaprikaSession` rewrites the redirect target back to `https://` for any
-/// `coinpaprika.com` host before letting URLSession follow it. Behaviour for
-/// non-CoinPaprika hosts is unchanged (the redirect is followed as-is).
+/// 1. The `/contracts/{platform}/{address}` and `/contracts/.../historical`
+///    endpoints respond with a `301` whose `Location` uses the `http://` scheme
+///    even when the original request was `https://`. On Apple platforms ATS
+///    typically upgrades the redirect target back to `https://` before the
+///    delegate fires, but the session also performs the upgrade explicitly as
+///    defense-in-depth for environments where ATS is disabled.
+///
+/// 2. CFNetwork strips the `Authorization` header on cross-redirect (and
+///    substitutes a default `Accept`) as part of its sensitive-header policy.
+///    For redirects to a `coinpaprika.com` host this session re-attaches the
+///    original request's `Authorization`, `Accept`, and `User-Agent` headers
+///    so the redirected call still authenticates against api-pro.
 ///
 /// Used by default in `Request.perform(...)`. To opt out and use a vanilla
 /// `URLSession`, pass it explicitly:
@@ -44,40 +49,61 @@ public final class CoinpaprikaSession: NetworkSession {
     }
 }
 
-/// `URLSessionTaskDelegate` that rewrites `http://*.coinpaprika.com` redirect
-/// targets to `https://`. Internal — used only by `CoinpaprikaSession`.
+/// `URLSessionTaskDelegate` that handles the two CoinPaprika-specific redirect
+/// quirks: scheme upgrade for `http://*.coinpaprika.com` targets, and
+/// re-attaching `Authorization`/`Accept`/`User-Agent` headers that CFNetwork
+/// strips on cross-redirect. Internal — used only by `CoinpaprikaSession`.
 final class RedirectRewriter: NSObject, URLSessionTaskDelegate {
+
+    /// Headers CFNetwork strips on redirect that the SDK needs preserved when
+    /// the redirect target is still a coinpaprika host.
+    static let preservedHeaders = ["Authorization", "Accept", "User-Agent"]
 
     func urlSession(_ session: URLSession,
                     task: URLSessionTask,
                     willPerformHTTPRedirection response: HTTPURLResponse,
                     newRequest: URLRequest,
                     completionHandler: @escaping (URLRequest?) -> Void) {
-        completionHandler(rewrite(newRequest))
+        completionHandler(rewrite(newRequest, originalRequest: task.originalRequest))
     }
 
-    /// Returns a request with the URL scheme upgraded to `https` if the original
-    /// scheme was `http` and the host is a `coinpaprika.com` subdomain. Otherwise
-    /// returns the request unchanged.
-    func rewrite(_ request: URLRequest) -> URLRequest {
-        guard
-            let url = request.url,
-            url.scheme?.lowercased() == "http",
-            let host = url.host?.lowercased(),
-            host == "coinpaprika.com" || host.hasSuffix(".coinpaprika.com"),
-            var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-        else {
-            return request
+    /// Returns a request with:
+    ///
+    /// - URL scheme upgraded to `https` if the host is a `coinpaprika.com`
+    ///   subdomain and the scheme was `http`. Apple platforms with ATS already
+    ///   do this; the explicit upgrade covers ATS-disabled environments.
+    /// - `Authorization`, `Accept`, and `User-Agent` re-attached from
+    ///   `originalRequest` when the redirect target is a coinpaprika host and
+    ///   those headers were stripped by CFNetwork's sensitive-header policy.
+    ///
+    /// Non-coinpaprika hosts pass through unchanged.
+    func rewrite(_ request: URLRequest, originalRequest: URLRequest? = nil) -> URLRequest {
+        var rewritten = request
+
+        if let url = rewritten.url,
+           url.scheme?.lowercased() == "http",
+           isCoinpaprikaHost(url),
+           var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+            components.scheme = "https"
+            if let httpsUrl = components.url {
+                rewritten.url = httpsUrl
+            }
         }
 
-        components.scheme = "https"
-
-        guard let rewritten = components.url else {
-            return request
+        if isCoinpaprikaHost(rewritten.url), let original = originalRequest {
+            for header in RedirectRewriter.preservedHeaders {
+                if rewritten.value(forHTTPHeaderField: header) == nil,
+                   let value = original.value(forHTTPHeaderField: header) {
+                    rewritten.setValue(value, forHTTPHeaderField: header)
+                }
+            }
         }
 
-        var copy = request
-        copy.url = rewritten
-        return copy
+        return rewritten
+    }
+
+    private func isCoinpaprikaHost(_ url: URL?) -> Bool {
+        guard let host = url?.host?.lowercased() else { return false }
+        return host == "coinpaprika.com" || host.hasSuffix(".coinpaprika.com")
     }
 }

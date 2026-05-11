@@ -6,6 +6,7 @@
 import Foundation
 #if canImport(CoinpaprikaNetworking)
 import CoinpaprikaNetworking
+#endif
 
 /// A single coin id change recorded in the Coinpaprika changelog
 /// (returned by `/changelog/ids`, paid plans).
@@ -30,4 +31,3 @@ public struct ChangelogEntry: Equatable, CodableModel {
         case changedAt = "changed_at"
     }
 }
-#endif

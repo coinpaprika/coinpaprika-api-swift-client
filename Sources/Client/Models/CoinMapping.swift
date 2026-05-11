@@ -6,6 +6,7 @@
 import Foundation
 #if canImport(CoinpaprikaNetworking)
 import CoinpaprikaNetworking
+#endif
 
 /// ID mapping between Coinpaprika and other providers (returned by `/coins/mappings`, paid plans).
 ///
@@ -62,4 +63,3 @@ public struct CoinMapping: Equatable, CodableModel {
         return nil
     }
 }
-#endif

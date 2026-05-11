@@ -27,14 +27,20 @@ public enum ResponseError: Error {
     case emptyResponse(url: URL?)
     case unableToDecodeResponse(url: URL?)
     case requestsLimitExceeded(url: URL?)
+    /// Returned when the API responds with HTTP 402 — monthly request quota
+    /// for the API key has been exhausted. Operationally distinct from
+    /// `.requestsLimitExceeded` (HTTP 429, short-window rate limit) and from
+    /// `.invalidRequest` (HTTP 4xx for genuine client errors).
+    case quotaExceeded(url: URL?)
     case invalidRequest(httpCode: Int, url: URL?, message: String?)
     case serverError(httpCode: Int, url: URL?)
-    
+
     public var url: URL? {
         switch self {
         case .emptyResponse(let url),
             .unableToDecodeResponse(let url),
             .requestsLimitExceeded(let url),
+            .quotaExceeded(let url),
             .invalidRequest(_, let url, _),
             .serverError(_, let url):
             return url
@@ -51,6 +57,8 @@ extension ResponseError: LocalizedError {
             return "Unable to decode response"
         case .requestsLimitExceeded:
             return "Requests limit exceeded"
+        case .quotaExceeded:
+            return "API key monthly quota exceeded"
         case .invalidRequest(let httpCode, _, let message):
             guard let message = message else {
                 return "Invalid request [\(httpCode)]"

@@ -1135,6 +1135,21 @@ class RequestTests: XCTestCase {
         XCTAssertFalse(url.contains("page="), "URL should not contain page when nil, got: \(url)")
     }
 
+    // MARK: - Quota-exceeded error mapping
+
+    func testQuotaExceededOn402() {
+        let expectation = self.expectation(description: "Waiting for API")
+        Coinpaprika.API.global().perform(session: JsonMock("{}", statusCode: 402)) { (response) in
+            if let responseError = response.error as? ResponseError, case .quotaExceeded(let url) = responseError {
+                XCTAssertNotNil(url)
+            } else {
+                XCTFail("HTTP 402 should map to ResponseError.quotaExceeded, got \(String(describing: response.error))")
+            }
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+    }
+
     // MARK: - Exchange.description optional regression guard
 
     func testExchangeDecodesWithNullDescription() {

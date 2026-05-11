@@ -6,6 +6,7 @@
 import Foundation
 #if canImport(CoinpaprikaNetworking)
 import CoinpaprikaNetworking
+#endif
 
 /// API key information returned by `/key/info` (paid plans).
 public struct KeyInfo: Equatable, CodableModel {
@@ -61,4 +62,3 @@ public struct KeyInfo: Equatable, CodableModel {
         case usage
     }
 }
-#endif

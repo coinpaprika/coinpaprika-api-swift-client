@@ -6,6 +6,7 @@
 import Foundation
 #if canImport(CoinpaprikaNetworking)
 import CoinpaprikaNetworking
+#endif
 
 /// Result of converting an amount from one currency to another (returned by `/price-converter`).
 public struct PriceConversion: Equatable, CodableModel {
@@ -45,4 +46,3 @@ public struct PriceConversion: Equatable, CodableModel {
         case price
     }
 }
-#endif

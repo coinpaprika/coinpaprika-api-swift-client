@@ -216,6 +216,8 @@ public struct Request<Model: Decodable>: Requestable {
     public static func defaultErrorParser() -> ErrorParser {
         return { (response, data) in
             switch response.statusCode {
+              case 402:
+                  return ResponseError.quotaExceeded(url: response.url)
               case 429:
                   return ResponseError.requestsLimitExceeded(url: response.url)
               case 400 ..< 500:

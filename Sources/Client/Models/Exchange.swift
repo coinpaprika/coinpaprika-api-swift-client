@@ -18,8 +18,10 @@ public struct Exchange: Equatable, CodableModel {
     /// Exchange name, eg. Binance
     public let name: String
     
-    /// Exchange description
-    public let description: String
+    /// Exchange description. Optional because the API returns `null` for
+    /// exchanges that don't have one yet (verified 2026-05-11: 61 of 1109
+    /// exchanges return null).
+    public let description: String?
     
     /// Is this exchange active
     public let active: Bool

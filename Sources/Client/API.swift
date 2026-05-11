@@ -327,7 +327,10 @@ public struct API {
     /// - Returns: Request to perform
     public static func coinLatestOhlcv(id: String, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
         validateCoinOhlcvQuote(quote)
-        return request(method: .get, path: "coins/\(id)/ohlcv/latest", params: ["query": quote.rawValue])
+        // /coins/{id}/ohlcv/latest is case-sensitive on `quote`: uppercase
+        // returns 400 invalid parameters. Other endpoints (`tickers?quotes=`,
+        // `ohlcv/historical?quote=`) accept both cases.
+        return request(method: .get, path: "coins/\(id)/ohlcv/latest", params: ["quote": quote.rawValue.lowercased()])
     }
 
     /// Historical Open/High/Low/Close values with volume and market_cap
@@ -434,7 +437,8 @@ public struct API {
     }
     
     private static func request<Model: Decodable>(method: Request<Model>.Method, path: String, params: Request<Model>.Params?) -> Request<Model> {
-        return Request<Model>(baseUrl: Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent)
+        let auth: Request<Model>.AuthorisationMethod = Configuration.apiKey.map { .bearer(token: $0) } ?? .none
+        return Request<Model>(baseUrl: Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent, authorisation: auth)
     }
        
     private static func compact(_ optional: [String: Any?]) -> [String: Any] {

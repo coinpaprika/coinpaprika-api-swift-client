@@ -4,12 +4,26 @@ on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: macOS-latest
-
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: Build
       run: swift build -v
     - name: Run tests
       run: swift test -v
+
+  integration-paid:
+    runs-on: macOS-latest
+    needs: build
+    if: github.event_name == 'push' && github.repository == 'coinpaprika/coinpaprika-api-swift-client'
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run tests with paid-tier API key
+      env:
+        COINPAPRIKA_API_KEY: ${{ secrets.COINPAPRIKA_API_KEY }}
+      run: |
+        if [ -z "$COINPAPRIKA_API_KEY" ]; then
+          echo "COINPAPRIKA_API_KEY secret not configured; skipping paid-tier tests."
+          exit 0
+        fi
+        swift test -v

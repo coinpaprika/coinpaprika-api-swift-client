@@ -70,7 +70,7 @@ extension Array: DecodableModel where Element: DecodableModel {
     public static var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy? {
         return Element.dateDecodingStrategy
     }
-    
+
     public static var decoder: JSONDecoder {
         return Element.decoder
     }
@@ -81,8 +81,15 @@ extension Array: EncodableModel where Element: EncodableModel {
     public static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy? {
         return Element.dateEncodingStrategy
     }
-    
+
     public static var encoder: JSONEncoder {
         return Element.encoder
     }
 }
+
+// Conformance for `String` so that endpoints returning a plain JSON
+// string array (eg. `/contracts` returns `["btc-bitcoin", "eos-eos", ...]`)
+// can use `Request<[String]>` and have `.value`/`.error` available on the
+// Result via the existing `Result where Success: DecodableModel` extension.
+extension String: DecodableModel {}
+extension String: EncodableModel {}

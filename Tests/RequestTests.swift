@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import Coinpaprika
-import CoinpaprikaNetworking
+@testable import CoinpaprikaNetworking
 import CoinpaprikaNetworkingMocks
 
 class RequestTests: XCTestCase {
@@ -581,6 +581,558 @@ class RequestTests: XCTestCase {
             url.contains("query="),
             "URL should not contain the legacy 'query=' typo, got: \(url)"
         )
+    }
+
+    // MARK: - Missing-endpoint coverage
+
+    func testKeyInfoDecoding() {
+        // Real response captured from api-pro.coinpaprika.com on 2026-05-07.
+        let json = """
+        {
+          "plan": "enterprise",
+          "plan_started_at": "2025-08-21T05:39:57Z",
+          "plan_status": "active",
+          "portal_url": "https://coinpaprika.com/api/panel",
+          "usage": {
+            "message": "unlimited plan",
+            "current_month": {
+              "requests_made": -1,
+              "requests_left": -1
+            }
+          }
+        }
+        """
+        let expectation = self.expectation(description: "Waiting for key info")
+        Coinpaprika.API.keyInfo().perform(session: JsonMock(json)) { (response) in
+            let info = response.value
+            XCTAssertEqual(info?.plan, "enterprise")
+            XCTAssertEqual(info?.planStatus, "active")
+            XCTAssertEqual(info?.portalUrl, URL(string: "https://coinpaprika.com/api/panel"))
+            XCTAssertNotNil(info?.planStartedAt, "ISO-8601 plan_started_at should decode to Date")
+            XCTAssertEqual(info?.usage?.message, "unlimited plan")
+            XCTAssertEqual(info?.usage?.currentMonth?.requestsMade, -1)
+            XCTAssertEqual(info?.usage?.currentMonth?.requestsLeft, -1)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+    }
+
+    func testKeyInfoLiveAgainstApiPro() throws {
+        try configurePaidTier()
+
+        let expectation = self.expectation(description: "Waiting for live key info")
+        Coinpaprika.API.keyInfo().perform { (response) in
+            let info = response.value
+            XCTAssertNotNil(info?.plan, "Live key info should report a plan name")
+            XCTAssertEqual(info?.planStatus, "active")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testCoinMappingsDecoding() {
+        // Real response captured from api-pro.coinpaprika.com on 2026-05-07,
+        // for ?coinpaprika=btc-bitcoin. Server uses empty strings for missing
+        // values, not null, so the decoder must normalize both to nil.
+        let json = """
+        {
+          "coinpaprika": "btc-bitcoin",
+          "coinmarketcap": "1",
+          "coingecko": "bitcoin",
+          "cryptocompare": "1",
+          "isin": "XTV15WLZJMF0",
+          "dti": "V15WLZJMF",
+          "updated_at": "2025-03-28T10:00:27Z"
+        }
+        """
+        let expectation = self.expectation(description: "Waiting for coin mappings")
+        Coinpaprika.API.coinMappings(by: .coinpaprika("btc-bitcoin")).perform(session: JsonMock(json)) { (response) in
+            let mapping = response.value
+            XCTAssertEqual(mapping?.coinpaprika, "btc-bitcoin")
+            XCTAssertEqual(mapping?.coingecko, "bitcoin")
+            XCTAssertEqual(mapping?.coinmarketcap, "1")
+            XCTAssertEqual(mapping?.isin, "XTV15WLZJMF0")
+            XCTAssertEqual(mapping?.dti, "V15WLZJMF")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+    }
+
+    func testCoinMappingsEmptyStringsBecomeNil() {
+        // Real response captured from api-pro.coinpaprika.com on 2026-05-07,
+        // for ?coinpaprika=cfn-cockfight-network-1 (a less-mapped coin). Server
+        // emits empty strings, not nulls.
+        let json = """
+        {
+          "coinpaprika": "cfn-cockfight-network-1",
+          "coinmarketcap": "33107",
+          "coingecko": "",
+          "cryptocompare": "",
+          "isin": "",
+          "dti": "",
+          "updated_at": "2025-10-27T16:35:29Z"
+        }
+        """
+        let expectation = self.expectation(description: "Waiting for coin mappings")
+        Coinpaprika.API.coinMappings(by: .coinpaprika("cfn-cockfight-network-1")).perform(session: JsonMock(json)) { (response) in
+            let mapping = response.value
+            XCTAssertEqual(mapping?.coinpaprika, "cfn-cockfight-network-1")
+            XCTAssertEqual(mapping?.coinmarketcap, "33107")
+            XCTAssertNil(mapping?.coingecko, "Empty string should decode to nil")
+            XCTAssertNil(mapping?.cryptocompare, "Empty string should decode to nil")
+            XCTAssertNil(mapping?.isin, "Empty string should decode to nil")
+            XCTAssertNil(mapping?.dti, "Empty string should decode to nil")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+    }
+
+    func testCoinMappingsSendsExactlyOneProviderParam() {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.coinMappings(by: .coingecko("bitcoin")).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(url.contains("coingecko=bitcoin"), "URL should contain coingecko=bitcoin, got: \(url)")
+        XCTAssertFalse(url.contains("coinpaprika="), "URL should not contain other providers, got: \(url)")
+        XCTAssertFalse(url.contains("isin="), "URL should not contain other providers, got: \(url)")
+        XCTAssertFalse(url.contains("dti="), "URL should not contain other providers, got: \(url)")
+    }
+
+    func testCoinMappingsLiveAgainstApiPro() throws {
+        try configurePaidTier()
+
+        let expectation = self.expectation(description: "Waiting for live coin mappings")
+        Coinpaprika.API.coinMappings(by: .coingecko("bitcoin")).perform { (response) in
+            let mapping = response.value
+            XCTAssertEqual(mapping?.coinpaprika, "btc-bitcoin")
+            XCTAssertEqual(mapping?.coingecko, "bitcoin")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testCoinTodayOhlcvRequest() {
+        let expectation = self.expectation(description: "Waiting for today ohlcv")
+        Coinpaprika.API.coinTodayOhlcv(id: bitcoinId).perform { (response) in
+            let ohlcv = response.value
+            XCTAssertNotNil(ohlcv?.first, "Today OHLCV should exist")
+            XCTAssertNotNil(ohlcv?.first?.open)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testContractPlatformsRequest() {
+        let expectation = self.expectation(description: "Waiting for contract platforms")
+        Coinpaprika.API.contractPlatforms().perform { (response) in
+            let platforms = response.value
+            XCTAssertFalse(platforms?.isEmpty ?? true, "Platform list should not be empty")
+            XCTAssertTrue(platforms?.contains("eth-ethereum") ?? false, "Platform list should contain eth-ethereum")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testContractsForPlatformRequest() {
+        let expectation = self.expectation(description: "Waiting for contracts list")
+        Coinpaprika.API.contracts(platformId: "eth-ethereum").perform { (response) in
+            let contracts = response.value
+            XCTAssertFalse(contracts?.isEmpty ?? true, "Contracts list should not be empty")
+            XCTAssertNotNil(contracts?.first?.address)
+            XCTAssertNotNil(contracts?.first?.id)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testTickerByContractRequest() {
+        let expectation = self.expectation(description: "Waiting for ticker by contract")
+        // USDT on Ethereum mainnet — stable, redirect target /tickers/usdt-tether.
+        Coinpaprika.API.tickerByContract(platformId: "eth-ethereum", address: "0xdac17f958d2ee523a2206206994597c13d831ec7").perform { (response) in
+            let ticker = response.value
+            XCTAssertEqual(ticker?.id, "usdt-tether")
+            XCTAssertEqual(ticker?.symbol, "USDT")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testTickerHistoryByContractRequest() throws {
+        try configurePaidTier()
+
+        let expectation = self.expectation(description: "Waiting for ticker history by contract")
+        Coinpaprika.API.tickerHistoryByContract(
+            platformId: "eth-ethereum",
+            address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            start: Date(timeIntervalSinceNow: -60*60*24),
+            limit: 5,
+            quote: .usd,
+            interval: .minutes30
+        ).perform { (response) in
+            let history = response.value
+            XCTAssert((history?.count ?? 0) > 0, "History should not be empty")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testChangelogIdsDecoding() {
+        // Real response captured from api-pro.coinpaprika.com on 2026-05-07.
+        let json = """
+        [
+          {"currency_id": "cfn-cockfight-network-1", "old_id": "cfn-cockfight-network-duplicate-1", "new_id": "cfn-cockfight-network-1", "changed_at": "2026-02-03T11:03:17Z"},
+          {"currency_id": "dhd-dhd-coin-1", "old_id": "dhd-dhd-coin-duplicate-2", "new_id": "dhd-dhd-coin-1", "changed_at": "2026-02-03T11:02:31Z"}
+        ]
+        """
+        let expectation = self.expectation(description: "Waiting for changelog ids")
+        Coinpaprika.API.changelogIds().perform(session: JsonMock(json)) { (response) in
+            let entries = response.value
+            XCTAssertEqual(entries?.count, 2)
+            XCTAssertEqual(entries?.first?.currencyId, "cfn-cockfight-network-1")
+            XCTAssertEqual(entries?.first?.oldId, "cfn-cockfight-network-duplicate-1")
+            XCTAssertEqual(entries?.last?.newId, "dhd-dhd-coin-1")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+    }
+
+    func testChangelogIdsLiveAgainstApiPro() throws {
+        try configurePaidTier()
+
+        let expectation = self.expectation(description: "Waiting for live changelog ids")
+        Coinpaprika.API.changelogIds().perform { (response) in
+            let entries = response.value
+            XCTAssertNotNil(entries)
+            XCTAssertFalse(entries?.isEmpty ?? true, "Changelog should have at least one entry")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testPriceConvertRequest() {
+        let expectation = self.expectation(description: "Waiting for price conversion")
+        Coinpaprika.API.priceConvert(baseCurrencyId: "btc-bitcoin", quoteCurrencyId: "usd-us-dollars").perform { (response) in
+            let conversion = response.value
+            XCTAssertEqual(conversion?.baseCurrencyId, "btc-bitcoin")
+            XCTAssertEqual(conversion?.quoteCurrencyId, "usd-us-dollars")
+            XCTAssert((conversion?.price ?? 0) > 0, "BTC price in USD should be greater than 0")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testPriceConvertDecoding() {
+        // Real response captured from api.coinpaprika.com on 2026-05-07.
+        let json = """
+        {
+          "base_currency_id": "btc-bitcoin",
+          "base_currency_name": "Bitcoin",
+          "base_price_last_updated": "2026-05-07T18:50:14Z",
+          "quote_currency_id": "usd-us-dollars",
+          "quote_currency_name": "US Dollars",
+          "quote_price_last_updated": "2026-05-07T18:51:26Z",
+          "amount": 1,
+          "price": 80081.90279659262
+        }
+        """
+        let expectation = self.expectation(description: "Waiting for price conversion decoding")
+        Coinpaprika.API.priceConvert(baseCurrencyId: "btc-bitcoin", quoteCurrencyId: "usd-us-dollars").perform(session: JsonMock(json)) { (response) in
+            let conversion = response.value
+            XCTAssertEqual(conversion?.baseCurrencyId, "btc-bitcoin")
+            XCTAssertEqual(conversion?.baseCurrencyName, "Bitcoin")
+            XCTAssertEqual(conversion?.quoteCurrencyId, "usd-us-dollars")
+            XCTAssertEqual(conversion?.quoteCurrencyName, "US Dollars")
+            XCTAssertEqual(conversion?.amount, 1)
+            XCTAssertEqual(conversion?.price, Decimal(string: "80081.90279659262"))
+            XCTAssertNotNil(conversion?.basePriceLastUpdated)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+    }
+
+    func testPriceConvertNonDefaultAmount() {
+        // Stub must decode cleanly as PriceConversion since the SDK calls
+        // assertionFailure on decoder errors in debug. Required fields:
+        // base_currency_id, base_currency_name, quote_currency_id,
+        // quote_currency_name, amount, price.
+        let stub = """
+        {
+          "base_currency_id": "btc-bitcoin",
+          "base_currency_name": "Bitcoin",
+          "quote_currency_id": "eth-ethereum",
+          "quote_currency_name": "Ethereum",
+          "amount": 2.5,
+          "price": 50
+        }
+        """
+        let capture = RequestCapturingSession(stubResponse: stub)
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.priceConvert(baseCurrencyId: "btc-bitcoin", quoteCurrencyId: "eth-ethereum", amount: 2.5).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(url.contains("amount=2.5"), "URL should contain amount=2.5, got: \(url)")
+        XCTAssertTrue(url.contains("base_currency_id=btc-bitcoin"), "URL should contain base id, got: \(url)")
+        XCTAssertTrue(url.contains("quote_currency_id=eth-ethereum"), "URL should contain quote id, got: \(url)")
+    }
+
+    func testTickerHistoryByContractRequestApiPro() throws {
+        try configurePaidTier()
+
+        // On api-pro the /contracts/{p}/{a}/historical endpoint responds with a 301
+        // whose Location uses http:// — CoinpaprikaSession rewrites it to https://
+        // so the call succeeds end-to-end.
+        let expectation = self.expectation(description: "Waiting for ticker history by contract on api-pro")
+        Coinpaprika.API.tickerHistoryByContract(
+            platformId: "eth-ethereum",
+            address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            start: Date(timeIntervalSinceNow: -60*60*24),
+            limit: 5,
+            quote: .usd,
+            interval: .hours1
+        ).perform { (response) in
+            let history = response.value
+            XCTAssertNotNil(history, "History should not be nil after redirect rewrite")
+            XCTAssert((history?.count ?? 0) > 0, "History should not be empty")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    func testTickerByContractRequestApiPro() throws {
+        try configurePaidTier()
+
+        // On api-pro the /contracts/{p}/{a} endpoint responds with a 301 whose
+        // Location uses http:// — CoinpaprikaSession rewrites it to https://.
+        let expectation = self.expectation(description: "Waiting for ticker by contract on api-pro")
+        Coinpaprika.API.tickerByContract(
+            platformId: "eth-ethereum",
+            address: "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ).perform { (response) in
+            let ticker = response.value
+            XCTAssertEqual(ticker?.id, "usdt-tether", "Redirect should resolve to usdt-tether")
+            XCTAssertEqual(ticker?.symbol, "USDT")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    // MARK: - Search modifier coverage
+
+    func testSearchSendsModifierParam() {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.search(query: "btc", categories: [.currencies], modifier: .symbolSearch, limit: 3).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(url.contains("modifier=symbol_search"), "URL should contain modifier=symbol_search, got: \(url)")
+    }
+
+    func testSearchOmitsModifierWhenNil() {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.search(query: "btc", categories: [.currencies], limit: 3).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertFalse(url.contains("modifier="), "URL should not contain modifier when nil, got: \(url)")
+    }
+
+    func testSearchModifierLive() {
+        let expectation = self.expectation(description: "Waiting for search results with modifier")
+        Coinpaprika.API.search(query: "btc", categories: [.currencies], modifier: .symbolSearch, limit: 5).perform { (response) in
+            let results = response.value
+            XCTAssertNotNil(results)
+            // symbol_search by "btc" should match coins whose symbol contains BTC.
+            let coins = results?.currencies
+            XCTAssertNotNil(coins)
+            XCTAssertFalse(coins?.isEmpty ?? true, "symbol_search for btc should return at least one currency")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 30)
+    }
+
+    // MARK: - Redirect rewriter coverage
+
+    func testRedirectRewriterUpgradesHttpToHttpsForCoinpaprikaHost() {
+        let rewriter = RedirectRewriter()
+        let httpRequest = URLRequest(url: URL(string: "http://api-pro.coinpaprika.com/v1/tickers/usdt-tether?contract=0x1234")!)
+        let rewritten = rewriter.rewrite(httpRequest)
+        XCTAssertEqual(rewritten.url?.scheme, "https", "Scheme should be upgraded to https")
+        XCTAssertEqual(rewritten.url?.host, "api-pro.coinpaprika.com", "Host should be preserved")
+        XCTAssertEqual(rewritten.url?.path, "/v1/tickers/usdt-tether", "Path should be preserved")
+        XCTAssertEqual(rewritten.url?.query, "contract=0x1234", "Query should be preserved")
+    }
+
+    func testRedirectRewriterLeavesHttpsRequestUnchanged() {
+        let rewriter = RedirectRewriter()
+        let httpsRequest = URLRequest(url: URL(string: "https://api.coinpaprika.com/v1/global")!)
+        let rewritten = rewriter.rewrite(httpsRequest)
+        XCTAssertEqual(rewritten.url, httpsRequest.url, "Already-https request should be unchanged")
+    }
+
+    func testRedirectRewriterLeavesNonCoinpaprikaHostUnchanged() {
+        let rewriter = RedirectRewriter()
+        let httpRequest = URLRequest(url: URL(string: "http://example.com/redirect-target")!)
+        let rewritten = rewriter.rewrite(httpRequest)
+        XCTAssertEqual(rewritten.url?.scheme, "http", "Non-coinpaprika hosts should not be rewritten")
+        XCTAssertEqual(rewritten.url?.host, "example.com")
+    }
+
+    func testRedirectRewriterRecognizesSubdomains() {
+        let rewriter = RedirectRewriter()
+        let httpRequest = URLRequest(url: URL(string: "http://api.coinpaprika.com/v1/tickers/btc-bitcoin")!)
+        let rewritten = rewriter.rewrite(httpRequest)
+        XCTAssertEqual(rewritten.url?.scheme, "https", "api.coinpaprika.com should be rewritten")
+    }
+
+    func testRedirectRewriterCaseInsensitiveHost() {
+        let rewriter = RedirectRewriter()
+        let httpRequest = URLRequest(url: URL(string: "http://API-PRO.Coinpaprika.com/v1/key/info")!)
+        let rewritten = rewriter.rewrite(httpRequest)
+        XCTAssertEqual(rewritten.url?.scheme, "https", "Host match should be case-insensitive")
+    }
+
+    func testRedirectRewriterReattachesAuthorizationFromOriginalRequest() {
+        // CFNetwork strips Authorization on cross-redirect; the rewriter must
+        // re-attach it from the original request when the target is a
+        // coinpaprika host. Without this, api-pro returns 403 Cloudflare WAF
+        // on the followed redirect.
+        let rewriter = RedirectRewriter()
+        var original = URLRequest(url: URL(string: "https://api-pro.coinpaprika.com/v1/contracts/eth-ethereum/0xUSDT")!)
+        original.setValue("test-key-abc123", forHTTPHeaderField: "Authorization")
+        original.setValue("application/json", forHTTPHeaderField: "Accept")
+        original.setValue("Coinpaprika API Client - Swift", forHTTPHeaderField: "User-Agent")
+
+        // The redirected request as URLSession sees it after CFNetwork strips
+        // sensitive headers and substitutes Accept.
+        let stripped = URLRequest(url: URL(string: "https://api-pro.coinpaprika.com/v1/tickers/usdt-tether?contract=0xUSDT")!)
+
+        let rewritten = rewriter.rewrite(stripped, originalRequest: original)
+
+        XCTAssertEqual(rewritten.value(forHTTPHeaderField: "Authorization"), "test-key-abc123")
+        XCTAssertEqual(rewritten.value(forHTTPHeaderField: "Accept"), "application/json")
+        XCTAssertEqual(rewritten.value(forHTTPHeaderField: "User-Agent"), "Coinpaprika API Client - Swift")
+    }
+
+    func testRedirectRewriterDoesNotOverwriteExistingHeaders() {
+        let rewriter = RedirectRewriter()
+        var original = URLRequest(url: URL(string: "https://api-pro.coinpaprika.com/v1/x")!)
+        original.setValue("original-key", forHTTPHeaderField: "Authorization")
+
+        var redirected = URLRequest(url: URL(string: "https://api-pro.coinpaprika.com/v1/y")!)
+        redirected.setValue("explicit-different-key", forHTTPHeaderField: "Authorization")
+
+        let rewritten = rewriter.rewrite(redirected, originalRequest: original)
+        XCTAssertEqual(
+            rewritten.value(forHTTPHeaderField: "Authorization"),
+            "explicit-different-key",
+            "Existing header on the redirected request must not be overwritten"
+        )
+    }
+
+    func testRedirectRewriterDoesNotAddAuthorizationOnNonCoinpaprikaHost() {
+        let rewriter = RedirectRewriter()
+        var original = URLRequest(url: URL(string: "https://api.coinpaprika.com/v1/x")!)
+        original.setValue("test-key-abc123", forHTTPHeaderField: "Authorization")
+
+        let externalRedirect = URLRequest(url: URL(string: "https://example.com/anywhere")!)
+
+        let rewritten = rewriter.rewrite(externalRedirect, originalRequest: original)
+        XCTAssertNil(
+            rewritten.value(forHTTPHeaderField: "Authorization"),
+            "Authorization must not leak to redirects pointing outside coinpaprika.com"
+        )
+    }
+
+    func testRedirectRewriterRejectsHostnameSuffixAttack() {
+        let rewriter = RedirectRewriter()
+        let attack = URLRequest(url: URL(string: "http://coinpaprika.com.evil.example.com/x")!)
+        let rewritten = rewriter.rewrite(attack)
+        XCTAssertEqual(
+            rewritten.url?.scheme,
+            "http",
+            "Suffix attack (coinpaprika.com.evil.example.com) must not match"
+        )
+        XCTAssertEqual(rewritten.url?.host, "coinpaprika.com.evil.example.com")
+    }
+
+    // MARK: - Lowercase quote guardrails for ohlcv endpoints
+
+    func testCoinTodayOhlcvSendsLowercaseQuote() {
+        let capture = RequestCapturingSession(stubResponse: "[]")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.coinTodayOhlcv(id: bitcoinId, quote: .btc).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(url.contains("quote=btc"), "URL should contain quote=btc, got: \(url)")
+        XCTAssertFalse(url.contains("quote=BTC"), "Quote value must be lowercased, got: \(url)")
+    }
+
+    func testCoinHistoricalOhlcvSendsLowercaseQuote() {
+        let capture = RequestCapturingSession(stubResponse: "[]")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.coinHistoricalOhlcv(id: bitcoinId, start: Date(timeIntervalSinceNow: -3600), quote: .btc).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(url.contains("quote=btc"), "URL should contain quote=btc, got: \(url)")
+        XCTAssertFalse(url.contains("quote=BTC"), "Quote value must be lowercased, got: \(url)")
+    }
+
+    // MARK: - MappingProvider full case coverage
+
+    func testMappingProviderQueryItemAllCases() {
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coinpaprika("btc-bitcoin").queryItem.name, "coinpaprika")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coinpaprika("btc-bitcoin").queryItem.value, "btc-bitcoin")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coinmarketcap("1").queryItem.name, "coinmarketcap")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coinmarketcap("1").queryItem.value, "1")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.coingecko("bitcoin").queryItem.name, "coingecko")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.cryptocompare("1").queryItem.name, "cryptocompare")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.isin("XTV15WLZJMF0").queryItem.name, "isin")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.isin("XTV15WLZJMF0").queryItem.value, "XTV15WLZJMF0")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.dti("V15WLZJMF").queryItem.name, "dti")
+        XCTAssertEqual(Coinpaprika.API.MappingProvider.dti("V15WLZJMF").queryItem.value, "V15WLZJMF")
+    }
+
+    func testChangelogIdsSendsPageParamWhenProvided() {
+        let capture = RequestCapturingSession(stubResponse: "[]")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.changelogIds(page: 3).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertTrue(url.contains("page=3"), "URL should contain page=3, got: \(url)")
+    }
+
+    func testChangelogIdsOmitsPageParamWhenNil() {
+        let capture = RequestCapturingSession(stubResponse: "[]")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.changelogIds().perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let url = capture.capturedRequest?.url?.absoluteString ?? ""
+        XCTAssertFalse(url.contains("page="), "URL should not contain page when nil, got: \(url)")
     }
 }
 

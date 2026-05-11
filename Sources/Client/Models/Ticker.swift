@@ -42,7 +42,7 @@ public struct Ticker: Equatable, CodableModel, CoinType {
     /// Returns `nil` if `circulatingSupply` is missing (free tier) or
     /// `maxSupply` is zero.
     public var circulatingSupplyPercent: Decimal? {
-        guard let circulatingSupply = circulatingSupply, maxSupply != 0 else {
+        guard let circulatingSupply, maxSupply != 0 else {
             return nil
         }
 

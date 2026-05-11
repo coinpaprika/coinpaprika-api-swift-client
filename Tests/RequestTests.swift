@@ -1134,6 +1134,44 @@ class RequestTests: XCTestCase {
         let url = capture.capturedRequest?.url?.absoluteString ?? ""
         XCTAssertFalse(url.contains("page="), "URL should not contain page when nil, got: \(url)")
     }
+
+    // MARK: - Exchange.description optional regression guard
+
+    func testExchangeDecodesWithNullDescription() {
+        // Real api.coinpaprika.com behaviour as of 2026-05-11: 61 of 1109
+        // exchanges return null for description. Exchange.description must
+        // be optional so the array decode does not fail on any single
+        // null-description entry.
+        let json = """
+        {
+          "id": "test-exchange",
+          "name": "Test Exchange",
+          "description": null,
+          "active": true,
+          "website_status": true,
+          "api_status": true,
+          "message": null,
+          "links": null,
+          "markets_data_fetched": false,
+          "adjusted_rank": null,
+          "reported_rank": null,
+          "currencies": 0,
+          "markets": 0,
+          "fiats": [],
+          "last_updated": "2026-05-11T12:00:00Z",
+          "quotes": {}
+        }
+        """
+        let expectation = self.expectation(description: "Waiting for exchange decode")
+        Coinpaprika.API.exchange(id: "test-exchange").perform(session: JsonMock(json)) { (response) in
+            let exchange = response.value
+            XCTAssertNotNil(exchange, "Exchange with null description should decode")
+            XCTAssertNil(exchange?.description, "null description should decode to nil")
+            XCTAssertEqual(exchange?.id, "test-exchange")
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+    }
 }
 
 /// Captures the outgoing URLRequest for header/query-string assertions

@@ -607,7 +607,8 @@ class RequestTests: XCTestCase {
             let info = response.value
             XCTAssertEqual(info?.plan, "enterprise")
             XCTAssertEqual(info?.planStatus, "active")
-            XCTAssertEqual(info?.portalUrl, "https://coinpaprika.com/api/panel")
+            XCTAssertEqual(info?.portalUrl, URL(string: "https://coinpaprika.com/api/panel"))
+            XCTAssertNotNil(info?.planStartedAt, "ISO-8601 plan_started_at should decode to Date")
             XCTAssertEqual(info?.usage?.message, "unlimited plan")
             XCTAssertEqual(info?.usage?.currentMonth?.requestsMade, -1)
             XCTAssertEqual(info?.usage?.currentMonth?.requestsLeft, -1)

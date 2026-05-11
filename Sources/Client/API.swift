@@ -258,7 +258,7 @@ public struct API {
     private static func validateTickerHistoryLimit(_ limit: Int) {
         let min = 1
         let max = 5000
-        assert(min >= min && max <= max, "Limit should be between \(min) and \(max).")
+        assert(limit >= min && limit <= max, "Limit should be between \(min) and \(max).")
     }
     
     /// Intervals for historical data endpoint
@@ -340,7 +340,7 @@ public struct API {
     private static func validateCoinOhlcvLimit(_ limit: Int) {
         let min = 1
         let max = 366
-        assert(min >= min && max <= max, "Limit should be between \(min) and \(max).")
+        assert(limit >= min && limit <= max, "Limit should be between \(min) and \(max).")
     }
     
     /// Latest Open/High/Low/Close values with volume and market_cap

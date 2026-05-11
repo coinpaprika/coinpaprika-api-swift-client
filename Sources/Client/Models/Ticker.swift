@@ -26,21 +26,26 @@ public struct Ticker: Equatable, CodableModel, CoinType {
     /// Coin position in Coinpaprika ranking
     public let rank: Int
     
-    /// Coins circulating on the market
-    public let circulatingSupply: Decimal
-    
+    /// Coins circulating on the market.
+    ///
+    /// Optional because the free-tier `/tickers` and `/tickers/{id}` endpoints
+    /// omit this field. It is populated only on paid plans (Starter and above).
+    public let circulatingSupply: Decimal?
+
     /// Total number of coins
     public let totalSupply: Decimal
-    
+
     /// Maximum number of coins that could exist
     public let maxSupply: Decimal
-    
-    /// Circulating Supply / Max Supply Rate
+
+    /// Circulating Supply / Max Supply Rate.
+    /// Returns `nil` if `circulatingSupply` is missing (free tier) or
+    /// `maxSupply` is zero.
     public var circulatingSupplyPercent: Decimal? {
-        guard maxSupply != 0 else {
+        guard let circulatingSupply, maxSupply != 0 else {
             return nil
         }
-        
+
         return circulatingSupply/maxSupply
     }
     

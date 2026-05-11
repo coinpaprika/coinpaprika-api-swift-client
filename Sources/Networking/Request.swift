@@ -157,7 +157,7 @@ public struct Request<Model: Decodable>: Requestable {
             let encoded = "\(login):\(password)".data(using: .ascii)!.base64EncodedString()
             request.addValue("Basic \(encoded)", forHTTPHeaderField: "Authorization")
         case .bearer(let token):
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorisation")
+            request.addValue(token, forHTTPHeaderField: "Authorization")
         case .custom(let headers):
             headers.forEach { (header) in
                 request.addValue(header.value, forHTTPHeaderField: header.key)

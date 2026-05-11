@@ -177,9 +177,7 @@ public struct API {
             "c": categories.asCommaJoinedList,
             "limit": "\(limit)"
         ]
-        if let modifier = modifier {
-            params["modifier"] = modifier.rawValue
-        }
+        params["modifier"] = modifier?.rawValue
         return request(method: .get, path: "search", params: params)
     }
     
@@ -575,9 +573,7 @@ public struct API {
     /// - Returns: Request to perform
     public static func changelogIds(page: Int? = nil) -> Request<[ChangelogEntry]> {
         var params: [String: Any] = [:]
-        if let page = page {
-            params["page"] = page
-        }
+        params["page"] = page
         return request(method: .get, path: "changelog/ids", params: params.isEmpty ? nil : params)
     }
 

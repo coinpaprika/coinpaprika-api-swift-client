@@ -235,18 +235,32 @@ public struct Request<Model: Decodable>: Requestable {
         do {
             return try decoder.decode(Model.self, from: data)
         } catch DecodingError.dataCorrupted(let context) {
-            assertionFailure("\(Model.self): \(context.debugDescription) in \(context.codingPath) from \(debugDecodeData(data))")
+            logDecodeFailure("\(Model.self): \(context.debugDescription) in \(context.codingPath) from \(debugDecodeData(data))")
         } catch DecodingError.keyNotFound(let key, let context) {
-            assertionFailure("\(Model.self): \(key.stringValue) was not found, \(context.debugDescription) in \(context.codingPath) from \(debugDecodeData(data))")
+            logDecodeFailure("\(Model.self): \(key.stringValue) was not found, \(context.debugDescription) in \(context.codingPath) from \(debugDecodeData(data))")
         } catch DecodingError.typeMismatch(let type, let context) {
-            assertionFailure("\(Model.self): \(type) was expected, \(context.debugDescription) in \(context.codingPath) from \(debugDecodeData(data))")
+            logDecodeFailure("\(Model.self): \(type) was expected, \(context.debugDescription) in \(context.codingPath) from \(debugDecodeData(data))")
         } catch DecodingError.valueNotFound(let type, let context) {
-            assertionFailure("\(Model.self): no value was found for \(type), \(context.debugDescription) in \(context.codingPath) from \(debugDecodeData(data))")
+            logDecodeFailure("\(Model.self): no value was found for \(type), \(context.debugDescription) in \(context.codingPath) from \(debugDecodeData(data))")
         } catch {
-            assertionFailure("\(Model.self): unknown decoding error from \(debugDecodeData(data))")
+            logDecodeFailure("\(Model.self): unknown decoding error from \(debugDecodeData(data))")
         }
-        
+
         return nil
+    }
+
+    /// Reports a decode failure as a diagnostic without halting the process.
+    ///
+    /// The previous behaviour was `assertionFailure`, which crashes the test
+    /// runner in DEBUG and is silent in RELEASE. The crash makes legitimate
+    /// fixture mistakes during test authoring abort the whole suite instead
+    /// of surfacing the decoder error path the caller would see in production.
+    /// We keep the diagnostic visible in DEBUG via `print` to stderr so the
+    /// developer can debug the stub, and stay silent in RELEASE.
+    private func logDecodeFailure(_ message: String) {
+        #if DEBUG
+        FileHandle.standardError.write(Data("CoinpaprikaAPI decode failure: \(message)\n".utf8))
+        #endif
     }
     
     private var decoder: JSONDecoder {

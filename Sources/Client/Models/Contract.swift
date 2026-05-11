@@ -6,7 +6,6 @@
 import Foundation
 #if canImport(CoinpaprikaNetworking)
 import CoinpaprikaNetworking
-#endif
 
 /// Smart-contract address mapped to a coin id (returned by `/contracts/{platform_id}`).
 public struct Contract: Equatable, CodableModel {
@@ -30,3 +29,4 @@ public struct Contract: Equatable, CodableModel {
         case active
     }
 }
+#endif

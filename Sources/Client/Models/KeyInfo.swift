@@ -6,7 +6,6 @@
 import Foundation
 #if canImport(CoinpaprikaNetworking)
 import CoinpaprikaNetworking
-#endif
 
 /// API key information returned by `/key/info` (paid plans).
 public struct KeyInfo: Equatable, CodableModel {
@@ -14,14 +13,14 @@ public struct KeyInfo: Equatable, CodableModel {
     /// Name of the API plan, eg. `pro`, `business`, `enterprise`.
     public let plan: String?
 
-    /// Date the plan started, RFC3999 (ISO-8601) format.
-    public let planStartedAt: String?
+    /// Date the plan started (RFC3339 / ISO-8601 in the wire format).
+    public let planStartedAt: Date?
 
     /// Plan status: `active`, `past_due`, or `inactive`.
     public let planStatus: String?
 
     /// API customer portal URL.
-    public let portalUrl: String?
+    public let portalUrl: URL?
 
     /// Monthly usage information.
     public let usage: Usage?
@@ -62,3 +61,4 @@ public struct KeyInfo: Equatable, CodableModel {
         case usage
     }
 }
+#endif

@@ -6,7 +6,6 @@
 import Foundation
 #if canImport(CoinpaprikaNetworking)
 import CoinpaprikaNetworking
-#endif
 
 /// ID mapping between Coinpaprika and other providers (returned by `/coins/mappings`, paid plans).
 ///
@@ -57,10 +56,10 @@ public struct CoinMapping: Equatable, CodableModel {
     }
 
     private static func decodeNonEmpty(_ container: KeyedDecodingContainer<CodingKeys>, forKey key: CodingKeys) throws -> String? {
-        let value = try container.decodeIfPresent(String.self, forKey: key)
-        if let value = value, !value.isEmpty {
+        if let value = try container.decodeIfPresent(String.self, forKey: key), !value.isEmpty {
             return value
         }
         return nil
     }
 }
+#endif

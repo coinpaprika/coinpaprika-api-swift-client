@@ -77,7 +77,7 @@ Coinpaprika.API.tickers(quotes: [.usd, .btc]).perform { (response) in
 ```swift
 import Coinpaprika
 
-Coinpaprika.API.ticker(id: "bitcoin-btc", quotes: [.usd, .btc]).perform { (response) in
+Coinpaprika.API.ticker(id: "btc-bitcoin", quotes: [.usd, .btc]).perform { (response) in
   switch response {
     case .success(let ticker):
     // Successfully downloaded Ticker

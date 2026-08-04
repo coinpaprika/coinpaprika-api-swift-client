@@ -23,8 +23,8 @@ Pod::Spec.new do |s|
 
   Our main features include:
   * Full market data from the world of crypto: coin prices, volumes, market caps, ATHs, return rates and more.
-  * Most Common Cryptocurrencies like – Bitcoin, Ethereum, Bitcoin Cash, Ripple, Litecoin, EOS, Cardano Monero Dash, etc.
-  * 1500+ cryptocurrencies & tokens available – every coin you can find on coinpaprika is available in API.
+  * Most Common Cryptocurrencies like Bitcoin, Ethereum, Bitcoin Cash, Ripple, Litecoin, EOS, Cardano Monero Dash, etc.
+  * 12,000+ cryptocurrencies and 350+ exchanges available: every coin you can find on coinpaprika is available in API.
                        DESC
 
   s.homepage         = 'https://github.com/coinpaprika/coinpaprika-api-swift-client'

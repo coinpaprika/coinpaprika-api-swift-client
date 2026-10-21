@@ -1188,63 +1188,56 @@ class RequestTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
 
-    // MARK: - Path id encoding regression guard
+    // MARK: - Path id validation regression guard
     //
-    // Ids keep "/" and ".." in the request path because appendingPathComponent
-    // encodes "?", "#" and "%" but leaves those untouched. These tests prove
-    // that encodedPathID keeps a bad id inside the single segment the calling
-    // endpoint method intends, by inspecting the exact path CoinpaprikaSession
-    // would have sent (no network: RequestCapturingSession only records it).
+    // An id is placed in the request path as one segment. These tests prove a
+    // bad id fails the request with unableToCreateRequest before anything is
+    // sent (RequestCapturingSession records what would have gone out), and an
+    // ordinary id is unaffected.
 
-    func testCoinRequestEncodesDotDotIdAsInertSegment() {
+    private func assertRefused<Model: Decodable>(_ request: Request<Model>, file: StaticString = #file, line: UInt = #line) {
         let capture = RequestCapturingSession(stubResponse: "{}")
-        let expectation = self.expectation(description: "Waiting for request capture")
-        Coinpaprika.API.coin(id: "..").perform(session: capture) { _ in
+        let expectation = self.expectation(description: "Waiting for refusal")
+        var result: Result<Model, Error>?
+        request.perform(session: capture) { response in
+            result = response
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5)
 
-        let path = capture.capturedRequest?.url?.path ?? ""
-        XCTAssertEqual(path, "/v1/coins/%2E%2E", "a whole \"..\" id must not become a real dot segment")
-        XCTAssertFalse(path.contains("/coins/.."), "the literal dot segment must never reach the request")
+        XCTAssertNil(capture.capturedRequest, "a refused id must not send a request", file: file, line: line)
+        guard case .failure(let error)? = result else {
+            return XCTFail("expected a failure", file: file, line: line)
+        }
+        guard case RequestError.unableToCreateRequest = error else {
+            return XCTFail("expected unableToCreateRequest, got \(error)", file: file, line: line)
+        }
     }
 
-    func testCoinEventsRequestEncodesTraversalIdAsInertSegment() {
-        let capture = RequestCapturingSession(stubResponse: "{}")
-        let expectation = self.expectation(description: "Waiting for request capture")
-        Coinpaprika.API.coinEvents(id: "../key/info").perform(session: capture) { _ in
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 5)
-
-        let path = capture.capturedRequest?.url?.path ?? ""
-        XCTAssertEqual(path, "/v1/coins/..%2Fkey%2Finfo/events")
-        XCTAssertTrue(path.hasPrefix("/v1/coins/"), "the request must stay under /coins")
-        XCTAssertFalse(path.contains("/key/info"), "the id must not add a real /key/info path segment")
+    func testCoinRequestRefusesDotSegmentIds() {
+        assertRefused(Coinpaprika.API.coin(id: ".."))
+        assertRefused(Coinpaprika.API.coin(id: "."))
+        assertRefused(Coinpaprika.API.coin(id: ""))
     }
 
-    func testPersonRequestEncodesSlashIdAsOneSegment() {
-        let capture = RequestCapturingSession(stubResponse: "{}")
-        let expectation = self.expectation(description: "Waiting for request capture")
-        Coinpaprika.API.person(id: "a/b").perform(session: capture) { _ in
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 5)
-
-        let path = capture.capturedRequest?.url?.path ?? ""
-        XCTAssertEqual(path, "/v1/people/a%2Fb", "a \"/\" in the id must not add a path segment")
+    func testCoinEventsRequestRefusesTraversalIds() {
+        assertRefused(Coinpaprika.API.coinEvents(id: "../key/info"))
+        assertRefused(Coinpaprika.API.coinEvents(id: "..%2Fkey%2Finfo"))
+        assertRefused(Coinpaprika.API.coinEvents(id: "%2e%2e"))
+        assertRefused(Coinpaprika.API.coinEvents(id: "..\\x"))
     }
 
-    func testTickerByContractRequestEncodesBothIds() {
-        let capture = RequestCapturingSession(stubResponse: "{}")
-        let expectation = self.expectation(description: "Waiting for request capture")
-        Coinpaprika.API.tickerByContract(platformId: "..", address: "..").perform(session: capture) { _ in
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 5)
+    func testPersonRequestRefusesSeparatorsAndQueryCharacters() {
+        assertRefused(Coinpaprika.API.person(id: "a/b"))
+        assertRefused(Coinpaprika.API.person(id: "x?y=1"))
+        assertRefused(Coinpaprika.API.person(id: "x#y"))
+        assertRefused(Coinpaprika.API.person(id: "a b"))
+        assertRefused(Coinpaprika.API.person(id: "a\nb"))
+    }
 
-        let path = capture.capturedRequest?.url?.path ?? ""
-        XCTAssertEqual(path, "/v1/contracts/%2E%2E/%2E%2E", "both ids must be encoded, not only the first")
+    func testTickerByContractRequestChecksBothIds() {
+        assertRefused(Coinpaprika.API.tickerByContract(platformId: "eth-ethereum", address: ".."))
+        assertRefused(Coinpaprika.API.tickerByContract(platformId: "..", address: "0xdac17f958d2ee523a2206206994597c13d831ec7"))
     }
 
     func testCoinRequestLeavesOrdinaryIdUnchanged() {
@@ -1259,13 +1252,13 @@ class RequestTests: XCTestCase {
         XCTAssertEqual(path, "/v1/coins/btc-bitcoin", "an ordinary id must be unaffected")
     }
 
-    func testEncodedPathIDUnitCases() {
-        XCTAssertEqual(encodedPathID("btc-bitcoin"), "btc-bitcoin")
-        XCTAssertEqual(encodedPathID("."), "%2E")
-        XCTAssertEqual(encodedPathID(".."), "%2E%2E")
-        XCTAssertEqual(encodedPathID("a/b"), "a%2Fb")
-        XCTAssertEqual(encodedPathID("../key/info"), "..%2Fkey%2Finfo")
-        XCTAssertFalse(encodedPathID("..").isEmpty)
+    func testIsSafePathIDUnitCases() {
+        XCTAssertTrue(isSafePathID("btc-bitcoin"))
+        XCTAssertTrue(isSafePathID("0xdac17f958d2ee523a2206206994597c13d831ec7"))
+        XCTAssertTrue(isSafePathID("a..b"))
+        for bad in ["", ".", "..", "%2E", "%2e%2e", "a/b", "..%2Fx", "a\\b", "x?y", "x#y", "%25", "a b", "a\tb", "%", "\u{FF0E}\u{FF0E}", "a\u{2215}b", "a\u{FF0F}b", "\u{2024}\u{2024}"] {
+            XCTAssertFalse(isSafePathID(bad), "\(bad) must be refused")
+        }
     }
 }
 

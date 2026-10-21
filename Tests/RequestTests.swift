@@ -1187,6 +1187,86 @@ class RequestTests: XCTestCase {
         }
         waitForExpectations(timeout: 5)
     }
+
+    // MARK: - Path id encoding regression guard
+    //
+    // Ids keep "/" and ".." in the request path because appendingPathComponent
+    // encodes "?", "#" and "%" but leaves those untouched. These tests prove
+    // that encodedPathID keeps a bad id inside the single segment the calling
+    // endpoint method intends, by inspecting the exact path CoinpaprikaSession
+    // would have sent (no network: RequestCapturingSession only records it).
+
+    func testCoinRequestEncodesDotDotIdAsInertSegment() {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.coin(id: "..").perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let path = capture.capturedRequest?.url?.path ?? ""
+        XCTAssertEqual(path, "/v1/coins/%2E%2E", "a whole \"..\" id must not become a real dot segment")
+        XCTAssertFalse(path.contains("/coins/.."), "the literal dot segment must never reach the request")
+    }
+
+    func testCoinEventsRequestEncodesTraversalIdAsInertSegment() {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.coinEvents(id: "../key/info").perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let path = capture.capturedRequest?.url?.path ?? ""
+        XCTAssertEqual(path, "/v1/coins/..%2Fkey%2Finfo/events")
+        XCTAssertTrue(path.hasPrefix("/v1/coins/"), "the request must stay under /coins")
+        XCTAssertFalse(path.contains("/key/info"), "the id must not add a real /key/info path segment")
+    }
+
+    func testPersonRequestEncodesSlashIdAsOneSegment() {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.person(id: "a/b").perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let path = capture.capturedRequest?.url?.path ?? ""
+        XCTAssertEqual(path, "/v1/people/a%2Fb", "a \"/\" in the id must not add a path segment")
+    }
+
+    func testTickerByContractRequestEncodesBothIds() {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.tickerByContract(platformId: "..", address: "..").perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let path = capture.capturedRequest?.url?.path ?? ""
+        XCTAssertEqual(path, "/v1/contracts/%2E%2E/%2E%2E", "both ids must be encoded, not only the first")
+    }
+
+    func testCoinRequestLeavesOrdinaryIdUnchanged() {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.coin(id: bitcoinId).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let path = capture.capturedRequest?.url?.path ?? ""
+        XCTAssertEqual(path, "/v1/coins/btc-bitcoin", "an ordinary id must be unaffected")
+    }
+
+    func testEncodedPathIDUnitCases() {
+        XCTAssertEqual(encodedPathID("btc-bitcoin"), "btc-bitcoin")
+        XCTAssertEqual(encodedPathID("."), "%2E")
+        XCTAssertEqual(encodedPathID(".."), "%2E%2E")
+        XCTAssertEqual(encodedPathID("a/b"), "a%2Fb")
+        XCTAssertEqual(encodedPathID("../key/info"), "..%2Fkey%2Finfo")
+        XCTAssertFalse(encodedPathID("..").isEmpty)
+    }
 }
 
 /// Captures the outgoing URLRequest for header/query-string assertions

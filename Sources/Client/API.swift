@@ -45,7 +45,7 @@ public struct API {
     /// - Parameter id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
     public static func coin(id: String) -> Request<CoinExtended> {
-        return request(method: .get, path: "coins/\(id)", params: nil)
+        return request(method: .get, path: "coins/\(id)", ids: [id], params: nil)
     }
     
     /// Get a list of exchanges where coin is listed
@@ -53,7 +53,7 @@ public struct API {
     /// - Parameter id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
     public static func coinExchanges(id: String) -> Request<[CoinExchange]> {
-        return request(method: .get, path: "coins/\(id)/exchanges", params: nil)
+        return request(method: .get, path: "coins/\(id)/exchanges", ids: [id], params: nil)
     }
     
     /// Get a list of markets where coin is available
@@ -63,7 +63,7 @@ public struct API {
     ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func coinMarkets(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<[CoinMarket]> {
-        return request(method: .get, path: "coins/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "coins/\(id)/markets", ids: [id], params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Get a list of events related to this coin
@@ -72,7 +72,7 @@ public struct API {
     ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
     public static func coinEvents(id: String) -> Request<[Event]> {
-        return request(method: .get, path: "coins/\(id)/events", params: nil)
+        return request(method: .get, path: "coins/\(id)/events", ids: [id], params: nil)
     }
     
     public static func createEvent(coinId: String, date: String, dateTo: String?, name: String, description: String?, isConference: Bool, link: URL, proofImageLink: URL?) -> Request<StatusResponse>  {
@@ -95,7 +95,7 @@ public struct API {
             params["proof_image_link"] = proofImageLink.absoluteString
         }
         
-        return request(method: .post, path: "coins/\(coinId)/events", params: params)
+        return request(method: .post, path: "coins/\(coinId)/events", ids: [coinId], params: params)
     }
 
     
@@ -105,7 +105,7 @@ public struct API {
     ///   - id: ID of coin to return e.g. btc-bitcoin, eth-ethereum
     /// - Returns: Request to perform
     public static func coinTweets(id: String) -> Request<[Tweet]> {
-        return request(method: .get, path: "coins/\(id)/twitter", params: nil)
+        return request(method: .get, path: "coins/\(id)/twitter", ids: [id], params: nil)
     }
     
     /// Get ticker information for all coins
@@ -126,7 +126,7 @@ public struct API {
     ///    - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func ticker(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Ticker> {
-        return request(method: .get, path: "tickers/\(id)", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "tickers/\(id)", ids: [id], params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Search results scope
@@ -203,7 +203,7 @@ public struct API {
     ///   - additionalFields: list of additional fields that should be included in response, default: empty - see TagsAdditionalFields for available options
     /// - Returns: Request to perform
     public static func tag(id: String, additionalFields: [TagsAdditionalFields] = []) -> Request<Tag> {
-        return request(method: .get, path: "tags/\(id)", params: ["additional_fields": additionalFields.asCommaJoinedList])
+        return request(method: .get, path: "tags/\(id)", ids: [id], params: ["additional_fields": additionalFields.asCommaJoinedList])
     }
     
     /// Exchanges list
@@ -220,7 +220,7 @@ public struct API {
     ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func exchange(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Exchange> {
-        return request(method: .get, path: "exchanges/\(id)", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "exchanges/\(id)", ids: [id], params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Exchange markets
@@ -230,7 +230,7 @@ public struct API {
     ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func exchangeMarkets(id: String, quotes: [QuoteCurrency] = [.usd]) -> Request<[Market]> {
-        return request(method: .get, path: "exchanges/\(id)/markets", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "exchanges/\(id)/markets", ids: [id], params: ["quotes": quotes.asCommaJoinedList])
     }
     
     /// Person details
@@ -238,7 +238,7 @@ public struct API {
     /// - Parameter id: person id eg. satoshi-nakamoto
     /// - Returns: Request to perform
     public static func person(id: String) -> Request<Person> {
-        return request(method: .get, path: "people/\(id)", params: nil)
+        return request(method: .get, path: "people/\(id)", ids: [id], params: nil)
     }
     
     /// Get a list of tweets related to this person
@@ -247,7 +247,7 @@ public struct API {
     ///   -  id: person id eg. satoshi-nakamoto
     /// - Returns: Request to perform
     public static func personTweets(id: String) -> Request<[Tweet]> {
-        return request(method: .get, path: "people/\(id)/twitter", params: nil)
+        return request(method: .get, path: "people/\(id)/twitter", ids: [id], params: nil)
     }
     
     private static func validateTickerHistoryQuote(_ quote: QuoteCurrency) {
@@ -329,7 +329,7 @@ public struct API {
     public static func tickerHistory(id: String, start: Date, end: Date = Date(), limit: Int = 1000, quote: QuoteCurrency = .usd, interval: TickerHistoryInterval = .minutes5) -> Request<[TickerHistory]> {
         validateTickerHistoryQuote(quote)
         validateTickerHistoryLimit(limit)
-        return request(method: .get, path: "tickers/\(id)/historical", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
+        return request(method: .get, path: "tickers/\(id)/historical", ids: [id], params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
     }
     
     private static func validateCoinOhlcvQuote(_ quote: QuoteCurrency) {
@@ -353,7 +353,7 @@ public struct API {
         // /coins/{id}/ohlcv/{latest,today,historical} are all case-sensitive
         // on `quote`: uppercase returns 400 invalid parameters on api-pro.
         // Other endpoints (`tickers?quotes=`, etc) accept both cases.
-        return request(method: .get, path: "coins/\(id)/ohlcv/latest", params: ["quote": quote.rawValue.lowercased()])
+        return request(method: .get, path: "coins/\(id)/ohlcv/latest", ids: [id], params: ["quote": quote.rawValue.lowercased()])
     }
 
     /// Historical Open/High/Low/Close values with volume and market_cap
@@ -377,7 +377,7 @@ public struct API {
             params["end"] = "\(Int(end.timeIntervalSince1970))"
         }
         
-        return request(method: .get, path: "coins/\(id)/ohlcv/historical", params: params)
+        return request(method: .get, path: "coins/\(id)/ohlcv/historical", ids: [id], params: params)
     }
     
     /// Latest News
@@ -477,7 +477,7 @@ public struct API {
     public static func coinTodayOhlcv(id: String, quote: QuoteCurrency = .usd) -> Request<[Ohlcv]> {
         validateCoinOhlcvQuote(quote)
         // Same case sensitivity quirk as `coinLatestOhlcv`: quote must be lowercase.
-        return request(method: .get, path: "coins/\(id)/ohlcv/today", params: ["quote": quote.rawValue.lowercased()])
+        return request(method: .get, path: "coins/\(id)/ohlcv/today", ids: [id], params: ["quote": quote.rawValue.lowercased()])
     }
 
     /// Provider used to look up an ID mapping via `/coins/mappings`.
@@ -534,7 +534,7 @@ public struct API {
     /// - Parameter platformId: platform id, eg. eth-ethereum
     /// - Returns: Request to perform
     public static func contracts(platformId: String) -> Request<[Contract]> {
-        return request(method: .get, path: "contracts/\(platformId)", params: nil)
+        return request(method: .get, path: "contracts/\(platformId)", ids: [platformId], params: nil)
     }
 
     /// Ticker for a token by its contract address. Server returns a 301 redirect to
@@ -546,7 +546,7 @@ public struct API {
     ///   - quotes: list of requested quotes, default [.usd]
     /// - Returns: Request to perform
     public static func tickerByContract(platformId: String, address: String, quotes: [QuoteCurrency] = [.usd]) -> Request<Ticker> {
-        return request(method: .get, path: "contracts/\(platformId)/\(address)", params: ["quotes": quotes.asCommaJoinedList])
+        return request(method: .get, path: "contracts/\(platformId)/\(address)", ids: [platformId, address], params: ["quotes": quotes.asCommaJoinedList])
     }
 
     /// Historical ticker data for a token by its contract address. Server returns a 301 redirect
@@ -564,7 +564,7 @@ public struct API {
     public static func tickerHistoryByContract(platformId: String, address: String, start: Date, end: Date = Date(), limit: Int = 1000, quote: QuoteCurrency = .usd, interval: TickerHistoryInterval = .minutes5) -> Request<[TickerHistory]> {
         validateTickerHistoryQuote(quote)
         validateTickerHistoryLimit(limit)
-        return request(method: .get, path: "contracts/\(platformId)/\(address)/historical", params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
+        return request(method: .get, path: "contracts/\(platformId)/\(address)/historical", ids: [platformId, address], params: ["start": "\(Int(start.timeIntervalSince1970))", "end": "\(Int(end.timeIntervalSince1970))", "limit": "\(limit)", "quote": quote.rawValue, "interval": interval.rawValue])
     }
 
     /// Recent coin id changes from the Coinpaprika changelog. Requires Starter plan or higher.
@@ -592,12 +592,39 @@ public struct API {
         ])
     }
 
-    private static func request<Model: Decodable>(method: Request<Model>.Method, path: String, params: Request<Model>.Params?) -> Request<Model> {
+    private static func request<Model: Decodable>(method: Request<Model>.Method, path: String, ids: [String] = [], params: Request<Model>.Params?) -> Request<Model> {
         let auth: Request<Model>.AuthorisationMethod = Configuration.apiKey.map { .bearer(token: $0) } ?? .none
-        return Request<Model>(baseUrl: Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent, authorisation: auth)
+        let pathError: Error? = ids.allSatisfy(isSafePathID) ? nil : RequestError.unableToCreateRequest
+        return Request<Model>(baseUrl: Configuration.baseUrl, method: method, path: path, params: params, userAgent: Configuration.userAgent, authorisation: auth, pathError: pathError)
     }
        
     private static func compact(_ optional: [String: Any?]) -> [String: Any] {
         return optional.compactMapValues { $0 }
     }
+}
+
+/// Whether a caller-supplied id (a coin id, platform id, contract address,
+/// exchange id, tag id or person id) is safe to place in a request path as
+/// one segment.
+///
+/// Encoding is not enough on its own: "." and ".." are unreserved and stay
+/// as they are, and an encoded form such as "%2E%2E" or "..%2Fkey" turns
+/// back into a dot segment or a separator on any server or proxy that
+/// decodes it before resolving the path. So an id is refused when it is
+/// empty, or, after one percent-decode, is "." or "..", or contains "/",
+/// "\", "?", "#", "%", whitespace, a control character or anything outside
+/// ASCII (look-alikes such as U+FF0E and U+2215 included; every CoinPaprika id
+/// and contract address is ASCII). A refused id makes the request fail with
+/// `RequestError.unableToCreateRequest` before anything is sent.
+func isSafePathID(_ id: String) -> Bool {
+    guard !id.isEmpty, let decoded = id.removingPercentEncoding, !decoded.isEmpty else {
+        return false
+    }
+    if decoded == "." || decoded == ".." {
+        return false
+    }
+    let forbidden = CharacterSet(charactersIn: "/\\?#%")
+        .union(.whitespacesAndNewlines)
+        .union(.controlCharacters)
+    return decoded.unicodeScalars.allSatisfy { $0.isASCII && !forbidden.contains($0) }
 }

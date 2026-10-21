@@ -1187,6 +1187,79 @@ class RequestTests: XCTestCase {
         }
         waitForExpectations(timeout: 5)
     }
+
+    // MARK: - Path id validation regression guard
+    //
+    // An id is placed in the request path as one segment. These tests prove a
+    // bad id fails the request with unableToCreateRequest before anything is
+    // sent (RequestCapturingSession records what would have gone out), and an
+    // ordinary id is unaffected.
+
+    private func assertRefused<Model: Decodable>(_ request: Request<Model>, file: StaticString = #file, line: UInt = #line) {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for refusal")
+        var result: Result<Model, Error>?
+        request.perform(session: capture) { response in
+            result = response
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        XCTAssertNil(capture.capturedRequest, "a refused id must not send a request", file: file, line: line)
+        guard case .failure(let error)? = result else {
+            return XCTFail("expected a failure", file: file, line: line)
+        }
+        guard case RequestError.unableToCreateRequest = error else {
+            return XCTFail("expected unableToCreateRequest, got \(error)", file: file, line: line)
+        }
+    }
+
+    func testCoinRequestRefusesDotSegmentIds() {
+        assertRefused(Coinpaprika.API.coin(id: ".."))
+        assertRefused(Coinpaprika.API.coin(id: "."))
+        assertRefused(Coinpaprika.API.coin(id: ""))
+    }
+
+    func testCoinEventsRequestRefusesTraversalIds() {
+        assertRefused(Coinpaprika.API.coinEvents(id: "../key/info"))
+        assertRefused(Coinpaprika.API.coinEvents(id: "..%2Fkey%2Finfo"))
+        assertRefused(Coinpaprika.API.coinEvents(id: "%2e%2e"))
+        assertRefused(Coinpaprika.API.coinEvents(id: "..\\x"))
+    }
+
+    func testPersonRequestRefusesSeparatorsAndQueryCharacters() {
+        assertRefused(Coinpaprika.API.person(id: "a/b"))
+        assertRefused(Coinpaprika.API.person(id: "x?y=1"))
+        assertRefused(Coinpaprika.API.person(id: "x#y"))
+        assertRefused(Coinpaprika.API.person(id: "a b"))
+        assertRefused(Coinpaprika.API.person(id: "a\nb"))
+    }
+
+    func testTickerByContractRequestChecksBothIds() {
+        assertRefused(Coinpaprika.API.tickerByContract(platformId: "eth-ethereum", address: ".."))
+        assertRefused(Coinpaprika.API.tickerByContract(platformId: "..", address: "0xdac17f958d2ee523a2206206994597c13d831ec7"))
+    }
+
+    func testCoinRequestLeavesOrdinaryIdUnchanged() {
+        let capture = RequestCapturingSession(stubResponse: "{}")
+        let expectation = self.expectation(description: "Waiting for request capture")
+        Coinpaprika.API.coin(id: bitcoinId).perform(session: capture) { _ in
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+
+        let path = capture.capturedRequest?.url?.path ?? ""
+        XCTAssertEqual(path, "/v1/coins/btc-bitcoin", "an ordinary id must be unaffected")
+    }
+
+    func testIsSafePathIDUnitCases() {
+        XCTAssertTrue(isSafePathID("btc-bitcoin"))
+        XCTAssertTrue(isSafePathID("0xdac17f958d2ee523a2206206994597c13d831ec7"))
+        XCTAssertTrue(isSafePathID("a..b"))
+        for bad in ["", ".", "..", "%2E", "%2e%2e", "a/b", "..%2Fx", "a\\b", "x?y", "x#y", "%25", "a b", "a\tb", "%", "\u{FF0E}\u{FF0E}", "a\u{2215}b", "a\u{FF0F}b", "\u{2024}\u{2024}"] {
+            XCTAssertFalse(isSafePathID(bad), "\(bad) must be refused")
+        }
+    }
 }
 
 /// Captures the outgoing URLRequest for header/query-string assertions

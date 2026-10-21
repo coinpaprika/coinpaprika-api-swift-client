@@ -55,6 +55,10 @@ public struct Request<Model: Decodable>: Requestable {
     
     public typealias ErrorParser = (_ response: HTTPURLResponse, _ data: Data) -> Error?
     private let errorParser: ErrorParser
+
+    /// Set when a caller-supplied path parameter was refused; the request then fails
+    /// with `RequestError.unableToCreateRequest` and nothing is sent.
+    private let pathError: Error?
     
     /// Request initializer that may be used if you want to extend client API with another methods
     ///
@@ -63,7 +67,7 @@ public struct Request<Model: Decodable>: Requestable {
     ///   - method: HTTP Method
     ///   - path: endpoint path like tickers/btc-bitcoin
     ///   - params: array of parameters appended in URL Query
-    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String, bodyEncoding: BodyEncoding = .json, authorisation: AuthorisationMethod = .none, errorParser: @escaping ErrorParser = defaultErrorParser()) {
+    public init(baseUrl: URL, method: Method, path: String, params: Params?, userAgent: String, bodyEncoding: BodyEncoding = .json, authorisation: AuthorisationMethod = .none, errorParser: @escaping ErrorParser = defaultErrorParser(), pathError: Error? = nil) {
         self.baseUrl = baseUrl
         self.method = method
         self.path = path
@@ -72,6 +76,7 @@ public struct Request<Model: Decodable>: Requestable {
         self.bodyEncoding = bodyEncoding
         self.authorisation = authorisation
         self.errorParser = errorParser
+        self.pathError = pathError
     }
     
     /// Perform API request
@@ -136,6 +141,10 @@ public struct Request<Model: Decodable>: Requestable {
     }
     
     private func buildRequest(cachePolicy: URLRequest.CachePolicy? = nil) throws -> URLRequest {
+        if let pathError = pathError {
+            throw pathError
+        }
+        
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue.uppercased()
         
